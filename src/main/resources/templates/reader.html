@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+
+
+    <script type="text/javascript"
+            src="webjars/jquery/2.2.4/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#dtBasicExample').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
+    </script>
+
+
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+
+    <div class="starter-template">
+        <h1>Reader page (Spring Security protected)</h1>
+
+        <form id="order-card-form">
+            <table id="dtBasicExample1" class="table table-striped table-bordered table-sm" cellspacing="0" width="10%">
+            <tr th:each="oc, rowStat: ${orderCard}">
+                <td th:text="${oc}"></td>
+            </tr>
+            </table>
+            </form>
+        <form id="addbook-form">
+        <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Prise</th>
+                <th>Description</th>
+                <th>Year Of Publication</th>
+                <!--<th>Authors</th>-->
+                <th>Add to card</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="book, rowStat: ${books}">
+                <td th:text="${book.id}"id="id" class="id"></td>
+                <td th:text="${book.name}"></td>
+                <td th:text="${book.price}" id="price" class="price"></td>
+                <td th:text="${book.description}" id="description" class="description"></td>
+                <td th:text="${book.yearOfPublication}" id="yearOfPublication" class="yearOfPublication"></td>
+                <!-- todo  якщо автор один то виводимо імя і прізвище, якщо більше попап з списком авторів!!!!-->
+                <!--<td th:each="author : ${book.authors}"-->
+                <!--th:text="${author.firstName}">-->
+                <!--</td>-->
+                <td style="text-align: center;"><a href="#" id="click" class="btn btn-primary btn-lg" >Add</a></td>
+                <!--<td class="form-group">-->
+                    <!--&lt;!&ndash;<div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<button type="submit" id="bth-add"&ndash;&gt;-->
+                                <!--&lt;!&ndash;class="btn btn-primary btn-lg">Submit&ndash;&gt;-->
+                        <!--&lt;!&ndash;</button>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--</td>-->
+                </td>
+            </tr>
+
+            </tbody>
+            <tfoot>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Prise</th>
+                <th>Description</th>
+                <th>Year Of Publication</th>
+                <!--<th>Authors</th>-->
+                <th>Add to card</th>
+            </tr>
+            </tfoot>
+        </table>
+
+        </form>
+
+    </div>
+    <script type="text/javascript"
+            src="webjars/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/readerView.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+
+</div>
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>
