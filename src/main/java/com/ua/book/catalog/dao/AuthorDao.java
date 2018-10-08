@@ -11,7 +11,6 @@ import java.util.List;
 @Repository
 public interface AuthorDao {
 
-
     List<Author> findAll();
 
     int addAuthor(Author author);

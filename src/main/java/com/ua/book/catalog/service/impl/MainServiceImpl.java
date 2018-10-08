@@ -1,16 +1,19 @@
 package com.ua.book.catalog.service.impl;
 
 import com.google.common.base.Strings;
+import com.ua.book.catalog.dao.AuthorBookDao;
 import com.ua.book.catalog.dao.AuthorDao;
 import com.ua.book.catalog.dao.BookDao;
 import com.ua.book.catalog.dao.impl.AuthorDaoImpl;
 import com.ua.book.catalog.entity.Author;
+import com.ua.book.catalog.entity.AuthorBook;
 import com.ua.book.catalog.entity.Book;
 import com.ua.book.catalog.validator.AddBookCriteria;
 import com.ua.book.catalog.validator.AjaxResponseBody;
 import com.ua.book.catalog.objects.OrderCard;
 import com.ua.book.catalog.service.MainService;
 import com.ua.book.catalog.service.OrderCardService;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +28,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional(readOnly = true)
 public class MainServiceImpl implements MainService {
 
     @Autowired
@@ -33,6 +37,8 @@ public class MainServiceImpl implements MainService {
     private OrderCardService orderCardService;
     @Autowired
     private AuthorDao authorDao;
+    @Autowired
+    private AuthorBookDao authorBookDao;
 
 
     @Override
@@ -80,6 +86,7 @@ public class MainServiceImpl implements MainService {
         book.setDescription(request.getDescription());
         book.setYearOfPublication(new Timestamp(request.getYearOfPublication().getTime()));
         Set<Author> authors = new HashSet<>();
+        AuthorBook authorBook = new AuthorBook();
         for(String authName : request.getAuthors()){
             Author author = new Author();
             author.setName(authName);
@@ -87,16 +94,21 @@ public class MainServiceImpl implements MainService {
             // якщо автор з таким іменем уже існує взяти його id, якщо ні, добавити нового автора і взяти його айді
             Author old = authorDao.getAuthorByName(authName);
             if(StringUtils.isEmpty(old)){
-                author.setId(authorDao.addAuthor(author));
+                int authorId = authorDao.addAuthor(author);
+                author.setId(authorId);
+                authorBook.setAuthorId(authorId);
             } else {
                 author.setId(old.getId());
+                authorBook.setAuthorId(old.getId());
             }
         }
         book.setAuthors(authors);
+        authorBookDao.addAuthorBook(authorBook);
         return book;
     }
 
     @Override
+    @Transactional
     public ResponseEntity<?> addBookToCard(Integer bookId, Integer readerId, Errors errors) {
         AjaxResponseBody result = new AjaxResponseBody();
         orderCardService.addBookToCard(bookId, readerId);

@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class OrderBooksDaoImpl implements OrderBooksDao{
 
     @Override
     public void addOrderBook(int bookId, int readerId) {
-        Session session = sessionFactory.openSession();
+        Session session = sessionFactory.getCurrentSession();
         OrderBooks ob = new OrderBooks();
         ob.setBookId(bookId);
         ob.setReaderId(readerId);
@@ -30,7 +31,7 @@ public class OrderBooksDaoImpl implements OrderBooksDao{
 
     @Override
     public List<OrderBooks> getOrderCard(Integer readerId) {
-        Session session = sessionFactory.openSession();
+        Session session = sessionFactory.getCurrentSession();
         Criteria criteria = session.createCriteria(OrderBooks.class);
         List<OrderBooks> orderBooks = criteria.add(Restrictions.eq("readerId", readerId)).list();
         return orderBooks;

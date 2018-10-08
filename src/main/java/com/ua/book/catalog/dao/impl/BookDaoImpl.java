@@ -9,6 +9,8 @@ import org.hibernate.cfg.Configuration;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import java.sql.Timestamp;
@@ -27,20 +29,20 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public List<Book> findAll() {
-        Session session = sessionFactory.openSession();
+        Session session = sessionFactory.getCurrentSession();
         List<Book> books = session.createQuery("from Book").list();
         return books;
     }
 
     @Override
     public void addBook(Book book) {
-        Session session = sessionFactory.openSession();
+        Session session = sessionFactory.getCurrentSession();
         session.save(book);
     }
 
     @Override
     public Book getById(int id) {
-        Session session = sessionFactory.openSession();
+        Session session = sessionFactory.getCurrentSession();
         Book book = session.get(Book.class, getById(id));
 
         //todo refactor this

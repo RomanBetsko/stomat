@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
+@Transactional(readOnly = true)
 public class OrderCardServiceImpl implements OrderCardService{
 
     @Autowired
@@ -20,6 +21,7 @@ public class OrderCardServiceImpl implements OrderCardService{
     private OrderBooksDao orderBooksDao;
 
     @Override
+    @Transactional
     public void addBookToCard(Integer bookId, Integer readerId) {
         orderBooksDao.addOrderBook(bookId, readerId);
     }
