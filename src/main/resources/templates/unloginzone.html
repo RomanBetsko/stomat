@@ -29,8 +29,8 @@
             <th>Name</th>
             <th>Prise</th>
             <th>Description</th>
-            <th>Year Of Publication</th>
-            <!--<th>Authors</th>-->
+            <th>Date Of Publication</th>
+            <th>Authors</th>
         </tr>
         </thead>
         <tbody>
@@ -41,9 +41,9 @@
             <td th:text="${book.description}"></td>
             <td th:text="${book.yearOfPublication}"></td>
             <!-- todo  якщо автор один то виводимо імя і прізвище, якщо більше попап з списком авторів!!!!-->
-            <!--<td th:each="author : ${book.authors}"-->
-                <!--th:text="${author.firstName}">-->
-            <!--</td>-->
+            <td th:each="author : ${book.authors}"
+                th:text="${author.name}">
+            </td>
         </tr>
 
         </tbody>
@@ -53,8 +53,8 @@
             <th>Name</th>
             <th>Prise</th>
             <th>Description</th>
-            <th>Year Of Publication</th>
-            <!--<th>Authors</th>-->
+            <th>Date Of Publication</th>
+            <th>Authors</th>
         </tr>
         </tfoot>
     </table>

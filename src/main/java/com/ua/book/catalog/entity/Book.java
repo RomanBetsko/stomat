@@ -33,6 +33,7 @@ public class Book implements Serializable {
             inverseJoinColumns = { @JoinColumn(name = "author_id") }
     )
     private Set<Author> authors = new HashSet<>();
+
     @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
             name = "orderbooks",

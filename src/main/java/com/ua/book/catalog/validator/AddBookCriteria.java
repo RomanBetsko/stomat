@@ -1,22 +1,20 @@
-package com.ua.book.catalog.model;
+package com.ua.book.catalog.validator;
 
 import org.hibernate.validator.constraints.NotBlank;
 
 import java.sql.Date;
+import java.util.List;
 
 
 public class AddBookCriteria {
 
     @NotBlank(message = "name can't empty!")
     private String name;
-    @NotBlank(message = "name can't empty!")
     private int price;
-    @NotBlank(message = "name can't empty!")
+    @NotBlank(message = "description can't empty!")
     private String description;
-    @NotBlank(message = "name can't empty!")
     private Date yearOfPublication;
-    @NotBlank(message = "name can't empty!")
-    private String author;
+    private List<String> authors;
 
     public String getName() {
         return name;
@@ -42,12 +40,12 @@ public class AddBookCriteria {
         this.description = description;
     }
 
-    public String getAuthor() {
-        return author;
+    public List<String> getAuthors() {
+        return authors;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthors(List<String> authors) {
+        this.authors = authors;
     }
 
     public Date getYearOfPublication() {

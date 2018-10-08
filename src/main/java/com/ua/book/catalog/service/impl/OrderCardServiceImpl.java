@@ -7,6 +7,7 @@ import com.ua.book.catalog.objects.OrderCard;
 import com.ua.book.catalog.service.OrderCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

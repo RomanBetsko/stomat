@@ -36,7 +36,7 @@ $("a#click").click(function(e){
         },
         error: function (e) {
 
-            var json = "<h4>Ajax Response error</h4><pre>"
+            var json = "<h4>Ajax Response security</h4><pre>"
                 + e.responseText + "</pre>";
             $('#result').html(json);
 

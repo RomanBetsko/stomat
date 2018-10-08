@@ -9,12 +9,22 @@ $(document).ready(function () {
 
 function fire_ajax_submit() {
 
+    var arrr = $('input[name="field_name[]"]').each(function() { var aValue = $(this).val(); });
+    var x = $('input[name="field_name[]"]').val();
+    var asd = $("#author").val();
+
+
     var _data = {};
     _data["name"] = $("#name").val();
     _data["description"] = $("#description").val();
     _data["price"] = $("#price").val();
     _data["yearOfPublication"] = $("#date".toString()).val();
-    _data["author"] = $("#author").val();
+    _data["authors"]= [];
+
+    var elems = [] ;
+    elems = $( "[name^='field_name']" ).each(function() {
+        _data["authors"].push($(this).val());
+    });
 
     $("#btn-add").prop("disabled", true);
 
@@ -36,7 +46,7 @@ function fire_ajax_submit() {
 
         },
         error: function (e) {
-            var json = "<h4>Ajax Response error</h4><pre>"
+            var json = "<h4>Ajax Response security</h4><pre>"
                 + e.responseText + "</pre>";
             $('#result').html(json);
             console.log("ERROR : ", e);

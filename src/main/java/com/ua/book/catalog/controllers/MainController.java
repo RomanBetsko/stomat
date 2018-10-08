@@ -1,10 +1,8 @@
 package com.ua.book.catalog.controllers;
 
 
-import com.ua.book.catalog.entity.Book;
-import com.ua.book.catalog.model.AddBookCriteria;
-import com.ua.book.catalog.model.AddBookToCardCriteria;
-import com.ua.book.catalog.objects.OrderCard;
+import com.ua.book.catalog.validator.AddBookCriteria;
+import com.ua.book.catalog.validator.AddBookToCardCriteria;
 import com.ua.book.catalog.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -45,7 +43,7 @@ public class MainController {
 
     @GetMapping("/403")
     public String error403() {
-        return "error/403";
+        return "security/403";
     }
 
     @GetMapping("/reader")
@@ -54,8 +52,8 @@ public class MainController {
     }
 
     @GetMapping("/unloginzone")
-    public ModelAndView unLoginZone() {
-        return mainService.unloginZone();
+    public ModelAndView getUnLoginZoneView() {
+        return mainService.getUnloginZoneData();
     }
 
     @PostMapping("/add")

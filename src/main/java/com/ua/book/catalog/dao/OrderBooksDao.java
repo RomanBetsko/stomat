@@ -8,7 +8,6 @@ import java.util.List;
 
 
 @Repository
-@Transactional
 public interface OrderBooksDao {
     
     void addOrderBook(int bookId, int readerId);

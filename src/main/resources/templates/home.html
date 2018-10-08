@@ -11,14 +11,12 @@
 <div th:replace="fragments/header :: header"/>
 
 <div class="container">
-
     <div class="starter-template">
         <h1>Spring Boot Web Thymeleaf + Spring Security + Hibernate</h1>
         <h2>1. Visit <a th:href="@{/customer}">Customer page (Spring Security protected, Need customer Role)</a></h2>
         <h2>2. Visit <a th:href="@{/reader}">Reader page (Spring Security protected, Need reader Role)</a></h2>
         <h2>3. Visit <a th:href="@{/unloginzone}">Book catalog, unlogin zone</a></h2>
     </div>
-
 </div>
 
 <div th:replace="fragments/footer :: footer"/>

@@ -16,10 +16,8 @@ public class Author implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "firstName", nullable = false)
-    private String firstName;
-    @Column(name = "secondName", nullable = false)
-    private String secondName;
+    @Column(name = "name", nullable = false)
+    private String name;
     @Column(name = "email", nullable = false)
     private String email;
     @Column(name = "country", nullable = false)
@@ -40,21 +38,14 @@ public class Author implements Serializable {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getSecondName() {
-        return secondName;
-    }
-
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
-    }
 
     public String getEmail() {
         return email;
@@ -72,9 +63,8 @@ public class Author implements Serializable {
         this.country = country;
     }
 
-    public Author(String firstName, String secondName, String email, String country, Set<Book> books) {
-        this.firstName = firstName;
-        this.secondName = secondName;
+    public Author(String name, String email, String country, Set<Book> books) {
+        this.name = name;
         this.email = email;
         this.country = country;
         this.books = books;
@@ -84,10 +74,10 @@ public class Author implements Serializable {
     public String toString() {
         return "Author{" +
                 "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", secondName='" + secondName + '\'' +
+                ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", country='" + country + '\'' +
+                ", books=" + books +
                 '}';
     }
 }

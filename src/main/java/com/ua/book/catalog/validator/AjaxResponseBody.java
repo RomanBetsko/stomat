@@ -1,4 +1,4 @@
-package com.ua.book.catalog.model;
+package com.ua.book.catalog.validator;
 
 public class AjaxResponseBody {
 
