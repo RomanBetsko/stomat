@@ -11,7 +11,7 @@ import java.util.List;
 @Transactional
 public interface OrderBooksDao {
     
-    void addOrderBook(int bookId, int readerId);
+    void addOrderBook(OrderBooks orderBook);
 
     List<OrderBooks> getOrderCard(Integer readerId);
 }

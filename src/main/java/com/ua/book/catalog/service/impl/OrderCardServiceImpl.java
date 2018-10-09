@@ -1,10 +1,9 @@
 package com.ua.book.catalog.service.impl;
 
-import com.ua.book.catalog.dao.BookDao;
 import com.ua.book.catalog.dao.OrderBooksDao;
 import com.ua.book.catalog.entity.OrderBooks;
-import com.ua.book.catalog.validator.OrderCard;
 import com.ua.book.catalog.service.OrderCardService;
+import com.ua.book.catalog.validator.OrderCard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,14 +15,15 @@ import java.util.List;
 public class OrderCardServiceImpl implements OrderCardService{
 
     @Autowired
-    private BookDao bookDao;
-    @Autowired
     private OrderBooksDao orderBooksDao;
 
     @Override
     @Transactional
     public void addBookToCard(Integer bookId, Integer readerId) {
-        orderBooksDao.addOrderBook(bookId, readerId);
+        OrderBooks orderBook = new OrderBooks();
+        orderBook.setBookId(bookId);
+        orderBook.setReaderId(readerId);
+        orderBooksDao.addOrderBook(orderBook);
     }
 
     @Override

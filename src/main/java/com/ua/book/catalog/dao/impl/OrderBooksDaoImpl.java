@@ -21,12 +21,9 @@ public class OrderBooksDaoImpl implements OrderBooksDao{
 
 
     @Override
-    public void addOrderBook(int bookId, int readerId) {
+    public void addOrderBook(OrderBooks orderBook) {
         Session session = sessionFactory.getCurrentSession();
-        OrderBooks ob = new OrderBooks();
-        ob.setBookId(bookId);
-        ob.setReaderId(readerId);
-        session.save(ob);
+        session.save(orderBook);
     }
 
     @Override
