@@ -46,11 +46,12 @@ public class Book implements Serializable {
 
     public Book(){}
 
-    public Book(String name, int price, String description, Timestamp yearOfPublication, Set<Author> authors, Set<Reader> readers) {
+    public Book(String name, int price, String description, Timestamp yearOfPublication, int addedBy, Set<Author> authors, Set<Reader> readers) {
         this.name = name;
         this.price = price;
         this.description = description;
         this.yearOfPublication = yearOfPublication;
+        this.addedBy = addedBy;
         this.authors = authors;
         this.readers = readers;
     }

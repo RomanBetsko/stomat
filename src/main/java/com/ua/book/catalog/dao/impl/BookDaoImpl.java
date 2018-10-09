@@ -37,8 +37,7 @@ public class BookDaoImpl implements BookDao {
     @Override
     public Book getById(int id) {
         Session session = sessionFactory.getCurrentSession();
-        Book book = session.get(Book.class, getById(id));
-        return book;
+        return session.get(Book.class, getById(id));
     }
 
     @Override
@@ -55,6 +54,12 @@ public class BookDaoImpl implements BookDao {
         Session session = sessionFactory.getCurrentSession();
         Criteria criteria = session.createCriteria(Book.class);
         return (List<Book>) criteria.add(Restrictions.eq("addedBy", customerId)).list();
+    }
+
+    @Override
+    public int addBookWithId(Book book) {
+        Session session = sessionFactory.getCurrentSession();
+        return (Integer) session.save(book);
     }
 
 

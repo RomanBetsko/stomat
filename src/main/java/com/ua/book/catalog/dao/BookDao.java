@@ -3,10 +3,12 @@ package com.ua.book.catalog.dao;
 
 import com.ua.book.catalog.entity.Book;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Repository
+@Transactional
 public interface BookDao{
 
     List<Book> findAll();
@@ -18,4 +20,6 @@ public interface BookDao{
     void deleteBook(int bookId);
 
     List<Book> getByAddedBy(int customerId);
+
+    int addBookWithId(Book book);
 }
