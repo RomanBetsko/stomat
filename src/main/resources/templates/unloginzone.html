@@ -41,9 +41,9 @@
             <td th:text="${book.description}"></td>
             <td th:text="${book.yearOfPublication}"></td>
             <!-- todo  якщо автор один то виводимо імя і прізвище, якщо більше попап з списком авторів!!!!-->
-            <!--<td th:each="author : ${book.authors}"-->
-                <!--th:text="${author.name}">-->
-            <!--</td>-->
+            <td th:each="author : ${book.authors}"
+                th:text="${author.name}">
+            </td>
         </tr>
 
         </tbody>

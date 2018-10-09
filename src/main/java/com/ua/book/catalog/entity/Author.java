@@ -23,7 +23,7 @@ public class Author implements Serializable {
     @Column(name = "country", nullable = false)
     private String country;
 
-    @ManyToMany(mappedBy = "authors")
+    @ManyToMany(mappedBy = "authors", fetch = FetchType.EAGER)
     private Set<Book> books = new HashSet<>();
 
     public static long getSerialVersionUID() {

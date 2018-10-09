@@ -23,7 +23,7 @@ public class Reader implements Serializable {
     @Column(name = "phone", nullable = false)
     private int phone;
 
-    @ManyToMany(mappedBy = "readers")
+    @ManyToMany(mappedBy = "readers", fetch = FetchType.EAGER)
     private Set<Book> books = new HashSet<>();
 
     public static long getSerialVersionUID() {
