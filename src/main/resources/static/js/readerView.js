@@ -14,6 +14,8 @@ $("a#click").click(function(e){
     
     var _data = {};
     _data["bookId"] = $text;
+    
+    //todo refactor when will added multiusers
     _data["readerId"] = 1;
     $("#btn-add").prop("disabled", true);
 

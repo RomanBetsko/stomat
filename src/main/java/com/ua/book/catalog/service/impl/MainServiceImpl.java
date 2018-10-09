@@ -81,6 +81,7 @@ public class MainServiceImpl implements MainService {
         book.setPrice(request.getPrice());
         book.setDescription(request.getDescription());
         book.setYearOfPublication(new Timestamp(request.getYearOfPublication().getTime()));
+        book.setAddedBy(request.getAddedBy());
         Set<Author> authors = new HashSet<>();
         AuthorBook authorBook = new AuthorBook();
         for(String authName : request.getAuthors()){
@@ -116,5 +117,29 @@ public class MainServiceImpl implements MainService {
         }
         result.setMsg("Good result, book was added to your orderCard");
         return ResponseEntity.ok(result);
+    }
+
+    @Override
+    @Transactional
+    public ResponseEntity<?> deleteBook(Integer bookId, Integer customerId, Errors errors) {
+        AjaxResponseBody result = new AjaxResponseBody();
+        List<Book> currentCustomerBooks = bookDao.getByAddedBy(customerId);
+        currentCustomerBooks.stream().filter(book -> book.getId() == bookId).forEach(book -> bookDao.deleteBook(bookId));
+        if (errors.hasErrors()) {
+            result.setMsg(errors.getAllErrors()
+                    .stream().map(DefaultMessageSourceResolvable::getDefaultMessage)
+                    .collect(Collectors.joining(",")));
+            return ResponseEntity.badRequest().body(result);
+        }
+        result.setMsg("Good result, book was deleted");
+        return ResponseEntity.ok(result);
+    }
+
+    @Override
+    public ModelAndView getDeleteBookPage(int customerId) {
+        Map<String, Object> params = new HashMap<>();
+        Set<Book> bookSet = new HashSet<>(bookDao.getByAddedBy(customerId));
+        params.put("books", bookSet);
+        return new ModelAndView("delete", params);
     }
 }

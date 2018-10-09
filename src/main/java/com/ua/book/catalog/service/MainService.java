@@ -19,4 +19,8 @@ public interface MainService {
     ResponseEntity<?> addBook(AddBookCriteria request, Errors errors);
 
     ResponseEntity<?> addBookToCard(Integer bookId, Integer readerId, Errors errors);
+
+    ResponseEntity<?> deleteBook(Integer bookId, Integer customerId, Errors errors);
+
+    ModelAndView getDeleteBookPage(int customerId);
 }

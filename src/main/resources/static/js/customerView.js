@@ -19,6 +19,8 @@ function fire_ajax_submit() {
     _data["description"] = $("#description").val();
     _data["price"] = $("#price").val();
     _data["yearOfPublication"] = $("#date".toString()).val();
+    //todo refactor when will added multiusers
+    _data["addedBy"] = 1;
     _data["authors"]= [];
 
     var elems = [] ;
@@ -56,3 +58,42 @@ function fire_ajax_submit() {
     });
 
 }
+
+$("a#clickview").click(function(e){
+    e.preventDefault();
+
+    var _data = {};
+    //todo refactor when will added multiusers
+    _data["customerId"] = 1;
+        $("#btn-add").prop("disabled", true);
+
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "customer/delete",
+        data: JSON.stringify(_data),
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (data) {
+
+            var json = "";
+            $('#result').html(json);
+
+            console.log("SUCCESS : ", data);
+            $("#btn-add").prop("disabled", false);
+            location.reload();
+
+        },
+        error: function (e) {
+
+            var json = e.responseText;
+            $('#result').html(json);
+            $("a#clickview").hide();
+            console.log("ERROR : ", e);
+            $("#btn-add").prop("disabled", false);
+        }
+    });
+
+});
+

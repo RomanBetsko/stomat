@@ -12,9 +12,11 @@
     <div class="starter-template">
         <h1>Customer page (Spring Security protected)</h1>
 
-        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]! here you can add book to the catalog</h1>
+        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]! here you can add/remove book to/from the catalog</h1>
 
         <div id="result"></div>
+
+        <a style="text-align: left;"><a href="#" id="clickview" class="btn btn-danger btn-lg" style="margin-left: 500px;">delete my books</a>
 
 
         <form class="form-horizontal" id="addbook-form">
@@ -50,11 +52,12 @@
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" id="bth-add"
-                            class="btn btn-primary btn-lg">Submit
+                            class="btn btn-primary btn-lg">Add book
                     </button>
                 </div>
             </div>
         </form>
+    </div>
     </div>
     <script type="text/javascript"
             src="webjars/jquery/2.2.4/jquery.min.js"></script>

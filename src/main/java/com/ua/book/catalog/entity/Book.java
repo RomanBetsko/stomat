@@ -26,6 +26,8 @@ public class Book implements Serializable {
     private String description;
     @Column(name = "yearOfPublication", nullable = false)
     private Timestamp  yearOfPublication;
+    @Column(name = "addedBy", nullable = false)
+    private int addedBy;
     @ManyToMany(cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(
             name = "author_books",
@@ -113,18 +115,14 @@ public class Book implements Serializable {
         this.readers = readers;
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", description='" + description + '\'' +
-                ", yearOfPublication=" + yearOfPublication +
-                ", authors=" + authors +
-                ", readers=" + readers +
-                '}';
+    public int getAddedBy() {
+        return addedBy;
     }
+
+    public void setAddedBy(int addedBy) {
+        this.addedBy = addedBy;
+    }
+
 
     public String namedListOfAuthors(){
         //refactor this

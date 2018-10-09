@@ -1,9 +1,12 @@
 package com.ua.book.catalog.controllers;
 
 
+import com.ua.book.catalog.entity.Customer;
 import com.ua.book.catalog.validator.AddBookCriteria;
 import com.ua.book.catalog.validator.AddBookToCardCriteria;
 import com.ua.book.catalog.service.MainService;
+import com.ua.book.catalog.validator.CustomersBookCriteria;
+import com.ua.book.catalog.validator.DeleteBookCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -66,9 +69,14 @@ public class MainController {
         return mainService.addBookToCard(request.getBookId(), request.getReaderId(), errors);
     }
 
-//    @PostMapping("/deleteBook")
-//    public ResponseEntity<?> deleteBook (@RequestBody DeleteBookCriteria request, Errors errors){
-//        return mainService.deleteBook()
-//    }
+    @PostMapping("/deleteBook")
+    public ResponseEntity<?> deleteBook (@RequestBody DeleteBookCriteria request, Errors errors){
+        return mainService.deleteBook(request.getBookId(), request.getCustomerId(), errors);
+    }
+
+    @PostMapping("/customer/delete")
+    public ModelAndView deleteView(@RequestBody CustomersBookCriteria request) {
+        return mainService.getDeleteBookPage(request.getCustomerId());
+    }
 
 }
