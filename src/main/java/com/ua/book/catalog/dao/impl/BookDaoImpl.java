@@ -53,7 +53,7 @@ public class BookDaoImpl implements BookDao {
     public List<Book> getByAddedBy(int customerId) {
         Session session = sessionFactory.getCurrentSession();
         Criteria criteria = session.createCriteria(Book.class);
-        return (List<Book>) criteria.add(Restrictions.eq("addedBy", customerId)).list();
+        return criteria.add(Restrictions.eq("addedBy", customerId)).list();
     }
 
     @Override

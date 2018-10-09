@@ -123,7 +123,7 @@ public class MainServiceImpl implements MainService {
     @Transactional
     public ResponseEntity<?> deleteBook(Integer bookId, Integer customerId, Errors errors) {
         AjaxResponseBody result = new AjaxResponseBody();
-        List<Book> currentCustomerBooks = bookDao.getByAddedBy(customerId);
+        Set<Book> currentCustomerBooks = new HashSet<>(bookDao.getByAddedBy(customerId));
         currentCustomerBooks.stream().filter(book -> book.getId() == bookId).forEach(book -> bookDao.deleteBook(bookId));
         if (errors.hasErrors()) {
             result.setMsg(errors.getAllErrors()

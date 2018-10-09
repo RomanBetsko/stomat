@@ -1,6 +1,5 @@
 package com.ua.book.catalog;
 
-
 import com.ua.book.catalog.dao.BookDao;
 import com.ua.book.catalog.entity.Author;
 import com.ua.book.catalog.entity.Book;

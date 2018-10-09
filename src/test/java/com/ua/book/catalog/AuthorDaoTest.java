@@ -36,6 +36,7 @@ public class AuthorDaoTest {
         String specialName = "special";
         authorDao.addAuthor(new Author(specialName, "test@gmail.com", "Ukraine", books));
         Author daoAuthor = authorDao.getAuthorByName(specialName);
+        System.out.println(daoAuthor.getName());
         Assert.assertEquals(daoAuthor.getName(), specialName);
     }
 }
