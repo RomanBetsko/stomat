@@ -38,7 +38,7 @@ function fire_ajax_submit() {
         timeout: 600000,
         success: function (data) {
 
-            var json = "<h4>Book was added, check your card!</h4>";
+            var json = "<h4>Book was added !</h4>";
             $('#result').html(json);
 
             console.log("SUCCESS : ", data);

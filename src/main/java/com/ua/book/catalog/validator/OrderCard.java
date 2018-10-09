@@ -1,4 +1,4 @@
-package com.ua.book.catalog.objects;
+package com.ua.book.catalog.validator;
 
 
 import com.ua.book.catalog.entity.OrderBooks;

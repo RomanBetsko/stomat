@@ -22,22 +22,22 @@ public class MainController {
     private MainService mainService;
 
     @GetMapping("/")
-    public String home1() {
-        return "/home";
-    }
-
-    @GetMapping("/home")
     public String home() {
         return "/home";
     }
 
+    @GetMapping("/home")
+    public String homeView() {
+        return "/home";
+    }
+
     @GetMapping("/customer")
-    public String addNewBook() {
+    public String customerView() {
         return "/customer";
     }
 
     @GetMapping("/login")
-    public String login() {
+    public String loginView() {
         return "/login";
     }
 
@@ -47,7 +47,7 @@ public class MainController {
     }
 
     @GetMapping("/reader")
-    public ModelAndView reader() {
+    public ModelAndView readerView() {
         return mainService.readerView();
     }
 
@@ -57,7 +57,7 @@ public class MainController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> addNewBookFromAjax(@RequestBody @Valid AddBookCriteria request, Errors errors) {
+    public ResponseEntity<?> addNewBook(@RequestBody @Valid AddBookCriteria request, Errors errors) {
         return mainService.addBook(request, errors);
     }
 

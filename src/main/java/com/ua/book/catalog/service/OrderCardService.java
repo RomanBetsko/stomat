@@ -1,7 +1,7 @@
 package com.ua.book.catalog.service;
 
 
-import com.ua.book.catalog.objects.OrderCard;
+import com.ua.book.catalog.validator.OrderCard;
 
 public interface OrderCardService {
 

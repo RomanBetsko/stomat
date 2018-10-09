@@ -3,7 +3,7 @@ package com.ua.book.catalog.service.impl;
 import com.ua.book.catalog.dao.BookDao;
 import com.ua.book.catalog.dao.OrderBooksDao;
 import com.ua.book.catalog.entity.OrderBooks;
-import com.ua.book.catalog.objects.OrderCard;
+import com.ua.book.catalog.validator.OrderCard;
 import com.ua.book.catalog.service.OrderCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package com.ua.book.catalog.service;
 
 import com.ua.book.catalog.validator.AddBookCriteria;
-import com.ua.book.catalog.objects.OrderCard;
+import com.ua.book.catalog.validator.OrderCard;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;

@@ -1,4 +1,4 @@
-package com.ua.book.catalog.security;
+package com.ua.book.catalog.config.security;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,19 +1,16 @@
 package com.ua.book.catalog.service.impl;
 
-import com.google.common.base.Strings;
 import com.ua.book.catalog.dao.AuthorBookDao;
 import com.ua.book.catalog.dao.AuthorDao;
 import com.ua.book.catalog.dao.BookDao;
-import com.ua.book.catalog.dao.impl.AuthorDaoImpl;
 import com.ua.book.catalog.entity.Author;
 import com.ua.book.catalog.entity.AuthorBook;
 import com.ua.book.catalog.entity.Book;
 import com.ua.book.catalog.validator.AddBookCriteria;
 import com.ua.book.catalog.validator.AjaxResponseBody;
-import com.ua.book.catalog.objects.OrderCard;
+import com.ua.book.catalog.validator.OrderCard;
 import com.ua.book.catalog.service.MainService;
 import com.ua.book.catalog.service.OrderCardService;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
@@ -66,7 +63,6 @@ public class MainServiceImpl implements MainService {
     @Transactional
     public ResponseEntity<?> addBook(AddBookCriteria request, Errors errors) {
         AjaxResponseBody result = new AjaxResponseBody();
-        //todo має бути можливість добавляти декількох авторів (забрати з таблиці author усіх not null true!!!!!!!!)
         bookDao.addBook(prepareBook(request));
         if (errors.hasErrors()) {
             result.setMsg(errors.getAllErrors()
@@ -74,7 +70,7 @@ public class MainServiceImpl implements MainService {
                     .collect(Collectors.joining(",")));
             return ResponseEntity.badRequest().body(result);
         }
-        result.setMsg("Good result");
+        result.setMsg("Good result, book was added");
         return ResponseEntity.ok(result);
     }
 
@@ -91,7 +87,7 @@ public class MainServiceImpl implements MainService {
             Author author = new Author();
             author.setName(authName);
             authors.add(author);
-            // якщо автор з таким іменем уже існує взяти його id, якщо ні, добавити нового автора і взяти його айді
+            // if an author with such a name already exists, take his id, if not, add a new author and take his id
             Author old = authorDao.getAuthorByName(authName);
             if(StringUtils.isEmpty(old)){
                 int authorId = authorDao.addAuthor(author);
