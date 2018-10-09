@@ -113,4 +113,25 @@ public class Book implements Serializable {
         this.readers = readers;
     }
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", yearOfPublication=" + yearOfPublication +
+                ", authors=" + authors +
+                ", readers=" + readers +
+                '}';
+    }
+
+    public String namedListOfAuthors(){
+        //refactor this
+        String result = "";
+        for (Author author : authors) {
+            result += author.getName() + ", ";
+        }
+        return result;
+    }
 }

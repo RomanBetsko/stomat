@@ -32,6 +32,7 @@ $("a#click").click(function(e){
 
             console.log("SUCCESS : ", data);
             $("#btn-add").prop("disabled", false);
+            location.reload();
 
         },
         error: function (e) {

@@ -66,4 +66,9 @@ public class MainController {
         return mainService.addBookToCard(request.getBookId(), request.getReaderId(), errors);
     }
 
+//    @PostMapping("/deleteBook")
+//    public ResponseEntity<?> deleteBook (@RequestBody DeleteBookCriteria request, Errors errors){
+//        return mainService.deleteBook()
+//    }
+
 }

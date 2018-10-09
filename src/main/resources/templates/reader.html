@@ -40,7 +40,7 @@
                 <th>Prise</th>
                 <th>Description</th>
                 <th>Date Of Publication</th>
-                <!--<th>Authors</th>-->
+                <th>Authors</th>
                 <th>Add to card</th>
             </tr>
             </thead>
@@ -51,10 +51,7 @@
                 <td th:text="${book.price}" id="price" class="price"></td>
                 <td th:text="${book.description}" id="description" class="description"></td>
                 <td th:text="${book.yearOfPublication}" id="yearOfPublication" class="yearOfPublication"></td>
-                <!-- todo  якщо автор один то виводимо імя і прізвище, якщо більше попап з списком авторів!!!!-->
-                <!--<td th:each="author : ${book.authors}"-->
-                <!--th:text="${author.firstName}">-->
-                <!--</td>-->
+                <td th:text="${book.namedListOfAuthors()}">
                 <td style="text-align: center;"><a href="#" id="click" class="btn btn-primary btn-lg" >Add</a></td>
                 <!--<td class="form-group">-->
                     <!--&lt;!&ndash;<div>&ndash;&gt;-->
@@ -74,7 +71,7 @@
                 <th>Prise</th>
                 <th>Description</th>
                 <th>Date Of Publication</th>
-                <!--<th>Authors</th>-->
+                <th>Authors</th>
                 <th>Add to card</th>
             </tr>
             </tfoot>
