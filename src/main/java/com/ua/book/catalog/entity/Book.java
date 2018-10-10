@@ -3,9 +3,7 @@ package com.ua.book.catalog.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 
@@ -17,17 +15,17 @@ public class Book implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "price", nullable = false)
-    private int price;
+    private Integer price;
     @Column(name = "description", nullable = false)
     private String description;
     @Column(name = "yearOfPublication", nullable = false)
     private Timestamp  yearOfPublication;
     @Column(name = "addedBy", nullable = false)
-    private int addedBy;
+    private Integer addedBy;
     @ManyToMany(cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(
             name = "author_books",
@@ -46,7 +44,7 @@ public class Book implements Serializable {
 
     public Book(){}
 
-    public Book(String name, int price, String description, Timestamp yearOfPublication, int addedBy, Set<Author> authors, Set<Reader> readers) {
+    public Book(String name, Integer price, String description, Timestamp yearOfPublication, Integer addedBy, Set<Author> authors, Set<Reader> readers) {
         this.name = name;
         this.price = price;
         this.description = description;
@@ -64,7 +62,7 @@ public class Book implements Serializable {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -120,7 +118,7 @@ public class Book implements Serializable {
         return addedBy;
     }
 
-    public void setAddedBy(int addedBy) {
+    public void setAddedBy(Integer addedBy) {
         this.addedBy = addedBy;
     }
 
