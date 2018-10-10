@@ -4,6 +4,7 @@ package com.ua.book.catalog.dao.impl;
 import com.ua.book.catalog.dao.BookDao;
 import com.ua.book.catalog.entity.Book;
 import org.hibernate.Criteria;
+import org.hibernate.MultiIdentifierLoadAccess;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -59,6 +60,13 @@ public class BookDaoImpl implements BookDao {
     public int addBookWithId(Book book) {
         Session session = sessionFactory.getCurrentSession();
         return (Integer) session.save(book);
+    }
+
+    @Override
+    public List<Book> getBooksByIds(List<Integer> integers) {
+        Session session = sessionFactory.getCurrentSession();
+        MultiIdentifierLoadAccess<Book> multiLoadAccess = session.byMultipleIds(Book.class);
+        return multiLoadAccess.multiLoad(integers);
     }
 
 

@@ -79,4 +79,9 @@ public class MainController {
         return mainService.getDeleteBookPage(request.getCustomerId());
     }
 
+    @PostMapping("/getOrderCard")
+    public ModelAndView getOrderCardView (@RequestBody CustomersBookCriteria request){
+        return mainService.getOrderCard(request.getCustomerId());
+    }
+
 }

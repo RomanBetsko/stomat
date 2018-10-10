@@ -1,7 +1,6 @@
 package com.ua.book.catalog.service;
 
 import com.ua.book.catalog.validator.AddBookCriteria;
-import com.ua.book.catalog.validator.OrderCard;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
@@ -14,7 +13,7 @@ public interface MainService {
 
     ModelAndView readerView();
 
-    OrderCard getOrderCard(Integer readerId);
+    ModelAndView getOrderCard(Integer readerId);
 
     ResponseEntity<?> addBook(AddBookCriteria request, Errors errors);
 

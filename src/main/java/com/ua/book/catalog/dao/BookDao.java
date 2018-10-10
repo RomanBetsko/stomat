@@ -22,4 +22,6 @@ public interface BookDao{
     List getByAddedBy(int customerId);
 
     int addBookWithId(Book book);
+
+    List<Book> getBooksByIds(List<Integer> integers);
 }
