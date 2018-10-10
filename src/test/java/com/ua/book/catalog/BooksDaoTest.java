@@ -39,14 +39,13 @@ public class BooksDaoTest {
     }
 
     @Test
-    @Ignore
     public void testGetById(){
         Timestamp now = new Timestamp(System.currentTimeMillis());
         Set<Author> authors = new HashSet<>();
         Set<Reader> readers = new HashSet<>();
-        bookDao.addBook(new Book("test book", 123, "test description", now, 100,authors, readers));
-        Book bookTest = bookDao.getById(100);
-        Assert.assertEquals(bookTest.getId(), 100);
+        int bookAddedId = bookDao.addBookWithId(new Book("test book", 123, "test description", now, 100,authors, readers));
+        Book bookTest = bookDao.getById(bookAddedId);
+        Assert.assertEquals(bookTest.getId(), bookAddedId);
     }
 
     @Test

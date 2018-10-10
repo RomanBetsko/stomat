@@ -3,14 +3,15 @@ package com.ua.book.catalog.dao.impl;
 
 import com.ua.book.catalog.dao.BookDao;
 import com.ua.book.catalog.entity.Book;
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Repository
@@ -23,8 +24,12 @@ public class BookDaoImpl implements BookDao {
     @Override
     public List<Book> findAll() {
         Session session = sessionFactory.getCurrentSession();
-        List<Book> books = session.createQuery("from Book").list();
-        return books;
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Book> criteriaQuery = builder.createQuery(Book.class);
+        Root<Book> root = criteriaQuery.from(Book.class);
+        criteriaQuery.select(root);
+        Query<Book> query = session.createQuery(criteriaQuery);
+        return query.getResultList();
     }
 
     @Override
@@ -37,7 +42,7 @@ public class BookDaoImpl implements BookDao {
     @Override
     public Book getById(int id) {
         Session session = sessionFactory.getCurrentSession();
-        return session.get(Book.class, getById(id));
+        return session.get(Book.class, id);
     }
 
     @Override
@@ -52,8 +57,12 @@ public class BookDaoImpl implements BookDao {
     @Override
     public List<Book> getByAddedBy(int customerId) {
         Session session = sessionFactory.getCurrentSession();
-        Criteria criteria = session.createCriteria(Book.class);
-        return criteria.add(Restrictions.eq("addedBy", customerId)).list();
+        CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+        CriteriaQuery<Book> criteriaQuery = criteriaBuilder.createQuery(Book.class);
+        Root<Book> root = criteriaQuery.from(Book.class);
+        criteriaQuery.select(root.get("addedBy")).where(criteriaBuilder.equal(root.get("addedBy"), customerId));
+        Query<Book> query = session.createQuery(criteriaQuery);
+        return query.getResultList();
     }
 
     @Override

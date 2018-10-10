@@ -19,7 +19,7 @@ public interface BookDao{
 
     void deleteBook(int bookId);
 
-    List<Book> getByAddedBy(int customerId);
+    List getByAddedBy(int customerId);
 
     int addBookWithId(Book book);
 }
