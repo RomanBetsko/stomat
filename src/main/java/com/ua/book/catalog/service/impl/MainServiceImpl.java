@@ -56,17 +56,21 @@ public class MainServiceImpl implements MainService {
     }
 
     @Override
+    @Transactional
     public ModelAndView getOrderCard(Integer readerId) {
         Map<String, Object> params = new HashMap<>();
+        params.put("orderCard", orderCardService.getCard(readerId));
+        params.put("books", bookDao.getBooksByIds(getBookIds(readerId)));
+        return new ModelAndView("orderCard", params);
+    }
+
+    private List<Integer> getBookIds(Integer readerId) {
+        //todo fix this
         List<Integer> ids = new ArrayList<>();
         OrderCard orderCard = orderCardService.getCard(readerId);
         Set<Integer> booksIds = orderCard.getBooks().stream().map(OrderBooks::getBookId).collect(Collectors.toSet());
         ids.addAll(booksIds);
-        //bookDao.getBooksByIds(ids);
-        params.put("orderCard", orderCardService.getCard(readerId));
-        params.put("books", bookDao.getBooksByIds(ids));
-        //todo create order card html
-        return new ModelAndView("orderCard", params);
+        return ids;
     }
 
     @Override
