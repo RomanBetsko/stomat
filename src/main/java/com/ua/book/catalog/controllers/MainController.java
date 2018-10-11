@@ -2,17 +2,10 @@ package com.ua.book.catalog.controllers;
 
 
 import com.ua.book.catalog.service.MainService;
-import com.ua.book.catalog.validator.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.validation.Valid;
 
 @Controller
 public class MainController {
@@ -54,35 +47,4 @@ public class MainController {
     public ModelAndView getUnLoginZoneView() {
         return mainService.getUnloginZoneData();
     }
-
-    @PostMapping("/add")
-    public ResponseEntity<?> addNewBook(@RequestBody @Valid AddBookCriteria request, Errors errors) {
-        return mainService.addBook(request, errors);
-    }
-
-    @PostMapping("/addBookToCard")
-    public ResponseEntity<?> addBookToCard (@RequestBody AddBookToCardCriteria request, Errors errors){
-        return mainService.addBookToCard(request.getBookId(), request.getReaderId(), errors);
-    }
-
-    @PostMapping("/deleteBook")
-    public ResponseEntity<?> deleteBook (@RequestBody DeleteBookCriteria request, Errors errors){
-        return mainService.deleteBook(request.getBookId(), request.getCustomerId(), errors);
-    }
-
-    @PostMapping("/customer/delete")
-    public ModelAndView deleteView(@RequestBody CustomersBookCriteria request) {
-        return mainService.getDeleteBookPage(request.getCustomerId());
-    }
-
-    @PostMapping("/getOrderCard")
-    public ModelAndView getOrderCardView (@RequestBody CustomersBookCriteria request){
-        return mainService.getOrderCard(request.getCustomerId());
-    }
-
-    @PostMapping("/getBook")
-    public ModelAndView getBook (@RequestBody GetBookCriteria request){
-        return mainService.getBookPage(request.getBookId());
-    }
-
 }

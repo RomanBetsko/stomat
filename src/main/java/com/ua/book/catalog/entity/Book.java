@@ -44,16 +44,6 @@ public class Book implements Serializable {
 
     public Book(){}
 
-    public Book(String name, Integer price, String description, Timestamp yearOfPublication, Integer addedBy, Set<Author> authors, Set<Reader> readers) {
-        this.name = name;
-        this.price = price;
-        this.description = description;
-        this.yearOfPublication = yearOfPublication;
-        this.addedBy = addedBy;
-        this.authors = authors;
-        this.readers = readers;
-    }
-
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
@@ -122,6 +112,15 @@ public class Book implements Serializable {
         this.addedBy = addedBy;
     }
 
+    public Book(String name, Integer price, String description, Timestamp yearOfPublication, Integer addedBy, Set<Author> authors, Set<Reader> readers) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.yearOfPublication = yearOfPublication;
+        this.addedBy = addedBy;
+        this.authors = authors;
+        this.readers = readers;
+    }
 
     public String namedListOfAuthors(){
         //refactor this

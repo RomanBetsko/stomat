@@ -1,14 +1,23 @@
 package com.ua.book.catalog.service.impl;
 
+import com.ua.book.catalog.dao.BookDao;
 import com.ua.book.catalog.dao.OrderBooksDao;
 import com.ua.book.catalog.entity.OrderBooks;
 import com.ua.book.catalog.service.OrderCardService;
+import com.ua.book.catalog.validator.AjaxResponseBody;
 import com.ua.book.catalog.validator.OrderCard;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.DefaultMessageSourceResolvable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.Errors;
+import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional(readOnly = true)
@@ -16,22 +25,52 @@ public class OrderCardServiceImpl implements OrderCardService{
 
     @Autowired
     private OrderBooksDao orderBooksDao;
+    @Autowired
+    private BookDao bookDao;
 
     @Override
     @Transactional
     public void addBookToCard(Integer bookId, Integer readerId) {
-        OrderBooks orderBook = new OrderBooks();
-        orderBook.setBookId(bookId);
-        orderBook.setReaderId(readerId);
-        orderBooksDao.addOrderBook(orderBook);
+        orderBooksDao.addOrderBook(new OrderBooks(readerId, bookId));
     }
 
     @Override
+    @Transactional
     public OrderCard getCard(Integer readerId) {
-        OrderCard oc = new OrderCard();
         List<OrderBooks> orderBooks = orderBooksDao.getOrderCard(readerId);
-        oc.setBooks(orderBooks);
-        oc.setNumberOfItems(orderBooks.size());
-        return oc;
+        return new OrderCard(orderBooks.size(), orderBooks);
+    }
+
+    @Override
+    @Transactional
+    public ModelAndView getOrderCard(Integer readerId) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("orderCard", getCard(readerId));
+        params.put("books", bookDao.getBooksByIds(getBookIds(readerId)));
+        return new ModelAndView("orderCard", params);
+    }
+
+    private List<Integer> getBookIds(Integer readerId) {
+        OrderCard orderCard = getCard(readerId);
+        return orderCard.getBooks().stream().map(OrderBooks::getBookId).collect(Collectors.toList());
+    }
+
+    @Override
+    @Transactional
+    public ResponseEntity<?> addBookToCard(Integer bookId, Integer readerId, Errors errors) {
+        AjaxResponseBody result = new AjaxResponseBody();
+        OrderCard orderCard = getCard(readerId);
+        OrderBooks orderBook = new OrderBooks(readerId, bookId);
+        if(!orderCard.getBooks().contains(orderBook)){
+            addBookToCard(bookId, readerId);
+        }
+        if (errors.hasErrors()) {
+            result.setMsg(errors.getAllErrors()
+                    .stream().map(DefaultMessageSourceResolvable::getDefaultMessage)
+                    .collect(Collectors.joining(",")));
+            return ResponseEntity.badRequest().body(result);
+        }
+        result.setMsg("Good result, book was added to your orderCard");
+        return ResponseEntity.ok(result);
     }
 }

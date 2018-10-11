@@ -1,4 +1,4 @@
-package com.ua.book.catalog.service;
+package com.ua.book.catalog.service.impl;
 
 import com.ua.book.catalog.entity.Book;
 import org.hibernate.Session;
@@ -29,9 +29,8 @@ public class CheckYearOfPublicationRunnable implements Runnable{
     }
 
     private Timestamp getTimeForCheck(){
-        Timestamp timestamp = new Timestamp(new Date().getTime());
         Calendar cal = getInstance();
-        cal.setTimeInMillis(timestamp.getTime());
+        cal.setTimeInMillis(new Timestamp(System.currentTimeMillis()).getTime());
         cal.add(YEAR, -2);
         return new Timestamp(cal.getTime().getTime());
     }
