@@ -137,8 +137,7 @@ public class MainServiceImpl implements MainService {
     @Transactional
     public ResponseEntity<?> deleteBook(Integer bookId, Integer customerId, Errors errors) {
         AjaxResponseBody result = new AjaxResponseBody();
-        Set<Book> currentCustomerBooks = new HashSet<>(bookDao.getByAddedBy(customerId));
-        currentCustomerBooks.stream().filter(book -> book.getId() == bookId).forEach(book -> bookDao.deleteBook(bookId));
+        bookDao.getByAddedBy(customerId).stream().filter(book -> book.getId() == bookId).forEach(book -> bookDao.deleteBook(bookId));
         if (errors.hasErrors()) {
             result.setMsg(errors.getAllErrors()
                     .stream().map(DefaultMessageSourceResolvable::getDefaultMessage)
@@ -152,8 +151,7 @@ public class MainServiceImpl implements MainService {
     @Override
     public ModelAndView getDeleteBookPage(int customerId) {
         Map<String, Object> params = new HashMap<>();
-        Set<Book> bookSet = new HashSet<>(bookDao.getByAddedBy(customerId));
-        params.put("books", bookSet);
+        params.put("books", bookDao.getByAddedBy(customerId));
         return new ModelAndView("delete", params);
     }
 }
