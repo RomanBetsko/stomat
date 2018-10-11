@@ -15,10 +15,10 @@ public class OrderBooks implements Serializable{
 
     @Id
     @Column(name = "readerid", nullable = false)
-    private Integer readerId;
+    private int readerId;
     @Id
     @Column(name = "bookid", nullable = false)
-    private Integer bookId;
+    private int bookId;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -53,5 +53,22 @@ public class OrderBooks implements Serializable{
                 "readerId=" + readerId +
                 ", bookId=" + bookId +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof OrderBooks)) return false;
+        OrderBooks that = (OrderBooks) o;
+        if (getReaderId() != that.getReaderId()) return false;
+        return getBookId() == that.getBookId();
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getReaderId();
+        result = 31 * result + getBookId();
+        return result;
     }
 }

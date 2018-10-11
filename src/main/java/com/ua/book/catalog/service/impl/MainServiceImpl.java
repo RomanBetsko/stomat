@@ -65,12 +65,8 @@ public class MainServiceImpl implements MainService {
     }
 
     private List<Integer> getBookIds(Integer readerId) {
-        //todo fix this
-        List<Integer> ids = new ArrayList<>();
         OrderCard orderCard = orderCardService.getCard(readerId);
-        Set<Integer> booksIds = orderCard.getBooks().stream().map(OrderBooks::getBookId).collect(Collectors.toSet());
-        ids.addAll(booksIds);
-        return ids;
+        return orderCard.getBooks().stream().map(OrderBooks::getBookId).collect(Collectors.toList());
     }
 
     @Override
@@ -122,7 +118,11 @@ public class MainServiceImpl implements MainService {
     @Transactional
     public ResponseEntity<?> addBookToCard(Integer bookId, Integer readerId, Errors errors) {
         AjaxResponseBody result = new AjaxResponseBody();
-        orderCardService.addBookToCard(bookId, readerId);
+        OrderCard orderCard = orderCardService.getCard(readerId);
+        OrderBooks orderBook = new OrderBooks(readerId, bookId);
+            if(!orderCard.getBooks().contains(orderBook)){
+                orderCardService.addBookToCard(bookId, readerId);
+            }
         if (errors.hasErrors()) {
             result.setMsg(errors.getAllErrors()
                     .stream().map(DefaultMessageSourceResolvable::getDefaultMessage)
