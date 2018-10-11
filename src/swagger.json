@@ -1,0 +1,1730 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Api Documentation",
+    "version": "1.0",
+    "title": "Api Documentation",
+    "termsOfService": "urn:tos",
+    "contact": {},
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "basic-error-controller",
+      "description": "Basic Error Controller"
+    },
+    {
+      "name": "books-controller",
+      "description": "Books Controller"
+    },
+    {
+      "name": "main-controller",
+      "description": "Main Controller"
+    },
+    {
+      "name": "order-card-controller",
+      "description": "Order Card Controller"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "main-controller"
+        ],
+        "summary": "home",
+        "operationId": "homeUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/403": {
+      "get": {
+        "tags": [
+          "main-controller"
+        ],
+        "summary": "error403",
+        "operationId": "error403UsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/add": {
+      "post": {
+        "tags": [
+          "books-controller"
+        ],
+        "summary": "addNewBook",
+        "operationId": "addNewBookUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "allErrors[0].arguments",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "allErrors[0].code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "allErrors[0].codes",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "allErrors[0].defaultMessage",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "allErrors[0].objectName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "errorCount",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "fieldError.arguments",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "fieldError.bindingFailure",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "fieldError.code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldError.codes",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "fieldError.defaultMessage",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldError.field",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldError.objectName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldError.rejectedValue",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "fieldErrorCount",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "fieldErrors[0].arguments",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "fieldErrors[0].bindingFailure",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "fieldErrors[0].code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldErrors[0].codes",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "fieldErrors[0].defaultMessage",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldErrors[0].field",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldErrors[0].objectName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldErrors[0].rejectedValue",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "globalError.arguments",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "globalError.code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "globalError.codes",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "globalError.defaultMessage",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "globalError.objectName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "globalErrorCount",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "globalErrors[0].arguments",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "globalErrors[0].code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "globalErrors[0].codes",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "globalErrors[0].defaultMessage",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "globalErrors[0].objectName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nestedPath",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "objectName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddBookCriteria"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/addBookToCard": {
+      "post": {
+        "tags": [
+          "order-card-controller"
+        ],
+        "summary": "addBookToCard",
+        "operationId": "addBookToCardUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "allErrors[0].arguments",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "allErrors[0].code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "allErrors[0].codes",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "allErrors[0].defaultMessage",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "allErrors[0].objectName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "errorCount",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "fieldError.arguments",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "fieldError.bindingFailure",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "fieldError.code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldError.codes",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "fieldError.defaultMessage",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldError.field",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldError.objectName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldError.rejectedValue",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "fieldErrorCount",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "fieldErrors[0].arguments",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "fieldErrors[0].bindingFailure",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "fieldErrors[0].code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldErrors[0].codes",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "fieldErrors[0].defaultMessage",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldErrors[0].field",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldErrors[0].objectName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldErrors[0].rejectedValue",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "globalError.arguments",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "globalError.code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "globalError.codes",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "globalError.defaultMessage",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "globalError.objectName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "globalErrorCount",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "globalErrors[0].arguments",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "globalErrors[0].code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "globalErrors[0].codes",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "globalErrors[0].defaultMessage",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "globalErrors[0].objectName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nestedPath",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "objectName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddBookToCardCriteria"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/customer": {
+      "get": {
+        "tags": [
+          "main-controller"
+        ],
+        "summary": "customerView",
+        "operationId": "customerViewUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/customer/delete": {
+      "post": {
+        "tags": [
+          "books-controller"
+        ],
+        "summary": "deleteView",
+        "operationId": "deleteViewUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CustomersBookCriteria"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ModelAndView"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/deleteBook": {
+      "post": {
+        "tags": [
+          "books-controller"
+        ],
+        "summary": "deleteBook",
+        "operationId": "deleteBookUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "allErrors[0].arguments",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "allErrors[0].code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "allErrors[0].codes",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "allErrors[0].defaultMessage",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "allErrors[0].objectName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "errorCount",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "fieldError.arguments",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "fieldError.bindingFailure",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "fieldError.code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldError.codes",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "fieldError.defaultMessage",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldError.field",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldError.objectName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldError.rejectedValue",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "fieldErrorCount",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "fieldErrors[0].arguments",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "fieldErrors[0].bindingFailure",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "fieldErrors[0].code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldErrors[0].codes",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "fieldErrors[0].defaultMessage",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldErrors[0].field",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldErrors[0].objectName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fieldErrors[0].rejectedValue",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "globalError.arguments",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "globalError.code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "globalError.codes",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "globalError.defaultMessage",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "globalError.objectName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "globalErrorCount",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "globalErrors[0].arguments",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "globalErrors[0].code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "globalErrors[0].codes",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "globalErrors[0].defaultMessage",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "globalErrors[0].objectName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nestedPath",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "objectName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteBookCriteria"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/error": {
+      "get": {
+        "tags": [
+          "basic-error-controller"
+        ],
+        "summary": "error",
+        "operationId": "errorUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "head": {
+        "tags": [
+          "basic-error-controller"
+        ],
+        "summary": "error",
+        "operationId": "errorUsingHEAD",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "basic-error-controller"
+        ],
+        "summary": "error",
+        "operationId": "errorUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "basic-error-controller"
+        ],
+        "summary": "error",
+        "operationId": "errorUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "basic-error-controller"
+        ],
+        "summary": "error",
+        "operationId": "errorUsingDELETE",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      },
+      "options": {
+        "tags": [
+          "basic-error-controller"
+        ],
+        "summary": "error",
+        "operationId": "errorUsingOPTIONS",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      },
+      "patch": {
+        "tags": [
+          "basic-error-controller"
+        ],
+        "summary": "error",
+        "operationId": "errorUsingPATCH",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/getBook": {
+      "post": {
+        "tags": [
+          "books-controller"
+        ],
+        "summary": "getBook",
+        "operationId": "getBookUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetBookCriteria"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ModelAndView"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/getOrderCard": {
+      "post": {
+        "tags": [
+          "order-card-controller"
+        ],
+        "summary": "getOrderCardView",
+        "operationId": "getOrderCardViewUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CustomersBookCriteria"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ModelAndView"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/home": {
+      "get": {
+        "tags": [
+          "main-controller"
+        ],
+        "summary": "homeView",
+        "operationId": "homeViewUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/login": {
+      "get": {
+        "tags": [
+          "main-controller"
+        ],
+        "summary": "loginView",
+        "operationId": "loginViewUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/reader": {
+      "get": {
+        "tags": [
+          "main-controller"
+        ],
+        "summary": "readerView",
+        "operationId": "readerViewUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ModelAndView"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/unloginzone": {
+      "get": {
+        "tags": [
+          "main-controller"
+        ],
+        "summary": "getUnLoginZoneView",
+        "operationId": "getUnLoginZoneViewUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ModelAndView"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "AddBookCriteria": {
+      "type": "object",
+      "properties": {
+        "addedBy": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "authors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "yearOfPublication": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "title": "AddBookCriteria"
+    },
+    "AddBookToCardCriteria": {
+      "type": "object",
+      "properties": {
+        "bookId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "readerId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "AddBookToCardCriteria"
+    },
+    "CustomersBookCriteria": {
+      "type": "object",
+      "properties": {
+        "customerId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "CustomersBookCriteria"
+    },
+    "DeleteBookCriteria": {
+      "type": "object",
+      "properties": {
+        "bookId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "customerId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "DeleteBookCriteria"
+    },
+    "GetBookCriteria": {
+      "type": "object",
+      "properties": {
+        "bookId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "GetBookCriteria"
+    },
+    "ModelAndView": {
+      "type": "object",
+      "properties": {
+        "empty": {
+          "type": "boolean"
+        },
+        "model": {
+          "type": "object"
+        },
+        "modelMap": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "reference": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "100",
+            "101",
+            "102",
+            "103",
+            "200",
+            "201",
+            "202",
+            "203",
+            "204",
+            "205",
+            "206",
+            "207",
+            "208",
+            "226",
+            "300",
+            "301",
+            "302",
+            "303",
+            "304",
+            "305",
+            "307",
+            "308",
+            "400",
+            "401",
+            "402",
+            "403",
+            "404",
+            "405",
+            "406",
+            "407",
+            "408",
+            "409",
+            "410",
+            "411",
+            "412",
+            "413",
+            "414",
+            "415",
+            "416",
+            "417",
+            "418",
+            "419",
+            "420",
+            "421",
+            "422",
+            "423",
+            "424",
+            "426",
+            "428",
+            "429",
+            "431",
+            "451",
+            "500",
+            "501",
+            "502",
+            "503",
+            "504",
+            "505",
+            "506",
+            "507",
+            "508",
+            "509",
+            "510",
+            "511"
+          ]
+        },
+        "view": {
+          "$ref": "#/definitions/View"
+        },
+        "viewName": {
+          "type": "string"
+        }
+      },
+      "title": "ModelAndView"
+    },
+    "View": {
+      "type": "object",
+      "properties": {
+        "contentType": {
+          "type": "string"
+        }
+      },
+      "title": "View"
+    }
+  }
+}
