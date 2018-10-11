@@ -1,10 +1,11 @@
 package com.ua.book.catalog.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "author_books")
-public class AuthorBook {
+public class AuthorBook implements Serializable{
 
     private static final long serialVersionUID = 6L;
 
