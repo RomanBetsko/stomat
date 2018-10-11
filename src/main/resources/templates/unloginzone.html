@@ -11,6 +11,7 @@
             $('.dataTables_length').addClass('bs-select');
         });
     </script>
+    <script src=""
 </head>
 <body>
 
@@ -35,7 +36,7 @@
         </thead>
         <tbody>
         <tr th:each="book, rowStat: ${books}">
-            <td th:text="${book.id}"></td>
+            <td><a href="#" id="getBook" th:text="${book.id}"></a></td>
             <td th:text="${book.name}"></td>
             <td th:text="${book.price}"></td>
             <td th:text="${book.description}"></td>

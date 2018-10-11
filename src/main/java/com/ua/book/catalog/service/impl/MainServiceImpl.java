@@ -40,6 +40,7 @@ public class MainServiceImpl implements MainService {
 
 
     @Override
+    @Transactional
     public ModelAndView getUnloginZoneData() {
         Map<String, Object> params = new HashMap<>();
         params.put("books", bookDao.findAll());
@@ -47,6 +48,7 @@ public class MainServiceImpl implements MainService {
     }
 
     @Override
+    @Transactional
     public ModelAndView readerView() {
         Map<String, Object> params = new HashMap<>();
         params.put("books", bookDao.findAll());
@@ -149,9 +151,18 @@ public class MainServiceImpl implements MainService {
     }
 
     @Override
-    public ModelAndView getDeleteBookPage(int customerId) {
+    @Transactional
+    public ModelAndView getDeleteBookPage(Integer customerId) {
         Map<String, Object> params = new HashMap<>();
         params.put("books", bookDao.getByAddedBy(customerId));
         return new ModelAndView("delete", params);
+    }
+
+    @Override
+    @Transactional
+    public ModelAndView getBookPage(Integer bookId) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("book", bookDao.getById(bookId));
+        return new ModelAndView("/singlebook", params);
     }
 }

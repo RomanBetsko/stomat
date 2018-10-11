@@ -21,5 +21,7 @@ public interface MainService {
 
     ResponseEntity<?> deleteBook(Integer bookId, Integer customerId, Errors errors);
 
-    ModelAndView getDeleteBookPage(int customerId);
+    ModelAndView getDeleteBookPage(Integer customerId);
+
+    ModelAndView getBookPage(Integer bookId);
 }

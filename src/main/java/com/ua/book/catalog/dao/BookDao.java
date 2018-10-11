@@ -15,11 +15,11 @@ public interface BookDao{
 
     void addBook(Book book);
 
-    Book getById(int id);
+    Book getById(Integer id);
 
-    void deleteBook(int bookId);
+    void deleteBook(Integer bookId);
 
-    List<Book> getByAddedBy(int customerId);
+    List<Book> getByAddedBy(Integer customerId);
 
     int addBookWithId(Book book);
 

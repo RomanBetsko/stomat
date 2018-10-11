@@ -35,13 +35,13 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    public Book getById(int id) {
+    public Book getById(Integer id) {
         Session session = sessionFactory.getCurrentSession();
         return session.get(Book.class, id);
     }
 
     @Override
-    public void deleteBook(int bookId) {
+    public void deleteBook(Integer bookId) {
         Session session = sessionFactory.getCurrentSession();
         Query q = session.createQuery("from Book where id = :id ");
         q.setParameter("id", bookId);
@@ -50,7 +50,7 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    public List<Book> getByAddedBy(int customerId) {
+    public List<Book> getByAddedBy(Integer customerId) {
         Session session = sessionFactory.getCurrentSession();
         Criteria criteria = session.createCriteria(Book.class);
         return criteria.add(Restrictions.eq("addedBy", customerId)).list();

@@ -1,12 +1,8 @@
 package com.ua.book.catalog.controllers;
 
 
-import com.ua.book.catalog.entity.Customer;
-import com.ua.book.catalog.validator.AddBookCriteria;
-import com.ua.book.catalog.validator.AddBookToCardCriteria;
 import com.ua.book.catalog.service.MainService;
-import com.ua.book.catalog.validator.CustomersBookCriteria;
-import com.ua.book.catalog.validator.DeleteBookCriteria;
+import com.ua.book.catalog.validator.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -82,6 +78,11 @@ public class MainController {
     @PostMapping("/getOrderCard")
     public ModelAndView getOrderCardView (@RequestBody CustomersBookCriteria request){
         return mainService.getOrderCard(request.getCustomerId());
+    }
+
+    @PostMapping("/getBook")
+    public ModelAndView getBook (@RequestBody GetBookCriteria request){
+        return mainService.getBookPage(request.getBookId());
     }
 
 }

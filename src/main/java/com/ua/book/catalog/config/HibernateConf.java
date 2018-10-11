@@ -20,7 +20,7 @@ public class HibernateConf {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "com.ua.book.catalog.entity" });
+        sessionFactory.setPackagesToScan("com.ua.book.catalog.entity");
         sessionFactory.setHibernateProperties(hibernateProperties());
 
         return sessionFactory;
@@ -36,14 +36,6 @@ public class HibernateConf {
 
         return dataSource;
     }
-
-//    @Bean
-//    public PlatformTransactionManager hibernateTransactionManager() {
-//        HibernateTransactionManager transactionManager
-//                = new HibernateTransactionManager();
-//        transactionManager.setSessionFactory(sessionFactory().getObject());
-//        return transactionManager;
-//    }
 
     private final Properties hibernateProperties() {
         Properties hibernateProperties = new Properties();
