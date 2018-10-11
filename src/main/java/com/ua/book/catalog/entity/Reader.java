@@ -15,13 +15,13 @@ public class Reader implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "email", nullable = false)
     private String email;
     @Column(name = "phone", nullable = false)
-    private int phone;
+    private Integer phone;
 
     @ManyToMany(mappedBy = "readers", fetch = FetchType.EAGER)
     private Set<Book> books = new HashSet<>();
@@ -34,7 +34,7 @@ public class Reader implements Serializable {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -58,7 +58,7 @@ public class Reader implements Serializable {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(Integer phone) {
         this.phone = phone;
     }
 
@@ -72,7 +72,7 @@ public class Reader implements Serializable {
 
     public Reader(){}
 
-    public Reader(String name, String email, int phone, Set<Book> books) {
+    public Reader(String name, String email, Integer phone, Set<Book> books) {
         this.name = name;
         this.email = email;
         this.phone = phone;

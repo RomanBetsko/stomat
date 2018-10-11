@@ -46,7 +46,6 @@ public class Author implements Serializable {
         this.name = name;
     }
 
-
     public String getEmail() {
         return email;
     }

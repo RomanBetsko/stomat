@@ -14,12 +14,11 @@ public class OrderBooks implements Serializable{
     private static final long serialVersionUID = 4L;
 
     @Id
-    @Column(name = "id", nullable = false)
-    private int id;
     @Column(name = "readerid", nullable = false)
-    private int readerId;
+    private Integer readerId;
+    @Id
     @Column(name = "bookid", nullable = false)
-    private int bookId;
+    private Integer bookId;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -43,7 +42,7 @@ public class OrderBooks implements Serializable{
 
     public OrderBooks(){}
 
-    public OrderBooks(int readerId, int bookId) {
+    public OrderBooks(Integer readerId, Integer bookId) {
         this.readerId = readerId;
         this.bookId = bookId;
     }

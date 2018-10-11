@@ -11,7 +11,7 @@ public class Customer implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(name = "firstName", nullable = false)
     private String firstName;
     @Column(name = "secondName", nullable = false)
@@ -19,7 +19,7 @@ public class Customer implements Serializable {
     @Column(name = "email", nullable = false)
     private String email;
     @Column(name = "phone", nullable = false)
-    private int phone;
+    private Integer phone;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -29,7 +29,7 @@ public class Customer implements Serializable {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -61,13 +61,13 @@ public class Customer implements Serializable {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(Integer phone) {
         this.phone = phone;
     }
 
     public Customer(){}
 
-    public Customer(String firstName, String secondName, String email, int phone) {
+    public Customer(String firstName, String secondName, String email, Integer phone) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.email = email;

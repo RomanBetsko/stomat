@@ -11,6 +11,7 @@ public class AuthorBook {
     @Id
     @Column(name = "author_id", nullable = false)
     private int authorId;
+    @Id
     @Column(name = "book_id", nullable = false)
     private int bookId;
 
