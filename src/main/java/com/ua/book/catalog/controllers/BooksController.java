@@ -5,6 +5,7 @@ import com.ua.book.catalog.validator.AddBookCriteria;
 import com.ua.book.catalog.validator.CustomersBookCriteria;
 import com.ua.book.catalog.validator.DeleteBookCriteria;
 import com.ua.book.catalog.validator.GetBookCriteria;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -16,12 +17,15 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 
 @Controller
+@Api(value = "/", tags = "Books", description = "Operations with Books")
 public class BooksController {
 
     @Autowired
     private BooksService booksService;
 
     @PostMapping("/add")
+    @ApiOperation(value = "Add a new book to the catalog")
+    @ApiResponses(value = {@ApiResponse(code = 405, message = "Invalid input")})
     public ResponseEntity<?> addNewBook(@RequestBody @Valid AddBookCriteria request, Errors errors) {
         return booksService.addBook(request, errors);
     }
@@ -32,6 +36,16 @@ public class BooksController {
     }
 
     @PostMapping("/getBook")
+    @ApiOperation(
+            value = "Find book by ID", notes = "Returns a book"+
+            "error conditions",
+            response = ModelAndView.class,
+            authorizations = {
+                    @Authorization(value = "api_key")})
+    @ApiResponses(value = {
+            @ApiResponse(code = 400, message = "Invalid ID supplied"),
+            @ApiResponse(code = 404, message = "Book not found")}
+    )
     public ModelAndView getBook (@RequestBody GetBookCriteria request){
         return booksService.getBookPage(request.getBookId());
     }
