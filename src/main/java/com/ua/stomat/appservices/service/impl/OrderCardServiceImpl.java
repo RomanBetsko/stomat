@@ -1,9 +1,12 @@
 package com.ua.stomat.appservices.service.impl;
 
+import com.ua.stomat.appservices.dao.BookDao;
+import com.ua.stomat.appservices.dao.OrderBooksDao;
 import com.ua.stomat.appservices.entity.OrderBooks;
 import com.ua.stomat.appservices.service.OrderCardService;
 import com.ua.stomat.appservices.validator.AjaxResponseBody;
 import com.ua.stomat.appservices.validator.OrderCard;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -20,23 +23,22 @@ import java.util.stream.Collectors;
 @Transactional(readOnly = true)
 public class OrderCardServiceImpl implements OrderCardService {
 
-//    @Autowired
-//    private OrderBooksDao orderBooksDao;
-//    @Autowired
-//    private BookDao bookDao;
+    @Autowired
+    private OrderBooksDao orderBooksDao;
+    @Autowired
+    private BookDao bookDao;
 
     @Override
     @Transactional
     public void addBookToCard(Integer bookId, Integer readerId) {
-//        orderBooksDao.addOrderBook(new OrderBooks(readerId, bookId));
+        orderBooksDao.addOrderBook(new OrderBooks(readerId, bookId));
     }
 
     @Override
     @Transactional
     public OrderCard getCard(Integer readerId) {
-//        List<OrderBooks> orderBooks = orderBooksDao.getOrderCard(readerId);
-//        return new OrderCard(orderBooks.size(), orderBooks);
-        return null;
+        List<OrderBooks> orderBooks = orderBooksDao.getOrderCard(readerId);
+        return new OrderCard(orderBooks.size(), orderBooks);
     }
 
     @Override
@@ -44,7 +46,7 @@ public class OrderCardServiceImpl implements OrderCardService {
     public ModelAndView getOrderCard(Integer readerId) {
         Map<String, Object> params = new HashMap<>();
         params.put("orderCard", getCard(readerId));
-//        params.put("books", bookDao.getBooksByIds(getBookIds(readerId)));
+        params.put("books", bookDao.getBooksByIds(getBookIds(readerId)));
         return new ModelAndView("orderCard", params);
     }
 

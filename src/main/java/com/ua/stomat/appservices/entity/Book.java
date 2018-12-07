@@ -7,8 +7,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-//@Entity
-//@Table(name = "book")
+@Entity
+@Table(name = "book")
 public class Book implements Serializable {
 
     private static final long serialVersionUID = 1L;

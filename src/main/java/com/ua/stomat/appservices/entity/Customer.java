@@ -1,30 +1,25 @@
 package com.ua.stomat.appservices.entity;
 
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-
 
 @Entity
-@Table(name = "reader")
-public class Reader implements Serializable {
+@Table(name = "customer")
+public class Customer implements Serializable {
 
-    private static final long serialVersionUID = 6L;
+    private static final long serialVersionUID = 3L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Column(name = "firstName", nullable = false)
+    private String firstName;
+    @Column(name = "secondName", nullable = false)
+    private String secondName;
     @Column(name = "email", nullable = false)
     private String email;
     @Column(name = "phone", nullable = false)
     private Integer phone;
-
-    @ManyToMany(mappedBy = "readers", fetch = FetchType.EAGER)
-    private Set<Book> books = new HashSet<>();
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -38,12 +33,20 @@ public class Reader implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
     }
 
     public String getEmail() {
@@ -62,31 +65,23 @@ public class Reader implements Serializable {
         this.phone = phone;
     }
 
-    public Set<Book> getBooks() {
-        return books;
-    }
+    public Customer(){}
 
-    public void setBooks(Set<Book> books) {
-        this.books = books;
-    }
-
-    public Reader(){}
-
-    public Reader(String name, String email, Integer phone, Set<Book> books) {
-        this.name = name;
+    public Customer(String firstName, String secondName, String email, Integer phone) {
+        this.firstName = firstName;
+        this.secondName = secondName;
         this.email = email;
         this.phone = phone;
-        this.books = books;
     }
 
     @Override
     public String toString() {
-        return "Reader{" +
+        return "Customer{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", secondName='" + secondName + '\'' +
                 ", email='" + email + '\'' +
                 ", phone=" + phone +
-                ", books=" + books +
                 '}';
     }
 }

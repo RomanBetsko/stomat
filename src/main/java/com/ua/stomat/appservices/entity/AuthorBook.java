@@ -3,8 +3,8 @@ package com.ua.stomat.appservices.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 
-//@Entity
-//@Table(name = "author_books")
+@Entity
+@Table(name = "author_books")
 public class AuthorBook implements Serializable{
 
     private static final long serialVersionUID = 6L;
