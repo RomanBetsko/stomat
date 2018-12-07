@@ -55,6 +55,6 @@ public class MainController {
 
     @GetMapping("/asd")
     public String string() {
-        return "/index";
+        return "index";
     }
 }
