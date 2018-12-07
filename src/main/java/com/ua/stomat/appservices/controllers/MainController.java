@@ -52,4 +52,9 @@ public class MainController {
     public ModelAndView getUnLoginZoneView() {
         return mainService.getUnloginZoneData();
     }
+
+    @GetMapping("/asd")
+    public String string() {
+        return "/index";
+    }
 }
