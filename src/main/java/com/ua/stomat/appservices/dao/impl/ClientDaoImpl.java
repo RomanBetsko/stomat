@@ -1,7 +1,7 @@
 package com.ua.stomat.appservices.dao.impl;
 
 
-import com.ua.stomat.appservices.dao.BookDao;
+import com.ua.stomat.appservices.dao.ClientDao;
 import com.ua.stomat.appservices.entity.Book;
 import org.hibernate.Criteria;
 import org.hibernate.MultiIdentifierLoadAccess;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class BookDaoImpl implements BookDao {
+public class ClientDaoImpl implements ClientDao {
 
     @Autowired
     private SessionFactory sessionFactory;

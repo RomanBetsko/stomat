@@ -1,9 +1,7 @@
 package com.ua.stomat.appservices.controllers;
 
 
-import com.ua.stomat.appservices.dao.BookDao;
-import com.ua.stomat.appservices.entity.Book;
-import com.ua.stomat.appservices.entity.Test;
+import com.ua.stomat.appservices.dao.ClientDao;
 import com.ua.stomat.appservices.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,8 +13,6 @@ public class MainController {
 
     @Autowired
     private MainService mainService;
-    @Autowired
-    private BookDao bookDao;
 
     @GetMapping("/")
     public String home() {
@@ -53,7 +49,7 @@ public class MainController {
         return mainService.getUnloginZoneData();
     }
 
-    @GetMapping("/asd")
+    @GetMapping("/index")
     public String string() {
         return "index";
     }

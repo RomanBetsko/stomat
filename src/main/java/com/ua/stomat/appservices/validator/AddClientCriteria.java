@@ -6,7 +6,7 @@ import java.sql.Date;
 import java.util.List;
 
 
-public class AddBookCriteria {
+public class AddClientCriteria {
 
     @NotBlank(message = "name can't empty!")
     private String name;

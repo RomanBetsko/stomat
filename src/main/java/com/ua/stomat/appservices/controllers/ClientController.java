@@ -1,7 +1,7 @@
 package com.ua.stomat.appservices.controllers;
 
-import com.ua.stomat.appservices.service.BooksService;
-import com.ua.stomat.appservices.validator.AddBookCriteria;
+import com.ua.stomat.appservices.service.ClientService;
+import com.ua.stomat.appservices.validator.AddClientCriteria;
 import com.ua.stomat.appservices.validator.CustomersBookCriteria;
 import com.ua.stomat.appservices.validator.DeleteBookCriteria;
 import com.ua.stomat.appservices.validator.GetBookCriteria;
@@ -16,28 +16,28 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 
 @Controller
-public class BooksController {
+public class ClientController {
 
     @Autowired
-    private BooksService booksService;
+    private ClientService clientService;
 
-    @PostMapping("/add")
-    public ResponseEntity<?> addNewBook(@RequestBody @Valid AddBookCriteria request, Errors errors) {
-        return booksService.addBook(request, errors);
+    @PostMapping("/addNewClient")
+    public ResponseEntity<?> addNewClient(@RequestBody @Valid AddClientCriteria request, Errors errors) {
+        return clientService.addClient(request, errors);
     }
 
     @PostMapping("/deleteBook")
     public ResponseEntity<?> deleteBook (@RequestBody DeleteBookCriteria request, Errors errors){
-        return booksService.deleteBook(request.getBookId(), request.getCustomerId(), errors);
+        return clientService.deleteBook(request.getBookId(), request.getCustomerId(), errors);
     }
 
     @PostMapping("/getBook")
     public ModelAndView getBook (@RequestBody GetBookCriteria request){
-        return booksService.getBookPage(request.getBookId());
+        return clientService.getBookPage(request.getBookId());
     }
 
     @PostMapping("/customer/delete")
     public ModelAndView deleteView(@RequestBody CustomersBookCriteria request) {
-        return booksService.getDeleteBookPage(request.getCustomerId());
+        return clientService.getDeleteBookPage(request.getCustomerId());
     }
 }

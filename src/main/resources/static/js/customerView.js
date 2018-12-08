@@ -33,14 +33,14 @@ function fire_ajax_submit() {
     $.ajax({
         type: "POST",
         contentType: "application/json",
-        url: "/add",
+        url: "/addNewClient",
         data: JSON.stringify(_data),
         dataType: 'json',
         cache: false,
         timeout: 600000,
         success: function (data) {
 
-            var json = "<h4>Book was added !</h4>";
+            var json = "<h4>Client was added !</h4>";
             $('#result').html(json);
 
             console.log("SUCCESS : ", data);

@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public interface BookDao{
+public interface ClientDao {
 
     List<Book> findAll();
 

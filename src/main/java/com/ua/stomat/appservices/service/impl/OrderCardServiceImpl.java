@@ -1,6 +1,6 @@
 package com.ua.stomat.appservices.service.impl;
 
-import com.ua.stomat.appservices.dao.BookDao;
+import com.ua.stomat.appservices.dao.ClientDao;
 import com.ua.stomat.appservices.dao.OrderBooksDao;
 import com.ua.stomat.appservices.entity.OrderBooks;
 import com.ua.stomat.appservices.service.OrderCardService;
@@ -26,7 +26,7 @@ public class OrderCardServiceImpl implements OrderCardService {
     @Autowired
     private OrderBooksDao orderBooksDao;
     @Autowired
-    private BookDao bookDao;
+    private ClientDao clientDao;
 
     @Override
     @Transactional
@@ -46,7 +46,7 @@ public class OrderCardServiceImpl implements OrderCardService {
     public ModelAndView getOrderCard(Integer readerId) {
         Map<String, Object> params = new HashMap<>();
         params.put("orderCard", getCard(readerId));
-        params.put("books", bookDao.getBooksByIds(getBookIds(readerId)));
+        params.put("books", clientDao.getBooksByIds(getBookIds(readerId)));
         return new ModelAndView("orderCard", params);
     }
 

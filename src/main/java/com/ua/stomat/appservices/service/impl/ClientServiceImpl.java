@@ -2,13 +2,13 @@ package com.ua.stomat.appservices.service.impl;
 
 import com.ua.stomat.appservices.dao.AuthorBookDao;
 import com.ua.stomat.appservices.dao.AuthorDao;
-import com.ua.stomat.appservices.dao.BookDao;
+import com.ua.stomat.appservices.dao.ClientDao;
 import com.ua.stomat.appservices.entity.Author;
 import com.ua.stomat.appservices.entity.AuthorBook;
 import com.ua.stomat.appservices.entity.Book;
 import com.ua.stomat.appservices.entity.Reader;
-import com.ua.stomat.appservices.service.BooksService;
-import com.ua.stomat.appservices.validator.AddBookCriteria;
+import com.ua.stomat.appservices.service.ClientService;
+import com.ua.stomat.appservices.validator.AddClientCriteria;
 import com.ua.stomat.appservices.validator.AjaxResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
@@ -28,20 +28,20 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional(readOnly = true)
-public class BooksServiceImpl implements BooksService {
+public class ClientServiceImpl implements ClientService {
 
     @Autowired
     private AuthorDao authorDao;
     @Autowired
     private AuthorBookDao authorBookDao;
     @Autowired
-    private BookDao bookDao;
+    private ClientDao clientDao;
 
     @Override
     @Transactional
-    public ResponseEntity<?> addBook(AddBookCriteria request, Errors errors) {
+    public ResponseEntity<?> addClient(AddClientCriteria request, Errors errors) {
         AjaxResponseBody result = new AjaxResponseBody();
-        bookDao.addBook(prepareBook(request));
+        clientDao.addBook(prepareBook(request));
         if (errors.hasErrors()) {
             result.setMsg(errors.getAllErrors()
                     .stream().map(DefaultMessageSourceResolvable::getDefaultMessage)
@@ -53,7 +53,7 @@ public class BooksServiceImpl implements BooksService {
     }
 
 
-    private Book prepareBook(AddBookCriteria request) {
+    private Book prepareBook(AddClientCriteria request) {
         //todo refactor this
         Set<Author> authors = new HashSet<>();
         Set<Reader> readers = new HashSet<>();
@@ -82,7 +82,7 @@ public class BooksServiceImpl implements BooksService {
     @Transactional
     public ResponseEntity<?> deleteBook(Integer bookId, Integer customerId, Errors errors) {
         AjaxResponseBody result = new AjaxResponseBody();
-        bookDao.getByAddedBy(customerId).stream().filter(book -> book.getId() == bookId).forEach(book -> bookDao.deleteBook(bookId));
+        clientDao.getByAddedBy(customerId).stream().filter(book -> book.getId() == bookId).forEach(book -> clientDao.deleteBook(bookId));
         if (errors.hasErrors()) {
             result.setMsg(errors.getAllErrors()
                     .stream().map(DefaultMessageSourceResolvable::getDefaultMessage)
@@ -97,7 +97,7 @@ public class BooksServiceImpl implements BooksService {
     @Transactional
     public ModelAndView getBookPage(Integer bookId) {
         Map<String, Object> params = new HashMap<>();
-        params.put("book", bookDao.getById(bookId));
+        params.put("book", clientDao.getById(bookId));
         return new ModelAndView("singlebook", params);
     }
 
@@ -105,7 +105,7 @@ public class BooksServiceImpl implements BooksService {
     @Transactional
     public ModelAndView getDeleteBookPage(Integer customerId) {
         Map<String, Object> params = new HashMap<>();
-        params.put("books", bookDao.getByAddedBy(customerId));
+        params.put("books", clientDao.getByAddedBy(customerId));
         return new ModelAndView("delete", params);
     }
 }
