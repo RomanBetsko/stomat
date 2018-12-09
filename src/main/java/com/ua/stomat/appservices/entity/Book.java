@@ -37,8 +37,8 @@ public class Book implements Serializable {
     @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
     @JoinTable(
             name = "orderbooks",
-            joinColumns = { @JoinColumn(name = "bookid") },
-            inverseJoinColumns = { @JoinColumn(name = "readerid") }
+            joinColumns = { @JoinColumn(name = "book_id") },
+            inverseJoinColumns = { @JoinColumn(name = "reader_id") }
     )
     private Set<Reader> readers = new HashSet<>();
 
