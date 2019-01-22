@@ -13,7 +13,7 @@ public interface ClientDao {
 
     List<Book> findAll();
 
-    void addBook(Book book);
+    void addClient(Book book);
 
     Book getById(Integer id);
 

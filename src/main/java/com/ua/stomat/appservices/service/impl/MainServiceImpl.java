@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 public class MainServiceImpl implements MainService {
 
     @Autowired
@@ -36,10 +36,5 @@ public class MainServiceImpl implements MainService {
         //todo refactor when will added multiusers
         params.put("orderCard", orderCardService.getCard(1));
         return new ModelAndView("reader", params);
-    }
-
-    @Override
-    public Test getTest() {
-        return null;
     }
 }

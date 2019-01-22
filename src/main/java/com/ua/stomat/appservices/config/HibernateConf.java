@@ -33,7 +33,7 @@ public class HibernateConf {
     public DataSource dataSource() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/stomat");
+        dataSource.setUrl("jdbc:mysql://localhost:3309/stomat");
         dataSource.setUsername("root");
         dataSource.setPassword("");
 

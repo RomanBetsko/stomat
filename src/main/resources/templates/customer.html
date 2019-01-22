@@ -12,47 +12,63 @@
     <div class="starter-template">
         <h1>Створення нового клієнта: </h1>
 
-        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]! here you can add/remove book to/from the catalog</h1>
+        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]! here you can add/remove client to/from the database</h1>
 
         <div id="result"></div>
 
-        <a style="text-align: left;"><a href="#" id="clickview" class="btn btn-danger btn-lg" style="margin-left: 500px;">delete my books</a>
+        <a style="text-align: left; margin-top: 25px;"><a href="#" id="clickview" class="btn btn-danger btn-lg" style="margin-left: 500px;">Видалити клієнта</a>
 
 
         <form class="form-horizontal" id="addbook-form">
             <div class="form-group form-group-lg">
-                <label class="col-sm-2 control-label">Name of book</label>
+                <label class="col-sm-2 control-label">Прізвище</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="name" style="margin-top: 15px;"/>
+                    <input type="text" class="form-control" id="secondName" style="margin-top: 15px;"/>
                 </div>
-                <label class="col-sm-2 control-label" >Description</label>
+                <label class="col-sm-2 control-label" >Ім'я</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="description" style="margin-top: 15px;"/>
+                    <input type="text" class="form-control" id="firstName" style="margin-top: 15px;"/>
                 </div>
-                <label class="col-sm-2 control-label">Price</label>
+                <label class="col-sm-2 control-label">По-батькові</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="price" style="margin-top: 15px;"/>
+                    <input type="text" class="form-control" id="thirdName" style="margin-top: 15px;"/>
                 </div>
-                <label class="col-sm-2 control-label" for="date" style="margin-top: 5px;">Date</label>
+                <label class="col-sm-2 control-label">Емейл</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="email" style="margin-top: 15px;"/>
+                </div>
+                <label class="col-sm-2 control-label">Телефон</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="phone" style="margin-top: 15px;"/>
+                </div>
+                <label class="col-sm-2 control-label" for="Дата народження" style="margin-top: 5px;">Date</label>
                 <div class="col-sm-5">
                     <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" style="margin-top: 15px;"/>
                 </div>
 
-                <br>
-                <label class="col-sm-2 control-label" style="margin-top: 15px;">Authors name</label>
-                <div class="col-sm-5">
-                    <div class="field_wrapper">
-                        <input type="text" name="field_name" value="" id="author" multiple="multiple"/>
-                        <a href="javascript:void(0);" class="add_button" title="Add field"><img src="images/add-icon.png"/></a>
-                    </div>
+                <div class="col-sm-5" style="margin-top: 15px;">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="sex">Стать
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Чоловіча</a></li>
+                        <li><a href="#">Жіноча</a></li>
+                    </ul>
                 </div>
 
+                <!--?<br>-->
+                <!--?<label class="col-sm-2 control-label" style="margin-top: 15px;">Authors name</label>-->
+                <!--?<div class="col-sm-5">-->
+                    <!--?<div class="field_wrapper">-->
+                        <!--?<input type="text" name="field_name" value="" id="author" multiple="multiple"/>-->
+                        <!--?<a href="javascript:void(0);" class="add_button" title="Add field"><img src="../static/images/add-icon.png"/></a>-->
+                    <!--?</div>-->
+                <!--?</div>-->
             </div>
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" id="bth-add"
-                            class="btn btn-primary btn-lg">Add book
+                            class="btn btn-primary btn-lg">Добавити
                     </button>
                 </div>
             </div>
@@ -103,7 +119,7 @@
     </script>
 </div>
 
-<div th:replace="fragments/footer :: footer"/>
+<div th:replace="fragments/footer :: footer"></div>
 
 </body>
 </html>

@@ -30,7 +30,7 @@ public class BooksDaoTest {
         Timestamp now = new Timestamp(System.currentTimeMillis());
         Set<Author> authors = new HashSet<>();
         Set<Reader> readers = new HashSet<>();
-        clientDao.addBook(new Book("test book", 123, "test description", now, 100, authors, readers));
+        clientDao.addClient(new Book("test book", 123, "test description", now, 100, authors, readers));
 
         int booksCountAfter = clientDao.findAll().size();
 

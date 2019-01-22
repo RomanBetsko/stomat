@@ -27,7 +27,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 public class ClientServiceImpl implements ClientService {
 
     @Autowired
@@ -41,7 +41,7 @@ public class ClientServiceImpl implements ClientService {
     @Transactional
     public ResponseEntity<?> addClient(AddClientCriteria request, Errors errors) {
         AjaxResponseBody result = new AjaxResponseBody();
-        clientDao.addBook(prepareBook(request));
+        clientDao.addClient(prepareClient(request));
         if (errors.hasErrors()) {
             result.setMsg(errors.getAllErrors()
                     .stream().map(DefaultMessageSourceResolvable::getDefaultMessage)
@@ -53,17 +53,17 @@ public class ClientServiceImpl implements ClientService {
     }
 
 
-    private Book prepareBook(AddClientCriteria request) {
+    private Book prepareClient(AddClientCriteria request) {
         //todo refactor this
         Set<Author> authors = new HashSet<>();
         Set<Reader> readers = new HashSet<>();
         AuthorBook authorBook = new AuthorBook();
-        for(String authName : request.getAuthors()){
+        for (String authName : request.getAuthors()) {
             Author author = new Author();
             author.setName(authName);
             authors.add(author);
             Author old = authorDao.getAuthorByName(authName);
-            if(StringUtils.isEmpty(old)){
+            if (StringUtils.isEmpty(old)) {
                 int authorId = authorDao.addAuthor(author);
                 author.setId(authorId);
                 authorBook.setAuthorId(authorId);

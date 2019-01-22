@@ -18,6 +18,11 @@ public class AuthorBook implements Serializable{
 
     public AuthorBook (){}
 
+    public AuthorBook(int authorId, int bookId) {
+        this.authorId = authorId;
+        this.bookId = bookId;
+    }
+
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
@@ -46,9 +51,19 @@ public class AuthorBook implements Serializable{
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AuthorBook)) return false;
 
-    public AuthorBook(int authorId, int bookId) {
-        this.authorId = authorId;
-        this.bookId = bookId;
+        AuthorBook that = (AuthorBook) o;
+        return getAuthorId() == that.getAuthorId() && getBookId() == that.getBookId();
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getAuthorId();
+        result = 31 * result + getBookId();
+        return result;
     }
 }

@@ -15,18 +15,20 @@ function fire_ajax_submit() {
 
 
     var _data = {};
-    _data["name"] = $("#name").val();
-    _data["description"] = $("#description").val();
-    _data["price"] = $("#price").val();
-    _data["yearOfPublication"] = $("#date".toString()).val();
-    //todo refactor when will added multiusers
-    _data["addedBy"] = 1;
-    _data["authors"]= [];
+    _data["secondName"] = $("#secondName").val();
+    _data["firstName"] = $("#firstName").val();
+    _data["thirdName"] = $("#thirdName").val();
+    _data["email"] = $("#email").val();
+    _data["phone"] = $("#phone").val();
+    _data["dateOfBirth"] = $("#date".toString()).val();
+    _data["sex"] = $("#sex").val();
+    // _data["addedBy"] = 1;
+    // _data["authors"]= [];
 
-    var elems = [] ;
-    elems = $( "[name^='field_name']" ).each(function() {
-        _data["authors"].push($(this).val());
-    });
+    // var elems = [] ;
+    // elems = $( "[name^='field_name']" ).each(function() {
+    //     _data["authors"].push($(this).val());
+    // });
 
     $("#btn-add").prop("disabled", true);
 
@@ -40,7 +42,7 @@ function fire_ajax_submit() {
         timeout: 600000,
         success: function (data) {
 
-            var json = "<h4>Client was added !</h4>";
+            var json = "<h4>Клієнта додано!</h4>";
             $('#result').html(json);
 
             console.log("SUCCESS : ", data);

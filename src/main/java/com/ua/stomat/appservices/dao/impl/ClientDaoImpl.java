@@ -28,7 +28,7 @@ public class ClientDaoImpl implements ClientDao {
     }
 
     @Override
-    public void addBook(Book book) {
+    public void addClient(Book book) {
         //todo check this
         Session session = sessionFactory.getCurrentSession();
         session.save(book);
