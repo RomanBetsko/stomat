@@ -23,19 +23,6 @@ public class BooksDaoTest {
     @Autowired
     private ClientDao clientDao;
 
-    @Test
-    public void testFindAll() {
-        int booksCountBefore = clientDao.findAll().size();
-
-        Timestamp now = new Timestamp(System.currentTimeMillis());
-        Set<Author> authors = new HashSet<>();
-        Set<Reader> readers = new HashSet<>();
-        clientDao.addClient(new Book("test book", 123, "test description", now, 100, authors, readers));
-
-        int booksCountAfter = clientDao.findAll().size();
-
-        Assert.assertEquals(booksCountBefore + 1, booksCountAfter);
-    }
 
     @Test
     public void testGetById(){

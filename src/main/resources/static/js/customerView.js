@@ -9,10 +9,7 @@ $(document).ready(function () {
 
 function fire_ajax_submit() {
 
-    var arrr = $('input[name="field_name[]"]').each(function() { var aValue = $(this).val(); });
-    var x = $('input[name="field_name[]"]').val();
-    var asd = $("#author").val();
-
+    var e = document.getElementById("ddlViewBy");
 
     var _data = {};
     _data["secondName"] = $("#secondName").val();
@@ -21,14 +18,7 @@ function fire_ajax_submit() {
     _data["email"] = $("#email").val();
     _data["phone"] = $("#phone").val();
     _data["dateOfBirth"] = $("#date".toString()).val();
-    _data["sex"] = $("#sex").val();
-    // _data["addedBy"] = 1;
-    // _data["authors"]= [];
-
-    // var elems = [] ;
-    // elems = $( "[name^='field_name']" ).each(function() {
-    //     _data["authors"].push($(this).val());
-    // });
+    _data["sex"] = e.options[e.selectedIndex].value;
 
     $("#btn-add").prop("disabled", true);
 

@@ -23,7 +23,7 @@ public class Client implements Serializable {
     @Column(name = "email", nullable = false)
     private String email;
     @Column(name = "phone", nullable = false)
-    private Integer phone;
+    private String phone;
     @Column(name = "age", nullable = false)
     private Integer age;
     @Column(name = "sex", nullable = false)
@@ -82,11 +82,11 @@ public class Client implements Serializable {
         this.email = email;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -114,7 +114,7 @@ public class Client implements Serializable {
         this.appointments = appointments;
     }
 
-    public Client(String firstName, String secondName, String thirdName, String email, Integer phone, Integer age, String sex, Set<Appointment> appointments) {
+    public Client(String firstName, String secondName, String thirdName, String email, String phone, Integer age, String sex, Set<Appointment> appointments) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.thirdName = thirdName;

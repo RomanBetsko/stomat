@@ -2,6 +2,7 @@ package com.ua.stomat.appservices.dao;
 
 
 import com.ua.stomat.appservices.entity.Book;
+import com.ua.stomat.appservices.entity.Client;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,7 +14,7 @@ public interface ClientDao {
 
     List<Book> findAll();
 
-    void addClient(Book book);
+    void addClient(Client client);
 
     Book getById(Integer id);
 

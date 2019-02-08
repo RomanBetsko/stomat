@@ -3,6 +3,7 @@ package com.ua.stomat.appservices.dao.impl;
 
 import com.ua.stomat.appservices.dao.ClientDao;
 import com.ua.stomat.appservices.entity.Book;
+import com.ua.stomat.appservices.entity.Client;
 import org.hibernate.Criteria;
 import org.hibernate.MultiIdentifierLoadAccess;
 import org.hibernate.Session;
@@ -28,10 +29,9 @@ public class ClientDaoImpl implements ClientDao {
     }
 
     @Override
-    public void addClient(Book book) {
-        //todo check this
+    public void addClient(Client client) {
         Session session = sessionFactory.getCurrentSession();
-        session.save(book);
+        session.save(client);
     }
 
     @Override

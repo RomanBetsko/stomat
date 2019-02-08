@@ -1,12 +1,7 @@
 package com.ua.stomat.appservices.service.impl;
 
-import com.ua.stomat.appservices.dao.AuthorBookDao;
-import com.ua.stomat.appservices.dao.AuthorDao;
 import com.ua.stomat.appservices.dao.ClientDao;
-import com.ua.stomat.appservices.entity.Author;
-import com.ua.stomat.appservices.entity.AuthorBook;
-import com.ua.stomat.appservices.entity.Book;
-import com.ua.stomat.appservices.entity.Reader;
+import com.ua.stomat.appservices.entity.*;
 import com.ua.stomat.appservices.service.ClientService;
 import com.ua.stomat.appservices.validator.AddClientCriteria;
 import com.ua.stomat.appservices.validator.AjaxResponseBody;
@@ -15,11 +10,9 @@ import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -30,10 +23,6 @@ import java.util.stream.Collectors;
 @Transactional
 public class ClientServiceImpl implements ClientService {
 
-    @Autowired
-    private AuthorDao authorDao;
-    @Autowired
-    private AuthorBookDao authorBookDao;
     @Autowired
     private ClientDao clientDao;
 
@@ -48,34 +37,19 @@ public class ClientServiceImpl implements ClientService {
                     .collect(Collectors.joining(",")));
             return ResponseEntity.badRequest().body(result);
         }
-        result.setMsg("Good result, book was added");
+        result.setMsg("Good result, client was added");
         return ResponseEntity.ok(result);
     }
 
 
-    private Book prepareClient(AddClientCriteria request) {
-        //todo refactor this
-        Set<Author> authors = new HashSet<>();
-        Set<Reader> readers = new HashSet<>();
-        AuthorBook authorBook = new AuthorBook();
-        for (String authName : request.getAuthors()) {
-            Author author = new Author();
-            author.setName(authName);
-            authors.add(author);
-            Author old = authorDao.getAuthorByName(authName);
-            if (StringUtils.isEmpty(old)) {
-                int authorId = authorDao.addAuthor(author);
-                author.setId(authorId);
-                authorBook.setAuthorId(authorId);
-            } else {
-                author.setId(old.getId());
-                authorBook.setAuthorId(old.getId());
-            }
-        }
-        authorBookDao.addAuthorBook(authorBook);
-        return new Book(request.getName(), request.getPrice(),
-                request.getDescription(), new Timestamp(request.getYearOfPublication().getTime()),
-                request.getAddedBy(), authors, readers);
+    private Client prepareClient(AddClientCriteria request) {
+        Client client = new Client();
+        client.setFirstName(request.getFirstName());
+        client.setSecondName(request.getSecondName());
+        client.setThirdName(request.getThirdName());
+        client.setEmail(request.getEmail());
+        client.setPhone(request.getPhone());
+        return client;
     }
 
     @Override

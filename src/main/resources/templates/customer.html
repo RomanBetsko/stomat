@@ -12,7 +12,7 @@
     <div class="starter-template">
         <h1>Створення нового клієнта: </h1>
 
-        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]! here you can add/remove client to/from the database</h1>
+        <h1 th:inline="text">Привіт [[${#httpServletRequest.remoteUser}]], тут ти можеш створити нового/видалити існуючого користувача!</h1>
 
         <div id="result"></div>
 
@@ -49,10 +49,10 @@
                 <div class="col-sm-5" style="margin-top: 15px;">
                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="sex">Стать
                         <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Чоловіча</a></li>
-                        <li><a href="#">Жіноча</a></li>
-                    </ul>
+                    <select id="ddlViewBy" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                        <option value="male">чоловіча</option>
+                        <option value="female">жіноча</option>
+                    </select>
                 </div>
 
                 <!--?<br>-->
