@@ -24,7 +24,7 @@ public class MainServiceImpl implements MainService {
     @Transactional
     public ModelAndView getUnloginZoneData() {
         Map<String, Object> params = new HashMap<>();
-        params.put("books", clientDao.findAll());
+        params.put("clients", clientDao.findAll());
         return new ModelAndView("unloginzone", params);
     }
 

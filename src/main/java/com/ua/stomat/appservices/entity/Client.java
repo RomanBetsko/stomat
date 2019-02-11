@@ -24,8 +24,6 @@ public class Client implements Serializable {
     private String email;
     @Column(name = "phone", nullable = false)
     private String phone;
-    @Column(name = "age", nullable = false)
-    private Integer age;
     @Column(name = "sex", nullable = false)
     private String sex;
     @ManyToMany(cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
@@ -90,14 +88,6 @@ public class Client implements Serializable {
         this.phone = phone;
     }
 
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
     public String getSex() {
         return sex;
     }
@@ -120,7 +110,6 @@ public class Client implements Serializable {
         this.thirdName = thirdName;
         this.email = email;
         this.phone = phone;
-        this.age = age;
         this.sex = sex;
         this.appointments = appointments;
     }
@@ -134,7 +123,6 @@ public class Client implements Serializable {
                 ", thirdName='" + thirdName + '\'' +
                 ", email='" + email + '\'' +
                 ", phone=" + phone +
-                ", age=" + age +
                 ", sex='" + sex + '\'' +
                 ", appointments=" + appointments +
                 '}';

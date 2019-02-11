@@ -46,7 +46,7 @@ public class OrderCardServiceImpl implements OrderCardService {
     public ModelAndView getOrderCard(Integer readerId) {
         Map<String, Object> params = new HashMap<>();
         params.put("orderCard", getCard(readerId));
-        params.put("books", clientDao.getBooksByIds(getBookIds(readerId)));
+        //params.put("books", clientDao.getBooksByIds(getBookIds(readerId)));
         return new ModelAndView("orderCard", params);
     }
 

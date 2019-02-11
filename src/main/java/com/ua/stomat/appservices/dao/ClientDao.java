@@ -1,8 +1,8 @@
 package com.ua.stomat.appservices.dao;
 
 
-import com.ua.stomat.appservices.entity.Book;
 import com.ua.stomat.appservices.entity.Client;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,19 +10,9 @@ import java.util.List;
 
 @Repository
 @Transactional
-public interface ClientDao {
+public interface ClientDao extends CrudRepository<Client, Long> {
 
-    List<Book> findAll();
+    List<Client> findAll();
 
-    void addClient(Client client);
-
-    Book getById(Integer id);
-
-    void deleteBook(Integer bookId);
-
-    List<Book> getByAddedBy(Integer customerId);
-
-    int addBookWithId(Book book);
-
-    List<Book> getBooksByIds(List<Integer> integers);
+    Client save(Client client);
 }

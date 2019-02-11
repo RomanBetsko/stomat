@@ -30,7 +30,7 @@ public class ClientServiceImpl implements ClientService {
     @Transactional
     public ResponseEntity<?> addClient(AddClientCriteria request, Errors errors) {
         AjaxResponseBody result = new AjaxResponseBody();
-        clientDao.addClient(prepareClient(request));
+        clientDao.save(prepareClient(request));
         if (errors.hasErrors()) {
             result.setMsg(errors.getAllErrors()
                     .stream().map(DefaultMessageSourceResolvable::getDefaultMessage)
@@ -49,6 +49,7 @@ public class ClientServiceImpl implements ClientService {
         client.setThirdName(request.getThirdName());
         client.setEmail(request.getEmail());
         client.setPhone(request.getPhone());
+        client.setSex(request.getSex());
         return client;
     }
 
@@ -56,7 +57,7 @@ public class ClientServiceImpl implements ClientService {
     @Transactional
     public ResponseEntity<?> deleteBook(Integer bookId, Integer customerId, Errors errors) {
         AjaxResponseBody result = new AjaxResponseBody();
-        clientDao.getByAddedBy(customerId).stream().filter(book -> book.getId() == bookId).forEach(book -> clientDao.deleteBook(bookId));
+        //clientDao.getByAddedBy(customerId).stream().filter(book -> book.getId() == bookId).forEach(book -> clientDao.deleteBook(bookId));
         if (errors.hasErrors()) {
             result.setMsg(errors.getAllErrors()
                     .stream().map(DefaultMessageSourceResolvable::getDefaultMessage)
@@ -71,7 +72,7 @@ public class ClientServiceImpl implements ClientService {
     @Transactional
     public ModelAndView getBookPage(Integer bookId) {
         Map<String, Object> params = new HashMap<>();
-        params.put("book", clientDao.getById(bookId));
+       // params.put("book", clientDao.getById(bookId));
         return new ModelAndView("singlebook", params);
     }
 
@@ -79,7 +80,7 @@ public class ClientServiceImpl implements ClientService {
     @Transactional
     public ModelAndView getDeleteBookPage(Integer customerId) {
         Map<String, Object> params = new HashMap<>();
-        params.put("books", clientDao.getByAddedBy(customerId));
+        //params.put("books", clientDao.getByAddedBy(customerId));
         return new ModelAndView("delete", params);
     }
 }

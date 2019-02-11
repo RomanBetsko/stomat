@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.ua.book.catalog</groupId>
-	<artifactId>bookcatalogbetsko</artifactId>
+	<groupId>com.ua.stomat.betsko</groupId>
+	<artifactId>comuastomatbetsko</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>bookCatalogBetsko</name>
+	<name>stomatBetsko</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -138,23 +138,12 @@
 			<artifactId>swagger-annotations</artifactId>
 			<version>1.5.20</version>
 		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>${springfox.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-bean-validators</artifactId>
-			<version>${springfox.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-staticdocs</artifactId>
-			<version>2.6.1</version>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>2.1.2.RELEASE</version>
+        </dependency>
+
 		<dependency>
 			<groupId>org.springframework.restdocs</groupId>
 			<artifactId>spring-restdocs-mockmvc</artifactId>
@@ -165,22 +154,7 @@
 			<version>0.8.1</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>io.github.swagger2markup</groupId>
-			<artifactId>swagger2markup-spring-restdocs-ext</artifactId>
-			<version>${swagger2markup.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>2.6.1</version>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>RELEASE</version>
-		</dependency>
+
 	</dependencies>
 
 	<build>
