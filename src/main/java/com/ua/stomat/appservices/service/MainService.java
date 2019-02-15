@@ -7,6 +7,4 @@ import org.springframework.web.servlet.ModelAndView;
 public interface MainService {
 
     ModelAndView getUnloginZoneData();
-
-    ModelAndView readerView();
 }

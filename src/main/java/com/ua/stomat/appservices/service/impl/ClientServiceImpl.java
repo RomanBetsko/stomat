@@ -26,15 +26,14 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public ResponseEntity<?> addClient(AddClientCriteria request, Errors errors) {
         AjaxResponseBody result = new AjaxResponseBody();
-        Client client = prepareClient(request);
-        clientRepository.save(client);
+        Client client = clientRepository.save(prepareClient(request));
         if (errors.hasErrors()) {
             result.setMsg(errors.getAllErrors()
                     .stream().map(DefaultMessageSourceResolvable::getDefaultMessage)
                     .collect(Collectors.joining(",")));
             return ResponseEntity.badRequest().body(result);
         }
-        result.setMsg("Good result, client was added");
+        result.setMsg(client.getClientId().toString());
         return ResponseEntity.ok(result);
     }
 
@@ -80,10 +79,4 @@ public class ClientServiceImpl implements ClientService {
         return new ModelAndView("singleclient", params);
     }
 
-    @Override
-    public ModelAndView getDeleteBookPage(Integer customerId) {
-        Map<String, Object> params = new HashMap<>();
-        //params.put("books", clientDao.getByAddedBy(customerId));
-        return new ModelAndView("delete", params);
-    }
 }

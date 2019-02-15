@@ -15,7 +15,5 @@ public interface ClientService {
 
     ModelAndView getClientsData();
 
-    ModelAndView getClientPage(Integer bookId);
-
-    ModelAndView getDeleteBookPage(Integer customerId);
+    ModelAndView getClientPage(Integer clientId);
 }

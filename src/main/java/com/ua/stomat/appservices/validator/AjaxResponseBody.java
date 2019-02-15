@@ -2,7 +2,7 @@ package com.ua.stomat.appservices.validator;
 
 public class AjaxResponseBody {
 
-    private String msg = "something";
+    private String msg = "";
 
     public String getMsg() {
         return msg;
@@ -11,6 +11,5 @@ public class AjaxResponseBody {
     public void setMsg(String msg) {
         this.msg = msg;
     }
-
 
 }

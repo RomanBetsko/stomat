@@ -26,7 +26,7 @@ public class Client implements Serializable {
     private String phone;
     @Column(name = "sex", nullable = false)
     private String sex;
-    @Column(name = "dateOfBirth", nullable = false)
+    @Column(name = "date_of_birth", nullable = false)
     private Date dateOfBirth;
 //    @ManyToMany(cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
 //    @JoinTable(
@@ -110,7 +110,7 @@ public class Client implements Serializable {
     }
 
     public Date clientAge(){
-        //refactor this
+        //TODO refactor this
         return getDateOfBirth();
     }
 

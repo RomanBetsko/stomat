@@ -32,7 +32,12 @@ function fire_ajax_submit() {
         timeout: 600000,
         success: function (data) {
 
-            var json = "<h4>Клієнта додано!</h4>";
+            var json = "<h4>Клієнта додано! </h4>";
+            var na = $('<a/>');
+            na.attr('href', "./client?id=" + data.msg);
+            na.text('Перейти на профіль клієнта');
+            na.addClass('btn btn-info');
+            $('#profile').append(na);
             $('#result').html(json);
 
             console.log("SUCCESS : ", data);
@@ -40,7 +45,7 @@ function fire_ajax_submit() {
 
         },
         error: function (e) {
-            var json = "<h4>Ajax Response security</h4><pre>"
+            var json = "<h4>Помилка!</h4><pre>"
                 + e.responseText + "</pre>";
             $('#result').html(json);
             console.log("ERROR : ", e);

@@ -1,18 +1,21 @@
 package com.ua.stomat.appservices.validator;
 
-import org.hibernate.validator.constraints.NotBlank;
-
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.sql.Date;
 
+public class AddClientCriteria implements Serializable {
 
-public class AddClientCriteria implements Serializable{
-
-    @NotBlank(message = "name can't empty!")
+    @NotEmpty(message = "Не вказано ім'я!")
     private String firstName;
+    @NotEmpty(message = "Не вказано прізвище!")
     private String secondName;
+    @NotEmpty(message = "Не вказано по-батькові!")
     private String thirdName;
+    @Email(message = "Не вірний email!")
     private String email;
+    @NotEmpty(message = "Не вказаний телефон!")
     private String phone;
     private Date dateOfBirth;
     private String sex;
@@ -20,7 +23,9 @@ public class AddClientCriteria implements Serializable{
     public AddClientCriteria() {
     }
 
-    public AddClientCriteria(@NotBlank(message = "name can't empty!") String firstName, String secondName, String thirdName, String email, String phone, Date dateOfBirth, String sex) {
+    public AddClientCriteria(@NotEmpty(message = "Не вказано ім'я!") String firstName, @NotEmpty(message = "Не вказано прізвище!") String secondName,
+                             @NotEmpty(message = "Не вказано по-батькові!") String thirdName, String email, @NotEmpty(message = "Не вказаний телефон!") String phone,
+                             Date dateOfBirth, String sex) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.thirdName = thirdName;
@@ -84,5 +89,50 @@ public class AddClientCriteria implements Serializable{
 
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AddClientCriteria)) return false;
+
+        AddClientCriteria that = (AddClientCriteria) o;
+
+        if (getFirstName() != null ? !getFirstName().equals(that.getFirstName()) : that.getFirstName() != null)
+            return false;
+        if (getSecondName() != null ? !getSecondName().equals(that.getSecondName()) : that.getSecondName() != null)
+            return false;
+        if (getThirdName() != null ? !getThirdName().equals(that.getThirdName()) : that.getThirdName() != null)
+            return false;
+        if (getEmail() != null ? !getEmail().equals(that.getEmail()) : that.getEmail() != null) return false;
+        if (getPhone() != null ? !getPhone().equals(that.getPhone()) : that.getPhone() != null) return false;
+        return getDateOfBirth() != null ? getDateOfBirth().equals(that.getDateOfBirth()) : that.getDateOfBirth() == null
+                && (getSex() != null ? getSex().equals(that.getSex()) : that.getSex() == null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getFirstName() != null ? getFirstName().hashCode() : 0;
+        result = 31 * result + (getSecondName() != null ? getSecondName().hashCode() : 0);
+        result = 31 * result + (getThirdName() != null ? getThirdName().hashCode() : 0);
+        result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
+        result = 31 * result + (getPhone() != null ? getPhone().hashCode() : 0);
+        result = 31 * result + (getDateOfBirth() != null ? getDateOfBirth().hashCode() : 0);
+        result = 31 * result + (getSex() != null ? getSex().hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "AddClientCriteria{" +
+                "firstName='" + firstName + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", thirdName='" + thirdName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", sex='" + sex + '\'' +
+                '}';
     }
 }

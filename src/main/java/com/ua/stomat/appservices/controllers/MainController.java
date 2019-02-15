@@ -38,11 +38,6 @@ public class MainController {
         return "security/403";
     }
 
-    @GetMapping("/reader")
-    public ModelAndView readerView() {
-        return mainService.readerView();
-    }
-
     @GetMapping("/index")
     public String string() {
         return "index";

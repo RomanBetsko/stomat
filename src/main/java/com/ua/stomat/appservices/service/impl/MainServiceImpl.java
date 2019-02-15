@@ -2,7 +2,6 @@ package com.ua.stomat.appservices.service.impl;
 
 import com.ua.stomat.appservices.dao.ClientRepository;
 import com.ua.stomat.appservices.service.MainService;
-import com.ua.stomat.appservices.service.OrderCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,8 +16,6 @@ public class MainServiceImpl implements MainService {
 
     @Autowired
     private ClientRepository clientDao;
-    @Autowired
-    private OrderCardService orderCardService;
 
     @Override
     @Transactional
@@ -26,15 +23,5 @@ public class MainServiceImpl implements MainService {
         Map<String, Object> params = new HashMap<>();
         params.put("clients", clientDao.findAll());
         return new ModelAndView("unloginzone", params);
-    }
-
-    @Override
-    @Transactional
-    public ModelAndView readerView() {
-        Map<String, Object> params = new HashMap<>();
-        params.put("books", clientDao.findAll());
-        //todo refactor when will added multiusers
-        params.put("orderCard", orderCardService.getCard(1));
-        return new ModelAndView("reader", params);
     }
 }
