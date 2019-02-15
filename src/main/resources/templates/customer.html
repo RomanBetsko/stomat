@@ -19,7 +19,7 @@
         <a style="text-align: left; margin-top: 25px;"><a href="#" id="clickview" class="btn btn-danger btn-lg" style="margin-left: 500px;">Видалити клієнта</a>
 
 
-        <form class="form-horizontal" id="addbook-form">
+        <form class="form-horizontal" id="addclient-form">
             <div class="form-group form-group-lg">
                 <label class="col-sm-2 control-label">Прізвище</label>
                 <div class="col-sm-10">
@@ -47,22 +47,11 @@
                 </div>
 
                 <div class="col-sm-5" style="margin-top: 15px;">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="sex">Стать
-                        <span class="caret"></span></button>
                     <select id="ddlViewBy" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                         <option value="male">чоловіча</option>
                         <option value="female">жіноча</option>
                     </select>
                 </div>
-
-                <!--?<br>-->
-                <!--?<label class="col-sm-2 control-label" style="margin-top: 15px;">Authors name</label>-->
-                <!--?<div class="col-sm-5">-->
-                    <!--?<div class="field_wrapper">-->
-                        <!--?<input type="text" name="field_name" value="" id="author" multiple="multiple"/>-->
-                        <!--?<a href="javascript:void(0);" class="add_button" title="Add field"><img src="../static/images/add-icon.png"/></a>-->
-                    <!--?</div>-->
-                <!--?</div>-->
             </div>
 
             <div class="form-group">
@@ -73,8 +62,11 @@
                 </div>
             </div>
         </form>
+<div>
     </div>
-    </div>
+
+</div>
+</div>
     <script type="text/javascript"
             src="webjars/jquery/2.2.4/jquery.min.js"></script>
 
@@ -101,7 +93,7 @@
             var maxField = 10;
             var addButton = $('.add_button');
             var wrapper = $('.field_wrapper');
-            var fieldHTML = '<div><input type="text" name="field_name" id="author" multiple="multiple" value="" style="margin-top: 5px;"/>' +
+            var fieldHTML = '<div><input type="text" name="field_name" clientId="author" multiple="multiple" value="" style="margin-top: 5px;"/>' +
                     '<a href="javascript:void(0);" class="remove_button"><img src="images/remove-icon.png"/></a></div>';
             var x = 1;
             $(addButton).click(function(){
@@ -117,9 +109,8 @@
             });
         });
     </script>
-</div>
 
-<div th:replace="fragments/footer :: footer"></div>
+<div th:replace="fragments/footer :: footer"/>
 
 </body>
 </html>

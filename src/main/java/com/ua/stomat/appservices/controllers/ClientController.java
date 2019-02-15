@@ -4,11 +4,12 @@ import com.ua.stomat.appservices.service.ClientService;
 import com.ua.stomat.appservices.validator.AddClientCriteria;
 import com.ua.stomat.appservices.validator.CustomersBookCriteria;
 import com.ua.stomat.appservices.validator.DeleteBookCriteria;
-import com.ua.stomat.appservices.validator.GetBookCriteria;
+import com.ua.stomat.appservices.validator.GetClientCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -32,12 +33,17 @@ public class ClientController {
     }
 
     @PostMapping("/getBook")
-    public ModelAndView getBook (@RequestBody GetBookCriteria request){
-        return clientService.getBookPage(request.getBookId());
+    public ModelAndView getClient(@RequestBody GetClientCriteria request){
+        return clientService.getClientPage(request.getClientId());
     }
 
     @PostMapping("/customer/delete")
     public ModelAndView deleteView(@RequestBody CustomersBookCriteria request) {
         return clientService.getDeleteBookPage(request.getCustomerId());
+    }
+
+    @GetMapping("/clients")
+    public ModelAndView getClientsView() {
+        return clientService.getClientsData();
     }
 }

@@ -1,6 +1,6 @@
 package com.ua.stomat.appservices.service.impl;
 
-import com.ua.stomat.appservices.dao.ClientDao;
+import com.ua.stomat.appservices.dao.ClientRepository;
 import com.ua.stomat.appservices.service.MainService;
 import com.ua.stomat.appservices.service.OrderCardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import java.util.Map;
 public class MainServiceImpl implements MainService {
 
     @Autowired
-    private ClientDao clientDao;
+    private ClientRepository clientDao;
     @Autowired
     private OrderCardService orderCardService;
 

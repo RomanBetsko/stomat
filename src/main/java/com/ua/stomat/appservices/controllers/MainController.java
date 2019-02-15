@@ -1,7 +1,6 @@
 package com.ua.stomat.appservices.controllers;
 
 
-import com.ua.stomat.appservices.dao.ClientDao;
 import com.ua.stomat.appservices.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,11 +41,6 @@ public class MainController {
     @GetMapping("/reader")
     public ModelAndView readerView() {
         return mainService.readerView();
-    }
-
-    @GetMapping("/unloginzone")
-    public ModelAndView getUnLoginZoneView() {
-        return mainService.getUnloginZoneData();
     }
 
     @GetMapping("/index")

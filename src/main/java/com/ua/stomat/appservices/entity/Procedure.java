@@ -19,14 +19,14 @@ public class Procedure implements Serializable {
     @Column(name = "price", nullable = false)
     private Integer price;
 
-    @ManyToMany(mappedBy = "procedures", fetch = FetchType.EAGER)
-    private Set<Appointment> appointments = new HashSet<>();
-
-    public Procedure(String name, Integer price, Set<Appointment> appointments) {
-        this.name = name;
-        this.price = price;
-        this.appointments = appointments;
-    }
+//    @ManyToMany(mappedBy = "procedures", fetch = FetchType.EAGER)
+//    private Set<Appointment> appointments = new HashSet<>();
+//
+//    public Procedure(String name, Integer price, Set<Appointment> appointments) {
+//        this.name = name;
+//        this.price = price;
+//        this.appointments = appointments;
+//    }
 
     public Procedure(){}
 
@@ -58,13 +58,13 @@ public class Procedure implements Serializable {
         this.price = price;
     }
 
-    public Set<Appointment> getAppointments() {
-        return appointments;
-    }
-
-    public void setAppointments(Set<Appointment> appointments) {
-        this.appointments = appointments;
-    }
+//    public Set<Appointment> getAppointments() {
+//        return appointments;
+//    }
+//
+//    public void setAppointments(Set<Appointment> appointments) {
+//        this.appointments = appointments;
+//    }
 
     @Override
     public String toString() {
@@ -72,7 +72,7 @@ public class Procedure implements Serializable {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +
-                ", appointments=" + appointments +
+//                ", appointments=" + appointments +
                 '}';
     }
 }

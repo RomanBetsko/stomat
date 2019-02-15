@@ -3,16 +3,16 @@ package com.ua.stomat.appservices.dao;
 
 import com.ua.stomat.appservices.entity.Client;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@RepositoryRestResource(collectionResourceRel = "clients", path = "clients")
 @Repository
-@Transactional
-public interface ClientDao extends CrudRepository<Client, Long> {
+public interface ClientRepository extends CrudRepository<Client, Long> {
 
     List<Client> findAll();
 
-    Client save(Client client);
+    Client findByClientId(Integer id);
 }

@@ -2,7 +2,7 @@ package com.ua.stomat.appservices.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -13,7 +13,7 @@ public class Client implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer clientId;
     @Column(name = "first_name", nullable = false)
     private String firstName;
     @Column(name = "second_name", nullable = false)
@@ -26,13 +26,18 @@ public class Client implements Serializable {
     private String phone;
     @Column(name = "sex", nullable = false)
     private String sex;
-    @ManyToMany(cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "appointment_id",
-            joinColumns = { @JoinColumn(name = "client_id") },
-            inverseJoinColumns = { @JoinColumn(name = "appointment_id") }
-    )
-    private Set<Appointment> appointments = new HashSet<>();
+    @Column(name = "dateOfBirth", nullable = false)
+    private Date dateOfBirth;
+//    @ManyToMany(cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
+//    @JoinTable(
+//            name = "client_appointments",
+//            joinColumns = { @JoinColumn(name = "clientId") },
+//            inverseJoinColumns = { @JoinColumn(name = "appoinmentId") }
+//    )
+//    private Set<Appointment> appointments = new HashSet<>();
+
+    @OneToMany(mappedBy="client", cascade={CascadeType.ALL})
+    private Set<Appointment> appointments;
 
     public Client(){}
 
@@ -40,12 +45,12 @@ public class Client implements Serializable {
         return serialVersionUID;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getClientId() {
+        return clientId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setClientId(Integer clientId) {
+        this.clientId = clientId;
     }
 
     public String getFirstName() {
@@ -104,27 +109,28 @@ public class Client implements Serializable {
         this.appointments = appointments;
     }
 
-    public Client(String firstName, String secondName, String thirdName, String email, String phone, Integer age, String sex, Set<Appointment> appointments) {
+    public Date clientAge(){
+        //refactor this
+        return getDateOfBirth();
+    }
+
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public Client(String firstName, String secondName, String thirdName, String email, String phone, String sex, Date dateOfBirth, Set<Appointment> appointments) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.thirdName = thirdName;
         this.email = email;
         this.phone = phone;
         this.sex = sex;
+        this.dateOfBirth = dateOfBirth;
         this.appointments = appointments;
-    }
-
-    @Override
-    public String toString() {
-        return "Client{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", secondName='" + secondName + '\'' +
-                ", thirdName='" + thirdName + '\'' +
-                ", email='" + email + '\'' +
-                ", phone=" + phone +
-                ", sex='" + sex + '\'' +
-                ", appointments=" + appointments +
-                '}';
     }
 }

@@ -1,6 +1,6 @@
 package com.ua.stomat.appservices.service.impl;
 
-import com.ua.stomat.appservices.dao.ClientDao;
+import com.ua.stomat.appservices.dao.ClientRepository;
 import com.ua.stomat.appservices.dao.OrderBooksDao;
 import com.ua.stomat.appservices.entity.OrderBooks;
 import com.ua.stomat.appservices.service.OrderCardService;
@@ -26,7 +26,7 @@ public class OrderCardServiceImpl implements OrderCardService {
     @Autowired
     private OrderBooksDao orderBooksDao;
     @Autowired
-    private ClientDao clientDao;
+    private ClientRepository clientDao;
 
     @Override
     @Transactional

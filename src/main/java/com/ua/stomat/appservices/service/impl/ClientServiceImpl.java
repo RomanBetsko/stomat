@@ -1,7 +1,7 @@
 package com.ua.stomat.appservices.service.impl;
 
-import com.ua.stomat.appservices.dao.ClientDao;
-import com.ua.stomat.appservices.entity.*;
+import com.ua.stomat.appservices.dao.ClientRepository;
+import com.ua.stomat.appservices.entity.Client;
 import com.ua.stomat.appservices.service.ClientService;
 import com.ua.stomat.appservices.validator.AddClientCriteria;
 import com.ua.stomat.appservices.validator.AjaxResponseBody;
@@ -9,28 +9,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Errors;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-@Transactional
 public class ClientServiceImpl implements ClientService {
 
     @Autowired
-    private ClientDao clientDao;
+    private ClientRepository clientRepository;
 
     @Override
-    @Transactional
     public ResponseEntity<?> addClient(AddClientCriteria request, Errors errors) {
         AjaxResponseBody result = new AjaxResponseBody();
-        clientDao.save(prepareClient(request));
+        Client client = prepareClient(request);
+        clientRepository.save(client);
         if (errors.hasErrors()) {
             result.setMsg(errors.getAllErrors()
                     .stream().map(DefaultMessageSourceResolvable::getDefaultMessage)
@@ -50,14 +47,22 @@ public class ClientServiceImpl implements ClientService {
         client.setEmail(request.getEmail());
         client.setPhone(request.getPhone());
         client.setSex(request.getSex());
+        client.setDateOfBirth(request.getDateOfBirth());
         return client;
     }
 
     @Override
-    @Transactional
+    public ModelAndView getClientsData() {
+        Map<String, Object> params = new HashMap<>();
+        List<Client> a = clientRepository.findAll();
+        params.put("clients", clientRepository.findAll());
+        return new ModelAndView("clients", params);
+    }
+
+    @Override
     public ResponseEntity<?> deleteBook(Integer bookId, Integer customerId, Errors errors) {
         AjaxResponseBody result = new AjaxResponseBody();
-        //clientDao.getByAddedBy(customerId).stream().filter(book -> book.getId() == bookId).forEach(book -> clientDao.deleteBook(bookId));
+        //clientDao.getByAddedBy(customerId).stream().filter(book -> book.getClientId() == bookId).forEach(book -> clientDao.deleteBook(bookId));
         if (errors.hasErrors()) {
             result.setMsg(errors.getAllErrors()
                     .stream().map(DefaultMessageSourceResolvable::getDefaultMessage)
@@ -69,15 +74,13 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    @Transactional
-    public ModelAndView getBookPage(Integer bookId) {
+    public ModelAndView getClientPage(Integer clientId) {
         Map<String, Object> params = new HashMap<>();
-       // params.put("book", clientDao.getById(bookId));
-        return new ModelAndView("singlebook", params);
+        params.put("client", clientRepository.findByClientId(clientId));
+        return new ModelAndView("singleclient", params);
     }
 
     @Override
-    @Transactional
     public ModelAndView getDeleteBookPage(Integer customerId) {
         Map<String, Object> params = new HashMap<>();
         //params.put("books", clientDao.getByAddedBy(customerId));

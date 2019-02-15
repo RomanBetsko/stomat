@@ -13,7 +13,9 @@ public interface ClientService {
 
     ResponseEntity<?> deleteBook(Integer bookId, Integer customerId, Errors errors);
 
-    ModelAndView getBookPage(Integer bookId);
+    ModelAndView getClientsData();
+
+    ModelAndView getClientPage(Integer bookId);
 
     ModelAndView getDeleteBookPage(Integer customerId);
 }

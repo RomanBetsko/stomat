@@ -30,12 +30,12 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `appointment`;
 CREATE TABLE IF NOT EXISTS `appointment` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `clientId` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(128) DEFAULT NULL,
   `price` int(128) DEFAULT NULL,
   `clients` int(128) DEFAULT NULL,
   `procedures` int(128) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`clientId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -46,12 +46,12 @@ CREATE TABLE IF NOT EXISTS `appointment` (
 
 DROP TABLE IF EXISTS `author`;
 CREATE TABLE IF NOT EXISTS `author` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `clientId` int(11) NOT NULL AUTO_INCREMENT,
   `name` int(128) DEFAULT NULL,
   `email` int(128) DEFAULT NULL,
   `country` int(128) DEFAULT NULL,
   `books` int(128) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`clientId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `author_books` (
 
 DROP TABLE IF EXISTS `book`;
 CREATE TABLE IF NOT EXISTS `book` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `clientId` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) DEFAULT NULL,
   `price` int(64) DEFAULT NULL,
   `description` varchar(64) DEFAULT NULL,
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `book` (
   `addedBy` int(64) NOT NULL,
   `author_id` int(64) NOT NULL,
   `readerid` int(64) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`clientId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `book` (
 
 DROP TABLE IF EXISTS `client`;
 CREATE TABLE IF NOT EXISTS `client` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `clientId` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(128) DEFAULT NULL,
   `second_name` varchar(128) DEFAULT NULL,
   `third_name` varchar(128) DEFAULT NULL,
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `client` (
   `age` int(4) DEFAULT NULL,
   `sex` varchar(128) DEFAULT NULL,
   `appointments` int(128) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`clientId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -113,12 +113,12 @@ CREATE TABLE IF NOT EXISTS `client` (
 
 DROP TABLE IF EXISTS `customer`;
 CREATE TABLE IF NOT EXISTS `customer` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `clientId` int(11) NOT NULL AUTO_INCREMENT,
   `firstName` varchar(128) DEFAULT NULL,
   `secondName` varchar(128) DEFAULT NULL,
   `email` varchar(128) DEFAULT NULL,
   `phone` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`clientId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -141,11 +141,11 @@ CREATE TABLE IF NOT EXISTS `orderbooks` (
 
 DROP TABLE IF EXISTS `procedure`;
 CREATE TABLE IF NOT EXISTS `procedure` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `clientId` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(128) DEFAULT NULL,
   `price` int(128) DEFAULT NULL,
   `appointments` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`clientId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -156,11 +156,11 @@ CREATE TABLE IF NOT EXISTS `procedure` (
 
 DROP TABLE IF EXISTS `reader`;
 CREATE TABLE IF NOT EXISTS `reader` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `clientId` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(128) DEFAULT NULL,
   `email` varchar(128) DEFAULT NULL,
   `phone` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`clientId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 COMMIT;
 

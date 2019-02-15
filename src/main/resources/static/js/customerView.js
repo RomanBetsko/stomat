@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
 
-    $("#addbook-form").submit(function (event) {
+    $("#addclient-form").submit(function (event) {
         event.preventDefault();
         fire_ajax_submit();
     });
