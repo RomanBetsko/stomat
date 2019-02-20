@@ -36,15 +36,15 @@
         </thead>
         <tbody>
         <tr th:each="client, rowStat: ${clients}">
-            <td><a th:href="'/client?id=' + ${client.clientId}" id="getBook" th:text="${client.clientId}"></a></td>
-            <td th:text="${client.firstName}"></td>
+            <td><a class="btn btn-primary center-block btn-sm" th:href="'/client?id=' + ${client.clientId}"
+                   th:text="Профіль"></a></td>
+            <td th:text="${client.firstName}"><a href="oranges"></a></td>
             <td th:text="${client.secondName}"></td>
             <td th:text="${client.thirdName}"></td>
             <td th:text="${client.email}"></td>
             <td th:text="${client.phone}"></td>
             <td th:text="${client.clientAge()}"></td>
         </tr>
-
         </tbody>
         <tfoot>
         <tr>

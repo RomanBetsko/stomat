@@ -4,6 +4,21 @@
     <div th:replace="fragments/header :: header-css"/>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <link href="../static/css/well.css" th:href="@{/css/well.css}" rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+
 </head>
 <body>
 
@@ -16,10 +31,9 @@
             <div class="well profile">
                 <div class="col-sm-12">
                     <div class="col-xs-12 col-sm-8">
-                        <h2 th:text="${client.firstName} + ' ' +  ${client.secondName}"></h2>
-                        <p><strong>Обо мне: </strong> Веб-дизайнер. </p>
-                        <p><strong>Хобби: </strong> Книги, природа, активный отдых, сайтостроение, дизайн, верстка </p>
-                        <p><strong>Знания: </strong>
+                        <h2 th:text="${client.firstName} + ' ' +  ${client.secondName} + ' ' + ${client.thirdName}"></h2>
+
+                        <p><strong>Останні: </strong>
                             <span class="tags">HTML5</span>
                             <span class="tags">CSS3</span>
                             <span class="tags">jQuery</span>
@@ -55,40 +69,82 @@
                     <div class="col-xs-12 col-sm-4 emphasis">
                         <h2><strong> 32,4K </strong></h2>
                         <p><small>Подписчиков</small></p>
-                        <button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> Подписатся</button>
+                        <button class="btn btn-success btn-block btn-lg" id="create"><span class="fa fa-plus-circle"></span>Створити запис</button>
                     </div>
                     <div class="col-xs-12 col-sm-4 emphasis">
-                        <h2><strong>723</strong></h2>
-                        <p><small>Записей</small></p>
-                        <button class="btn btn-info btn-block"><span class="fa fa-user"></span> Профиль</button>
+                        <h2><strong th:text="${client.appointmentsSize()}"></strong></h2>
+                        <p><small>Відвідувань</small></p>
+                        <!--?todo тут має бути посилання на останній апойнмент-->
+                        <a class="btn btn-primary btn-block btn-lg" th:href="'/appointment?id=' + ${client.clientId}" th:text="'Останій'"></a>
                     </div>
                     <div class="col-xs-12 col-sm-4 emphasis">
-                        <h2><strong>74</strong></h2>
-                        <p><small>Работы</small></p>
-                        <div class="btn-group dropup btn-block">
-                            <button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Опции</button>
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                <span class="caret"></span>
-                                <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <ul class="dropdown-menu text-left" role="menu">
-                                <li><a href="#"><span class="fa fa-envelope pull-right"></span> Отправить email </a></li>
-                                <li><a href="#"><span class="fa fa-list pull-right"></span> Редактировать список</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#"><span class="fa fa-warning pull-right"></span>Сообщить о спаме</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#" class="btn disabled" role="button"> Отписатся </a></li>
-                            </ul>
-                        </div>
+                        <h2><strong th:text="${client.rank()}"></strong></h2>
+                        <p><small>Рейтинг</small></p>
+                        <!--?<div class="btn-group dropup btn-block">-->
+                            <!--?<button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Опции</button>-->
+                            <!--?<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">-->
+                                <!--?<span class="caret"></span>-->
+                                <!--?<span class="sr-only">Toggle Dropdown</span>-->
+                            <!--?</button>-->
+                            <!--?<ul class="dropdown-menu text-left" role="menu">-->
+                                <!--?<li><a href="#"><span class="fa fa-envelope pull-right"></span> Отправить email </a></li>-->
+                                <!--?<li><a href="#"><span class="fa fa-list pull-right"></span> Редактировать список</a></li>-->
+                                <!--?<li class="divider"></li>-->
+                                <!--?<li><a href="#"><span class="fa fa-warning pull-right"></span>Сообщить о спаме</a></li>-->
+                                <!--?<li class="divider"></li>-->
+                                <!--?<li><a href="#" class="btn disabled" role="button"> Отписатся </a></li>-->
+                            <!--?</ul>-->
+                        <!--?</div>-->
+                        <a class="btn btn-primary btn-block btn-lg" th:href="'#'" th:text="'Something'"></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-
+    <div id="appointment">
+        <div class="container">
+            <div class='col-md-5'>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker6'>
+                        <input type='text' class="form-control" />
+          <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-5'>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker7'>
+                        <input type='text' class="form-control" />
+          <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+                    </div>
+                </div>
+            </div>
+        </div>
 </div>
+</div>
+<script src="../static/moment/min/moment-with-locales.js"></script>
+<script>
+    $(document).ready(function() {
+        $(function() {
+            $('#datetimepicker6').datetimepicker();
+            $('#datetimepicker7').datetimepicker({
+                locale: 'ru',
+                useCurrent: false //Important! See issue #1075
+            });
+            $("#datetimepicker6").on("dp.change", function(e) {
+                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+            });
+            $("#datetimepicker7").on("dp.change", function(e) {
+                $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+            });
+        });
+    });
+</script>
 
 <div th:replace="fragments/footer :: footer"/>
 

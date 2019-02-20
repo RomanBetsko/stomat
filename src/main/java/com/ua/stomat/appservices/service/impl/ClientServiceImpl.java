@@ -13,7 +13,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -26,13 +25,13 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public ResponseEntity<?> addClient(AddClientCriteria request, Errors errors) {
         AjaxResponseBody result = new AjaxResponseBody();
-        Client client = clientRepository.save(prepareClient(request));
         if (errors.hasErrors()) {
             result.setMsg(errors.getAllErrors()
                     .stream().map(DefaultMessageSourceResolvable::getDefaultMessage)
                     .collect(Collectors.joining(",")));
             return ResponseEntity.badRequest().body(result);
         }
+        Client client = clientRepository.save(prepareClient(request));
         result.setMsg(client.getClientId().toString());
         return ResponseEntity.ok(result);
     }
@@ -53,7 +52,6 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public ModelAndView getClientsData() {
         Map<String, Object> params = new HashMap<>();
-        List<Client> a = clientRepository.findAll();
         params.put("clients", clientRepository.findAll());
         return new ModelAndView("clients", params);
     }

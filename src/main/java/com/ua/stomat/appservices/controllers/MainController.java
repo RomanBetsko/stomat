@@ -28,6 +28,11 @@ public class MainController {
         return "/customer";
     }
 
+    @GetMapping("/appointment")
+    public String appointmentView() {
+        return "/createappointment";
+    }
+
     @GetMapping("/login")
     public String loginView() {
         return "/login";

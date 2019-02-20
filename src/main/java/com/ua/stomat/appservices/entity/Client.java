@@ -2,8 +2,13 @@ package com.ua.stomat.appservices.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.Set;
+
+import static java.time.LocalDate.now;
 
 @Entity
 @Table(name = "client")
@@ -28,18 +33,22 @@ public class Client implements Serializable {
     private String sex;
     @Column(name = "date_of_birth", nullable = false)
     private Date dateOfBirth;
-//    @ManyToMany(cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
+    @Column(name = "total_earn", nullable = false)
+    private Integer totalEarn;
+    //    @ManyToMany(cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
 //    @JoinTable(
 //            name = "client_appointments",
 //            joinColumns = { @JoinColumn(name = "clientId") },
 //            inverseJoinColumns = { @JoinColumn(name = "appoinmentId") }
 //    )
+
 //    private Set<Appointment> appointments = new HashSet<>();
 
-    @OneToMany(mappedBy="client", cascade={CascadeType.ALL})
+    @OneToMany(mappedBy = "client", cascade = {CascadeType.ALL})
     private Set<Appointment> appointments;
 
-    public Client(){}
+    public Client() {
+    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -109,14 +118,45 @@ public class Client implements Serializable {
         this.appointments = appointments;
     }
 
-    public Date clientAge(){
-        //TODO refactor this
-        return getDateOfBirth();
+    public Integer getTotalEarn() {
+        if (totalEarn == null){
+            return 0;
+        }
+        return totalEarn;
+    }
+
+    public void setTotalEarn(Integer totalEarn) {
+        this.totalEarn = totalEarn;
+    }
+
+    public Integer clientAge() {
+        LocalDate currentDate = now();
+        LocalDate birthDate = getDateOfBirth().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        if (birthDate != null) {
+            return Period.between(birthDate, currentDate).getYears();
+        } else {
+            return 0;
+        }
     }
 
 
     public Date getDateOfBirth() {
         return dateOfBirth;
+    }
+
+    public Integer rank() {
+        if (getTotalEarn().equals(0) || getAppointments().isEmpty()) {
+            return 0;
+        }
+        return getTotalEarn() / getAppointments().size();
+    }
+
+    public Integer appointmentsSize() {
+        if (getAppointments().isEmpty()) {
+            return 0;
+        } else {
+            return getAppointments().size();
+        }
     }
 
     public void setDateOfBirth(Date dateOfBirth) {

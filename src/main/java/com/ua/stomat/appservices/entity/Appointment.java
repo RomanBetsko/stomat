@@ -2,6 +2,7 @@ package com.ua.stomat.appservices.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,9 +19,11 @@ public class Appointment implements Serializable {
     private String name;
     @Column(name = "price", nullable = false)
     private Integer price;
+    @Column(name = "date")
+    private Date date;
 
     @ManyToOne
-    @JoinColumn(name="clientId", nullable=false)
+    @JoinColumn(name="client_id", nullable=false)
     private Client client;
 //    @ManyToMany(mappedBy = "appointments", fetch = FetchType.EAGER)
 //    private Set<Client> client = new HashSet<>();
@@ -65,10 +68,19 @@ public class Appointment implements Serializable {
         this.price = price;
     }
 
-    public Appointment(String name, Integer price, Client client) {
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Appointment(String name, Integer price, Client client, Date date) {
         this.name = name;
         this.price = price;
         this.client = client;
+        this.date = date;
     }
 
     public Client getClient() {
