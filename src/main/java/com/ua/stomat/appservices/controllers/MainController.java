@@ -15,7 +15,7 @@ public class MainController {
 
     @GetMapping("/")
     public String home() {
-        return "/home";
+        return "index";
     }
 
     @GetMapping("/home")
@@ -43,8 +43,8 @@ public class MainController {
         return "security/403";
     }
 
-    @GetMapping("/index")
+    @GetMapping("/admin")
     public String string() {
-        return "index";
+        return "home";
     }
 }

@@ -2458,6 +2458,12 @@ nav a:hover {
   color: #222;
 }
 
+.tooth-whitening {
+  background: url('static/img/tooth-whitening.png');
+  height: 20px;
+  width: 20px;
+}
+
 .single-blog .name {
   font-size: 13px;
   font-weight: 100;
