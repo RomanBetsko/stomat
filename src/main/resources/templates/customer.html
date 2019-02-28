@@ -1,118 +1,124 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <div th:replace="fragments/header :: header-css"/>
+    <div th:replace="fragments/header :: header-css"></div>
 </head>
 <body>
 
-<div th:replace="fragments/header :: header"/>
+<div th:replace="fragments/header :: header"></div>
 
 <div class="container">
 
     <div class="starter-template">
         <h1>Створення нового клієнта: </h1>
 
-        <h1 th:inline="text">Привіт [[${#httpServletRequest.remoteUser}]], тут ти можеш створити нового/видалити існуючого користувача!</h1>
+        <h1 th:inline="text">Привіт [[${#httpServletRequest.remoteUser}]], тут ти можеш створити нового/видалити
+            існуючого користувача!</h1>
 
         <div id="result"></div>
         <div id="profile"></div>
 
-        <a style="text-align: left; margin-top: 25px;"><a href="#" id="clickview" class="btn btn-danger btn-lg" style="margin-left: 500px;">Видалити клієнта</a>
+        <a style="text-align: left; margin-top: 25px;"><a href="#" id="clickview" class="btn btn-danger btn-lg"
+                                                          style="margin-left: 500px;">Видалити клієнта</a>
 
 
-        <form class="form-horizontal" id="addclient-form">
-            <div class="form-group form-group-lg">
-                <label class="col-sm-2 control-label">Прізвище</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="secondName" style="margin-top: 15px;"/>
-                </div>
-                <label class="col-sm-2 control-label" >Ім'я</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="firstName" style="margin-top: 15px;"/>
-                </div>
-                <label class="col-sm-2 control-label">По-батькові</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="thirdName" style="margin-top: 15px;"/>
-                </div>
-                <label class="col-sm-2 control-label">Емейл</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="email" style="margin-top: 15px;"/>
-                </div>
-                <label class="col-sm-2 control-label">Телефон</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="phone" style="margin-top: 15px;"/>
-                </div>
-                <label class="col-sm-2 control-label" for="Дата народження" style="margin-top: 5px;">Date</label>
-                <div class="col-sm-5">
-                    <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" style="margin-top: 15px;"/>
+            <form class="form-horizontal" id="addclient-form">
+                <div class="form-group form-group-lg">
+                    <label class="col-sm-2 control-label">Прізвище</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="secondName" style="margin-top: 15px;"/>
+                    </div>
+                    <label class="col-sm-2 control-label">Ім'я</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="firstName" style="margin-top: 15px;"/>
+                    </div>
+                    <label class="col-sm-2 control-label">По-батькові</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="thirdName" style="margin-top: 15px;"/>
+                    </div>
+                    <label class="col-sm-2 control-label">Емейл</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="email" style="margin-top: 15px;"/>
+                    </div>
+                    <label class="col-sm-2 control-label">Телефон</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="phone" style="margin-top: 15px;"/>
+                    </div>
+                    <label class="col-sm-2 control-label" for="Дата народження" style="margin-top: 5px;">Date</label>
+                    <div class="col-sm-5">
+                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"
+                               style="margin-top: 15px;"/>
+                    </div>
+
+                    <div class="col-sm-5" style="margin-top: 15px;">
+                        <select id="ddlViewBy" class="btn btn-primary dropdown-toggle" type="button"
+                                data-toggle="dropdown">
+                            <option value="male">чоловіча</option>
+                            <option value="female">жіноча</option>
+                        </select>
+                    </div>
                 </div>
 
-                <div class="col-sm-5" style="margin-top: 15px;">
-                    <select id="ddlViewBy" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                        <option value="male">чоловіча</option>
-                        <option value="female">жіноча</option>
-                    </select>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" id="bth-add"
+                                class="btn btn-primary btn-lg">Добавити
+                        </button>
+                    </div>
                 </div>
+            </form>
+            <div>
             </div>
 
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" id="bth-add"
-                            class="btn btn-primary btn-lg">Добавити
-                    </button>
-                </div>
-            </div>
-        </form>
-<div>
     </div>
-
 </div>
-</div>
-    <script type="text/javascript"
-            src="webjars/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript"
+        src="../webjars/jquery/2.2.4/jquery.min.js"></script>
 
-    <script type="text/javascript" src="js/customerView.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-    <script>
-        $(document).ready(function(){
-            var date_input=$('input[name="date"]');
-            var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-            //todo зробити локалізацію
-            var options={
-                format: 'yyyy-mm-dd',
-                container: container,
-                todayHighlight: true,
-                autoclose: true
-            };
-            date_input.datepicker(options);
-        })
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            var maxField = 10;
-            var addButton = $('.add_button');
-            var wrapper = $('.field_wrapper');
-            var fieldHTML = '<div><input type="text" name="field_name" clientId="author" multiple="multiple" value="" style="margin-top: 5px;"/>' +
-                    '<a href="javascript:void(0);" class="remove_button"><img src="images/remove-icon.png"/></a></div>';
-            var x = 1;
-            $(addButton).click(function(){
-                if(x < maxField){
-                    x++;
-                    $(wrapper).append(fieldHTML);
-                }
-            });
-            $(wrapper).on('click', '.remove_button', function(e){
-                e.preventDefault();
-                $(this).parent('div').remove();
-                x--;
-            });
+<script type="text/javascript" src="../js/customerView.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css"/>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<script>
+    $(document).ready(function () {
+        var date_input = $('input[name="date"]');
+        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+        //todo зробити локалізацію
+        var options = {
+            format: 'yyyy-mm-dd',
+            container: container,
+            todayHighlight: true,
+            autoclose: true
+        };
+        date_input.datepicker(options);
+    })
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var maxField = 10;
+        var addButton = $('.add_button');
+        var wrapper = $('.field_wrapper');
+        var fieldHTML = '<div><input type="text" name="field_name" clientId="author" multiple="multiple" value="" style="margin-top: 5px;"/>' +
+                '<a href="javascript:void(0);" class="remove_button"><img src="images/remove-icon.png"/></a></div>';
+        var x = 1;
+        $(addButton).click(function () {
+            if (x < maxField) {
+                x++;
+                $(wrapper).append(fieldHTML);
+            }
         });
-    </script>
+        $(wrapper).on('click', '.remove_button', function (e) {
+            e.preventDefault();
+            $(this).parent('div').remove();
+            x--;
+        });
+    });
+</script>
 
-<div th:replace="fragments/footer :: footer"/>
+<div th:replace="fragments/footer :: footer"></div>
 
 </body>
 </html>

@@ -21,10 +21,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable()
                 .authorizeRequests()
+                .antMatchers("/resources/**").permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/admin/**").hasAnyRole("ADMIN")
-//                .antMatchers("/reader/**").hasAnyRole("ADMIN")
-//                .antMatchers("/clients/**").hasAnyRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -46,7 +45,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-            web.ignoring().antMatchers("/webjars/**");
-            web.ignoring().antMatchers("/css/**","/fonts/**","/libs/**");
+        web.ignoring().antMatchers("/resources/**").anyRequest();
+        web.ignoring().antMatchers("/resources/admin/**").anyRequest();
     }
 }
