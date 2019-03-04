@@ -20,42 +20,50 @@
 <div class="container">
 
     <div class="starter-template">
-        <h1>Пошук по усіх клієнтах</h1>
+        <h2>Пошук по усіх клієнтах</h2>
     </div>
 
+    <div id="result"></div>
+
+    <br>
     <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
         <thead>
         <tr>
-            <th>Id</th>
+            <th></th>
             <th>Ім'я</th>
             <th>Прізвище</th>
             <th>По-батькові</th>
             <th>Емейл</th>
             <th>Телефон</th>
             <th>Вік</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="client, rowStat: ${clients}">
-            <td><a class="btn btn-primary center-block btn-sm" th:href="'/client?id=' + ${client.clientId}"
+            <td><a class="btn btn-primary center-block btn-sm" th:href="'/admin/client?id=' + ${client.clientId}"
                    th:text="Профіль"></a></td>
+            <td th:text="${client.clientId}" id="id" class="id" style="display:none;"></td>
             <td th:text="${client.firstName}"></td>
             <td th:text="${client.secondName}"></td>
             <td th:text="${client.thirdName}"></td>
             <td th:text="${client.email}"></td>
             <td th:text="${client.phone}"></td>
             <td th:text="${client.clientAge()}"></td>
+            <td ><a href="#" id="delete" class="center"><img src="../images/remove-icon.png" /></a>
+            </td>
         </tr>
         </tbody>
         <tfoot>
         <tr>
-            <th>Id</th>
+            <th></th>
             <th>Ім'я</th>
             <th>Прізвище</th>
             <th>По-батькові</th>
             <th>Емейл</th>
             <th>Телефон</th>
             <th>Вік</th>
+            <th></th>
         </tr>
         </tfoot>
     </table>
@@ -64,6 +72,10 @@
 
 <div th:replace="fragments/footer :: footer">
 </div>
+<script type="text/javascript"
+        src="../webjars/jquery/2.2.4/jquery.min.js"></script>
+
+<script type="text/javascript" src="../js/customerView.js"></script>
 
 </body>
 </html>

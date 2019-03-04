@@ -16,4 +16,6 @@ public interface ClientService {
     ModelAndView getClientsData();
 
     ModelAndView getClientPage(Integer clientId);
+
+    ResponseEntity<?> deleteClient(Integer id, Errors errors);
 }

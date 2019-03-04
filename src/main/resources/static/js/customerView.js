@@ -5,6 +5,10 @@ $(document).ready(function () {
         event.preventDefault();
         fire_ajax_submit();
     });
+
+    $("#dtBasicExample").on('click','tr', function () {
+        deleteClient();
+    });
 });
 
 function fire_ajax_submit() {
@@ -25,7 +29,7 @@ function fire_ajax_submit() {
     $.ajax({
         type: "POST",
         contentType: "application/json",
-        url: "/addNewClient",
+        url: "/admin/addNewClient",
         data: JSON.stringify(_data),
         dataType: 'json',
         cache: false,
@@ -56,18 +60,17 @@ function fire_ajax_submit() {
 
 }
 
-$("a#clickview").click(function(e){
-    e.preventDefault();
+$("a#delete").click(function(){
+    var $row = $(this).closest("tr");    // Find the row
+    var $text = $row.find(".id").text();
 
     var _data = {};
-    //todo refactor when will added multiusers
-    _data["customerId"] = 1;
-        $("#btn-add").prop("disabled", true);
+    _data["id"] = $text;
 
     $.ajax({
         type: "POST",
         contentType: "application/json",
-        url: "customer/delete",
+        url: "/admin/delete/client",
         data: JSON.stringify(_data),
         dataType: 'json',
         cache: false,

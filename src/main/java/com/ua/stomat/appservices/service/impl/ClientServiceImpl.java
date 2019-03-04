@@ -9,14 +9,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Errors;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional
 public class ClientServiceImpl implements ClientService {
 
     @Autowired
@@ -73,8 +76,24 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public ModelAndView getClientPage(Integer clientId) {
         Map<String, Object> params = new HashMap<>();
-        params.put("client", clientRepository.findByClientId(clientId));
+        Client client = clientRepository.findByClientId(clientId);
+
+        params.put("client", client);
         return new ModelAndView("singleclient", params);
+    }
+
+    @Override
+    public ResponseEntity<?> deleteClient(Integer id, Errors errors) {
+        AjaxResponseBody result = new AjaxResponseBody();
+        if (errors.hasErrors()) {
+            result.setMsg(errors.getAllErrors()
+                    .stream().map(DefaultMessageSourceResolvable::getDefaultMessage)
+                    .collect(Collectors.joining(",")));
+            return ResponseEntity.badRequest().body(result);
+        }
+        clientRepository.deleteByClientId(id);
+        result.setMsg("Клієнта було видалено");
+        return ResponseEntity.ok(result);
     }
 
 }

@@ -2,11 +2,11 @@ package com.ua.stomat.appservices.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
-import java.util.Date;
-import java.util.Set;
+import java.util.*;
 
 import static java.time.LocalDate.now;
 
@@ -45,7 +45,7 @@ public class Client implements Serializable {
 //    private Set<Appointment> appointments = new HashSet<>();
 
     @OneToMany(mappedBy = "client", cascade = {CascadeType.ALL})
-    private Set<Appointment> appointments;
+    private List<Appointment> appointments;
 
     public Client() {
     }
@@ -110,11 +110,12 @@ public class Client implements Serializable {
         this.sex = sex;
     }
 
-    public Set<Appointment> getAppointments() {
+    public List<Appointment> getAppointments() {
+        Collections.sort(appointments, (p1, p2) -> Long.valueOf(p2.getDate().getTime()).compareTo(p1.getDate().getTime()));
         return appointments;
     }
 
-    public void setAppointments(Set<Appointment> appointments) {
+    public void setAppointments(List<Appointment> appointments) {
         this.appointments = appointments;
     }
 
@@ -141,6 +142,8 @@ public class Client implements Serializable {
 
 
     public Date getDateOfBirth() {
+        SimpleDateFormat dateformat = new SimpleDateFormat("dd-mm-yyyy");
+        dateformat.format(dateOfBirth);
         return dateOfBirth;
     }
 
@@ -163,7 +166,7 @@ public class Client implements Serializable {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Client(String firstName, String secondName, String thirdName, String email, String phone, String sex, Date dateOfBirth, Set<Appointment> appointments) {
+    public Client(String firstName, String secondName, String thirdName, String email, String phone, String sex, Date dateOfBirth, List<Appointment> appointments) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.thirdName = thirdName;

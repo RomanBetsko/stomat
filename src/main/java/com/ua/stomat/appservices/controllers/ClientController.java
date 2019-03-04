@@ -2,6 +2,7 @@ package com.ua.stomat.appservices.controllers;
 
 import com.ua.stomat.appservices.service.ClientService;
 import com.ua.stomat.appservices.validator.AddClientCriteria;
+import com.ua.stomat.appservices.validator.DeleteClientCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -35,5 +36,10 @@ public class ClientController {
     @GetMapping(ADMIN_PATH + "/clients")
     public ModelAndView getClientsView() {
         return clientService.getClientsData();
+    }
+
+    @PostMapping(ADMIN_PATH + "/delete/client")
+    public ResponseEntity<?> deleteClient(@RequestBody @Valid DeleteClientCriteria request, Errors errors) {
+        return clientService.deleteClient(request.getId(), errors);
     }
 }
