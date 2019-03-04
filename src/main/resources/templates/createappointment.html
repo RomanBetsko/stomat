@@ -3,8 +3,13 @@
 <head>
     <div th:replace="fragments/header :: header-css"></div>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript"
-            src="../webjars/jquery/2.2.4/jquery.min.js"></script>
+    <!--?<script type="text/javascript"-->
+            <!--?src="../webjars/jquery/2.2.4/jquery.min.js"></script>-->
+    <!--?<link href="/examples/vendors/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <!-- Bootstrap DateTimePicker -->
+    <link href="../webjars/Eonasdan-bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="../webjars/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -24,11 +29,20 @@
                     <input type="text" class="form-control" id="name" style="margin-top: 15px;"/>
                 </div>
 
-                <label class="col-sm-2 control-label" style="margin-top: 5px;">Дата і час</label>
-                <div class="col-sm-5">
-                    <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"
-                           style="margin-top: 15px;"/>
+                <label class="col-sm-2 control-label">Дата і час</label>
+                <div class="col-sm-4">
+<!--?TODO fix css-->
+                        <div class='input-group date' id='datetimepicker3'>
+                            <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"
+                                   style="margin-top: 15px;">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </span>
+                            </input>
+                        </div>
+
                 </div>
+
 
             </div>
 
@@ -45,30 +59,18 @@
     <div th:replace="fragments/footer :: footer"></div>
 </div>
 
-<script type="text/javascript"
-        src="../webjars/jquery/2.2.4/jquery.min.js"></script>
 
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css"/>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 <script>
-
-    $(document).ready(function () {
-        var date_input = $('input[name="date"]');
-        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
-        //todo зробити локалізацію
-        var options = {
-            format: 'yyyy-mm-dd',
-            container: container,
-            todayHighlight: true,
-            autoclose: true
-        };
-        date_input.datepicker(options);
-    })
+    $(function () {
+        $('#datetimepicker3').datetimepicker({locale: 'uk'});
+        $("#setMinDate").click(function () {
+            $('#datetimepicker3').data("DateTimePicker").minDate(moment('05.11.2017','DD.MM.YYYY'));
+        });
+    });
 </script>
+
+<script src="../resources/webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="../webjars/momentjs/2.22.2/min/moment-with-locales.min.js"></script>
+<script src="../webjars/Eonasdan-bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 </body>
 </html>

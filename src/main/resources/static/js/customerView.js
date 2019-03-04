@@ -1,14 +1,9 @@
-
 $(document).ready(function () {
 
     $("#addclient-form").submit(function (event) {
         event.preventDefault();
         fire_ajax_submit();
     });
-    //
-    // $("#dtBasicExample").on('click','tr', function () {
-    //     deleteClient();
-    // });
 });
 
 function fire_ajax_submit() {
