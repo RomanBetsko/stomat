@@ -24,8 +24,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/resources/**").permitAll()
-                .antMatchers("/").permitAll()
+                .antMatchers("/ua", "/ru", "/eng", "/pl").permitAll()
                 .antMatchers("/admin/**").hasAnyRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
@@ -46,18 +45,12 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("admin").password("{noop}admin").roles("ADMIN");
     }
 
-    @Bean
-    public HttpFirewall allowUrlEncodedSlashHttpFirewall() {
-        StrictHttpFirewall firewall = new StrictHttpFirewall();
-        firewall.setAllowUrlEncodedSlash(true);
-        return firewall;
-    }
-
     @Override
     public void configure(WebSecurity web) throws Exception {
-        super.configure(web);
-        web.httpFirewall(allowUrlEncodedSlashHttpFirewall());
-        web.ignoring().antMatchers("/resources/**").anyRequest();
-        web.ignoring().antMatchers("/resources/admin/**").anyRequest();
+
+//        web.ignoring().antMatchers("/resources/**").anyRequest();
+//        web.ignoring().antMatchers("/resources/admin/**").anyRequest();
+        web.ignoring().antMatchers("/webjars/**");
+        web.ignoring().antMatchers("/css/**","/fonts/**","/libs/**");
     }
 }
