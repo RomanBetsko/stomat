@@ -35,6 +35,7 @@
             <th>По-батькові</th>
             <th>Емейл</th>
             <th>Телефон</th>
+            <th>Відвідувань</th>
             <th>Вік</th>
             <th></th>
         </tr>
@@ -49,6 +50,7 @@
             <td th:text="${client.thirdName}"></td>
             <td th:text="${client.email}"></td>
             <td th:text="${client.phone}"></td>
+            <td width="3%" th:text="${client.appointmentsSize()}"></td>
             <td th:text="${client.clientAge()}"></td>
             <td ><a href="#" id="delete" class="center"><img src="../images/remove-icon.png" /></a>
             </td>
@@ -62,6 +64,7 @@
             <th>По-батькові</th>
             <th>Емейл</th>
             <th>Телефон</th>
+            <th>Відвідувань</th>
             <th>Вік</th>
             <th></th>
         </tr>

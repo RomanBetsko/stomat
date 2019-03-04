@@ -2,9 +2,9 @@ package com.ua.stomat.appservices.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "appointment")
@@ -23,7 +23,7 @@ public class Appointment implements Serializable {
     private Date date;
 
     @ManyToOne
-    @JoinColumn(name="client_id", nullable=false)
+    @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 //    @ManyToMany(mappedBy = "appointments", fetch = FetchType.EAGER)
 //    private Set<Client> client = new HashSet<>();
@@ -36,8 +36,8 @@ public class Appointment implements Serializable {
 //    )
 //    private Set<Procedure> procedures = new HashSet<>();
 
-    public Appointment(){}
-
+    public Appointment() {
+    }
 
 
     public static long getSerialVersionUID() {
@@ -69,6 +69,17 @@ public class Appointment implements Serializable {
     }
 
     public Date getDate() {
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+//        Date temp = null;
+//        try {
+//            String asdasdasd = simpleDateFormat.format(date);
+//            DatesimpleDateFormat.parse(asdasdasd);
+//
+//
+//            temp = simpleDateFormat.parse(simpleDateFormat.format(date));
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
         return date;
     }
 

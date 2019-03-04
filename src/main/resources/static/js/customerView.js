@@ -5,10 +5,10 @@ $(document).ready(function () {
         event.preventDefault();
         fire_ajax_submit();
     });
-
-    $("#dtBasicExample").on('click','tr', function () {
-        deleteClient();
-    });
+    //
+    // $("#dtBasicExample").on('click','tr', function () {
+    //     deleteClient();
+    // });
 });
 
 function fire_ajax_submit() {

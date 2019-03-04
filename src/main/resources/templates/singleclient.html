@@ -41,7 +41,7 @@
                             <span class="tags" th:text="${client.phone}"></span>
                         </p>
                         <p><strong>Дата народження: </strong>
-                            <span class="tags" th:text="${client.dateOfBirth}"></span>
+                            <span class="tags" th:text="${#dates.format(client.dateOfBirth, 'dd-MM-yyyy')}"></span>
                         </p>
                     </div>
                     <div class="col-xs-12 col-sm-4 text-center">
@@ -71,26 +71,25 @@
                 </div>
                 <div class="col-xs-12 divider text-center">
                     <div class="col-xs-12 col-sm-4 emphasis">
-                        <h2><strong> 32,4K </strong></h2>
-                        <p>
-                            <small>Подписчиков</small>
-                        </p>
-                        <button class="btn btn-success btn-block btn-lg" id="create">Створити запис<span
-                                class="fa fa-plus-circle"></span></button>
-                    </div>
-
-
-                    <div class="col-xs-12 col-sm-4 emphasis">
                         <h2><strong th:text="${client.appointmentsSize()}"></strong></h2>
                         <p>
                             <small>Відвідувань</small>
                         </p>
+                        <a class="btn btn-success btn-block btn-lg" th:href="'#'" th:text="'Cтворити'"></a>
+                    </div>
 
-                        <a class="btn btn-primary btn-block btn-lg" th:if="${client.appointments!=null and !client.appointments.empty}" th:href="'/admin/appointment?id=' +
+
+                    <div class="col-xs-12 col-sm-4 emphasis" th:if="${client.appointments!=null and !client.appointments.empty}">
+                        <h3><strong th:text="${#dates.format(client.appointments[0].date, 'dd.MM.yyyy')}"></strong></h3>
+                        <p>
+                            <small>Останнє відвідування</small>
+                        </p>
+
+                        <a class="btn btn-default btn-block btn-lg" th:if="${client.appointments!=null and !client.appointments.empty}" th:href="'/admin/appointment?id=' +
                                 ${client.appointments[0].appointmentId}"
                            th:text="'Останій'"></a>
                     </div>
-                    <div class="col-xs-12 col-sm-4 emphasis">
+                    <div class="col-xs-12 col-sm-4 emphasis" th:if="${client.appointments!=null and !client.appointments.empty}">
                         <h2><strong th:text="${client.rank()}"></strong></h2>
                         <p>
                             <small>Рейтинг</small>
@@ -160,7 +159,7 @@
                    th:text="Відвідування"></a></td>
             <td th:text="${appointment.name}"></td>
             <td th:text="${appointment.price}"></td>
-            <td th:text="${appointment.date}"></td>
+            <td th:text="${#dates.format(appointment.date, 'dd.MM.yyyy')}"></td>
         </tr>
         </tbody>
     </table>
