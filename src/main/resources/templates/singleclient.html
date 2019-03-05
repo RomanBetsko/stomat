@@ -23,7 +23,7 @@
 </head>
 <body>
 
-<div th:replace="fragments/header :: header"/>
+<div th:replace="fragments/header :: header"> </div>
 
 <div class="container">
 
@@ -46,10 +46,10 @@
                     </div>
                     <div class="col-xs-12 col-sm-4 text-center">
                         <figure>
-                            <img th:if="${client.sex} eq 'male'" src="/user-profile.jpg" alt="user" class="img-circle img-responsive">
+                            <img th:if="${client.sex} eq 'male'" src="../user-profile.jpg" alt="user" class="img-circle img-responsive">
                             <img th:if="${client.sex} eq 'female'" src="../user-profile-female.jpg" alt="user" class="img-circle img-responsive">
                             <figcaption class="ratings">
-                                <p>Рейтинг
+                                <p>
                                     <a href="#">
                                         <span class="fa fa-star"></span>
                                     </a>
@@ -76,7 +76,11 @@
                         <p>
                             <small>Відвідувань</small>
                         </p>
-                        <a class="btn btn-success btn-block btn-lg" th:href="'#'" th:text="'Cтворити'"></a>
+                        <a class="btn btn-success btn-block btn-lg" th:href="'/admin/appointmentById?id=' + ${client.clientId} + '&firstName=' + ${client.firstName} +
+                         '&secondName=' + ${client.secondName} + '&thirdName=' + ${client.thirdName}"
+
+                           th:text="'Cтворити'" id="createapp"
+                           th:attr="data-clientid=${client.clientId}, data-firstname=${client.firstName}, data-secondname=${client.secondName}, data-thirdname=${client.thirdName}"></a>
                     </div>
 
 
@@ -116,33 +120,6 @@
             </div>
         </div>
     </div>
-
-    <!--?<div id="appointment">-->
-    <!--?<div class="container">-->
-    <!--?<div class='col-md-5'>-->
-    <!--?<div class="form-group">-->
-    <!--?<div class='input-group date' id='datetimepicker6'>-->
-    <!--?<input type='text' class="form-control" />-->
-    <!--?<span class="input-group-addon">-->
-    <!--?<span class="glyphicon glyphicon-calendar"></span>-->
-    <!--?</span>-->
-    <!--?</div>-->
-    <!--?</div>-->
-    <!--?</div>-->
-    <!--?<div class='col-md-5'>-->
-    <!--?<div class="form-group">-->
-    <!--?<div class='input-group date' id='datetimepicker7'>-->
-    <!--?<input type='text' class="form-control" />-->
-    <!--?<span class="input-group-addon">-->
-    <!--?<span class="glyphicon glyphicon-calendar"></span>-->
-    <!--?</span>-->
-    <!--?</div>-->
-    <!--?</div>-->
-    <!--?</div>-->
-    <!--?</div>-->
-    <!--?</div>-->
-
-
     <!-- Last appointments-->
     <table class="table" th:if="${client.appointments!=null and !client.appointments.empty}">
         <thead>
@@ -165,26 +142,13 @@
         </tbody>
     </table>
 </div>
-<script src="../static/moment/min/moment-with-locales.js"></script>
-<script>
-    $(document).ready(function () {
-        $(function () {
-            $('#datetimepicker6').datetimepicker();
-            $('#datetimepicker7').datetimepicker({
-                locale: 'ru',
-                useCurrent: false //Important! See issue #1075
-            });
-            $("#datetimepicker6").on("dp.change", function (e) {
-                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-            });
-            $("#datetimepicker7").on("dp.change", function (e) {
-                $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-            });
-        });
-    });
-</script>
 
-<div th:replace="fragments/footer :: footer"/>
+<script type="text/javascript"
+        src="../webjars/jquery/2.2.4/jquery.min.js"></script>
+
+<script type="text/javascript" src="../js/singleClientView.js"></script>
+
+<div th:replace="fragments/footer :: footer"> </div>
 
 </body>
 </html>

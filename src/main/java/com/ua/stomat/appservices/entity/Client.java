@@ -166,14 +166,4 @@ public class Client implements Serializable {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Client(String firstName, String secondName, String thirdName, String email, String phone, String sex, Date dateOfBirth, List<Appointment> appointments) {
-        this.firstName = firstName;
-        this.secondName = secondName;
-        this.thirdName = thirdName;
-        this.email = email;
-        this.phone = phone;
-        this.sex = sex;
-        this.dateOfBirth = dateOfBirth;
-        this.appointments = appointments;
-    }
 }
