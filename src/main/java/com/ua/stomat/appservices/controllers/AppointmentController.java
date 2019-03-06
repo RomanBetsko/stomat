@@ -2,7 +2,6 @@ package com.ua.stomat.appservices.controllers;
 
 import com.ua.stomat.appservices.service.AppointmentService;
 import com.ua.stomat.appservices.validator.AddAppointmentCriteria;
-import com.ua.stomat.appservices.validator.ClientCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -25,7 +24,7 @@ public class AppointmentController {
 
     @GetMapping(ADMIN_PATH + "/appointmentById")
     public ModelAndView appointmentViewWithParams(@RequestParam(name = "id") Integer id, @RequestParam(name = "firstName") String firstName,
-                                        @RequestParam(name = "secondName") String secondName, @RequestParam(name = "thirdName") String thirdName) {
+                                                  @RequestParam(name = "secondName") String secondName, @RequestParam(name = "thirdName") String thirdName) {
         return appointmentService.appointmentViewWithParams(id, firstName, secondName, thirdName);
     }
 
@@ -38,8 +37,13 @@ public class AppointmentController {
 //    public ModelAndView appointmentById(@RequestBody @Valid ClientCriteria request, Errors errors) {
 //        return appointmentService.appointmentView(request);
 //    }
+//
+//    @PostMapping(ADMIN_PATH + "/addNewAppointment")
+//    public ResponseEntity<?> addNewAppointment(@RequestBody @Valid AddAppointmentCriteria request, Errors errors) {
+//        return appointmentService.addAppointment(request, errors);
+//    }
 
-    @PostMapping(ADMIN_PATH + "/addNewAppointment")
+    @PostMapping(ADMIN_PATH + "/appointment/create")
     public ResponseEntity<?> addNewAppointment(@RequestBody @Valid AddAppointmentCriteria request, Errors errors) {
         return appointmentService.addAppointment(request, errors);
     }

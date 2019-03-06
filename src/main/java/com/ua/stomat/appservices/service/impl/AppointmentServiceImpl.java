@@ -8,6 +8,8 @@ import com.ua.stomat.appservices.service.AppointmentService;
 import com.ua.stomat.appservices.validator.AddAppointmentCriteria;
 import com.ua.stomat.appservices.validator.AjaxResponseBody;
 import com.ua.stomat.appservices.validator.ClientCriteria;
+import com.ua.stomat.appservices.validator.Procedure;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,10 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Errors;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,7 +51,34 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     private Appointment prepareAppointment(AddAppointmentCriteria request) {
-        return null;
+        Appointment appointment = new Appointment();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+        Date dateFrom = null;
+        Date dateTo = null;
+        try {
+            dateFrom = simpleDateFormat.parse(request.getDateFrom());
+            dateTo = simpleDateFormat.parse(request.getDateTo());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Client client = clientRepository.findByClientId(request.getClientId());
+        appointment.setClient(client);
+        appointment.setName(request.getName());
+        appointment.setPrice(getTotalPrice(request.getProcedure()));
+        if (dateFrom != null && dateTo!= null) {
+            appointment.setDateFrom(new Timestamp(dateFrom.getTime()));
+            appointment.setDateTo(new Timestamp(dateTo.getTime()));
+        }
+        appointment.setDescription(request.getDescription());
+        return appointment;
+    }
+
+    private Integer getTotalPrice(Procedure[] procedures) {
+        Integer totalPrice = 0;
+        for(Procedure procedure: procedures){
+            totalPrice = totalPrice + Integer.valueOf(procedure.getPrice());
+        }
+        return totalPrice;
     }
 
     @Override

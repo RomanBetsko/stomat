@@ -1,22 +1,5 @@
-$(document).ready(function () {
-    var maxField = 20;
-    var addButton = $('.add_button');
-    var wrapper = $('.field_wrapper');
-    var fieldHTML = '<div><input type="text" name="field_name" id="procedure" multiple="multiple" value="" style="margin-top: 5px;"/>' +
-        '<a href="javascript:void(0);" class="remove_button"><img src="../remove-icon.png"></a></div>';
-    var x = 1;
-    $(addButton).click(function () {
-        if (x < maxField) {
-            x++;
-            $(wrapper).append(fieldHTML);
-        }
-    });
-    $(wrapper).on('click', '.remove_button', function (e) {
-        e.preventDefault();
-        $(this).parent('div').remove();
-        x--;
-    });
-});
+// $("a#procedureView").click(function () {
+// });
 
 $(document).ready(function () {
     var today = new Date();
@@ -44,17 +27,126 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
-    document.getElementById("create").onclick = function () {
+    document.getElementById("bth-add").onclick = function () {
         functionCreate()
     };
-    $("#addclient-form").submit(function (event) {
-        event.preventDefault();
-        fire_ajax_submit();
+    // $("#addclient-form").submit(function (event) {
+    //     event.preventDefault();
+    //     fire_ajax_submit();
+    // });
+});
+
+
+$("a#procedureView").click(function(e){
+    var maxField = 20;
+    var addButton = $('.add_button');
+    var wrapper = $('.field_wrapper');
+    var fieldHTML = '<div></div>';
+
+    var _data = {};
+    //todo дістати реальні дані
+    _data["customerId"] = 1;
+    _data["appointmentId"] = 1;
+
+
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/admin/procedure/create",
+        data: JSON.stringify(_data),
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (data) {
+
+            var json = "";
+            // $('#result').html(json);
+            $(fieldHTML).append(json);
+
+            console.log("SUCCESS : ", data);
+            $("#btn-add").prop("disabled", false);
+            location.reload();
+
+        },
+        error: function (e) {
+
+            var json = e.responseText;
+            // $('#result').html(json);
+
+            $('#result').append(json);
+            // $("a#clickview").hide();
+            console.log("ERROR : ", e);
+            $("#btn-add").prop("disabled", false);
+        }
+    });
+
+    var x = 1;
+    $(addButton).click(function () {
+        if (x < maxField) {
+            x++;
+            $(wrapper).append(fieldHTML);
+        }
+    });
+    $(wrapper).on('click', '.remove_button', function () {
+        $(this).parent('div').remove();
+        x--;
     });
 });
 
 function functionCreate() {
-    $("appointment").show();
+    var _data = {};
+    _data["name"] = $("#name").val();
+    _data["clientId"] = $("#clientId").data("clientid");
+    _data["description"] = $("#description").val();
+    _data["dateFrom"] = $("#dateFrom".toString()).val();
+    _data["dateTo"] = $("#dateTo".toString()).val();
+    
+    _data["procedure"] = [];
+
+
+    var elems = [] ;
+    elems = $( "[id^='procedureName']" ).each(function() {
+        _data["procedure"].push({name: $(this).val(), price: ''});
+    });
+
+
+    elems = $( "[id^='procedurePrice']" ).each(function(index) {
+        { _data.procedure[index].price = $(this).val() }
+    });
+
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/admin/appointment/create",
+        data: JSON.stringify(_data),
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (data) {
+
+            var json = "";
+            // $('#result').html(json);
+            $(fieldHTML).append(json);
+
+            console.log("SUCCESS : ", data);
+            $("#btn-add").prop("disabled", false);
+            location.reload();
+
+        },
+        error: function (e) {
+
+            var json = e.responseText;
+            // $('#result').html(json);
+
+            $('#result').append(json);
+            // $("a#clickview").hide();
+            console.log("ERROR : ", e);
+            $("#btn-add").prop("disabled", false);
+        }
+    });
+
+
+    alert(JSON.stringify(_data));
 }
 
 

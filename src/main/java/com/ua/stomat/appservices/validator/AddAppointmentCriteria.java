@@ -2,75 +2,77 @@ package com.ua.stomat.appservices.validator;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.List;
 
 
 public class AddAppointmentCriteria implements Serializable {
 
+    private Integer clientId;
+    @NotEmpty(message = "Не вказана назва")
+    private String name;
+    private @NotEmpty(message = "Не вказано дату та час З") String dateFrom;
+    private @NotEmpty(message = "Не вказано дату та час З") String dateTo;
+    private String description;
+    private Procedure [] procedure;
 
-    private String clientId;
-    private @NotEmpty(message = "Не вказано дата!") Date date;
-    @NotEmpty(message = "Не вказаний час")
-    private String time;
+    public AddAppointmentCriteria(Integer clientId, @NotEmpty(message = "Не вказана назва") String name, @NotEmpty(message = "Не вказано дату та час З") String dateFrom,
+                                  @NotEmpty(message = "Не вказано дату та час З") String dateTo, String description, Procedure [] procedure) {
+        this.clientId = clientId;
+        this.name = name;
+        this.dateFrom = dateFrom;
+        this.dateTo = dateTo;
+        this.description = description;
+        this.procedure = procedure;
+    }
 
     public AddAppointmentCriteria() {
     }
 
-    public AddAppointmentCriteria(String clientId, @NotEmpty(message = "Не вказано дата!") Date date, @NotEmpty(message = "Не вказаний час") String time) {
-        this.clientId = clientId;
-        this.date = date;
-        this.time = time;
-    }
-
-    public String getClientId() {
+    public Integer getClientId() {
         return clientId;
     }
 
-    public void setClientId(String clientId) {
+    public void setClientId(Integer clientId) {
         this.clientId = clientId;
     }
 
-    public Date getDate() {
-        return date;
+    public String getName() {
+        return name;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getTime() {
-        return time;
+    public String getDateFrom() {
+        return dateFrom;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setDateFrom(String dateFrom) {
+        this.dateFrom = dateFrom;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof AddAppointmentCriteria)) return false;
-
-        AddAppointmentCriteria that = (AddAppointmentCriteria) o;
-
-        return getClientId().equals(that.getClientId()) && getDate().equals(that.getDate()) && getTime().equals(that.getTime());
-
+    public String getDateTo() {
+        return dateTo;
     }
 
-    @Override
-    public int hashCode() {
-        int result = getClientId().hashCode();
-        result = 31 * result + getDate().hashCode();
-        result = 31 * result + getTime().hashCode();
-        return result;
+    public void setDateTo(String dateTo) {
+        this.dateTo = dateTo;
     }
 
-    @Override
-    public String toString() {
-        return "AddAppointmentCriteria{" +
-                "clientId='" + clientId + '\'' +
-                ", date='" + date + '\'' +
-                ", time='" + time + '\'' +
-                '}';
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Procedure [] getProcedure() {
+        return procedure;
+    }
+
+    public void setProcedure(Procedure [] procedure) {
+        this.procedure = procedure;
     }
 }

@@ -111,7 +111,7 @@ public class Client implements Serializable {
     }
 
     public List<Appointment> getAppointments() {
-        Collections.sort(appointments, (p1, p2) -> Long.valueOf(p2.getDate().getTime()).compareTo(p1.getDate().getTime()));
+        Collections.sort(appointments, (p1, p2) -> Long.valueOf(p2.getDateFrom().getTime()).compareTo(p1.getDateFrom().getTime()));
         return appointments;
     }
 
