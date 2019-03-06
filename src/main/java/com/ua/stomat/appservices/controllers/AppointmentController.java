@@ -25,8 +25,8 @@ public class AppointmentController {
 
     @GetMapping(ADMIN_PATH + "/appointmentById")
     public ModelAndView appointmentViewWithParams(@RequestParam(name = "id") Integer id, @RequestParam(name = "firstName") String firstName,
-                                        @RequestParam(name = "secondName") String secondName) {
-        return appointmentService.appointmentViewWithParams(id, firstName, secondName);
+                                        @RequestParam(name = "secondName") String secondName, @RequestParam(name = "thirdName") String thirdName) {
+        return appointmentService.appointmentViewWithParams(id, firstName, secondName, thirdName);
     }
 
     @GetMapping(ADMIN_PATH + "/appointment")

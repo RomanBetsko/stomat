@@ -18,10 +18,27 @@ $(document).ready(function () {
     });
 });
 
-$(function () {
+$(document).ready(function () {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+    today = mm + '.' + dd + '.' + yyyy;
     $('#datetimepicker3').datetimepicker({locale: 'uk'});
-    $("#setMinDate").click(function () {
-        $('#datetimepicker3').data("DateTimePicker").minDate(moment('05.11.2017', 'DD.MM.YYYY'));
+    $('#datetimepicker3').data("DateTimePicker").minDate(moment(today, 'DD.MM.YYYY'));
+});
+
+$(document).ready(function () {
+    $("#datetimepicker4").click(function () {
+        var dateFrom = $('#datetimepicker3').data("DateTimePicker").date();
+        $('#datetimepicker4').datetimepicker({locale: 'uk'});
+        $('#datetimepicker4').data("DateTimePicker").minDate(moment(dateFrom, 'DD.MM.YYYY'));
     });
 });
 

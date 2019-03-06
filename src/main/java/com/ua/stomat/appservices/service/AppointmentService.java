@@ -14,7 +14,7 @@ public interface AppointmentService {
 
     ResponseEntity<?> addAppointment(AddAppointmentCriteria request, Errors errors);
 
-    ModelAndView appointmentViewWithParams(Integer clientId, String firstName, String secondName);
+    ModelAndView appointmentViewWithParams(Integer clientId, String firstName, String secondName, String thirdName);
 
     ModelAndView appointmentView();
 }

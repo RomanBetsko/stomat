@@ -49,12 +49,13 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public ModelAndView appointmentViewWithParams(Integer clientId, String firstName, String secondName) {
+    public ModelAndView appointmentViewWithParams(Integer clientId, String firstName, String secondName, String thirdName) {
         Map<String, Object> params = new HashMap<>();
         Client client = new Client();
         client.setClientId(clientId);
         client.setFirstName(firstName);
         client.setSecondName(secondName);
+        client.setThirdName(thirdName);
         params.put("client", client);
         return new ModelAndView("createappointment", params);
     }
