@@ -13,10 +13,10 @@ public class AddAppointmentCriteria implements Serializable {
     private @NotEmpty(message = "Не вказано дату та час З") String dateFrom;
     private @NotEmpty(message = "Не вказано дату та час З") String dateTo;
     private String description;
-    private Procedure [] procedure;
+    private List<Procedure> procedure;
 
     public AddAppointmentCriteria(Integer clientId, @NotEmpty(message = "Не вказана назва") String name, @NotEmpty(message = "Не вказано дату та час З") String dateFrom,
-                                  @NotEmpty(message = "Не вказано дату та час З") String dateTo, String description, Procedure [] procedure) {
+                                  @NotEmpty(message = "Не вказано дату та час З") String dateTo, String description, List<Procedure> procedure) {
         this.clientId = clientId;
         this.name = name;
         this.dateFrom = dateFrom;
@@ -68,11 +68,11 @@ public class AddAppointmentCriteria implements Serializable {
         this.description = description;
     }
 
-    public Procedure [] getProcedure() {
+    public List<Procedure> getProcedure() {
         return procedure;
     }
 
-    public void setProcedure(Procedure [] procedure) {
+    public void setProcedure(List<Procedure> procedure) {
         this.procedure = procedure;
     }
 }

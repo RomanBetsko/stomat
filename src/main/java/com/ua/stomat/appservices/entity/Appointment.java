@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "appointment")
@@ -33,13 +34,13 @@ public class Appointment implements Serializable {
 //    @ManyToMany(mappedBy = "appointments", fetch = FetchType.EAGER)
 //    private Set<Client> client = new HashSet<>();
 
-//    @ManyToMany(cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
-//    @JoinTable(
-//            name = "procedure_id",
-//            joinColumns = { @JoinColumn(name = "appointment_id") },
-//            inverseJoinColumns = { @JoinColumn(name = "procedure_id") }
-//    )
-//    private Set<Procedure> procedures = new HashSet<>();
+    @ManyToMany(cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "appointment_procedure",
+            joinColumns = { @JoinColumn(name = "appointment_id") },
+            inverseJoinColumns = { @JoinColumn(name = "procedure_id") }
+    )
+    private List<Procedure> procedures;
 
     public Appointment() {
     }
@@ -108,13 +109,14 @@ public class Appointment implements Serializable {
         this.dateFrom = dateFrom;
     }
 
-    public Appointment(String name, Integer price, Timestamp dateFrom, Timestamp dateTo, String description, Client client) {
+    public Appointment(String name, Integer price, Timestamp dateFrom, Timestamp dateTo, String description, Client client, List<Procedure> procedures) {
         this.name = name;
         this.price = price;
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
         this.description = description;
         this.client = client;
+        this.procedures = procedures;
     }
 
     public Client getClient() {
@@ -126,12 +128,12 @@ public class Appointment implements Serializable {
     }
 
 
-    //
-//    public Set<Procedure> getProcedures() {
-//        return procedures;
-//    }
-//
-//    public void setProcedures(Set<Procedure> procedures) {
-//        this.procedures = procedures;
-//    }
+
+    public List<Procedure> getProcedures() {
+        return procedures;
+    }
+
+    public void setProcedures(List<Procedure> procedures) {
+        this.procedures = procedures;
+    }
 }
