@@ -101,17 +101,17 @@ function functionCreate() {
     _data["dateFrom"] = $("#dateFrom".toString()).val();
     _data["dateTo"] = $("#dateTo".toString()).val();
     
-    _data["procedure"] = [];
+    _data["procedureCriteria"] = [];
 
 
     var elems = [] ;
     elems = $( "[id^='procedureName']" ).each(function() {
-        _data["procedure"].push({name: $(this).val(), price: ''});
+        _data["procedureCriteria"].push({name: $(this).val(), price: ''});
     });
 
 
     elems = $( "[id^='procedurePrice']" ).each(function(index) {
-        { _data.procedure[index].price = $(this).val() }
+        { _data.procedureCriteria[index].price = $(this).val() }
     });
 
     $.ajax({

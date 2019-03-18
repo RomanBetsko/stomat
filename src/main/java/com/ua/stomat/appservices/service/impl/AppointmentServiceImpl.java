@@ -5,11 +5,12 @@ import com.ua.stomat.appservices.dao.ClientRepository;
 import com.ua.stomat.appservices.dao.ProcedureRepository;
 import com.ua.stomat.appservices.entity.Appointment;
 import com.ua.stomat.appservices.entity.Client;
+import com.ua.stomat.appservices.entity.Procedure;
 import com.ua.stomat.appservices.service.AppointmentService;
 import com.ua.stomat.appservices.validator.AddAppointmentCriteria;
 import com.ua.stomat.appservices.validator.AjaxResponseBody;
 import com.ua.stomat.appservices.validator.ClientCriteria;
-import com.ua.stomat.appservices.validator.Procedure;
+import com.ua.stomat.appservices.validator.ProcedureCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
@@ -63,22 +64,33 @@ public class AppointmentServiceImpl implements AppointmentService {
         Client client = clientRepository.findByClientId(request.getClientId());
         appointment.setClient(client);
         appointment.setName(request.getName());
-        appointment.setPrice(getTotalPrice(request.getProcedure()));
+        appointment.setPrice(getTotalPrice(request.getProcedureCriteria()));
         if (dateFrom != null && dateTo != null) {
             appointment.setDateFrom(new Timestamp(dateFrom.getTime()));
             appointment.setDateTo(new Timestamp(dateTo.getTime()));
         }
         appointment.setDescription(request.getDescription());
-        List<Procedure> procedures = new ArrayList<>();
-        procedures.addAll(request.getProcedure());
-//        procedureRepository.saveAll(procedures);
+        //todo check this;
+        appointment.setProcedures(prepareProcedures(request.getProcedureCriteria()));
         return appointment;
     }
 
-    private Integer getTotalPrice(List<Procedure> procedures) {
+    private Set<Procedure> prepareProcedures(Set<ProcedureCriteria> procedureCriteria) {
+        Set<Procedure> procedures = new HashSet<>();
+        for (ProcedureCriteria temp : procedureCriteria){
+            Procedure procedure = new Procedure();
+            procedure.setName(temp.getName());
+            procedure.setPrice(temp.getPrice());
+            procedures.add(procedure);
+        }
+        return procedures;
+    }
+
+
+    private Integer getTotalPrice(Set<ProcedureCriteria> procedures) {
         Integer totalPrice = 0;
-        for (Procedure procedure : procedures) {
-            totalPrice = totalPrice + Integer.valueOf(procedure.getPrice());
+        for (ProcedureCriteria procedure : procedures) {
+            totalPrice = totalPrice + procedure.getPrice();
         }
         return totalPrice;
     }

@@ -204,11 +204,11 @@ CREATE TABLE IF NOT EXISTS `orderbooks` (
 -- --------------------------------------------------------
 
 --
--- Структура таблиці `procedure`
+-- Структура таблиці `procedureCriteria`
 --
 
-DROP TABLE IF EXISTS `procedure`;
-CREATE TABLE IF NOT EXISTS `procedure` (
+DROP TABLE IF EXISTS `procedureCriteria`;
+CREATE TABLE IF NOT EXISTS `procedureCriteria` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(128) DEFAULT NULL,
   `price` int(128) DEFAULT NULL,

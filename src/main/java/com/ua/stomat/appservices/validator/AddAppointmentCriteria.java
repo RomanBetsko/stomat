@@ -3,6 +3,7 @@ package com.ua.stomat.appservices.validator;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 
 public class AddAppointmentCriteria implements Serializable {
@@ -13,16 +14,16 @@ public class AddAppointmentCriteria implements Serializable {
     private @NotEmpty(message = "Не вказано дату та час З") String dateFrom;
     private @NotEmpty(message = "Не вказано дату та час З") String dateTo;
     private String description;
-    private List<Procedure> procedure;
+    private Set<ProcedureCriteria> procedureCriteria;
 
     public AddAppointmentCriteria(Integer clientId, @NotEmpty(message = "Не вказана назва") String name, @NotEmpty(message = "Не вказано дату та час З") String dateFrom,
-                                  @NotEmpty(message = "Не вказано дату та час З") String dateTo, String description, List<Procedure> procedure) {
+                                  @NotEmpty(message = "Не вказано дату та час З") String dateTo, String description, Set<ProcedureCriteria> procedureCriteria) {
         this.clientId = clientId;
         this.name = name;
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
         this.description = description;
-        this.procedure = procedure;
+        this.procedureCriteria = procedureCriteria;
     }
 
     public AddAppointmentCriteria() {
@@ -68,11 +69,11 @@ public class AddAppointmentCriteria implements Serializable {
         this.description = description;
     }
 
-    public List<Procedure> getProcedure() {
-        return procedure;
+    public Set<ProcedureCriteria> getProcedureCriteria() {
+        return procedureCriteria;
     }
 
-    public void setProcedure(List<Procedure> procedure) {
-        this.procedure = procedure;
+    public void setProcedureCriteria(Set<ProcedureCriteria> procedureCriteria) {
+        this.procedureCriteria = procedureCriteria;
     }
 }

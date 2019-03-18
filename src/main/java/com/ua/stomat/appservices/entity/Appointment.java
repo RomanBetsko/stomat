@@ -6,7 +6,9 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "appointment")
@@ -31,16 +33,13 @@ public class Appointment implements Serializable {
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
-//    @ManyToMany(mappedBy = "appointments", fetch = FetchType.EAGER)
-//    private Set<Client> client = new HashSet<>();
-
-    @ManyToMany(cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
             name = "appointment_procedure",
             joinColumns = { @JoinColumn(name = "appointment_id") },
             inverseJoinColumns = { @JoinColumn(name = "procedure_id") }
     )
-    private List<Procedure> procedures;
+    private Set<Procedure> procedures = new HashSet<>(0);
 
     public Appointment() {
     }
@@ -74,7 +73,7 @@ public class Appointment implements Serializable {
         this.price = price;
     }
 
-    public Date getDateFrom() {
+    public Timestamp getDateFrom() {
 //        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
 //        Date temp = null;
 //        try {
@@ -89,7 +88,7 @@ public class Appointment implements Serializable {
         return dateFrom;
     }
 
-    public Date getDateTo() {
+    public Timestamp getDateTo() {
         return dateTo;
     }
 
@@ -109,7 +108,7 @@ public class Appointment implements Serializable {
         this.dateFrom = dateFrom;
     }
 
-    public Appointment(String name, Integer price, Timestamp dateFrom, Timestamp dateTo, String description, Client client, List<Procedure> procedures) {
+    public Appointment(String name, Integer price, Timestamp dateFrom, Timestamp dateTo, String description, Client client, Set<Procedure> procedures) {
         this.name = name;
         this.price = price;
         this.dateFrom = dateFrom;
@@ -129,11 +128,11 @@ public class Appointment implements Serializable {
 
 
 
-    public List<Procedure> getProcedures() {
+    public Set<Procedure> getProcedures() {
         return procedures;
     }
 
-    public void setProcedures(List<Procedure> procedures) {
+    public void setProcedures(Set<Procedure> procedures) {
         this.procedures = procedures;
     }
 }

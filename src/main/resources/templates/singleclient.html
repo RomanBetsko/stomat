@@ -133,7 +133,7 @@
         <tbody>
         <tr th:each="appointment, rowStat: ${client.appointments}">
             <td><a class="btn btn-primary center-block btn-sm"
-                   th:href="'/admin/procedure?id=' + ${appointment.appointmentId}"
+                   th:href="'/admin/procedureCriteria?id=' + ${appointment.appointmentId}"
                    th:text="Відвідування"></a></td>
             <td th:text="${appointment.name}"></td>
             <td th:text="${appointment.price}"></td>

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "procedure")
+@Table(name = "proc")
 public class Procedure implements Serializable {
 
     private static final long serialVersionUID = 3L;
@@ -21,10 +21,10 @@ public class Procedure implements Serializable {
     private Integer price;
 
     @ManyToMany(mappedBy = "procedures", fetch = FetchType.EAGER)
-    private List<Appointment> appointments;
+    private Set<Appointment> appointments = new HashSet<>(0);
 
 
-    public Procedure(String name, Integer price, List<Appointment> appointments) {
+    public Procedure(String name, Integer price, Set<Appointment> appointments) {
         this.name = name;
         this.price = price;
         this.appointments = appointments;
@@ -60,17 +60,17 @@ public class Procedure implements Serializable {
         this.price = price;
     }
 
-    public List<Appointment> getAppointments() {
+    public Set<Appointment> getAppointments() {
         return appointments;
     }
 
-    public void setAppointments(List<Appointment> appointments) {
+    public void setAppointments(Set<Appointment> appointments) {
         this.appointments = appointments;
     }
 
     @Override
     public String toString() {
-        return "Procedure{" +
+        return "ProcedureCriteria{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +
