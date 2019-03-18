@@ -1,5 +1,8 @@
 package com.ua.stomat.appservices.entity;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -35,16 +38,9 @@ public class Client implements Serializable {
     private Date dateOfBirth;
     @Column(name = "total_earn", nullable = false)
     private Integer totalEarn;
-    //    @ManyToMany(cascade = { CascadeType.ALL}, fetch = FetchType.EAGER)
-//    @JoinTable(
-//            name = "client_appointments",
-//            joinColumns = { @JoinColumn(name = "clientId") },
-//            inverseJoinColumns = { @JoinColumn(name = "appoinmentId") }
-//    )
 
-//    private Set<Appointment> appointments = new HashSet<>();
-
-    @OneToMany(mappedBy = "client", cascade = {CascadeType.ALL})
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Appointment> appointments;
 
     public Client() {
@@ -111,9 +107,7 @@ public class Client implements Serializable {
     }
 
     public List<Appointment> getAppointments() {
-//        Collections.sort((e1, e2) -> new Long(e1.get).compareTo(new Long(e2.getCreated())));
-//        appointments.sort();
-//        Collections.sort(appointments, (p1, p2) -> Long.valueOf(p2.getDateFrom().getTime()).compareTo(p1.getDateFrom().getTime()));
+        Collections.sort(appointments, (p1, p2) -> Long.valueOf(p2.getDateFrom().getTime()).compareTo(p1.getDateFrom().getTime()));
         return appointments;
     }
 

@@ -1,5 +1,8 @@
 package com.ua.stomat.appservices.entity;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -14,14 +17,15 @@ public class Procedure implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer procedure_id;
     @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "price", nullable = false)
     private Integer price;
 
-    @ManyToMany(mappedBy = "procedures", fetch = FetchType.EAGER)
-    private Set<Appointment> appointments = new HashSet<>(0);
+    @ManyToMany(mappedBy = "procedures", fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Set<Appointment> appointments = new HashSet<>();
 
 
     public Procedure(String name, Integer price, Set<Appointment> appointments) {
@@ -37,11 +41,11 @@ public class Procedure implements Serializable {
     }
 
     public Integer getId() {
-        return id;
+        return procedure_id;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.procedure_id = id;
     }
 
     public String getName() {
@@ -71,7 +75,7 @@ public class Procedure implements Serializable {
     @Override
     public String toString() {
         return "ProcedureCriteria{" +
-                "id=" + id +
+                "id=" + procedure_id +
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", appointments=" + appointments +

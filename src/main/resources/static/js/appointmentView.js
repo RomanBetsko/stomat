@@ -1,5 +1,3 @@
-// $("a#procedureView").click(function () {
-// });
 
 $(document).ready(function () {
     var today = new Date();
@@ -12,7 +10,7 @@ $(document).ready(function () {
     if (mm < 10) {
         mm = '0' + mm;
     }
-    today = mm + '.' + dd + '.' + yyyy;
+    today = dd + '.' + mm + '.' + yyyy;
     $('#datetimepicker3').datetimepicker({locale: 'uk'});
     $('#datetimepicker3').data("DateTimePicker").minDate(moment(today, 'DD.MM.YYYY'));
 });
@@ -30,10 +28,6 @@ $(document).ready(function () {
     document.getElementById("bth-add").onclick = function () {
         functionCreate()
     };
-    // $("#addclient-form").submit(function (event) {
-    //     event.preventDefault();
-    //     fire_ajax_submit();
-    // });
 });
 
 
@@ -44,7 +38,7 @@ $("a#procedureView").click(function(e){
     var fieldHTML = '<div></div>';
 
     var _data = {};
-    //todo дістати реальні дані
+    //todo дістати реальні дані реальні процедури і тд.
     _data["customerId"] = 1;
     _data["appointmentId"] = 1;
 
@@ -66,15 +60,11 @@ $("a#procedureView").click(function(e){
             console.log("SUCCESS : ", data);
             $("#btn-add").prop("disabled", false);
             location.reload();
-
         },
         error: function (e) {
 
             var json = e.responseText;
-            // $('#result').html(json);
-
             $('#result').append(json);
-            // $("a#clickview").hide();
             console.log("ERROR : ", e);
             $("#btn-add").prop("disabled", false);
         }
@@ -125,9 +115,7 @@ function functionCreate() {
         success: function (data) {
 
             var json = "";
-            // $('#result').html(json);
             $(fieldHTML).append(json);
-
             console.log("SUCCESS : ", data);
             $("#btn-add").prop("disabled", false);
             location.reload();
@@ -136,17 +124,11 @@ function functionCreate() {
         error: function (e) {
 
             var json = e.responseText;
-            // $('#result').html(json);
-
             $('#result').append(json);
-            // $("a#clickview").hide();
             console.log("ERROR : ", e);
             $("#btn-add").prop("disabled", false);
         }
     });
-
-
-    alert(JSON.stringify(_data));
 }
 
 

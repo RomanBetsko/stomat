@@ -1,5 +1,8 @@
 package com.ua.stomat.appservices.entity;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -34,12 +37,13 @@ public class Appointment implements Serializable {
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
     @ManyToMany(cascade = { CascadeType.ALL })
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinTable(
             name = "appointment_procedure",
             joinColumns = { @JoinColumn(name = "appointment_id") },
             inverseJoinColumns = { @JoinColumn(name = "procedure_id") }
     )
-    private Set<Procedure> procedures = new HashSet<>(0);
+    private Set<Procedure> procedures = new HashSet<>();
 
     public Appointment() {
     }
