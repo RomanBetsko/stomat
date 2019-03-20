@@ -144,10 +144,15 @@ public class Client implements Serializable {
     }
 
     public Integer rank() {
-        if (getTotalEarn().equals(0) || getAppointments().isEmpty()) {
+        List<Appointment> appointments = getAppointments();
+        if(appointments.isEmpty()){
             return 0;
         }
-        return getTotalEarn() / getAppointments().size();
+        Integer totalEarn = 0;
+        for(Appointment appointment : appointments){
+            totalEarn = totalEarn + appointment.getPrice();
+        }
+        return totalEarn / getAppointments().size();
     }
 
     public Integer appointmentsSize() {
