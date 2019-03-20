@@ -17,7 +17,7 @@ public class AddClientCriteria implements Serializable {
     private String email;
     @NotEmpty(message = "Не вказаний телефон!")
     private String phone;
-    private Date dateOfBirth;
+    private String dateOfBirth;
     private String sex;
 
     public AddClientCriteria() {
@@ -25,7 +25,7 @@ public class AddClientCriteria implements Serializable {
 
     public AddClientCriteria(@NotEmpty(message = "Не вказано ім'я!") String firstName, @NotEmpty(message = "Не вказано прізвище!") String secondName,
                              @NotEmpty(message = "Не вказано по-батькові!") String thirdName, String email, @NotEmpty(message = "Не вказаний телефон!") String phone,
-                             Date dateOfBirth, String sex) {
+                             String dateOfBirth, String sex) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.thirdName = thirdName;
@@ -75,11 +75,11 @@ public class AddClientCriteria implements Serializable {
         this.phone = phone;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

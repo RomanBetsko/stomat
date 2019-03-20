@@ -11,8 +11,6 @@ public interface ClientService {
 
     ResponseEntity<?> addClient(AddClientCriteria request, Errors errors);
 
-    ResponseEntity<?> deleteBook(Integer bookId, Integer customerId, Errors errors);
-
     ModelAndView getClientsData();
 
     ModelAndView getClientPage(Integer clientId);

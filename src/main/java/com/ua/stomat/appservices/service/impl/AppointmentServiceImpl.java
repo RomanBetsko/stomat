@@ -33,8 +33,6 @@ public class AppointmentServiceImpl implements AppointmentService {
     private AppointmentRepository appointmentRepository;
     @Autowired
     private ClientRepository clientRepository;
-    @Autowired
-    private ProcedureRepository procedureRepository;
 
     @Override
     public ResponseEntity<?> addAppointment(AddAppointmentCriteria request, Errors errors) {
@@ -116,5 +114,19 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     private List<ClientCriteria> clientToClientCriteria(List<Client> clientList) {
         return clientList.stream().map(client -> new ClientCriteria(client.getClientId(), client.getFirstName(), client.getSecondName())).collect(Collectors.toList());
+    }
+
+    @Override
+    public ResponseEntity<?> deleteAppointment(Integer id, Errors errors) {
+        AjaxResponseBody result = new AjaxResponseBody();
+        if (errors.hasErrors()) {
+            result.setMsg(errors.getAllErrors()
+                    .stream().map(DefaultMessageSourceResolvable::getDefaultMessage)
+                    .collect(Collectors.joining(",")));
+            return ResponseEntity.badRequest().body(result);
+        }
+        appointmentRepository.deleteByAppointmentId(id);
+        result.setMsg("Зустріч було видалено!");
+        return ResponseEntity.ok(result);
     }
 }

@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 @RepositoryRestResource(collectionResourceRel = "appointment", path = "appointment")
 @Repository
 public interface AppointmentRepository extends CrudRepository<Appointment, Long> {
+
+    void deleteByAppointmentId(Integer id);
 }

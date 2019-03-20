@@ -92,3 +92,7 @@ $("a#delete").click(function(){
 
 });
 
+$(document).ready(function () {
+    $('#datetimepicker3').datetimepicker({locale: 'uk', format: 'L', viewMode: 'years'});
+});
+

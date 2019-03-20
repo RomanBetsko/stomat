@@ -17,4 +17,6 @@ public interface AppointmentService {
     ModelAndView appointmentViewWithParams(Integer clientId, String firstName, String secondName, String thirdName);
 
     ModelAndView appointmentView();
+
+    ResponseEntity<?> deleteAppointment(Integer id, Errors errors);
 }

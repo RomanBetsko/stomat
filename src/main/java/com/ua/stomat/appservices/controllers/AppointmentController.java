@@ -2,6 +2,8 @@ package com.ua.stomat.appservices.controllers;
 
 import com.ua.stomat.appservices.service.AppointmentService;
 import com.ua.stomat.appservices.validator.AddAppointmentCriteria;
+import com.ua.stomat.appservices.validator.DeleteAppointmentCriteria;
+import com.ua.stomat.appservices.validator.DeleteClientCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -46,5 +48,10 @@ public class AppointmentController {
     @PostMapping(ADMIN_PATH + "/appointment/create")
     public ResponseEntity<?> addNewAppointment(@RequestBody @Valid AddAppointmentCriteria request, Errors errors) {
         return appointmentService.addAppointment(request, errors);
+    }
+
+    @PostMapping(ADMIN_PATH + "/delete/appointment")
+    public ResponseEntity<?> deleteClient(@RequestBody @Valid DeleteAppointmentCriteria request, Errors errors) {
+        return appointmentService.deleteAppointment(request.getId(), errors);
     }
 }

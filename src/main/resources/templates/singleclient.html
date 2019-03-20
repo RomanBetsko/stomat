@@ -99,21 +99,7 @@
                         <p>
                             <small>Рейтинг</small>
                         </p>
-                        <!--?<div class="btn-group dropup btn-block">-->
-                        <!--?<button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Опции</button>-->
-                        <!--?<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">-->
-                        <!--?<span class="caret"></span>-->
-                        <!--?<span class="sr-only">Toggle Dropdown</span>-->
-                        <!--?</button>-->
-                        <!--?<ul class="dropdown-menu text-left" role="menu">-->
-                        <!--?<li><a href="#"><span class="fa fa-envelope pull-right"></span> Отправить email </a></li>-->
-                        <!--?<li><a href="#"><span class="fa fa-list pull-right"></span> Редактировать список</a></li>-->
-                        <!--?<li class="divider"></li>-->
-                        <!--?<li><a href="#"><span class="fa fa-warning pull-right"></span>Сообщить о спаме</a></li>-->
-                        <!--?<li class="divider"></li>-->
-                        <!--?<li><a href="#" class="btn disabled" role="button"> Отписатся </a></li>-->
-                        <!--?</ul>-->
-                        <!--?</div>-->
+
                         <a class="btn btn-primary btn-block btn-lg" th:href="'#'" th:text="'Something'"></a>
                     </div>
                 </div>
@@ -124,10 +110,12 @@
     <table class="table" th:if="${client.appointments!=null and !client.appointments.empty}">
         <thead>
         <tr>
-            <th width="3%">Відвідування</th>
+            <th width="3%"></th>
+            <th scope="col" style="display:none;"></th>
             <th scope="col">Назва відвідування</th>
             <th scope="col">Загальна вартість</th>
             <th scope="col">Дата</th>
+            <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
@@ -135,9 +123,11 @@
             <td><a class="btn btn-primary center-block btn-sm"
                    th:href="'/admin/procedureCriteria?id=' + ${appointment.appointmentId}"
                    th:text="Відвідування"></a></td>
+            <td th:text="${appointment.appointmentId}" id="id" class="id" style="display:none;"></td>
             <td th:text="${appointment.name}"></td>
             <td th:text="${appointment.price}"></td>
             <td th:text="${#dates.format(appointment.dateFrom, 'dd.MM.yyyy')}"></td>
+            <td ><a href="#" id="delete" class="center"><img src="../images/remove-icon.png" /></a>
         </tr>
         </tbody>
     </table>

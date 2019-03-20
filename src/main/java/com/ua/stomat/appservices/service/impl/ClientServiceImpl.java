@@ -13,6 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Errors;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,7 +51,16 @@ public class ClientServiceImpl implements ClientService {
         client.setEmail(request.getEmail());
         client.setPhone(request.getPhone());
         client.setSex(request.getSex());
-        client.setDateOfBirth(request.getDateOfBirth());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        Date dateOfBirth = null;
+        try {
+            dateOfBirth = simpleDateFormat.parse(request.getDateOfBirth());
+        } catch (ParseException e) {
+
+            //throw exeption
+            e.printStackTrace();
+        }
+        client.setDateOfBirth(dateOfBirth);
         return client;
     }
 
@@ -57,20 +69,6 @@ public class ClientServiceImpl implements ClientService {
         Map<String, Object> params = new HashMap<>();
         params.put("clients", clientRepository.findAll());
         return new ModelAndView("clients", params);
-    }
-
-    @Override
-    public ResponseEntity<?> deleteBook(Integer bookId, Integer customerId, Errors errors) {
-        AjaxResponseBody result = new AjaxResponseBody();
-        //clientDao.getByAddedBy(customerId).stream().filter(book -> book.getClientId() == bookId).forEach(book -> clientDao.deleteBook(bookId));
-        if (errors.hasErrors()) {
-            result.setMsg(errors.getAllErrors()
-                    .stream().map(DefaultMessageSourceResolvable::getDefaultMessage)
-                    .collect(Collectors.joining(",")));
-            return ResponseEntity.badRequest().body(result);
-        }
-        result.setMsg("Good result, book was deleted");
-        return ResponseEntity.ok(result);
     }
 
     @Override

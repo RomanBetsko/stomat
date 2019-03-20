@@ -35,3 +35,31 @@ $("a#createapp").click(function(){
     });
 
 });
+
+$("a#delete").click(function(){
+    var $row = $(this).closest("tr");    // Find the row
+    var $text = $row.find(".id").text();
+
+    var _data = {};
+    _data["id"] = $text;
+
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/admin/delete/appointment",
+        data: JSON.stringify(_data),
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (data) {
+            
+            console.log("SUCCESS : ", data);
+            location.reload();
+
+        },
+        error: function (e) {
+            console.log("ERROR : ", e);
+        }
+    });
+
+});

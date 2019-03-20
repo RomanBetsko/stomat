@@ -9,9 +9,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 //@SpringBootApplication(exclude = HibernateJpaAutoConfiguration.class)
 @SpringBootApplication
 @EnableJpaAuditing
-public class BookCatalogBetskoApplication {
+public class StomatBetskoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BookCatalogBetskoApplication.class, args);
+        SpringApplication.run(StomatBetskoApplication.class, args);
     }
 }
