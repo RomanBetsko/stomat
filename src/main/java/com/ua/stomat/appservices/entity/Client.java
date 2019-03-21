@@ -39,7 +39,7 @@ public class Client implements Serializable {
     @Column(name = "total_earn", nullable = false)
     private Integer totalEarn;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.EAGER )
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Appointment> appointments;
 

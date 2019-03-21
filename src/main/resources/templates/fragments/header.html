@@ -20,7 +20,12 @@
                     <li class="active"><a th:href="@{/admin}">Main admin page</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" id="orderCardView"><span class="glyphicon glyphicon-th-list"></span> </a></li>
+
+                        <span class="glyphicon glyphicon-inbox"></span>
+                        <li><a href="#" id="clientsToInform"><span class="style-scope ytd-notification-topbar-button-renderer"></span> </a></li>
+                        <span class="badge badge-notify" id="notification" style="background: red; position:absolute;"></span>
+
+
                 </ul>
             </div>
         </div>
