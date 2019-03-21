@@ -6,24 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class UnloginZoneController {
 
-    @GetMapping("/ua")
-    public String ukrIndex() {
-        return "/ukr";
-    }
-
-    @GetMapping("/ru")
-    public String rusIndex() {
-        return "/rus";
-    }
-
-    @GetMapping("/eng")
-    public String engIndex() {
-        return "/eng";
-    }
-
-    @GetMapping("/pl")
-    public String plnIndex() {
-        return "/pln";
+    @GetMapping("/international")
+    public String internationalIndex() {
+        return "international";
     }
 
     @GetMapping("/login")
