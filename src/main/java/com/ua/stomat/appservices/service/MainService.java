@@ -9,5 +9,5 @@ public interface MainService {
 
     ModelAndView getUnloginZoneData();
 
-    ResponseEntity<?> getClientsToInform();
+    ResponseEntity<?> informSize();
 }

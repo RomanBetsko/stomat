@@ -36,7 +36,7 @@ public class MainServiceImpl implements MainService {
     }
 
     @Override
-    public ResponseEntity<?> getClientsToInform() {
+    public ResponseEntity<?> informSize() {
 
         //todo fix this
         AjaxResponseBody result = new AjaxResponseBody();
@@ -47,8 +47,6 @@ public class MainServiceImpl implements MainService {
         }else {
             result.setMsg(String.valueOf(clientList.size()));
         }
-
-
         return ResponseEntity.ok(result);
     }
 }

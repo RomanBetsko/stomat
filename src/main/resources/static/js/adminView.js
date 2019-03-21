@@ -2,7 +2,7 @@ $(document).ready(function () {
     $.ajax({
         type: "GET",
         contentType: "application/json",
-        url: "/admin/getClientsToInform",
+        url: "/admin/informSize",
         //data: JSON.stringify(_data),
         dataType: 'json',
         cache: false,
@@ -21,27 +21,13 @@ $(document).ready(function () {
 
 
 
-$("a#clientsToInform").click(function(e){
-    
-    alert('something');
-    
-    
-    e.preventDefault();
-    var $row = $(this).closest("tr");    // Find the row
-    var $text = $row.find(".id").text();
-
-    var _data = {};
-    _data["bookId"] = $text;
-
-    //todo refactor when will added multiusers
-    _data["readerId"] = 1;
-    $("#btn-add").prop("disabled", true);
+$("button#clientsToInform").click(function(){
 
     $.ajax({
         type: "POST",
         contentType: "application/json",
-        url: "/addBookToCard",
-        data: JSON.stringify(_data),
+        url: "/getClientsToInform",
+        data: JSON.stringify(null),
         dataType: 'json',
         cache: false,
         timeout: 600000,
