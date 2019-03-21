@@ -1,7 +1,6 @@
 package com.ua.stomat.appservices.config.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -9,8 +8,6 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.access.AccessDeniedHandler;
-import org.springframework.security.web.firewall.HttpFirewall;
-import org.springframework.security.web.firewall.StrictHttpFirewall;
 
 @Configuration
 @EnableWebSecurity
@@ -36,6 +33,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .exceptionHandling().accessDeniedHandler(accessDeniedHandler);
+
+        http.authorizeRequests().antMatchers("/resources/**").permitAll().anyRequest().permitAll();
     }
 
     @Autowired
@@ -48,9 +47,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
 
-//        web.ignoring().antMatchers("/resources/**").anyRequest();
-//        web.ignoring().antMatchers("/resources/admin/**").anyRequest();
         web.ignoring().antMatchers("/webjars/**");
-        web.ignoring().antMatchers("/css/**","/fonts/**","/libs/**", "/images/**");
+        web.ignoring().antMatchers("/css/**", "/fonts/**", "/libs/**", "/images/**");
     }
 }
