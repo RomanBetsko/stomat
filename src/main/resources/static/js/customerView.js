@@ -96,3 +96,8 @@ $(document).ready(function () {
     $('#datetimepicker3').datetimepicker({locale: 'uk', format: 'L', viewMode: 'years'});
 });
 
+$(document).ready(function () {
+    $('#clientsBasicTable').DataTable();
+    $('.dataTables_length').addClass('bs-select');
+});
+
