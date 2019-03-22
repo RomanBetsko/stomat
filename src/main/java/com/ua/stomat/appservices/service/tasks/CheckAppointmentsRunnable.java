@@ -25,21 +25,48 @@ public class CheckAppointmentsRunnable implements Runnable {
     public void run() {
 
         List<Client> clients = clientRepository.findAll();
-        List<Client> clients1ToInform = new ArrayList<>();
+        List<Client> temp = new ArrayList<>();
+        if (!adminInfo.getClientsToInform().isEmpty()) {
+            // refreshed ClientsToInform data with new appointments
+            adminInfo.refreshData();
+            temp = adminInfo.getClientsToInform();
+        }
+
+        Date currentDate = new Date();
+        LocalDateTime localDateTime = currentDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        localDateTime = localDateTime.minusDays(1);
+        Date currentDateMinusOneDay = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+        localDateTime = localDateTime.minusMonths(6).plusDays(1);
+        Date currentDateMinusSixMonths = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+
         for (Client client : clients) {
             Appointment lastAppointment = client.getAppointments().get(0);
 
-            Date currentDate = new Date();
-            LocalDateTime localDateTime = currentDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-            localDateTime = localDateTime.minusMonths(6);
-            Date currentDateMinusSixMonths = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
-
             if (currentDateMinusSixMonths.after(new Date(lastAppointment.getDateTo().getTime()))) {
-
-                clients1ToInform.add(client);
+                for (Client cln : temp) {
+                    if (cln.equals(client)) {
+                        temp.add(client);
+                        System.out.println("Client added to clients1ToInform list");
+                    }
+                }
+                if (temp.isEmpty()) {
+                    temp.add(client);
+                    System.out.println("Client added to clients1ToInform list");
+                }
             }
         }
+
+        // for avoid ConcurrentModificationException
+        List<Client> listToRemove = new ArrayList<>();
+        for (Client clientToInform : temp) {
+            Appointment lastAppointment = clientToInform.getAppointments().get(0);
+            if (currentDateMinusOneDay.before(new Date(lastAppointment.getDateFrom().getTime()))) {
+                listToRemove.add(clientToInform);
+                System.out.println("Client was deleted from clients1ToInform list");
+            }
+        }
+        temp.removeAll(listToRemove);
         //todo send email
-        adminInfo.setClientsToInform(clients1ToInform);
+        adminInfo.setClientsToInform(temp);
     }
 }

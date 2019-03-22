@@ -16,7 +16,7 @@ public class CheckAppointmentsRunnableImpl implements TaskService {
 
     @Override
 //    @Scheduled(cron = "0 0 1 * * ?") //will run at 1 a.m every day
-    @Scheduled(fixedRate=50000) //will run every 50 sec
+    @Scheduled(fixedRate=20000) //will run every 20 sec
 
     //todo not forget about it
     public void checkAppointments() {

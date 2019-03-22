@@ -7,6 +7,7 @@ import com.ua.stomat.appservices.entity.Appointment;
 import com.ua.stomat.appservices.entity.Client;
 import com.ua.stomat.appservices.entity.Procedure;
 import com.ua.stomat.appservices.service.AppointmentService;
+import com.ua.stomat.appservices.utils.AdminInfo;
 import com.ua.stomat.appservices.validator.AddAppointmentCriteria;
 import com.ua.stomat.appservices.validator.AjaxResponseBody;
 import com.ua.stomat.appservices.validator.ClientCriteria;

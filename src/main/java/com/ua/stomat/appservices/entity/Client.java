@@ -167,4 +167,60 @@ public class Client implements Serializable {
         this.dateOfBirth = dateOfBirth;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Client)) return false;
+
+        Client client = (Client) o;
+
+        if (getClientId() != null ? !getClientId().equals(client.getClientId()) : client.getClientId() != null)
+            return false;
+        if (getFirstName() != null ? !getFirstName().equals(client.getFirstName()) : client.getFirstName() != null)
+            return false;
+        if (getSecondName() != null ? !getSecondName().equals(client.getSecondName()) : client.getSecondName() != null)
+            return false;
+        if (getThirdName() != null ? !getThirdName().equals(client.getThirdName()) : client.getThirdName() != null)
+            return false;
+        if (getEmail() != null ? !getEmail().equals(client.getEmail()) : client.getEmail() != null) return false;
+        if (getPhone() != null ? !getPhone().equals(client.getPhone()) : client.getPhone() != null) return false;
+        if (getSex() != null ? !getSex().equals(client.getSex()) : client.getSex() != null) return false;
+        if (getDateOfBirth() != null ? !getDateOfBirth().equals(client.getDateOfBirth()) : client.getDateOfBirth() != null)
+            return false;
+        if (getTotalEarn() != null ? !getTotalEarn().equals(client.getTotalEarn()) : client.getTotalEarn() != null)
+            return false;
+        return getAppointments() != null ? getAppointments().equals(client.getAppointments()) : client.getAppointments() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getClientId() != null ? getClientId().hashCode() : 0;
+        result = 31 * result + (getFirstName() != null ? getFirstName().hashCode() : 0);
+        result = 31 * result + (getSecondName() != null ? getSecondName().hashCode() : 0);
+        result = 31 * result + (getThirdName() != null ? getThirdName().hashCode() : 0);
+        result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
+        result = 31 * result + (getPhone() != null ? getPhone().hashCode() : 0);
+        result = 31 * result + (getSex() != null ? getSex().hashCode() : 0);
+        result = 31 * result + (getDateOfBirth() != null ? getDateOfBirth().hashCode() : 0);
+        result = 31 * result + (getTotalEarn() != null ? getTotalEarn().hashCode() : 0);
+        result = 31 * result + (getAppointments() != null ? getAppointments().hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "clientId=" + clientId +
+                ", firstName='" + firstName + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", thirdName='" + thirdName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", sex='" + sex + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", totalEarn=" + totalEarn +
+                ", appointments=" + appointments +
+                '}';
+    }
 }

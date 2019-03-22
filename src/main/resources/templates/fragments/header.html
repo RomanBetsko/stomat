@@ -12,6 +12,8 @@
 <div th:fragment="header">
     <nav class="navbar navbar-inverse">
         <div class="container">
+            <!--Notification result will be here-->
+            <div id="notificationresult"></div>
             <div class="navbar-header">
                 <a class="navbar-brand" th:href="@{/international}">Users site</a>
             </div>
@@ -20,12 +22,13 @@
                     <li class="active"><a th:href="@{/admin}">Main admin page</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-
+                    <!--clients to inform-->
                     <button id="clientsToInform" type="button" class="btn btn-primary btn-lg">
                         <span class="glyphicon glyphicon-th-list"></span>
                     </button>
 
                 </ul>
+                <!--counter if clients to inform-->
                 <ul class="nav navbar-nav navbar-right">
                     <li><span class="style-scope ytd-notification-topbar-button-renderer"></span> </li>
                     <span class="badge badge-notify" id="notification" style="background: red; position:absolute;"></span>
