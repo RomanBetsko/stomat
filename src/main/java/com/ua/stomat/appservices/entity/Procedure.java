@@ -1,13 +1,8 @@
 package com.ua.stomat.appservices.entity;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "proc")
@@ -23,18 +18,18 @@ public class Procedure implements Serializable {
     @Column(name = "price", nullable = false)
     private Integer price;
 
-    @ManyToMany(mappedBy = "procedures", fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private Set<Appointment> appointments = new HashSet<>();
+    @ManyToMany(mappedBy = "procedures", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Appointment> appointments;
 
 
-    public Procedure(String name, Integer price, Set<Appointment> appointments) {
+    public Procedure(String name, Integer price, List<Appointment> appointments) {
         this.name = name;
         this.price = price;
         this.appointments = appointments;
     }
 
-    public Procedure(){}
+    public Procedure() {
+    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -64,11 +59,11 @@ public class Procedure implements Serializable {
         this.price = price;
     }
 
-    public Set<Appointment> getAppointments() {
+    public List<Appointment> getAppointments() {
         return appointments;
     }
 
-    public void setAppointments(Set<Appointment> appointments) {
+    public void setAppointments(List<Appointment> appointments) {
         this.appointments = appointments;
     }
 

@@ -36,11 +36,10 @@ public class Client implements Serializable {
     private String sex;
     @Column(name = "date_of_birth", nullable = false)
     private Date dateOfBirth;
-    @Column(name = "total_earn", nullable = false)
+//    @Column(name = "total_earn", nullable = false)
     private Integer totalEarn;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.EAGER )
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     private List<Appointment> appointments;
 
     public Client() {
@@ -107,6 +106,9 @@ public class Client implements Serializable {
     }
 
     public List<Appointment> getAppointments() {
+        if(appointments.isEmpty()){
+            appointments = new ArrayList<>();
+        }
         Collections.sort(appointments, (p1, p2) -> Long.valueOf(p2.getDateFrom().getTime()).compareTo(p1.getDateFrom().getTime()));
         return appointments;
     }

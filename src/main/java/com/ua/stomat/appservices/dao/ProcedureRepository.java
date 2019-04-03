@@ -5,7 +5,10 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.stereotype.Repository;
 
-@RepositoryRestResource(collectionResourceRel = "procedure", path = "procedure")
+import java.util.List;
+import java.util.Set;
+
 @Repository
-public interface ProcedureRepository extends CrudRepository<Procedure, Integer> {
+public interface ProcedureRepository extends CrudRepository<Procedure, Long> {
+
 }

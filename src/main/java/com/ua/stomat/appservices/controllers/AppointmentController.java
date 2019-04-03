@@ -51,7 +51,7 @@ public class AppointmentController {
     }
 
     @PostMapping(ADMIN_PATH + "/delete/appointment")
-    public ResponseEntity<?> deleteClient(@RequestBody @Valid DeleteAppointmentCriteria request, Errors errors) {
+    public ResponseEntity<?> deleteAppointment(@RequestBody @Valid DeleteAppointmentCriteria request, Errors errors) {
         return appointmentService.deleteAppointment(request.getId(), errors);
     }
 }

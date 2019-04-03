@@ -7,7 +7,6 @@ import com.ua.stomat.appservices.entity.Appointment;
 import com.ua.stomat.appservices.entity.Client;
 import com.ua.stomat.appservices.entity.Procedure;
 import com.ua.stomat.appservices.service.AppointmentService;
-import com.ua.stomat.appservices.utils.AdminInfo;
 import com.ua.stomat.appservices.validator.AddAppointmentCriteria;
 import com.ua.stomat.appservices.validator.AjaxResponseBody;
 import com.ua.stomat.appservices.validator.ClientCriteria;
@@ -34,6 +33,8 @@ public class AppointmentServiceImpl implements AppointmentService {
     private AppointmentRepository appointmentRepository;
     @Autowired
     private ClientRepository clientRepository;
+    @Autowired
+    private ProcedureRepository procedureRepository;
 
     @Override
     public ResponseEntity<?> addAppointment(AddAppointmentCriteria request, Errors errors) {
@@ -74,9 +75,9 @@ public class AppointmentServiceImpl implements AppointmentService {
         return appointment;
     }
 
-    private Set<Procedure> prepareProcedures(Set<ProcedureCriteria> procedureCriteria) {
-        Set<Procedure> procedures = new HashSet<>();
-        for (ProcedureCriteria temp : procedureCriteria){
+    private List<Procedure> prepareProcedures(List<ProcedureCriteria> procedureCriteria) {
+        List<Procedure> procedures = new ArrayList<>();
+        for (ProcedureCriteria temp : procedureCriteria) {
             Procedure procedure = new Procedure();
             procedure.setName(temp.getName());
             procedure.setPrice(temp.getPrice());
@@ -86,7 +87,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
 
-    private Integer getTotalPrice(Set<ProcedureCriteria> procedures) {
+    private Integer getTotalPrice(List<ProcedureCriteria> procedures) {
         Integer totalPrice = 0;
         for (ProcedureCriteria procedure : procedures) {
             totalPrice = totalPrice + procedure.getPrice();
@@ -118,7 +119,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public ResponseEntity<?> deleteAppointment(Integer id, Errors errors) {
+    public ResponseEntity<?> deleteAppointment(Integer appointmentId, Errors errors) {
         AjaxResponseBody result = new AjaxResponseBody();
         if (errors.hasErrors()) {
             result.setMsg(errors.getAllErrors()
@@ -126,7 +127,11 @@ public class AppointmentServiceImpl implements AppointmentService {
                     .collect(Collectors.joining(",")));
             return ResponseEntity.badRequest().body(result);
         }
-        appointmentRepository.deleteByAppointmentId(id);
+        Appointment appointment = appointmentRepository.findByAppointmentId(appointmentId);
+        for (Procedure procedure : appointment.getProcedures()) {
+            procedure.getAppointments().remove(appointment);
+        }
+        appointmentRepository.delete(appointment);
         result.setMsg("Зустріч було видалено!");
         return ResponseEntity.ok(result);
     }
