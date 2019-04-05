@@ -40,6 +40,7 @@ public class CheckAppointmentsRunnable implements Runnable {
         Date currentDateMinusSixMonths = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
 
         for (Client client : clients) {
+            //todo fix this
             Appointment lastAppointment = client.getAppointments().get(0);
 
             if (currentDateMinusSixMonths.after(new Date(lastAppointment.getDateTo().getTime()))) {

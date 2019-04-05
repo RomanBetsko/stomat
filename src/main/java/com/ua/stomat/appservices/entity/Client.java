@@ -1,15 +1,15 @@
 package com.ua.stomat.appservices.entity;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
 
 import static java.time.LocalDate.now;
 
@@ -36,10 +36,10 @@ public class Client implements Serializable {
     private String sex;
     @Column(name = "date_of_birth", nullable = false)
     private Date dateOfBirth;
-//    @Column(name = "total_earn", nullable = false)
+    //    @Column(name = "total_earn", nullable = false)
     private Integer totalEarn;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(mappedBy = "client", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private List<Appointment> appointments;
 
     public Client() {
@@ -106,7 +106,7 @@ public class Client implements Serializable {
     }
 
     public List<Appointment> getAppointments() {
-        if(appointments.isEmpty()){
+        if (appointments.isEmpty()) {
             appointments = new ArrayList<>();
         }
         Collections.sort(appointments, (p1, p2) -> Long.valueOf(p2.getDateFrom().getTime()).compareTo(p1.getDateFrom().getTime()));
@@ -118,7 +118,7 @@ public class Client implements Serializable {
     }
 
     public Integer getTotalEarn() {
-        if (totalEarn == null){
+        if (totalEarn == null) {
             return 0;
         }
         return totalEarn;
@@ -147,11 +147,11 @@ public class Client implements Serializable {
 
     public Integer rank() {
         List<Appointment> appointments = getAppointments();
-        if(appointments.isEmpty()){
+        if (appointments.isEmpty()) {
             return 0;
         }
         Integer totalEarn = 0;
-        for(Appointment appointment : appointments){
+        for (Appointment appointment : appointments) {
             totalEarn = totalEarn + appointment.getPrice();
         }
         return totalEarn / getAppointments().size();

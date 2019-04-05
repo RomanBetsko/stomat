@@ -12,13 +12,13 @@ public class Procedure implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer procedure_id;
+    private Integer procedureId;
     @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "price", nullable = false)
     private Integer price;
 
-    @ManyToMany(mappedBy = "procedures", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "procedures", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private List<Appointment> appointments;
 
 
@@ -36,11 +36,11 @@ public class Procedure implements Serializable {
     }
 
     public Integer getId() {
-        return procedure_id;
+        return procedureId;
     }
 
     public void setId(Integer id) {
-        this.procedure_id = id;
+        this.procedureId = id;
     }
 
     public String getName() {
@@ -70,7 +70,7 @@ public class Procedure implements Serializable {
     @Override
     public String toString() {
         return "ProcedureCriteria{" +
-                "id=" + procedure_id +
+                "id=" + procedureId +
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", appointments=" + appointments +

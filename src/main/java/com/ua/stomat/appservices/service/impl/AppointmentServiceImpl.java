@@ -26,7 +26,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
-@Transactional
 public class AppointmentServiceImpl implements AppointmentService {
 
     @Autowired
@@ -79,9 +78,21 @@ public class AppointmentServiceImpl implements AppointmentService {
         List<Procedure> procedures = new ArrayList<>();
         for (ProcedureCriteria temp : procedureCriteria) {
             Procedure procedure = new Procedure();
-            procedure.setName(temp.getName());
-            procedure.setPrice(temp.getPrice());
-            procedures.add(procedure);
+            if (!procedureRepository.findAllByName(temp.getName()).isEmpty()) {
+                for (Procedure prc : procedureRepository.findAllByName(temp.getName())) {
+                    if (prc.getPrice().equals(temp.getPrice())) {
+                        procedures.add(prc);
+                    } else {
+                        procedure.setName(temp.getName());
+                        procedure.setPrice(temp.getPrice());
+                        procedures.add(procedure);
+                    }
+                }
+            } else {
+                procedure.setName(temp.getName());
+                procedure.setPrice(temp.getPrice());
+                procedures.add(procedure);
+            }
         }
         return procedures;
     }
@@ -119,6 +130,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
+    @Transactional
     public ResponseEntity<?> deleteAppointment(Integer appointmentId, Errors errors) {
         AjaxResponseBody result = new AjaxResponseBody();
         if (errors.hasErrors()) {
@@ -127,9 +139,14 @@ public class AppointmentServiceImpl implements AppointmentService {
                     .collect(Collectors.joining(",")));
             return ResponseEntity.badRequest().body(result);
         }
+
         Appointment appointment = appointmentRepository.findByAppointmentId(appointmentId);
         for (Procedure procedure : appointment.getProcedures()) {
-            procedure.getAppointments().remove(appointment);
+            if (procedure.getAppointments().size() == 1) {
+                procedureRepository.delete(procedure);
+            } else {
+                procedure.getAppointments().remove(appointment);
+            }
         }
         appointmentRepository.delete(appointment);
         result.setMsg("Зустріч було видалено!");

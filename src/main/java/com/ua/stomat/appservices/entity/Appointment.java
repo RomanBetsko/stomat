@@ -3,6 +3,7 @@ package com.ua.stomat.appservices.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -28,7 +29,7 @@ public class Appointment implements Serializable {
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "appointment_procedure",
             joinColumns = {@JoinColumn(name = "appointment_id")},
