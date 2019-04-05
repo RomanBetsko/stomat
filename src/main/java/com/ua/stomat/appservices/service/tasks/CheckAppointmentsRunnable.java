@@ -41,18 +41,21 @@ public class CheckAppointmentsRunnable implements Runnable {
 
         for (Client client : clients) {
             //todo fix this
-            Appointment lastAppointment = client.getAppointments().get(0);
+            if (!client.getAppointments().isEmpty()) {
+                Appointment lastAppointment = client.getAppointments().get(0);
 
-            if (currentDateMinusSixMonths.after(new Date(lastAppointment.getDateTo().getTime()))) {
-                for (Client cln : temp) {
-                    if (cln.equals(client)) {
+
+                if (currentDateMinusSixMonths.after(new Date(lastAppointment.getDateTo().getTime()))) {
+                    for (Client cln : temp) {
+                        if (cln.equals(client)) {
+                            temp.add(client);
+                            System.out.println("Client added to clients1ToInform list");
+                        }
+                    }
+                    if (temp.isEmpty()) {
                         temp.add(client);
                         System.out.println("Client added to clients1ToInform list");
                     }
-                }
-                if (temp.isEmpty()) {
-                    temp.add(client);
-                    System.out.println("Client added to clients1ToInform list");
                 }
             }
         }
