@@ -1,7 +1,7 @@
 package com.ua.stomat.appservices.service.tasks.impl;
 
-import com.ua.stomat.appservices.service.tasks.CheckAppointmentsRunnable;
 import com.ua.stomat.appservices.service.TaskService;
+import com.ua.stomat.appservices.service.tasks.CheckAppointmentsRunnable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"></div>
+    <meta http-equiv="Content-Type" content="application/json; charset=UTF-8" />
+    <link rel='stylesheet' href='../../webjars/fullcalendar/3.5.1/dist/fullcalendar.min.css' />
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src='../../webjars/moment/2.19.1/min/moment.min.js'></script>
+    <script src='../../webjars/fullcalendar/3.5.1/dist/fullcalendar.min.js'></script>
+    <script src='../../webjars/fullcalendar/3.5.1/dist/locale/uk.js'></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#calendar').fullCalendar({
+                locale : 'uk',
+                defaultView: 'month',
+                //todo запитати Назара чи потрібно це
+                minTime: '07:00:00',
+                maxTime: '22:00:00',
+                editable: true,
+                html: true,
+
+                //todo подумати що з цим зробити
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                eventRender: function(eventObj, $el) {
+                    $el.popover({
+                        title: eventObj.title,
+                        content: eventObj.description,
+                        trigger: 'hover',
+                        html: true,
+                        placement: 'top',
+                        container: 'body'
+                    });
+                },
+                events: {
+                    url : '/api/event/all'
+                }
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header">
+</div>
+<div id='calendar' style="width: 93%; height: 100%; margin-left: 30px;"></div>
+
+<div th:replace="fragments/footer :: footer">
+</div>
+</body>
+</html>

@@ -1,5 +1,7 @@
 package com.ua.stomat.appservices.service.impl;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ua.stomat.appservices.dao.AppointmentRepository;
 import com.ua.stomat.appservices.dao.ClientRepository;
 import com.ua.stomat.appservices.dao.ProcedureRepository;
@@ -7,6 +9,8 @@ import com.ua.stomat.appservices.entity.Appointment;
 import com.ua.stomat.appservices.entity.Client;
 import com.ua.stomat.appservices.entity.Procedure;
 import com.ua.stomat.appservices.service.AppointmentService;
+import com.ua.stomat.appservices.utils.AdminInfo;
+import com.ua.stomat.appservices.utils.CalendarEvent;
 import com.ua.stomat.appservices.validator.AddAppointmentCriteria;
 import com.ua.stomat.appservices.validator.AjaxResponseBody;
 import com.ua.stomat.appservices.validator.ClientCriteria;
@@ -34,6 +38,8 @@ public class AppointmentServiceImpl implements AppointmentService {
     private ClientRepository clientRepository;
     @Autowired
     private ProcedureRepository procedureRepository;
+    @Autowired
+    private AdminInfo adminInfo;
 
     @Override
     public ResponseEntity<?> addAppointment(AddAppointmentCriteria request, Errors errors) {
@@ -45,6 +51,7 @@ public class AppointmentServiceImpl implements AppointmentService {
             return ResponseEntity.badRequest().body(result);
         }
         Appointment appointment = appointmentRepository.save(prepareAppointment(request));
+        adminInfo.addToCurrentAppointmentsList(appointment);
         result.setMsg(appointment.getAppointmentId().toString());
         return ResponseEntity.ok(result);
     }
@@ -149,7 +156,47 @@ public class AppointmentServiceImpl implements AppointmentService {
             }
         }
         appointmentRepository.delete(appointment);
+        adminInfo.deleteFromCurrentAppointmentsList(appointment);
         result.setMsg("Зустріч було видалено!");
         return ResponseEntity.ok(result);
+    }
+
+    @Override
+    //todo refactor all of this
+    public String getCalendarAppointments() {
+        String jsonMsg = null;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM.dd.yyyy HH:mm");
+        List<CalendarEvent> events = new ArrayList<>();
+        for (Appointment appointment : adminInfo.getCurrentAppointments()) {
+            CalendarEvent event = new CalendarEvent();
+            event.setTitle(appointment.getName());
+            event.setStart(simpleDateFormat.format(new Date(appointment.getDateFrom().getTime())));
+            event.setEnd(simpleDateFormat.format(new Date(appointment.getDateTo().getTime())));
+            event.setDescription(getDescription(appointment));
+            events.add(event);
+        }
+
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            jsonMsg = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(events);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return jsonMsg;
+    }
+
+    private String getDescription(Appointment appointment) {
+        List<Procedure> procedures = appointment.getProcedures();
+        String proc = "";
+        for(Procedure procedure : procedures){
+            proc =  proc + procedure.getName() + ": " + procedure.getPrice() + "<br>";
+        }
+        String result = null;
+        result = appointment.getClient().getSecondName() + " " + appointment.getClient().getFirstName() + " " + appointment.getClient().getThirdName() + "<br>" +
+                appointment.getClient().getPhone() + "<br>" +
+                appointment.getClient().getEmail() + "<br>" +
+                proc;
+
+        return result;
     }
 }

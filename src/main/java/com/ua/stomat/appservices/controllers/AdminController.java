@@ -57,6 +57,11 @@ public class AdminController {
         //todo getClientsToInform
     }
 
+    @GetMapping(ADMIN_PATH + "/calendar")
+    public String getCalendar() {
+        return "/calendar";
+    }
+
     @PostMapping(ADMIN_PATH + "/deleteClientFromInform")
     public ResponseEntity<?> deleteClientFromInform(@RequestBody @Valid DeleteClientCriteria request, Errors errors) {
         return mainService.deleteClientFromInform(request.getId(), errors);

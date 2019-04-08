@@ -1,6 +1,7 @@
 package com.ua.stomat.appservices.utils;
 
 import com.ua.stomat.appservices.dao.ClientRepository;
+import com.ua.stomat.appservices.entity.Appointment;
 import com.ua.stomat.appservices.entity.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ public class AdminInfo implements Serializable {
     private ClientRepository clientRepository;
 
     private List<Client> clientsToInform;
+    private List<Appointment> currentAppointments;
 
     public List<Client> getClientsToInform() {
         if (clientsToInform == null) {
@@ -28,6 +30,22 @@ public class AdminInfo implements Serializable {
 
     public void setClientsToInform(List<Client> clientsToInform) {
         this.clientsToInform = clientsToInform;
+    }
+
+    public List<Appointment> getCurrentAppointments() {
+        return currentAppointments;
+    }
+
+    public void setCurrentAppointments(List<Appointment> currentAppointments) {
+        this.currentAppointments = currentAppointments;
+    }
+
+    public void addToCurrentAppointmentsList(Appointment appointment){
+        currentAppointments.add(appointment);
+    }
+
+    public void deleteFromCurrentAppointmentsList(Appointment appointment){
+        currentAppointments.remove(appointment);
     }
 
     public void refreshData() {

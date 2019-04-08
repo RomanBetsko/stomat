@@ -29,7 +29,7 @@ public class Appointment implements Serializable {
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
-    @ManyToMany(cascade = CascadeType.PERSIST)
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinTable(
             name = "appointment_procedure",
             joinColumns = {@JoinColumn(name = "appointment_id")},
@@ -40,6 +40,15 @@ public class Appointment implements Serializable {
     public Appointment() {
     }
 
+    public Appointment(String name, Integer price, Timestamp dateFrom, Timestamp dateTo, String description, Client client, List<Procedure> procedures) {
+        this.name = name;
+        this.price = price;
+        this.dateFrom = dateFrom;
+        this.dateTo = dateTo;
+        this.description = description;
+        this.client = client;
+        this.procedures = procedures;
+    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -70,18 +79,11 @@ public class Appointment implements Serializable {
     }
 
     public Timestamp getDateFrom() {
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-//        Date temp = null;
-//        try {
-//            String asdasdasd = simpleDateFormat.format(date);
-//            DatesimpleDateFormat.parse(asdasdasd);
-//
-//
-//            temp = simpleDateFormat.parse(simpleDateFormat.format(date));
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
         return dateFrom;
+    }
+
+    public void setDateFrom(Timestamp dateFrom) {
+        this.dateFrom = dateFrom;
     }
 
     public Timestamp getDateTo() {
@@ -100,20 +102,6 @@ public class Appointment implements Serializable {
         this.description = description;
     }
 
-    public void setDateFrom(Timestamp dateFrom) {
-        this.dateFrom = dateFrom;
-    }
-
-    public Appointment(String name, Integer price, Timestamp dateFrom, Timestamp dateTo, String description, Client client, List<Procedure> procedures) {
-        this.name = name;
-        this.price = price;
-        this.dateFrom = dateFrom;
-        this.dateTo = dateTo;
-        this.description = description;
-        this.client = client;
-        this.procedures = procedures;
-    }
-
     public Client getClient() {
         return client;
     }
@@ -122,12 +110,59 @@ public class Appointment implements Serializable {
         this.client = client;
     }
 
-
     public List<Procedure> getProcedures() {
         return procedures;
     }
 
     public void setProcedures(List<Procedure> procedures) {
         this.procedures = procedures;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Appointment)) return false;
+
+        Appointment that = (Appointment) o;
+
+        if (getAppointmentId() != null ? !getAppointmentId().equals(that.getAppointmentId()) : that.getAppointmentId() != null)
+            return false;
+        if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null) return false;
+        if (getPrice() != null ? !getPrice().equals(that.getPrice()) : that.getPrice() != null) return false;
+        if (getDateFrom() != null ? !getDateFrom().equals(that.getDateFrom()) : that.getDateFrom() != null)
+            return false;
+        if (getDateTo() != null ? !getDateTo().equals(that.getDateTo()) : that.getDateTo() != null) return false;
+        if (getDescription() != null ? !getDescription().equals(that.getDescription()) : that.getDescription() != null)
+            return false;
+        if (getClient() != null ? !getClient().equals(that.getClient()) : that.getClient() != null) return false;
+        return getProcedures() != null ? getProcedures().equals(that.getProcedures()) : that.getProcedures() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getAppointmentId() != null ? getAppointmentId().hashCode() : 0;
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getPrice() != null ? getPrice().hashCode() : 0);
+        result = 31 * result + (getDateFrom() != null ? getDateFrom().hashCode() : 0);
+        result = 31 * result + (getDateTo() != null ? getDateTo().hashCode() : 0);
+        result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+        result = 31 * result + (getClient() != null ? getClient().hashCode() : 0);
+        result = 31 * result + (getProcedures() != null ? getProcedures().hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Appointment{" +
+                "appointmentId=" + appointmentId +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", dateFrom=" + dateFrom +
+                ", dateTo=" + dateTo +
+                ", description='" + description + '\'' +
+                ", client=" + client +
+                ", procedures=" + procedures +
+                '}';
     }
 }

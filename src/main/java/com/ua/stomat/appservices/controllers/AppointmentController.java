@@ -54,4 +54,9 @@ public class AppointmentController {
     public ResponseEntity<?> deleteAppointment(@RequestBody @Valid DeleteAppointmentCriteria request, Errors errors) {
         return appointmentService.deleteAppointment(request.getId(), errors);
     }
+
+    @GetMapping(ADMIN_PATH + "/appointment/event")
+    public String getAppointmentsEvent(){
+        return appointmentService.getCalendarAppointments();
+    }
 }
