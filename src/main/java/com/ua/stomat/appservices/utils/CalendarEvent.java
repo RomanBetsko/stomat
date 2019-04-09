@@ -6,6 +6,7 @@ public class CalendarEvent {
     private String start;
     private String end;
     private String description;
+    private String url;
 
     public String getDescription() {
         return description;
@@ -39,4 +40,11 @@ public class CalendarEvent {
         this.end = end;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

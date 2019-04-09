@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
@@ -35,16 +36,6 @@ public class AppointmentController {
         return appointmentService.appointmentView();
     }
 
-//    @GetMapping(ADMIN_PATH + "/appointment")
-//    public ModelAndView appointmentById(@RequestBody @Valid ClientCriteria request, Errors errors) {
-//        return appointmentService.appointmentView(request);
-//    }
-//
-//    @PostMapping(ADMIN_PATH + "/addNewAppointment")
-//    public ResponseEntity<?> addNewAppointment(@RequestBody @Valid AddAppointmentCriteria request, Errors errors) {
-//        return appointmentService.addAppointment(request, errors);
-//    }
-
     @PostMapping(ADMIN_PATH + "/appointment/create")
     public ResponseEntity<?> addNewAppointment(@RequestBody @Valid AddAppointmentCriteria request, Errors errors) {
         return appointmentService.addAppointment(request, errors);
@@ -53,10 +44,5 @@ public class AppointmentController {
     @PostMapping(ADMIN_PATH + "/delete/appointment")
     public ResponseEntity<?> deleteAppointment(@RequestBody @Valid DeleteAppointmentCriteria request, Errors errors) {
         return appointmentService.deleteAppointment(request.getId(), errors);
-    }
-
-    @GetMapping(ADMIN_PATH + "/appointment/event")
-    public String getAppointmentsEvent(){
-        return appointmentService.getCalendarAppointments();
     }
 }

@@ -9,6 +9,7 @@ import com.ua.stomat.appservices.entity.Appointment;
 import com.ua.stomat.appservices.entity.Client;
 import com.ua.stomat.appservices.entity.Procedure;
 import com.ua.stomat.appservices.service.AppointmentService;
+import com.ua.stomat.appservices.service.UtilsService;
 import com.ua.stomat.appservices.utils.AdminInfo;
 import com.ua.stomat.appservices.utils.CalendarEvent;
 import com.ua.stomat.appservices.validator.AddAppointmentCriteria;
@@ -23,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Errors;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -40,6 +42,8 @@ public class AppointmentServiceImpl implements AppointmentService {
     private ProcedureRepository procedureRepository;
     @Autowired
     private AdminInfo adminInfo;
+    @Autowired
+    private UtilsService utilsService;
 
     @Override
     public ResponseEntity<?> addAppointment(AddAppointmentCriteria request, Errors errors) {
@@ -163,16 +167,17 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     @Override
     //todo refactor all of this
-    public String getCalendarAppointments() {
+    public String getCalendarAppointments(HttpServletRequest request) {
         String jsonMsg = null;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM.dd.yyyy HH:mm");
         List<CalendarEvent> events = new ArrayList<>();
         for (Appointment appointment : adminInfo.getCurrentAppointments()) {
             CalendarEvent event = new CalendarEvent();
-            event.setTitle(appointment.getName());
+            event.setTitle(appointment.getName() + " / " + appointment.getDescription());
             event.setStart(simpleDateFormat.format(new Date(appointment.getDateFrom().getTime())));
             event.setEnd(simpleDateFormat.format(new Date(appointment.getDateTo().getTime())));
             event.setDescription(getDescription(appointment));
+            event.setUrl(utilsService.getCurrentUrl(request) + "/admin/appointment?id=" + appointment.getAppointmentId());
             events.add(event);
         }
 
@@ -187,16 +192,13 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     private String getDescription(Appointment appointment) {
         List<Procedure> procedures = appointment.getProcedures();
+        String htmlBr = "<br>";
         String proc = "";
-        for(Procedure procedure : procedures){
-            proc =  proc + procedure.getName() + ": " + procedure.getPrice() + "<br>";
+        for (Procedure procedure : procedures) {
+            proc = proc + procedure.getName() + ": " + procedure.getPrice() + htmlBr;
         }
-        String result = null;
-        result = appointment.getClient().getSecondName() + " " + appointment.getClient().getFirstName() + " " + appointment.getClient().getThirdName() + "<br>" +
-                appointment.getClient().getPhone() + "<br>" +
-                appointment.getClient().getEmail() + "<br>" +
-                proc;
-
-        return result;
+        return appointment.getClient().getSecondName() + " " + appointment.getClient().getFirstName() + " " + appointment.getClient().getThirdName() + htmlBr +
+                appointment.getClient().getPhone() + htmlBr +
+                appointment.getClient().getEmail() + htmlBr + proc;
     }
 }

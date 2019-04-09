@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("/api/event")
 public class RestWebController {
@@ -14,8 +16,7 @@ public class RestWebController {
     private AppointmentService appointmentService;
 
     @GetMapping(value = "/all")
-    public String getEvents() {
-        return appointmentService.getCalendarAppointments();
+    public String getEvents(HttpServletRequest request) {
+        return appointmentService.getCalendarAppointments(request);
     }
-
 }
