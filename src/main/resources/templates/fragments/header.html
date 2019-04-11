@@ -3,6 +3,7 @@
     <div th:fragment="header-css">
         <link rel="stylesheet" type="text/css"
               href="../webjars/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link href="../static/css/well.css" th:href="@{/css/well.css}" rel="stylesheet"/>
 
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" th:href="@{/css/main.css}"
@@ -11,22 +12,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
     </div>
-    <style>
-        #overlay {
-            z-index:3;
-            position:fixed;
-            background-color:#000;
-            opacity:0.8;
-            -moz-opacity:0.8;
-            filter:alpha(opacity=80);
-            width:100%;
-            height:100%;
-            top:0;
-            left:0;
-            cursor:pointer;
-            display:none;
-        }
-    </style>
 </head>
 <body>
 <div th:fragment="header">
@@ -50,9 +35,16 @@
 
         <div class="container">
             <!--Notification result will be here-->
-                <div id="notificationresult"></div>
-            <!--Side menu bar-->
-            <ul class="nav navbar-nav navbar-left">
+            <div id="notificationresult"></div>
+
+
+            <ul class="nav navbar-nav navbar-left" style="margin-left: -100px;">
+                <!--back button-->
+                <li><a class="style-scope ytd-notification-topbar-button-renderer"></a></li>
+                <a id="goBack" class="btn btn-primary btn-lg">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <!--Side menu bar-->
                 <li><a class="style-scope ytd-notification-topbar-button-renderer"></a></li>
                 <a id="openNav" class="btn btn-primary btn-lg">
                     <span class="glyphicon glyphicon-th-list"></span>
@@ -86,7 +78,7 @@
 
     <!--make shadow window-->
     <div th:id="overlay"></div>
-
+    <script type="text/javascript" src="../js/adminView.js"></script>
 </div>
 </body>
 </html>

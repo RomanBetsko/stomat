@@ -103,3 +103,7 @@ $("div#myOverlay").click(function () {
     document.getElementById("myOverlay").style.display = "none";
     document.getElementById("mySidebar").style.display = "none";
 });
+
+$("a#goBack").click(function goBack() {
+    window.history.back();
+});

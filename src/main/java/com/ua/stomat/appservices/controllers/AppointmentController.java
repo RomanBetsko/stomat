@@ -25,10 +25,9 @@ public class AppointmentController {
     @Autowired
     private AppointmentService appointmentService;
 
-    @GetMapping(ADMIN_PATH + "/appointmentById")
-    public ModelAndView appointmentViewWithParams(@RequestParam(name = "id") Integer id, @RequestParam(name = "firstName") String firstName,
-                                                  @RequestParam(name = "secondName") String secondName, @RequestParam(name = "thirdName") String thirdName) {
-        return appointmentService.appointmentViewWithParams(id, firstName, secondName, thirdName);
+    @GetMapping(ADMIN_PATH + "/appointmentViewByClient")
+    public ModelAndView appointmentViewWithParams(@RequestParam(name = "id") Integer id) {
+        return appointmentService.appointmentViewWithParams(id);
     }
 
     @GetMapping(ADMIN_PATH + "/appointment")
@@ -44,5 +43,10 @@ public class AppointmentController {
     @PostMapping(ADMIN_PATH + "/delete/appointment")
     public ResponseEntity<?> deleteAppointment(@RequestBody @Valid DeleteAppointmentCriteria request, Errors errors) {
         return appointmentService.deleteAppointment(request.getId(), errors);
+    }
+
+    @GetMapping(ADMIN_PATH + "/getAppointmentById")
+    public ModelAndView getAppointmentById(@RequestParam(name = "id") Integer id){
+        return appointmentService.getAppointmentById(id);
     }
 }

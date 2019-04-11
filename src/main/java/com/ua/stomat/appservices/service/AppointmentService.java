@@ -15,11 +15,13 @@ public interface AppointmentService {
 
     ResponseEntity<?> addAppointment(AddAppointmentCriteria request, Errors errors);
 
-    ModelAndView appointmentViewWithParams(Integer clientId, String firstName, String secondName, String thirdName);
+    ModelAndView appointmentViewWithParams(Integer clientId);
 
     ModelAndView appointmentView();
 
     ResponseEntity<?> deleteAppointment(Integer id, Errors errors);
 
     String getCalendarAppointments(HttpServletRequest httpServletRequest);
+
+    ModelAndView getAppointmentById(Integer id);
 }

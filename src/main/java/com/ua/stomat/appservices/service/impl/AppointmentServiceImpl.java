@@ -118,13 +118,9 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public ModelAndView appointmentViewWithParams(Integer clientId, String firstName, String secondName, String thirdName) {
+    public ModelAndView appointmentViewWithParams(Integer clientId) {
         Map<String, Object> params = new HashMap<>();
-        Client client = new Client();
-        client.setClientId(clientId);
-        client.setFirstName(firstName);
-        client.setSecondName(secondName);
-        client.setThirdName(thirdName);
+        Client client = clientRepository.findByClientId(clientId);
         params.put("client", client);
         return new ModelAndView("createappointment", params);
     }
@@ -201,4 +197,13 @@ public class AppointmentServiceImpl implements AppointmentService {
                 appointment.getClient().getPhone() + htmlBr +
                 appointment.getClient().getEmail() + htmlBr + proc;
     }
+
+    @Override
+    public ModelAndView getAppointmentById(Integer appointmentId) {
+        Map<String, Object> params = new HashMap<>();
+        Appointment appointment = appointmentRepository.findByAppointmentId(appointmentId);
+        params.put("appointment", appointment);
+        return new ModelAndView("singleappointment", params);
+    }
+
 }

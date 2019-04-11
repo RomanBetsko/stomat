@@ -15,8 +15,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
-
-
 </head>
 <body>
 
@@ -73,8 +71,7 @@
                         <p>
                             <small>Відвідувань</small>
                         </p>
-                        <a class="btn btn-success btn-block btn-lg" th:href="'/admin/appointmentById?id=' + ${client.clientId} + '&firstName=' + ${client.firstName} +
-                         '&secondName=' + ${client.secondName} + '&thirdName=' + ${client.thirdName}"
+                        <a class="btn btn-success btn-block btn-lg" th:href="'/admin/appointmentViewByClient?id=' + ${client.clientId}"
 
                            th:text="'Cтворити'" id="createapp"
                            th:attr="data-clientid=${client.clientId}, data-firstname=${client.firstName}, data-secondname=${client.secondName}, data-thirdname=${client.thirdName}"></a>
@@ -118,13 +115,13 @@
         <tbody>
         <tr th:each="appointment, rowStat: ${client.appointments}">
             <td><a class="btn btn-primary center-block btn-sm"
-                   th:href="'/admin/procedureCriteria?id=' + ${appointment.appointmentId}"
+                   th:href="'/admin/getAppointmentById?id=' + ${appointment.appointmentId}"
                    th:text="Відвідування"></a></td>
             <td th:text="${appointment.appointmentId}" id="id" class="id" style="display:none;"></td>
             <td th:text="${appointment.name}"></td>
             <td th:text="${appointment.price}"></td>
             <td th:text="${#dates.format(appointment.dateFrom, 'dd.MM.yyyy')}"></td>
-            <td ><a href="#" id="delete" class="center"><span class="glyphicon glyphicon-minus-sign"></span></a>
+            <td ><a href="#" id="delete" class="center"><span class="glyphicon glyphicon-trash"></span></a>
         </tr>
         </tbody>
     </table>
@@ -134,7 +131,6 @@
         src="../webjars/jquery/2.2.4/jquery.min.js"></script>
 
 <script type="text/javascript" src="../js/singleClientView.js"></script>
-<script type="text/javascript" src="../js/adminView.js"></script>
 
 <div th:replace="fragments/footer :: footer"> </div>
 

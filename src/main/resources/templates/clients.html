@@ -50,7 +50,7 @@
             <td th:text="${client.phone}"></td>
             <td width="3%" th:text="${client.appointmentsSize()}"></td>
             <td th:text="${client.clientAge()}"></td>
-            <td ><a href="#" id="delete" class="center"><span class="glyphicon glyphicon-minus-sign"></span></a>
+            <td ><a href="#" id="delete" class="center"><span class="glyphicon glyphicon-trash"></span></a>
             </td>
         </tr>
         </tbody>
@@ -74,6 +74,5 @@
 
 <div th:replace="fragments/footer :: footer"></div>
 <script type="text/javascript" src="../js/customerView.js"></script>
-<script type="text/javascript" src="../js/adminView.js"></script>
 </body>
 </html>
