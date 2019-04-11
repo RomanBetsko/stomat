@@ -84,9 +84,9 @@
                             <small>Останнє відвідування</small>
                         </p>
 
-                        <a class="btn btn-default btn-block btn-lg" th:if="${client.appointments!=null and !client.appointments.empty}" th:href="'/admin/appointment?id=' +
+                        <a class="btn btn-default btn-block btn-lg" th:if="${client.appointments!=null and !client.appointments.empty}" th:href="'/admin/getAppointmentById?id=' +
                                 ${client.appointments[0].appointmentId}"
-                           th:text="'Останій'"></a>
+                           th:text="'Останній'"></a>
                     </div>
                     <div class="col-xs-12 col-sm-4 emphasis" th:if="${client.appointments!=null and !client.appointments.empty}">
                         <h2><strong th:text="${client.rank()}"></strong></h2>

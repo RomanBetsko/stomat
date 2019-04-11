@@ -173,7 +173,7 @@ public class AppointmentServiceImpl implements AppointmentService {
             event.setStart(simpleDateFormat.format(new Date(appointment.getDateFrom().getTime())));
             event.setEnd(simpleDateFormat.format(new Date(appointment.getDateTo().getTime())));
             event.setDescription(getDescription(appointment));
-            event.setUrl(utilsService.getCurrentUrl(request) + "/admin/appointment?id=" + appointment.getAppointmentId());
+            event.setUrl(utilsService.getCurrentUrl(request) + "/admin/getAppointmentById?id=" + appointment.getAppointmentId());
             events.add(event);
         }
 

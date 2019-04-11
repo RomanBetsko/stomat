@@ -9,93 +9,86 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 </head>
 <body>
-<div th:replace="fragments/header :: header"> </div>
+<div th:replace="fragments/header :: header"></div>
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8 pb-30 header-text">
-            <h1>Our Recent Blogs</h1>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br>
-                labore et dolore magna aliqua.
-            </p>
-        </div>
-    </div>
+
     <div class="row">
-        <div class="single-blog col-lg-4 col-md-4">
+        <div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+            <div class="well profile">
+                <div class="col-sm-12">
+                    <div class="col-xs-12 col-sm-10">
 
-            <img class="f-img img-fluid mx-auto" src="../img/b1.jpg" alt="">
-            <h4>
-                <a href="#">Portable Fashion for young women</a>
-            </h4>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip exea.
-                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur.
-            </p>
-            <div class="bottom d-flex justify-content-between align-items-center flex-wrap">
-                <div>
-                    <img class="img-fluid" src="../img/user.png" alt="">
-                    <a href="#"><span>Mark Wiens</span></a>
+                        <h2 th:text="${appointment.name}"></h2>
+                        <span class="glyphicon glyphicon-user"
+                              style="font-size: 50px;"></span>
+                        <br>
+                        <p><strong>Опис: </strong>
+                            <a class="tags" th:text="${appointment.description}"></a>
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 text-center">
+                        <figure>
+                            <!--?<img th:if="${client.sex} eq 'male'" src="../user-profile.jpg" alt="user" class="img-circle img-responsive">-->
+                            <!--?<img th:if="${client.sex} eq 'female'" src="../user-profile-female.jpg" alt="user" class="img-circle img-responsive">-->
+                            <figcaption class="ratings">
+                                <p>
+                                    <a href="#">
+                                        <span class="fa fa-star"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="fa fa-star"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="fa fa-star"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="fa fa-star"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="fa fa-star-o"></span>
+                                    </a>
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </div>
                 </div>
-                <div class="meta">
-                    13th Dec
-                    <span class="lnr lnr-heart"></span> 15
-                    <span class="lnr lnr-bubble"></span> 04
-                </div>
-            </div>
-        </div>
-        <div class="single-blog col-lg-4 col-md-4">
-            <img class="f-img img-fluid mx-auto" src="../img/b2.jpg" alt="">
-            <h4>
-                <a href="#">Summer ware are coming</a>
-            </h4>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip exea.
-                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur.
-            </p>
-            <div class="bottom d-flex justify-content-between align-items-center flex-wrap">
-                <div>
-                    <img class="img-fluid" src="../img/user.png" alt="">
-                    <a href="#"><span>Mark Wiens</span></a>
-                </div>
-                <div class="meta">
-                    13th Dec
-                    <span class="lnr lnr-heart"></span> 15
-                    <span class="lnr lnr-bubble"></span> 04
-                </div>
-            </div>
-        </div>
+                <div class="col-xs-12 divider text-center">
+                    <div class="col-xs-12 col-sm-4 emphasis">
+                        <!--?<h2><strong th:text="${client.appointmentsSize()}"></strong></h2>-->
+                        <p>
+                            <small>Відвідувань</small>
+                        </p>
+                        <!--?<a class="btn btn-success btn-block btn-lg" th:href="'/admin/appointmentViewByClient?id=' + ${client.clientId}"-->
+                        <!--?th:text="'Cтворити'" id="createapp"-->
+                        <!--?th:attr="data-clientid=${client.clientId}, data-firstname=${client.firstName}, data-secondname=${client.secondName}, data-thirdname=${client.thirdName}"></a>-->
+                    </div>
 
-        <div class="single-blog col-lg-4 col-md-4">
-            <img class="f-img img-fluid mx-auto" src="../img/b3.jpg" alt="">
-            <h4>
-                <a href="#">Summer ware are coming</a>
-            </h4>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-            </p>
-            <div class="bottom d-flex justify-content-between align-items-center flex-wrap">
-                <div>
-                    <img class="img-fluid" src="../img/user.png" alt="">
-                    <a href="#"><span>Mark Wiens</span></a>
-                </div>
-                <div class="meta">
-                    13th Dec
-                    <span class="lnr lnr-heart"></span> 15
-                    <span class="lnr lnr-bubble"></span> 04
+
+                    <!--?<div class="col-xs-12 col-sm-4 emphasis" th:if="${client.appointments!=null and !client.appointments.empty}">-->
+                    <!--?<h3 style="margin-top: 8px;"><strong th:text="${#dates.format(client.appointments[0].dateFrom, 'dd.MM.yyyy')}"></strong></h3>-->
+                    <!--?<p>-->
+                    <!--?<small>Останнє відвідування</small>-->
+                    <!--?</p>-->
+
+                    <!--?<a class="btn btn-default btn-block btn-lg" th:if="${client.appointments!=null and !client.appointments.empty}" th:href="'/admin/appointment?id=' +-->
+                    <!--?${client.appointments[0].appointmentId}"-->
+                    <!--?th:text="'Останій'"></a>-->
+                    <!--?</div>-->
+                    <!--?<div class="col-xs-12 col-sm-4 emphasis" th:if="${client.appointments!=null and !client.appointments.empty}">-->
+                    <!--?<h2><strong th:text="${client.rank()}"></strong></h2>-->
+                    <!--?<p>-->
+                    <!--?<small>Рейтинг</small>-->
+                    <!--?</p>-->
+
+                    <!--?<a class="btn btn-primary btn-block btn-lg" th:href="'#'" th:text="'Something'"></a>-->
+                    <!--?</div>-->
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div th:replace="fragments/footer :: footer"> </div>
+<div th:replace="fragments/footer :: footer"></div>
 
 </body>
 </html>
