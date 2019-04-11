@@ -4,8 +4,7 @@ $(document).ready(function() {
         defaultView: 'agendaWeek',
         //todo запитати Назара чи потрібно це
         minTime: '07:00:00',
-        maxTime: '22:00:00',
-        editable: true,
+        maxTime: '23:00:00',
         html: true,
 
         //todo подумати що з цим зробити
@@ -25,7 +24,7 @@ $(document).ready(function() {
             });
         },
         events: {
-            url : '/api/event/all'
+            url : '/admin/api/event/all'
         }
     });
 });

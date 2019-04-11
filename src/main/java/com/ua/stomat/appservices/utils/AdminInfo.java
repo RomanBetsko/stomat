@@ -19,6 +19,7 @@ public class AdminInfo implements Serializable {
 
     private List<Client> clientsToInform;
     private List<Appointment> currentAppointments;
+    private List<String> history;
 
     public List<Client> getClientsToInform() {
         if (clientsToInform == null) {
@@ -26,6 +27,14 @@ public class AdminInfo implements Serializable {
         } else {
             return clientsToInform;
         }
+    }
+
+    public List<String> getHistory() {
+        return history;
+    }
+
+    public void setHistory(List<String> history) {
+        this.history = history;
     }
 
     public void setClientsToInform(List<Client> clientsToInform) {
@@ -64,12 +73,22 @@ public class AdminInfo implements Serializable {
 
         AdminInfo adminInfo = (AdminInfo) o;
 
-        return getClientsToInform() != null ? getClientsToInform().equals(adminInfo.getClientsToInform()) : adminInfo.getClientsToInform() == null;
+        if (clientRepository != null ? !clientRepository.equals(adminInfo.clientRepository) : adminInfo.clientRepository != null)
+            return false;
+        if (getClientsToInform() != null ? !getClientsToInform().equals(adminInfo.getClientsToInform()) : adminInfo.getClientsToInform() != null)
+            return false;
+        if (getCurrentAppointments() != null ? !getCurrentAppointments().equals(adminInfo.getCurrentAppointments()) : adminInfo.getCurrentAppointments() != null)
+            return false;
+        return history != null ? history.equals(adminInfo.history) : adminInfo.history == null;
 
     }
 
     @Override
     public int hashCode() {
-        return getClientsToInform() != null ? getClientsToInform().hashCode() : 0;
+        int result = clientRepository != null ? clientRepository.hashCode() : 0;
+        result = 31 * result + (getClientsToInform() != null ? getClientsToInform().hashCode() : 0);
+        result = 31 * result + (getCurrentAppointments() != null ? getCurrentAppointments().hashCode() : 0);
+        result = 31 * result + (history != null ? history.hashCode() : 0);
+        return result;
     }
 }

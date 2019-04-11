@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping("/api/event")
+@RequestMapping("/admin/api/event")
 public class RestWebController {
 
     @Autowired

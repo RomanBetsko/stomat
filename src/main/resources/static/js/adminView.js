@@ -18,92 +18,88 @@ $(document).ready(function () {
     });
 });
 
-
-
-
-$("button#clientsToInform").click(function(){
-//todo refactor (on error)
+//todo refactor this
+$("button#clientsToInform").click(function () {
     $.ajax({
         type: "GET",
         contentType: "application/json",
         url: "/admin/getClientsToInform",
-        cache: false,
+        cache: true,
         timeout: 600000,
         success: function (data) {
 
             $('#notificationresult').html(data);
-            $('#overlay').fadeIn(400,
-                function(){
-                    $('#modal_form')
-                        .css('display', 'block')
-                        .animate({opacity: 1, top: '21%', left: '75%'}, 100);
-                });
-            $('#modal_close, #overlay').click( function(){
-                $('#modal_form')
-                    .animate({opacity: 0, top: '45%'}, 200,
-                        function(){ // пoсле aнимaции
-                            $(this).css('display', 'none');
-                            $('#overlay').fadeOut(400);
+            $('#overlay').fadeIn(400, function () {
+
+                $('#modal-warning').css('display', 'block');
+
+                $("a#deleteFromInform").click(function () {
+                    var $row = $(this).closest("tr");    // Find the row
+                    var $text = $row.find(".id").text();
+
+                    var _data = {};
+                    _data["id"] = $text;
+
+                    $.ajax({
+                        type: "POST",
+                        contentType: "application/json",
+                        url: "/admin/deleteClientFromInform",
+                        data: JSON.stringify(_data),
+                        dataType: 'json',
+                        cache: false,
+                        timeout: 600000,
+                        success: function (data) {
+                            console.log("SUCCESS : ", data);
+                            location.reload();
+
+                        },
+                        error: function (e) {
+                            console.log("ERROR : ", e);
                         }
-                    );
+                    });
+                });
             });
-            console.log("ERROR : ", e);
-            $("#btn-add").prop("disabled", false);
-
-
+            $('#modal_close, #overlay').click(function () {
+                $('#modal-warning').css('display', 'none');
+                $('#overlay').fadeOut(400, function () {
+                });
+            });
+            $('#modal-warning').click(function () {
+                $('#modal-warning').css('display', 'none');
+                $('#overlay').fadeOut(400, function () {
+                });
+            });
         },
         error: function (e) {
-
-            var json = e.responseText;
-            $('#notificationresult').html(json);
-            $('#overlay').fadeIn(400,
-                function(){
-                    $('#modal_form')
-                        .css('display', 'block')
-                        .animate({opacity: 1, top: '21%', left: '75%'}, 100);
-                });
-            $('#modal_close, #overlay').click( function(){
-                $('#modal_form')
-                    .animate({opacity: 0, top: '45%'}, 200,
-                        function(){ // пoсле aнимaции
-                            $(this).css('display', 'none');
-                            $('#overlay').fadeOut(400);
-                        }
-                    );
-            });
             console.log("ERROR : ", e);
-            $("#btn-add").prop("disabled", false);
-
         }
     });
 
 });
 
 
-$("a#delete").click(function(){
-    var $row = $(this).closest("tr");    // Find the row
-    var $text = $row.find(".id").text();
+$("a#openNav").click(function () {
+    if (document.getElementById("mySidebar").style.display == "block") {
+        close();
+    } else {
+        document.getElementById("mySidebar").style.width = "17%";
+        document.getElementById("mySidebar").style.marginLeft = "-30px";
+        document.getElementById("mySidebar").style.zIndex = "999999";
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("mySidebar").style.overflow = "hidden";
+        document.getElementById("myOverlay").style.display = "block";
+        document.getElementById("myOverlay").style.zIndex = "999998";
+    }
+});
 
-    var _data = {};
-    _data["id"] = $text;
+function close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("openNav").style.display = "inline-block";
+    document.getElementById("myOverlay").style.display = "none";
+}
 
-    $.ajax({
-        type: "POST",
-        contentType: "application/json",
-        url: "/admin/deleteClientFromInform",
-        data: JSON.stringify(_data),
-        dataType: 'json',
-        cache: false,
-        timeout: 600000,
-        success: function (data) {
 
-            console.log("SUCCESS : ", data);
-            location.reload();
-
-        },
-        error: function (e) {
-            console.log("ERROR : ", e);
-        }
-    });
-
+$("div#myOverlay").click(function () {
+    document.getElementById("myOverlay").style.display = "none";
+    document.getElementById("mySidebar").style.display = "none";
 });

@@ -3,31 +3,6 @@
 <head>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <style>
-        #modal_form {
-            border-radius: 5px;
-            border: 3px #000 solid;
-            background: #fff;
-            position: fixed;
-            top: 45%;
-            left: 50%;
-            margin-top: -150px;
-            margin-left: -150px;
-            display: none;
-            opacity: 0;
-            z-index: 5;
-            padding: 20px 10px;
-        }
-
-        #modal_form #modal_close {
-            width: 21px;
-            height: 21px;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            display: block;
-        }
-
         #overlay {
             z-index:3;
             position:fixed;
@@ -45,36 +20,46 @@
     </style>
 </head>
 <body>
-<div id="modal_form">
-    <span id="modal_close">X</span>
-    <table class="table">
-        <thead>
-        <tr>
-            <th width="3%"></th>
-            <th scope="col" style="display:none;"></th>
-            <th scope="col">Прізвище Імя Побатькові</th>
-            <th scope="col">Останній запис</th>
-            <th scope="col">Телефон</th>
-            <th scope="col"></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="client, rowStat: ${clients}">
-            <td><a class="btn btn-primary center-block btn-sm" th:href="'/admin/client?id=' + ${client.clientId}"
-                   th:text="Профіль"></a></td>
-            <td th:text="${client.clientId}" id="id" class="id" style="display:none;"></td>
-            <td th:text="${client.secondName} + ' ' + ${client.firstName} + ' ' + ${client.thirdName}"></td>
-            <td th:text="${#dates.format(client.appointments[0].dateFrom, 'dd.MM.yyyy')}"></td>
-            <td th:text="${client.phone}"></td>
-            <td ><a href="#" id="delete" class="delete"><img src="../images/remove-icon.png" /></a>
-        </tr>
-        </tbody>
-    </table>
-    </form>
+<div class="modal modal-warning fade in" th:id="modal-warning" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" id="modal_close" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Клієнти яким потрібно повідомити про огляд</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th width="3%"></th>
+                        <th scope="col" style="display:none;"></th>
+                        <th scope="col">Імя</th>
+                        <th scope="col">Останній</th>
+                        <th scope="col">Телефон</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="client, rowStat: ${clients}">
+                        <td><a class="btn btn-primary center-block btn-sm" th:href="'/admin/client?id=' + ${client.clientId}"
+                               th:text="Профіль"></a></td>
+                        <td th:text="${client.clientId}" id="id" class="id" style="display:none;"></td>
+                        <td th:text="${client.secondName} + ' ' + ${client.firstName} + ' ' + ${client.thirdName}"></td>
+                        <td th:text="${#dates.format(client.appointments[0].dateFrom, 'dd.MM.yyyy')}"></td>
+                        <td th:text="${client.phone}"></td>
+                        <td ><a id="deleteFromInform"><img src="../images/remove-icon.png" /></a>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
-</div>
-<div id="overlay"></div>
-<script type="text/javascript" src="../js/adminView.js"></script>
 </body>
 </html>
