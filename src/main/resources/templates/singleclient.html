@@ -82,7 +82,7 @@
 
 
                     <div class="col-xs-12 col-sm-4 emphasis" th:if="${client.appointments!=null and !client.appointments.empty}">
-                        <h3><strong th:text="${#dates.format(client.appointments[0].dateFrom, 'dd.MM.yyyy')}"></strong></h3>
+                        <h3 style="margin-top: 8px;"><strong th:text="${#dates.format(client.appointments[0].dateFrom, 'dd.MM.yyyy')}"></strong></h3>
                         <p>
                             <small>Останнє відвідування</small>
                         </p>
