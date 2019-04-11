@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <div th:replace="fragments/header :: header-css"/>
+    <div th:replace="fragments/header :: header-css"></div>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <link href="../static/css/well.css" th:href="@{/css/well.css}" rel="stylesheet"/>
 
@@ -124,7 +124,7 @@
             <td th:text="${appointment.name}"></td>
             <td th:text="${appointment.price}"></td>
             <td th:text="${#dates.format(appointment.dateFrom, 'dd.MM.yyyy')}"></td>
-            <td ><a href="#" id="delete" class="center"><img src="../images/remove-icon.png" /></a>
+            <td ><a href="#" id="delete" class="center"><span class="glyphicon glyphicon-minus-sign"></span></a>
         </tr>
         </tbody>
     </table>
