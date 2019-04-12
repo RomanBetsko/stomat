@@ -107,3 +107,7 @@ $("div#myOverlay").click(function () {
 $("a#goBack").click(function goBack() {
     window.history.back();
 });
+
+$("a#goForward").click(function goBack() {
+    window.history.forward();
+});

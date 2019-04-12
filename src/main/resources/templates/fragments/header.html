@@ -23,7 +23,8 @@
             <a class="w3-bar-item w3-button w3-medium" th:href="@{/admin/customer}">Добавити клієнта</a>
             <a class="w3-bar-item w3-button w3-medium" th:href="@{/admin/clients}">Знайти клієнта</a>
             <a class="w3-bar-item w3-button w3-medium" th:href="@{/admin/appointment}">Створити зустріч(XXX)</a>
-            <a class="w3-bar-item w3-button w3-medium" th:href="@{/admin/calendar}"><span class="glyphicon glyphicon-calendar"></span>   Календар</a>
+            <a class="w3-bar-item w3-button w3-medium" th:href="@{/admin/calendar}"><span
+                    class="glyphicon glyphicon-calendar"></span> Календар</a>
             <a class="w3-bar-item w3-button w3-medium" th:href="@{/admin/asdasd}">Список записів(XXX)</a>
             <a class="w3-bar-item w3-button w3-medium" th:href="@{/admin/editpage}">Рудагування сторінки(XXX)</a>
         </div>
@@ -71,6 +72,12 @@
                     <li><span class="style-scope ytd-notification-topbar-button-renderer"></span></li>
                     <span class="badge badge-notify" id="notification"
                           style="background: red; position:absolute;"></span>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="style-scope ytd-notification-topbar-button-renderer"></a></li>
+                    <a id="goForward" class="btn btn-primary btn-lg">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
                 </ul>
             </div>
         </div>
