@@ -1,15 +1,15 @@
 package com.ua.stomat.appservices.entity;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import static java.time.LocalDate.now;
 
@@ -40,6 +40,11 @@ public class Client implements Serializable {
     private Integer totalEarn;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    @Fetch(value= FetchMode.SELECT)
+    private List<UploadFile> files;
+
+    @OneToMany(mappedBy = "client", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    @Fetch(value= FetchMode.SELECT)
     private List<Appointment> appointments;
 
     public Client() {
@@ -103,6 +108,14 @@ public class Client implements Serializable {
 
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+    public List<UploadFile> getFiles() {
+        return files;
+    }
+
+    public void setFiles(List<UploadFile> files) {
+        this.files = files;
     }
 
     public List<Appointment> getAppointments() {
@@ -191,6 +204,7 @@ public class Client implements Serializable {
             return false;
         if (getTotalEarn() != null ? !getTotalEarn().equals(client.getTotalEarn()) : client.getTotalEarn() != null)
             return false;
+        if (getFiles() != null ? !getFiles().equals(client.getFiles()) : client.getFiles() != null) return false;
         return getAppointments() != null ? getAppointments().equals(client.getAppointments()) : client.getAppointments() == null;
 
     }
@@ -206,6 +220,7 @@ public class Client implements Serializable {
         result = 31 * result + (getSex() != null ? getSex().hashCode() : 0);
         result = 31 * result + (getDateOfBirth() != null ? getDateOfBirth().hashCode() : 0);
         result = 31 * result + (getTotalEarn() != null ? getTotalEarn().hashCode() : 0);
+        result = 31 * result + (getFiles() != null ? getFiles().hashCode() : 0);
         result = 31 * result + (getAppointments() != null ? getAppointments().hashCode() : 0);
         return result;
     }
@@ -222,6 +237,7 @@ public class Client implements Serializable {
                 ", sex='" + sex + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", totalEarn=" + totalEarn +
+                ", files=" + files +
                 ", appointments=" + appointments +
                 '}';
     }

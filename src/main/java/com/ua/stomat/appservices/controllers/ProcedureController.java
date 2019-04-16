@@ -20,6 +20,6 @@ public class ProcedureController {
     @PostMapping(ADMIN_PATH + "/procedure/create")
     public ModelAndView cleateProcedure(@RequestBody ClientProcedureCriteria request, Errors errors) {
         //todo fix this
-        return procedureService.addProcedure(request, errors);
+        return procedureService.addProcedure(errors);
     }
 }

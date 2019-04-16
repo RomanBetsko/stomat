@@ -1,7 +1,9 @@
 package com.ua.stomat.appservices.service.impl;
 
 import com.ua.stomat.appservices.dao.ClientRepository;
+import com.ua.stomat.appservices.dao.UploadFileRepository;
 import com.ua.stomat.appservices.entity.Client;
+import com.ua.stomat.appservices.entity.UploadFile;
 import com.ua.stomat.appservices.service.ClientService;
 import com.ua.stomat.appservices.validator.AddClientCriteria;
 import com.ua.stomat.appservices.validator.AjaxResponseBody;
@@ -11,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Errors;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.text.ParseException;
@@ -26,6 +29,8 @@ public class ClientServiceImpl implements ClientService {
 
     @Autowired
     private ClientRepository clientRepository;
+    @Autowired
+    private UploadFileRepository fileRepository;
 
     @Override
     public ResponseEntity<?> addClient(AddClientCriteria request, Errors errors) {
@@ -90,6 +95,24 @@ public class ClientServiceImpl implements ClientService {
         }
         clientRepository.deleteByClientId(id);
         result.setMsg("Клієнта було видалено");
+        return ResponseEntity.ok(result);
+    }
+
+    @Override
+    public ResponseEntity<?> upload(CommonsMultipartFile[] fileUpload, String clientId) {
+        AjaxResponseBody result = new AjaxResponseBody();
+
+        if (fileUpload != null && fileUpload.length > 0) {
+            for (CommonsMultipartFile aFile : fileUpload){
+
+                UploadFile uploadFile = new UploadFile();
+                uploadFile.setFileName(aFile.getOriginalFilename());
+                uploadFile.setData(aFile.getBytes());
+                uploadFile.setClient(clientRepository.findByClientId(Integer.valueOf(clientId)));
+                fileRepository.save(uploadFile);
+            }
+        }
+        result.setMsg("Файл було завантажено");
         return ResponseEntity.ok(result);
     }
 

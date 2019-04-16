@@ -54,7 +54,9 @@ public class AdminInfo implements Serializable {
     }
 
     public void deleteFromCurrentAppointmentsList(Appointment appointment){
-        currentAppointments.remove(appointment);
+
+        //todo IMPORTANT not working
+        this.currentAppointments.remove(appointment);
     }
 
     public void refreshData() {

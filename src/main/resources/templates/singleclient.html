@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<div th:replace="fragments/header :: header"> </div>
+<div th:replace="fragments/header :: header"></div>
 
 <div class="container">
 
@@ -41,8 +41,10 @@
                     </div>
                     <div class="col-xs-12 col-sm-4 text-center">
                         <figure>
-                            <img th:if="${client.sex} eq 'male'" src="../user-profile.jpg" alt="user" class="img-circle img-responsive">
-                            <img th:if="${client.sex} eq 'female'" src="../user-profile-female.jpg" alt="user" class="img-circle img-responsive">
+                            <img th:if="${client.sex} eq 'male'" src="../user-profile.jpg" alt="user"
+                                 class="img-circle img-responsive">
+                            <img th:if="${client.sex} eq 'female'" src="../user-profile-female.jpg" alt="user"
+                                 class="img-circle img-responsive">
                             <figcaption class="ratings">
                                 <p>
                                     <a href="#">
@@ -71,35 +73,58 @@
                         <p>
                             <small>Відвідувань</small>
                         </p>
-                        <a class="btn btn-success btn-block btn-lg" th:href="'/admin/appointmentViewByClient?id=' + ${client.clientId}"
+                        <a class="btn btn-success btn-block btn-lg"
+                           th:href="'/admin/appointmentViewByClient?id=' + ${client.clientId}"
 
                            th:text="'Cтворити'" id="createapp"
                            th:attr="data-clientid=${client.clientId}, data-firstname=${client.firstName}, data-secondname=${client.secondName}, data-thirdname=${client.thirdName}"></a>
                     </div>
 
 
-                    <div class="col-xs-12 col-sm-4 emphasis" th:if="${client.appointments!=null and !client.appointments.empty}">
-                        <h3 style="margin-top: 8px;"><strong th:text="${#dates.format(client.appointments[0].dateFrom, 'dd.MM.yyyy')}"></strong></h3>
+                    <div class="col-xs-12 col-sm-4 emphasis"
+                         th:if="${client.appointments!=null and !client.appointments.empty}">
+                        <h3 style="margin-top: 8px;"><strong
+                                th:text="${#dates.format(client.appointments[0].dateFrom, 'dd.MM.yyyy')}"></strong></h3>
                         <p>
                             <small>Останнє відвідування</small>
                         </p>
 
-                        <a class="btn btn-default btn-block btn-lg" th:if="${client.appointments!=null and !client.appointments.empty}" th:href="'/admin/getAppointmentById?id=' +
+                        <a class="btn btn-default btn-block btn-lg"
+                           th:if="${client.appointments!=null and !client.appointments.empty}" th:href="'/admin/getAppointmentById?id=' +
                                 ${client.appointments[0].appointmentId}"
                            th:text="'Останній'"></a>
                     </div>
-                    <div class="col-xs-12 col-sm-4 emphasis" th:if="${client.appointments!=null and !client.appointments.empty}">
+                    <div class="col-xs-12 col-sm-4 emphasis">
                         <h2><strong th:text="${client.rank()}"></strong></h2>
                         <p>
                             <small>Рейтинг</small>
                         </p>
-
-                        <a class="btn btn-primary btn-block btn-lg" th:href="'#'" th:text="'Something'"></a>
+                        <a class="btn btn-primary btn-block btn-lg" th:href="'#'" th:text="'Файли'" id="upload">
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <form method="POST" enctype="multipart/form-data" id="fileUploadForm" style="display: none;">
+
+        <div class="file-form-wrap">
+            <div class="file-upload">
+                <label>
+                    <span>Вибрати файл</span><br/>
+                    <input id="file" type="file" name="files" onchange="getFileParam();"/>
+                    <input type="text" name="clientId" style="display:none;" th:value="${client.clientId}"/><br/><br/>
+                </label>
+            </div>
+            <div id="preview1">&nbsp;</div>
+            <div id="file-name1">&nbsp;</div>
+            <div id="file-size1">&nbsp;</div>
+            <div id="file-result">&nbsp;</div>
+        </div>
+    </form>
+
     <!-- Last appointments-->
     <table class="table" th:if="${client.appointments!=null and !client.appointments.empty}">
         <thead>
@@ -121,7 +146,7 @@
             <td th:text="${appointment.name}"></td>
             <td th:text="${appointment.price}"></td>
             <td th:text="${#dates.format(appointment.dateFrom, 'dd.MM.yyyy')}"></td>
-            <td ><a href="#" id="delete" class="center"><span class="glyphicon glyphicon-trash"></span></a>
+            <td><a href="#" id="delete" class="center"><span class="glyphicon glyphicon-trash"></span></a>
         </tr>
         </tbody>
     </table>
@@ -132,7 +157,7 @@
 
 <script type="text/javascript" src="../js/singleClientView.js"></script>
 
-<div th:replace="fragments/footer :: footer"> </div>
+<div th:replace="fragments/footer :: footer"></div>
 
 </body>
 </html>

@@ -1,52 +1,52 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700);
-body
-{
+
+body {
 }
-.profile
-{
+
+.profile {
     min-height: 355px;
     display: inline-block;
 }
-figcaption.ratings
-{
-    margin-top:20px;
+
+figcaption.ratings {
+    margin-top: 20px;
 }
-figcaption.ratings a
-{
-    color:#f1c40f;
-    font-size:11px;
+
+figcaption.ratings a {
+    color: #f1c40f;
+    font-size: 11px;
 }
-figcaption.ratings a:hover
-{
-    color:#f39c12;
-    text-decoration:none;
+
+figcaption.ratings a:hover {
+    color: #f39c12;
+    text-decoration: none;
 }
-.divider
-{
-    border-top:1px solid rgba(0,0,0,0.1);
+
+.divider {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
-.emphasis
-{
+
+.emphasis {
     border-top: 4px solid transparent;
 }
-.emphasis:hover
-{
+
+.emphasis:hover {
     border-top: 4px solid #1abc9c;
 }
-.emphasis h2
-{
-    margin-bottom:0;
+
+.emphasis h2 {
+    margin-bottom: 0;
 }
-span.tags
-{
+
+span.tags {
     background: #337ab7 0;
     border-radius: 2px;
     color: #f5f5f5;
     font-weight: bold;
     padding: 2px 4px;
 }
-.dropdown-menu
-{
+
+.dropdown-menu {
     background-color: #34495e;
     box-shadow: none;
     -webkit-box-shadow: none;
@@ -54,20 +54,20 @@ span.tags
     margin-left: -125px;
     left: 50%;
 }
-.dropdown-menu .divider
-{
-    background:none;
+
+.dropdown-menu .divider {
+    background: none;
 }
-.dropdown-menu>li>a
-{
-    color:#f5f5f5;
+
+.dropdown-menu > li > a {
+    color: #f5f5f5;
 }
-.dropup .dropdown-menu
-{
-    margin-bottom:10px;
+
+.dropup .dropdown-menu {
+    margin-bottom: 10px;
 }
-.dropup .dropdown-menu:before
-{
+
+.dropup .dropdown-menu:before {
     content: "";
     border-top: 10px solid #34495e;
     border-right: 10px solid transparent;
@@ -80,16 +80,62 @@ span.tags
 }
 
 #overlay {
-    z-index:3;
-    position:fixed;
-    background-color:#000;
-    opacity:0.8;
-    -moz-opacity:0.8;
-    filter:alpha(opacity=80);
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    cursor:pointer;
-    display:none;
+    z-index: 3;
+    position: fixed;
+    background-color: #000;
+    opacity: 0.8;
+    -moz-opacity: 0.8;
+    filter: alpha(opacity=80);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    display: none;
+}
+
+.file-upload input[type="file"] {
+    display: none;
+}
+
+.file-form-wrap {
+    width: 260px;
+    margin: auto;
+}
+
+.file-upload {
+    position: relative;
+    overflow: hidden;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    background: #265a88;
+    border-color: #2e6da4;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+}
+
+.file-upload:hover {
+    background: #337ab7;
+}
+
+.file-upload label {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.file-upload span {
+    font-weight: bold;
+}
+
+.preview-img {
+    max-width: 100px;
+    max-height: 100px;
+    margin: 5px;
 }

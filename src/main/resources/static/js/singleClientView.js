@@ -63,3 +63,116 @@ $("a#delete").click(function(){
     });
 
 });
+
+$("a#upload").click(function(){
+    var x = document.getElementById("fileUploadForm");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+});
+
+$(document).ready(function () {
+    $("#btnSubmit").click(function (event) {
+        //stop submit the form, we will post it manually.
+        event.preventDefault();
+        saveFile();
+    });
+});
+
+function saveFile() {
+    
+    var form = $('#fileUploadForm')[0];
+    var data = new FormData(form);
+    data.append("CustomField", "This is some extra data, testing");
+    $("#btnSubmit").prop("disabled", true);
+
+    $.ajax({
+        type: "POST",
+        enctype: 'multipart/form-data',
+        url: "/admin/doUpload",
+        data: data,
+        processData: false,
+        contentType: false,
+        cache: false,
+        timeout: 600000,
+        success: function (data) {
+            console.log("SUCCESS : ", data);
+            $("#btnSubmit").prop("disabled", false);
+
+        },
+        error: function (e) {
+            console.log("ERROR : ", e);
+            $("#btnSubmit").prop("disabled", false);
+
+        }
+    });
+
+}
+
+function getFileParam() {
+    
+    //todo розібратися з цим
+    try {
+        var file = document.getElementById('file').files[0];
+
+        if (file) {
+            var fileSize = 0;
+
+            if (file.size > 1024 * 1024) {
+                fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString() + 'MB';
+            } else {
+                fileSize = (Math.round(file.size * 100 / 1024) / 100).toString() + 'KB';
+            }
+
+            document.getElementById('file-name1').innerHTML = 'Имя: ' + file.name;
+            document.getElementById('file-size1').innerHTML = 'Розмір: ' + fileSize;
+            saveFile();
+            document.getElementById('file-result').innerHTML = 'Файл успішно завантажено';
+
+            if (/\.(jpe?g|bmp|gif|png)$/i.test(file.name)) {
+                var elPreview = document.getElementById('preview1');
+                elPreview.innerHTML = '';
+                var newImg = document.createElement('img');
+                newImg.className = "preview-img";
+
+                if (typeof file.getAsDataURL == 'function') {
+                    if (file.getAsDataURL().substr(0, 11) == 'data:image/') {
+                        newImg.onload = function () {
+                            document.getElementById('file-name1').innerHTML += ' (' + newImg.naturalWidth + 'x' + newImg.naturalHeight + ' px)';
+                        }
+                        newImg.setAttribute('src', file.getAsDataURL());
+                        elPreview.appendChild(newImg);
+                    }
+                } else {
+                    var reader = new FileReader();
+                    reader.onloadend = function (evt) {
+                        if (evt.target.readyState == FileReader.DONE) {
+                            newImg.onload = function () {
+                                document.getElementById('file-name1').innerHTML += ' (' + newImg.naturalWidth + 'x' + newImg.naturalHeight + ' px)';
+                            };
+
+                            newImg.setAttribute('src', evt.target.result);
+                            elPreview.appendChild(newImg);
+                        }
+                    };
+
+                    var blob;
+                    if (file.slice) {
+                        blob = file.slice(0, file.size);
+                    } else if (file.webkitSlice) {
+                        blob = file.webkitSlice(0, file.size);
+                    } else if (file.mozSlice) {
+                        blob = file.mozSlice(0, file.size);
+                    }
+                    reader.readAsDataURL(blob);
+                }
+            }
+        }
+    } catch (e) {
+        var file = document.getElementById('file').value;
+        file = file.replace(/\\/g, "/").split('/').pop();
+        document.getElementById('file-name1').innerHTML = 'Имя: ' + file;
+    }
+}

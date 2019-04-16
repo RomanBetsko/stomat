@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
     var today = new Date();
     var dd = today.getDate();
@@ -31,7 +30,7 @@ $(document).ready(function () {
 });
 
 
-$("a#procedureView").click(function(e){
+$("a#procedureView").click(function (e) {
     var maxField = 20;
     var addButton = $('.add_button');
     var wrapper = $('.field_wrapper');
@@ -90,19 +89,14 @@ function functionCreate() {
     _data["description"] = $("#description").val();
     _data["dateFrom"] = $("#dateFrom".toString()).val();
     _data["dateTo"] = $("#dateTo".toString()).val();
-    
     _data["procedureCriteria"] = [];
-
-
-    var elems = [] ;
-    elems = $( "[id^='procedureName']" ).each(function() {
+    
+    $("[id^='procedureName']").each(function () {
         _data["procedureCriteria"].push({name: $(this).val(), price: ''});
     });
-
-
-    elems = $( "[id^='procedurePrice']" ).each(function(index) {
-        { _data.procedureCriteria[index].price = $(this).val() }
-    });
+    $("[id^='procedurePrice']").each(function (index) {{
+            _data.procedureCriteria[index].price = $(this).val()
+        }});
 
     $.ajax({
         type: "POST",
@@ -113,13 +107,11 @@ function functionCreate() {
         cache: false,
         timeout: 600000,
         success: function (data) {
-
-            var json = "";
-            $(fieldHTML).append(json);
+            
             console.log("SUCCESS : ", data);
-            $("#btn-add").prop("disabled", false);
-            location.reload();
-
+            var url = new URL(window.location.href);
+            var id = url.searchParams.get("id");
+            window.location.replace('/admin/client?id=' + id);
         },
         error: function (e) {
 

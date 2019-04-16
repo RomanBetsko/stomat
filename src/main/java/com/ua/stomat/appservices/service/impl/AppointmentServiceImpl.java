@@ -148,6 +148,7 @@ public class AppointmentServiceImpl implements AppointmentService {
         }
 
         Appointment appointment = appointmentRepository.findByAppointmentId(appointmentId);
+        adminInfo.deleteFromCurrentAppointmentsList(appointment);
         for (Procedure procedure : appointment.getProcedures()) {
             if (procedure.getAppointments().size() == 1) {
                 procedureRepository.delete(procedure);
@@ -156,7 +157,6 @@ public class AppointmentServiceImpl implements AppointmentService {
             }
         }
         appointmentRepository.delete(appointment);
-        adminInfo.deleteFromCurrentAppointmentsList(appointment);
         result.setMsg("Зустріч було видалено!");
         return ResponseEntity.ok(result);
     }
