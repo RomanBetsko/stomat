@@ -16,6 +16,8 @@ import org.springframework.validation.Errors;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -114,6 +116,13 @@ public class ClientServiceImpl implements ClientService {
         }
         result.setMsg("Файл було завантажено");
         return ResponseEntity.ok(result);
+    }
+
+    @Override
+    public UploadFile downloadFile(String fileId, Errors errors) {
+
+
+        return fileRepository.findByFileId(Integer.valueOf(fileId));
     }
 
 }

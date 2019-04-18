@@ -101,3 +101,28 @@ $(document).ready(function () {
     $('.dataTables_length').addClass('bs-select');
 });
 
+$("a#getSingleClient").click(function(){
+    var $row = $(this).closest("tr");    // Find the row
+    var $text = $row.find(".id").text();
+
+    var _data = {};
+    _data["clientId"] = $text;
+
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/admin/client",
+        data: JSON.stringify(_data),
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (data) {
+            console.log("SUCCESS : ", data);
+        },
+        error: function (e) {
+            console.log("SUCCESS : ", e);
+        }
+    });
+
+});
+

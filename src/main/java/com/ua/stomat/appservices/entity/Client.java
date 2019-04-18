@@ -237,7 +237,7 @@ public class Client implements Serializable {
                 ", sex='" + sex + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", totalEarn=" + totalEarn +
-                ", files=" + files +
+//                ", files=" + files +
                 ", appointments=" + appointments +
                 '}';
     }

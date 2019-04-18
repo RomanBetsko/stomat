@@ -100,6 +100,7 @@
                             <small>Рейтинг</small>
                         </p>
                         <a class="btn btn-primary btn-block btn-lg" th:href="'#'" th:text="'Файли'" id="upload">
+                            <!--?th:attr="data-files=${client.files}"-->
                         </a>
                     </div>
                 </div>
@@ -107,23 +108,36 @@
         </div>
     </div>
 
+    <div id="fileDisplay" style="display: none;">
+        <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
 
-    <form method="POST" enctype="multipart/form-data" id="fileUploadForm" style="display: none;">
-
-        <div class="file-form-wrap">
-            <div class="file-upload">
-                <label>
-                    <span>Вибрати файл</span><br/>
-                    <input id="file" type="file" name="files" onchange="getFileParam();"/>
-                    <input type="text" name="clientId" style="display:none;" th:value="${client.clientId}"/><br/><br/>
-                </label>
+            <div class="file-form-wrap">
+                <div class="file-upload">
+                    <label>
+                        <span>Вибрати файл</span><br/>
+                        <input id="file" type="file" name="files" onchange="getFileParam();"/>
+                        <input type="text" name="clientId" style="display:none;"
+                               th:value="${client.clientId}"/><br/><br/>
+                    </label>
+                </div>
+                <div id="preview1">&nbsp;</div>
+                <div id="file-name1">&nbsp;</div>
+                <div id="file-size1">&nbsp;</div>
+                <div id="file-result">&nbsp;</div>
             </div>
-            <div id="preview1">&nbsp;</div>
-            <div id="file-name1">&nbsp;</div>
-            <div id="file-size1">&nbsp;</div>
-            <div id="file-result">&nbsp;</div>
+        </form>
+
+        <div class="row">
+            <div th:each="file : ${client.files}" class="col-lg-3 col-md-3 vol-wrap">
+
+                <button type="button" class="btn btn-default btn-lg" id="downloadFile" th:attr="data-fileId=${file.fileId}, data-fileName=${file.fileName}">
+                    <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+                </button>
+
+                <a th:text="${file.fileName}" style="position: relative"></a>
+            </div>
         </div>
-    </form>
+    </div>
 
     <!-- Last appointments-->
     <table class="table" th:if="${client.appointments!=null and !client.appointments.empty}">

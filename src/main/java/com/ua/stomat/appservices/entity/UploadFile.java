@@ -97,7 +97,7 @@ public class UploadFile {
                 "fileId=" + fileId +
                 ", fileName='" + fileName + '\'' +
                 ", data=" + Arrays.toString(data) +
-                ", client=" + client +
+//                ", client=" + client +
                 '}';
     }
 }

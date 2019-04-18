@@ -61,4 +61,21 @@ public class ClientController {
 
         return clientService.upload(uploadfiles, clientId);
     }
+
+//    @RequestMapping(value = ADMIN_PATH + "/client/downloadFile", method= RequestMethod.GET)
+//    public void downloadFile(@RequestBody @Valid DownloadFileCriteria request, Errors errors, HttpServletResponse response) {
+//        try {
+//            // get your file as InputStream
+//            UploadFile file = clientService.downloadFile(request.getFileId(), errors);
+//            InputStream is = new ByteArrayInputStream(file.getData());
+//            // copy it to response's OutputStream
+//            org.apache.commons.io.IOUtils.copy(is, response.getOutputStream());
+//            response.flushBuffer();
+//        } catch (IOException ex) {
+////            log.info("Error writing file to output stream. Filename was '{}'", request.getFileName(), ex);
+//            throw new RuntimeException("IOError writing file to output stream");
+//        }
+//
+////        return clientService.downloadFile(request.getFileId(), errors);
+//    }
 }

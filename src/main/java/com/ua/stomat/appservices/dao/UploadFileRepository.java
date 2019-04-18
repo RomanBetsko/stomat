@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface UploadFileRepository extends CrudRepository<UploadFile, Long> {
 
     UploadFile save(UploadFile uploadFile);
+
+    UploadFile findByFileId(Integer fileId);
 }

@@ -65,7 +65,7 @@ $("a#delete").click(function(){
 });
 
 $("a#upload").click(function(){
-    var x = document.getElementById("fileUploadForm");
+    var x = document.getElementById("fileDisplay");
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
@@ -141,7 +141,7 @@ function getFileParam() {
                     if (file.getAsDataURL().substr(0, 11) == 'data:image/') {
                         newImg.onload = function () {
                             document.getElementById('file-name1').innerHTML += ' (' + newImg.naturalWidth + 'x' + newImg.naturalHeight + ' px)';
-                        }
+                        };
                         newImg.setAttribute('src', file.getAsDataURL());
                         elPreview.appendChild(newImg);
                     }
@@ -176,3 +176,39 @@ function getFileParam() {
         document.getElementById('file-name1').innerHTML = 'Имя: ' + file;
     }
 }
+
+$("button#downloadFile").click(function() {
+
+    var _data = {};
+    var $row = $(this).closest("button");    // Find the row
+    var $text = $row.find(".id").text();
+    _data["fileId"] = $(this).data("fileId");
+    _data["fileName"] = $(this).data("fileName");
+
+
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/admin/client/downloadFile",
+        data: JSON.stringify(_data),
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (data) {
+            $("body").append("<iframe src='" + data.url+ "' style='display: none;' ></iframe>");
+
+            console.log("SUCCESS : ", data);
+
+        },
+        error: function (e) {
+
+            var a = document.createElement('a');
+            var url = window.URL.createObjectURL(e);
+            a.href = url;
+            a.download = 'myfile.pdf';
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+    });
+
+});
