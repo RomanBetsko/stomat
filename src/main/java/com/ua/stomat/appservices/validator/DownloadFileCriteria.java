@@ -5,14 +5,14 @@ package com.ua.stomat.appservices.validator;
  */
 public class DownloadFileCriteria {
 
-    private String fileId;
+    private Integer fileId;
     private String fileName;
 
-    public String getFileId() {
+    public Integer getFileId() {
         return fileId;
     }
 
-    public void setFileId(String fileId) {
+    public void setFileId(Integer fileId) {
         this.fileId = fileId;
     }
 

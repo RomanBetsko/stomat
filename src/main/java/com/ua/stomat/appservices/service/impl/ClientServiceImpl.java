@@ -119,10 +119,10 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public UploadFile downloadFile(String fileId, Errors errors) {
+    public UploadFile downloadFile(Integer fileId) {
 
-
-        return fileRepository.findByFileId(Integer.valueOf(fileId));
+        UploadFile asd = fileRepository.findByFileId(fileId);
+        return asd;
     }
 
 }

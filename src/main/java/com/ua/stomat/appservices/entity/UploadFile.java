@@ -12,7 +12,7 @@ public class UploadFile {
     @Id
     @GeneratedValue
     @Column(name = "file_id")
-    private long fileId;
+    private Integer fileId;
     @Column(name = "file_name")
     private String fileName;
     @Column(name = "file_data")
@@ -35,11 +35,11 @@ public class UploadFile {
     }
 
 
-    public long getFileId() {
+    public Integer getFileId() {
         return fileId;
     }
 
-    public void setFileId(long fileId) {
+    public void setFileId(Integer fileId) {
         this.fileId = fileId;
     }
 

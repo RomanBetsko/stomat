@@ -180,34 +180,82 @@ function getFileParam() {
 $("button#downloadFile").click(function() {
 
     var _data = {};
-    var $row = $(this).closest("button");    // Find the row
-    var $text = $row.find(".id").text();
-    _data["fileId"] = $(this).data("fileId");
-    _data["fileName"] = $(this).data("fileName");
-
+    _data["fileId"] = $(this).data("fileid");
+    _data["fileName"] = $(this).data("filename");
 
     $.ajax({
-        type: "POST",
+        type: "GET",
         contentType: "application/json",
-        url: "/admin/client/downloadFile",
-        data: JSON.stringify(_data),
-        dataType: 'json',
+        url: "/admin/client/downloadFile/" + $(this).data("fileid"),
         cache: false,
         timeout: 600000,
-        success: function (data) {
-            $("body").append("<iframe src='" + data.url+ "' style='display: none;' ></iframe>");
-
-            console.log("SUCCESS : ", data);
+        success: function (data, status, xhr) {
+            window.location.href = "/admin/client/downloadFile/" + _data["fileId"];
+            //window.open(data.fileUrl);
+            // window.location.href = '${pageContext.request.contextPath}/licenses/downloadFile/' + data;
+            // window.open(data.fileUrl);
+            // var ct = xhr.getResponseHeader("content-type") || "";
+            //
+            // var nameOffile = _data["fileName"];
+            //
+            // var formatOfFile = nameOffile.slice((Math.max(0, nameOffile.lastIndexOf(".")) || Infinity) + 1);
+            //
+            // var textFile = null,
+            //     makeTextFile = function (text) {
+            //
+            //         var fileData = new Blob([text], {type: 'text/plain; charset=UTF-8"'});
+            //
+            //         // If we are replacing a previously generated file we need to
+            //         // manually revoke the object URL to avoid memory leaks.
+            //         if (textFile !== null) {
+            //             window.URL.revokeObjectURL(textFile);
+            //         }
+            //
+            //         textFile = window.URL.createObjectURL(fileData);
+            //
+            //         return textFile;
+            //     };
+            //
+            // var link = document.getElementById('downloadlink');
+            // // link.href = makeTextFile(data);
+            // link.href = window.URL.createObjectURL(data);
+            // link.download = nameOffile;
+            // // link.style.display = 'block';
+            //
+            // document.getElementById('downloadlink').click();
+            //
 
         },
         error: function (e) {
 
-            var a = document.createElement('a');
-            var url = window.URL.createObjectURL(e);
-            a.href = url;
-            a.download = 'myfile.pdf';
-            a.click();
-            window.URL.revokeObjectURL(url);
+            // var nameOffile = _data["fileName"];
+            //
+            // var formatOfFile = nameOffile.slice((Math.max(0, nameOffile.lastIndexOf(".")) || Infinity) + 1);
+            //
+            // var textFile = null,
+            //     makeTextFile = function (text) {
+            //
+            //         var data = new Blob([text], {type: 'image/png'});
+            //
+            //         // If we are replacing a previously generated file we need to
+            //         // manually revoke the object URL to avoid memory leaks.
+            //         // if (textFile !== null) {
+            //         //     window.URL.revokeObjectURL(textFile);
+            //         // }
+            //
+            //         textFile = window.URL.createObjectURL(data);
+            //
+            //         return textFile;
+            //     };
+            //
+            //     var link = document.getElementById('downloadlink');
+            //     link.href = makeTextFile(e.responseText);
+            //     link.download = nameOffile;
+            //     // link.style.display = 'block';
+            //
+            // document.getElementById('downloadlink').click();
+
+
         }
     });
 
