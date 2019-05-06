@@ -7,6 +7,7 @@ import com.ua.stomat.appservices.entity.UploadFile;
 import com.ua.stomat.appservices.service.ClientService;
 import com.ua.stomat.appservices.validator.AddClientCriteria;
 import com.ua.stomat.appservices.validator.AjaxResponseBody;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +17,14 @@ import org.springframework.validation.Errors;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -29,6 +36,8 @@ import java.util.stream.Collectors;
 @Transactional
 public class ClientServiceImpl implements ClientService {
 
+    @Autowired
+    private ServletContext context;
     @Autowired
     private ClientRepository clientRepository;
     @Autowired
@@ -119,10 +128,31 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public UploadFile downloadFile(Integer fileId) {
+    public void downloadFile(Integer fileId, HttpServletResponse response) {
 
-        UploadFile asd = fileRepository.findByFileId(fileId);
-        return asd;
+        UploadFile uploadFile = fileRepository.findByFileId(fileId);
+        String downloadFolder = context.getRealPath("/WEB-INF/downloads/");
+        try {
+            FileUtils.writeByteArrayToFile(new File(downloadFolder + uploadFile.getFileName()), uploadFile.getData());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Path file = Paths.get(downloadFolder, uploadFile.getFileName());
+        if (Files.exists(file)) {
+//            String mimeType = MimetypesFileTypeMap
+//                    .getDefaultFileTypeMap()
+//                    .getContentType(file1.getFileName());
+//            response.setContentType(mimeType);
+            response.addHeader("Content-Disposition", "attachment; filename=" + uploadFile.getFileName());
+            try {
+                Files.copy(file, response.getOutputStream());
+                response.getOutputStream().flush();
+            } catch (IOException e) {
+                System.out.println("Error :- " + e.getMessage());
+            }
+        } else {
+            System.out.println("Sorry File not found!!!!");
+        }
     }
 
 }

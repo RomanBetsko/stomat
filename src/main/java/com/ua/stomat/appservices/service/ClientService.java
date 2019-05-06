@@ -1,12 +1,13 @@
 package com.ua.stomat.appservices.service;
 
-import com.ua.stomat.appservices.entity.UploadFile;
 import com.ua.stomat.appservices.validator.AddClientCriteria;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletResponse;
 
 @Service
 public interface ClientService {
@@ -21,5 +22,5 @@ public interface ClientService {
 
     ResponseEntity<?> upload(CommonsMultipartFile[] fileUpload, String clientId);
 
-    UploadFile downloadFile(Integer fileId);
+    void downloadFile(Integer fileId, HttpServletResponse response);
 }
