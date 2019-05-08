@@ -2,8 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
-    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <!--?<script src="https://code.jquery.com/jquery-3.3.1.js"></script>-->
+
+    <!--?<!-- Bootstrap DateTimePicker -->
+    <link href="../webjars/Eonasdan-bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"
+          rel="stylesheet">
+    <link href="../webjars/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <link rel="stylesheet" th:href="@{/css/stomat.css}"
+          href="../css/stomat.css"/>
     <script type="text/javascript">
         $(document).ready(function () {
             $("#locales").change(function () {
@@ -61,13 +71,13 @@
                     <div class="menu-bar"><span class="lnr lnr-menu"></span></div>
                 </div>
                 <div class="main-menubar d-flex align-items-center">
-                    <span th:text="#{lang.change}"></span> :
+                    <span th:text="#{lang.change} " style="font-family:verdana;"></span> :
                     <select id="locales">
                         <option value=""></option>
-                        <option value="uk" th:text="#{lang.uk}"></option>
-                        <option value="en" th:text="#{lang.eng}"></option>
-                        <option value="ru" th:text="#{lang.ru}"></option>
-                        <option value="pl" th:text="#{lang.pl}"></option>
+                        <option value="uk" th:text="#{lang.uk}" style="font-family:verdana;"></option>
+                        <option value="en" th:text="#{lang.eng}" style="font-family:verdana;"></option>
+                        <option value="ru" th:text="#{lang.ru}" style="font-family:verdana;"></option>
+                        <option value="pl" th:text="#{lang.pl}" style="font-family:verdana;"></option>
                     </select>
                 </div>
             </div>
@@ -106,80 +116,61 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <div class="single-feature d-flex flex-row pb-30">
-                    <svg class="icon icon-dentist-chair"></svg>
-                    <div class="desc">
-                        <h4 class="text-uppercase">Відбілювання</h4>
-                        <p>
-                            Серед великої кількості стоматологічних процедур окреме місце займає відбілювання зубів, так
-                            як сучасні технології дозволяють зробити це без особливих проблем.<br>
+                <div class="single-feature single-blog d-flex flex-row pb-30">
+                    <img class="f-img img-fluid mx-auto" src="../img/whitening.png" alt=""
+                         style="width: 71px; height: 71px;">
+                    <div class="desc ml-5">
+                        <h4 th:text="#{international.services.title.whitening}" style="margin-top: -10px;"></h4>
+                        <p class="verdana" th:text="#{international.services.whitening}">
+                            <br>
                         </p>
                     </div>
                 </div>
-                <div class="single-feature d-flex flex-row pb-30">
-                    <div class="stomat-icon">
-                        <img class="img-fluid" src="img/gig.png" alt="">
-                    </div>
-                    <div class="desc">
-                        <h4 class="text-uppercase">Професійна гігієна</h4>
-                        <p>
-                            Гігієна порожнини рота попереджає появу неприємного запаху, проблем з яснами і зубами, а
-                            також потемніння емалі. Як відомо, між захворюваннями внутрішніх органів і зубів існує
-                            чіткий взаємозв'язок. <br>
+                <div class="single-feature single-blog d-flex flex-row pb-30">
+                    <img class="f-img img-fluid mx-auto" src="../img/gig.png" alt="" style="width: 71px; height: 71px;">
+                    <div class="desc ml-5">
+                        <h4 th:text="#{international.services.title.hygiene}" style="margin-top: -10px;"></h4>
+                        <p class="verdana" th:text="#{international.services.hygiene}">
+                            <br>
                         </p>
                     </div>
                 </div>
-                <div class="single-feature d-flex flex-row pb-30">
-                    <div class="stomat-icon">
-                        <img class="img-fluid" src="img/teeth.png" alt="">
-                    </div>
-                    <div class="desc">
-                        <h4 class="text-uppercase">Ендодонтія</h4>
-                        <p>
-                            Механічна (ручна + машинна) обробка каналів, медикаментозна обробка і обтурація
-                            термопластифікованою гутаперчею з використанням операційного мікроскопа Лікування ускладнень
-                            (зламані інструменти, перфораціі, травми та інші). <br>
+                <div class="single-feature single-blog d-flex flex-row pb-30">
+                    <img class="f-img img-fluid mx-auto" src="../img/kanal.png" alt="" style="width: 71px; height: 71px;">
+                    <div class="desc ml-5">
+                        <h4 th:text="#{international.services.title.endodontia}" style="margin-top: -10px;"></h4>
+                        <p class="verdana" th:text="#{international.services.endodontia}">
+                            <br>
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="single-feature d-flex flex-row pb-30">
-                    <div class="stomat-icon">
-                        <img class="img-fluid" src="img/decay.png" alt="">
-                    </div>
-                    <div class="desc">
-                        <h4 class="text-uppercase">Пломбування</h4>
-                        <p>
-                            Ми використовуємо матеріали бренду Estelite виробництва Tokuyama Dental Corp. (Японія) та
-                            Kerr (США) Пломбування з використанням мікроскопа та з технологією мінімального втручання
+                <div class="single-feature single-blog d-flex flex-row pb-30">
+                    <img class="f-img img-fluid mx-auto" src="../img/plomb.png" alt="" style="width: 71px; height: 71px;">
+                    <div class="desc ml-5">
+                        <h4 th:text="#{international.services.title.filling}" style="margin-top: -10px;"></h4>
+                        <p class="verdana" th:text="#{international.services.filling}">
                             <br>
                         </p>
                     </div>
                 </div>
-                <div class="single-feature d-flex flex-row pb-30">
-                    <div class="stomat-icon">
-                        <img class="img-fluid" src="img/dental.png" alt="">
-                    </div>
-                    <div class="desc">
-                        <h4 class="text-uppercase">Лазерна стоматологія</h4>
-                        <p>
-                            Лазерна стоматологія актуальна при: видаленні м'яких тканин, стерилізації кореневих каналів,
-                            установки брекетів, розкритті імплантатів, лікуванні запальних захворювань, пародонтиту.
+                <div class="single-feature single-blog d-flex flex-row pb-30">
+                    <img class="f-img img-fluid mx-auto" src="../img/dental.png" alt="" style="width: 71px; height: 71px;">
+                    <div class="desc ml-5">
+                        <h4 th:text="#{international.services.title.lazers}" style="margin-top: -10px;"></h4>
+                        <p class="verdana" th:text="#{international.services.lazers}">
                             <br>
                         </p>
                     </div>
                 </div>
-                <div class="single-feature d-flex flex-row pb-30">
-                    <div class="stomat-icon">
-                        <img class="img-fluid" src="img/crown.png" alt="">
-                    </div>
-                    <div class="desc">
-                        <h4 class="text-uppercase">Протезування</h4>
-                        <p>
-                            Сучасне зубне протезування це - найновіше обладнання і новітні матеріали, максимально схожі
-                            за якостям з природними зубами. Зроблені за останніми ортопедичним технологіям зубні протези
-                            навіть складно відрізнити від рідних зубів. <br>
+                <div class="single-feature single-blog d-flex flex-row pb-30">
+                    <img class="f-img img-fluid mx-auto" src="../img/protez.png" alt=""
+                         style="width: 71px; height: 71px;">
+                    <div class="desc ml-5">
+                        <h4 th:text="#{international.services.title.prosthesis}" style="margin-top: -10px;"></h4>
+                        <p class="verdana" th:text="#{international.services.prosthesis}">
+                            <br>
                         </p>
                     </div>
                 </div>
@@ -198,7 +189,7 @@
                 <img class="img-fluid" src="img/about-img.jpg" alt="">
             </div>
             <div class="col-lg-6 col-md-12 about-right no-padding">
-                <h1>Запис на <br> прийом</h1>
+                <h1 th:text="#{users.title.appointment1}"></h1>
                 <form class="booking-form" id="myForm" action="donate.php">
                     <div class="row">
                         <div class="col-lg-12 d-flex flex-column">
@@ -212,18 +203,22 @@
                                    type="text" required>
                         </div>
                         <div class="col-lg-6 d-flex flex-column">
-                            <input id="datepicker2" name="app-date" class="single-in mt-20"
-                                   onblur="this.placeholder = 'Дата'" type="text" placeholder="Дата" required>
+                            <div class='input-group date' id='datetimepicker3'>
+                                <input type='text' placeholder="Дата та час" onfocus="this.placeholder = ''"
+                                       class="form-control mt-20" id="dateTo" required/>
+                    <span class="input-group-addon info mt-20" style="width: 25px;">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                            </div>
                         </div>
                         <div class="col-lg-12 flex-column">
-                            <textarea class="form-control mt-20" name="message" placeholder="Messege"
+                            <textarea class="form-control mt-20" name="message" placeholder="Повідомлення"
                                       onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'"
                                       required=""></textarea>
                         </div>
 
                         <div class="col-lg-12 d-flex justify-content-end send-btn">
-                            <button class="submit-btn primary-btn mt-20 text-uppercase ">confirm booking<span
-                                    class="lnr lnr-arrow-right"></span></button>
+                            <button class="submit-btn primary-btn mt-20 text-uppercase" th:text="#{users.submit.appointment.button}" style="text-align: center;"></button>
                         </div>
 
                         <div class="alert-msg"></div>
@@ -231,7 +226,6 @@
                 </form>
             </div>
         </div>
-    </div>
     </div>
 </section>
 <!-- End about Area -->
@@ -514,5 +508,9 @@
 <script type="text/javascript" src="js/waypoints.min.js"></script>
 <script type="text/javascript" src="js/jquery.counterup.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="../js/appointmentView.js"></script>
+<script src="../resources/webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="../webjars/momentjs/2.22.2/min/moment-with-locales.min.js"></script>
+<script src="../webjars/Eonasdan-bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 </body>
 </html>

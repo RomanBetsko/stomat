@@ -227,6 +227,24 @@ td, th {
   margin-top: 20px;
 }
 
+.ml-40 {
+  margin-left: 40px;
+}
+
+.input-group-addon.info {
+  color: rgb(255, 255, 255);
+  background-color: rgb(57, 179, 215);
+  border-color: rgb(38, 154, 188);
+}
+
+.verdana {
+  font-family:verdana;
+}
+
+.mtm-10 {
+  margin-top: -10px;
+}
+
 .mb-20 {
   margin-bottom: 20px;
 }
@@ -1114,6 +1132,24 @@ nav a:hover {
 }
 
 .single-blog .f-img:hover {
+  cursor: pointer;
+  opacity: .5;
+  transform: scale(1.05);
+}
+
+@media {
+  .single-blog1 .meta {
+  }
+}
+
+.single-blog1 .f-img {
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.single-blog1 .f-img:hover {
   cursor: pointer;
   opacity: .5;
   transform: scale(1.05);
