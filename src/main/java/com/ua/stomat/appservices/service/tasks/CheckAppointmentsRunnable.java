@@ -5,12 +5,12 @@ import com.ua.stomat.appservices.entity.Appointment;
 import com.ua.stomat.appservices.entity.Client;
 import com.ua.stomat.appservices.utils.AdminInfo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -43,6 +43,12 @@ public class CheckAppointmentsRunnable implements Runnable {
         Date currentDateMinusOneDay = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
         localDateTime = localDateTime.minusMonths(6).plusDays(1);
         Date currentDateMinusSixMonths = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+        localDateTime = localDateTime.plusMonths(5);
+        Date currentDateMinusOneMonths = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+        localDateTime = localDateTime.plusMonths(2);
+        Date currentDatePlusOneMonths = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+
+        checkDisableNotificationStatus(currentDate, clients);
 
         for (Client client : clients) {
             //todo fix this
@@ -50,7 +56,7 @@ public class CheckAppointmentsRunnable implements Runnable {
                 Appointment lastAppointment = client.getAppointments().get(0);
 
 
-                if (currentDateMinusSixMonths.after(new Date(lastAppointment.getDateTo().getTime()))) {
+                if (currentDateMinusSixMonths.after(new Date(lastAppointment.getDateTo().getTime())) && !client.isDisableNotification()) {
                     for (Client cln : temp) {
                         if (cln.equals(client)) {
                             temp.add(client);
@@ -60,7 +66,7 @@ public class CheckAppointmentsRunnable implements Runnable {
                     if (temp.isEmpty()) {
                         temp.add(client);
                         System.out.println("Client added to clients1ToInform list");
-                        sendEmail(client);
+                        sendEmail(client, currentDatePlusOneMonths);
                     }
                 }
             }
@@ -79,7 +85,7 @@ public class CheckAppointmentsRunnable implements Runnable {
         adminInfo.setClientsToInform(temp);
     }
 
-    private void sendEmail(Client client) {
+    private void sendEmail(Client client, Date currentDatePlusOneMonths) {
 
         final String user = "mozgoowisp@gmail.com";//change accordingly
         final String password = "Roman1995";//change accordingly
@@ -116,6 +122,11 @@ public class CheckAppointmentsRunnable implements Runnable {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
+        client.setDisableNotification(true);
+        if ((client.getDisableNotificationDate() == null) || client.getDisableNotificationDate().before(currentDatePlusOneMonths)) {
+            client.setDisableNotificationDate(new Timestamp(currentDatePlusOneMonths.getTime()));
+        }
+        clientRepository.save(client);
     }
 
     private String emailText(Client client) {
@@ -130,6 +141,15 @@ public class CheckAppointmentsRunnable implements Runnable {
                 System.getProperty("line.separator") +
                 System.getProperty("line.separator") +
                 "З повагою лікар-стоматолог Назар Бецко";
+    }
+
+
+    private void checkDisableNotificationStatus(Date currentDate, List<Client> clients) {
+        clients.stream()
+                .filter(Client::isDisableNotification)
+                .filter(client -> client.getDisableNotificationDate() != null)
+                .filter(client -> client.getDisableNotificationDate().before(currentDate))
+                .forEach(client -> client.setDisableNotification(false));
     }
 
 }

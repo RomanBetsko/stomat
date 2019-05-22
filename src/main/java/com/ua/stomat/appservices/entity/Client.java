@@ -5,6 +5,7 @@ import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
@@ -38,6 +39,10 @@ public class Client implements Serializable {
     private Date dateOfBirth;
     //    @Column(name = "total_earn", nullable = false)
     private Integer totalEarn;
+    @Column(name = "disable_notification")
+    private boolean disableNotification = false;
+    @Column(name = "disable_notification_date")
+    private Timestamp disableNotificationDate;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     @Fetch(value= FetchMode.SELECT)
@@ -176,6 +181,22 @@ public class Client implements Serializable {
         } else {
             return getAppointments().size();
         }
+    }
+
+    public boolean isDisableNotification() {
+        return disableNotification;
+    }
+
+    public void setDisableNotification(boolean disableNotification) {
+        this.disableNotification = disableNotification;
+    }
+
+    public Timestamp getDisableNotificationDate() {
+        return disableNotificationDate;
+    }
+
+    public void setDisableNotificationDate(Timestamp disableNotificationDate) {
+        this.disableNotificationDate = disableNotificationDate;
     }
 
     public void setDateOfBirth(Date dateOfBirth) {
