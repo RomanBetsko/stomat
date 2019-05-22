@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -54,9 +55,11 @@ public class AdminInfo implements Serializable {
     }
 
     public void deleteFromCurrentAppointmentsList(Appointment appointment){
+        //todo подумати як оптимізувати це разом з CheckAppointmentsRunnable for avoid ConcurrentModificationException line
+        List<Appointment> listToRemove = this.currentAppointments.stream()
+                .filter(app -> appointment.getAppointmentId().equals(app.getAppointmentId())).collect(Collectors.toList());
 
-        //todo IMPORTANT not working
-        this.currentAppointments.remove(appointment);
+        this.currentAppointments.removeAll(listToRemove);
     }
 
     public void refreshData() {
