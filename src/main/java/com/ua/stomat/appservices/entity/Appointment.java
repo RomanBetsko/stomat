@@ -3,7 +3,6 @@ package com.ua.stomat.appservices.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,10 +24,17 @@ public class Appointment implements Serializable {
     private Timestamp dateTo;
     @Column(name = "description")
     private String description;
+    @Column(name = "clinic", nullable = false)
+    private String clinic;
 
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id", nullable = false)
+    private Doctor doctor;
+
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinTable(
             name = "appointment_procedure",
@@ -40,12 +46,13 @@ public class Appointment implements Serializable {
     public Appointment() {
     }
 
-    public Appointment(String name, Integer price, Timestamp dateFrom, Timestamp dateTo, String description, Client client, List<Procedure> procedures) {
+    public Appointment(String name, Integer price, Timestamp dateFrom, Timestamp dateTo, String description, String clinic, Client client, List<Procedure> procedures) {
         this.name = name;
         this.price = price;
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
         this.description = description;
+        this.clinic = clinic;
         this.client = client;
         this.procedures = procedures;
     }
@@ -110,6 +117,22 @@ public class Appointment implements Serializable {
         this.client = client;
     }
 
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    public String getClinic() {
+        return clinic;
+    }
+
+    public void setClinic(String clinic) {
+        this.clinic = clinic;
+    }
+
     public List<Procedure> getProcedures() {
         return procedures;
     }
@@ -134,6 +157,7 @@ public class Appointment implements Serializable {
         if (getDateTo() != null ? !getDateTo().equals(that.getDateTo()) : that.getDateTo() != null) return false;
         if (getDescription() != null ? !getDescription().equals(that.getDescription()) : that.getDescription() != null)
             return false;
+        if (getClinic() != null ? !getClinic().equals(that.getClinic()) : that.getClinic() != null) return false;
         if (getClient() != null ? !getClient().equals(that.getClient()) : that.getClient() != null) return false;
         return getProcedures() != null ? getProcedures().equals(that.getProcedures()) : that.getProcedures() == null;
 
@@ -147,6 +171,7 @@ public class Appointment implements Serializable {
         result = 31 * result + (getDateFrom() != null ? getDateFrom().hashCode() : 0);
         result = 31 * result + (getDateTo() != null ? getDateTo().hashCode() : 0);
         result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+        result = 31 * result + (getClinic() != null ? getClinic().hashCode() : 0);
         result = 31 * result + (getClient() != null ? getClient().hashCode() : 0);
         result = 31 * result + (getProcedures() != null ? getProcedures().hashCode() : 0);
         return result;
@@ -161,6 +186,7 @@ public class Appointment implements Serializable {
                 ", dateFrom=" + dateFrom +
                 ", dateTo=" + dateTo +
                 ", description='" + description + '\'' +
+                ", clinic='" + clinic + '\'' +
                 ", client=" + client +
                 ", procedures=" + procedures +
                 '}';

@@ -3,7 +3,6 @@ package com.ua.stomat.appservices.validator;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Set;
 
 
 public class AddAppointmentCriteria implements Serializable {
@@ -14,15 +13,17 @@ public class AddAppointmentCriteria implements Serializable {
     private @NotEmpty(message = "Не вказано дату та час З") String dateFrom;
     private @NotEmpty(message = "Не вказано дату та час З") String dateTo;
     private String description;
+    private String clinic;
     private List<ProcedureCriteria> procedureCriteria;
 
     public AddAppointmentCriteria(Integer clientId, @NotEmpty(message = "Не вказана назва") String name, @NotEmpty(message = "Не вказано дату та час З") String dateFrom,
-                                  @NotEmpty(message = "Не вказано дату та час З") String dateTo, String description, List<ProcedureCriteria> procedureCriteria) {
+                                  @NotEmpty(message = "Не вказано дату та час З") String dateTo, String description, String clinic, List<ProcedureCriteria> procedureCriteria) {
         this.clientId = clientId;
         this.name = name;
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
         this.description = description;
+        this.clinic = clinic;
         this.procedureCriteria = procedureCriteria;
     }
 
@@ -67,6 +68,14 @@ public class AddAppointmentCriteria implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getClinic() {
+        return clinic;
+    }
+
+    public void setClinic(String clinic) {
+        this.clinic = clinic;
     }
 
     public List<ProcedureCriteria> getProcedureCriteria() {

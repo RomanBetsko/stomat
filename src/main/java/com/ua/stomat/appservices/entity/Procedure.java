@@ -18,13 +18,18 @@ public class Procedure implements Serializable {
     @Column(name = "price", nullable = false)
     private Integer price;
 
+    @ManyToOne
+    @JoinColumn(name = "doctor_id", nullable = false)
+    private Doctor doctor;
+
     @ManyToMany(mappedBy = "procedures", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private List<Appointment> appointments;
 
 
-    public Procedure(String name, Integer price, List<Appointment> appointments) {
+    public Procedure(String name, Integer price, Doctor doctor, List<Appointment> appointments) {
         this.name = name;
         this.price = price;
+        this.doctor = doctor;
         this.appointments = appointments;
     }
 
@@ -67,12 +72,29 @@ public class Procedure implements Serializable {
         this.appointments = appointments;
     }
 
+    public Integer getProcedureId() {
+        return procedureId;
+    }
+
+    public void setProcedureId(Integer procedureId) {
+        this.procedureId = procedureId;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
     @Override
     public String toString() {
-        return "ProcedureCriteria{" +
-                "id=" + procedureId +
+        return "Procedure{" +
+                "procedureId=" + procedureId +
                 ", name='" + name + '\'' +
                 ", price=" + price +
+                ", doctor='" + doctor + '\'' +
                 ", appointments=" + appointments +
                 '}';
     }

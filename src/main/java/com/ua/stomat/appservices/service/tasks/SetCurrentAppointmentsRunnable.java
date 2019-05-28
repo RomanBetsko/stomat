@@ -23,7 +23,7 @@ public class SetCurrentAppointmentsRunnable implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("SetCurrentAppointmentsRunnable task started!");
+        System.out.println(new Date() + " SetCurrentAppointmentsRunnable task started!");
 
         LocalDateTime localDateTime = new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
         localDateTime = localDateTime.minusMonths(2);
@@ -32,6 +32,6 @@ public class SetCurrentAppointmentsRunnable implements Runnable {
         List<Appointment> appointments = appointmentRepository.findByDateFromGreaterThanEqual(new Timestamp(currentDateMinusTwoMonths.getTime()));
 
         adminInfo.setCurrentAppointments(appointments);
-        System.out.println("appointments added to current appointment list!");
+        System.out.println(new Date() + " appointments added to current appointment list!");
     }
 }

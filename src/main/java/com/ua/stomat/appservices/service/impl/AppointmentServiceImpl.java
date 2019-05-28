@@ -4,9 +4,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ua.stomat.appservices.dao.AppointmentRepository;
 import com.ua.stomat.appservices.dao.ClientRepository;
+import com.ua.stomat.appservices.dao.DoctorRepository;
 import com.ua.stomat.appservices.dao.ProcedureRepository;
 import com.ua.stomat.appservices.entity.Appointment;
 import com.ua.stomat.appservices.entity.Client;
+import com.ua.stomat.appservices.entity.Doctor;
 import com.ua.stomat.appservices.entity.Procedure;
 import com.ua.stomat.appservices.service.AppointmentService;
 import com.ua.stomat.appservices.service.UtilsService;
@@ -38,6 +40,8 @@ public class AppointmentServiceImpl implements AppointmentService {
     private AppointmentRepository appointmentRepository;
     @Autowired
     private ClientRepository clientRepository;
+    @Autowired
+    private DoctorRepository doctorRepository;
     @Autowired
     private ProcedureRepository procedureRepository;
     @Autowired
@@ -80,28 +84,38 @@ public class AppointmentServiceImpl implements AppointmentService {
             appointment.setDateTo(new Timestamp(dateTo.getTime()));
         }
         appointment.setDescription(request.getDescription());
-        //todo check this;
-        appointment.setProcedures(prepareProcedures(request.getProcedureCriteria()));
+        appointment.setClinic(request.getClinic());
+        appointment.setDoctor(getDoctor());
+        appointment.setProcedures(prepareProcedures(request.getProcedureCriteria(), appointment));
         return appointment;
     }
 
-    private List<Procedure> prepareProcedures(List<ProcedureCriteria> procedureCriteria) {
+    private Doctor getDoctor() {
+        //todo реалізувати це
+        return doctorRepository.findDoctorByDoctorId(1);
+    }
+
+    private List<Procedure> prepareProcedures(List<ProcedureCriteria> procedureCriteria, Appointment appointment) {
         List<Procedure> procedures = new ArrayList<>();
         for (ProcedureCriteria temp : procedureCriteria) {
             Procedure procedure = new Procedure();
             if (!procedureRepository.findAllByName(temp.getName()).isEmpty()) {
                 for (Procedure prc : procedureRepository.findAllByName(temp.getName())) {
                     if (prc.getPrice().equals(temp.getPrice())) {
+                        prc.setDoctor(appointment.getDoctor());
                         procedures.add(prc);
                     } else {
                         procedure.setName(temp.getName());
                         procedure.setPrice(temp.getPrice());
+                        //todo можливість з багатьма лікарями
+                        procedure.setDoctor(appointment.getDoctor());
                         procedures.add(procedure);
                     }
                 }
             } else {
                 procedure.setName(temp.getName());
                 procedure.setPrice(temp.getPrice());
+                procedure.setDoctor(appointment.getDoctor());
                 procedures.add(procedure);
             }
         }

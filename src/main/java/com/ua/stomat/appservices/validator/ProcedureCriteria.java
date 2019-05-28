@@ -4,6 +4,7 @@ public class ProcedureCriteria {
     private Integer id;
     private String name;
     private Integer price;
+    private String doctor;
 
     public String getName() {
         return name;
@@ -29,10 +30,19 @@ public class ProcedureCriteria {
         this.id = id;
     }
 
-    public ProcedureCriteria(Integer id, String name, Integer price) {
+    public String getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(String doctor) {
+        this.doctor = doctor;
+    }
+
+    public ProcedureCriteria(Integer id, String name, Integer price, String doctor) {
         this.id = id;
         this.name = name;
         this.price = price;
+        this.doctor = doctor;
     }
 
     public ProcedureCriteria() {

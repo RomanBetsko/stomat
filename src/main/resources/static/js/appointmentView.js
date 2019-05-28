@@ -89,6 +89,8 @@ function functionCreate() {
     _data["description"] = $("#description").val();
     _data["dateFrom"] = $("#dateFrom".toString()).val();
     _data["dateTo"] = $("#dateTo".toString()).val();
+    //todo тягнути клініку для якої створюється запис. у майбутньому
+    _data["clinic"] = "BetskoClinic";
     _data["procedureCriteria"] = [];
     
     $("[id^='procedureName']").each(function () {
