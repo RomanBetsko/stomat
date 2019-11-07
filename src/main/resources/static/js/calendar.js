@@ -3,8 +3,8 @@ $(document).ready(function() {
         locale : 'uk',
         defaultView: 'agendaWeek',
         //todo запитати Назара чи потрібно це
-        minTime: '07:00:00',
-        maxTime: '23:00:00',
+        minTime: '06:00:00',
+        maxTime: '24:00:00',
         html: true,
 
         //todo подумати що з цим зробити

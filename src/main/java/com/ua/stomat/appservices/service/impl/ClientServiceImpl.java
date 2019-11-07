@@ -8,7 +8,6 @@ import com.ua.stomat.appservices.service.ClientService;
 import com.ua.stomat.appservices.validator.AddClientCriteria;
 import com.ua.stomat.appservices.validator.AjaxResponseBody;
 import org.apache.commons.io.FileUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -21,7 +20,6 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -36,12 +34,16 @@ import java.util.stream.Collectors;
 @Transactional
 public class ClientServiceImpl implements ClientService {
 
-    @Autowired
-    private ServletContext context;
-    @Autowired
-    private ClientRepository clientRepository;
-    @Autowired
-    private UploadFileRepository fileRepository;
+    private  ServletContext context;
+    private  ClientRepository clientRepository;
+    private  UploadFileRepository fileRepository;
+
+    public ClientServiceImpl(ServletContext context, ClientRepository clientRepository, UploadFileRepository fileRepository) {
+        this.context = context;
+        this.clientRepository = clientRepository;
+        this.fileRepository = fileRepository;
+    }
+
 
     @Override
     public ResponseEntity<?> addClient(AddClientCriteria request, Errors errors) {
@@ -114,7 +116,7 @@ public class ClientServiceImpl implements ClientService {
         AjaxResponseBody result = new AjaxResponseBody();
 
         if (fileUpload != null && fileUpload.length > 0) {
-            for (CommonsMultipartFile aFile : fileUpload){
+            for (CommonsMultipartFile aFile : fileUpload) {
 
                 UploadFile uploadFile = new UploadFile();
                 uploadFile.setFileName(aFile.getOriginalFilename());

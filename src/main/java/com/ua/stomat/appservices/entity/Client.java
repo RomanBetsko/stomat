@@ -1,24 +1,29 @@
 package com.ua.stomat.appservices.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import static java.time.LocalDate.now;
 
 @Entity
 @Table(name = "client")
-public class Client implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,89 +50,19 @@ public class Client implements Serializable {
     private Timestamp disableNotificationDate;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-    @Fetch(value= FetchMode.SELECT)
+    @Fetch(value = FetchMode.SELECT)
     private List<UploadFile> files;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-    @Fetch(value= FetchMode.SELECT)
+    @Fetch(value = FetchMode.SELECT)
     private List<Appointment> appointments;
 
-    public Client() {
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public Integer getClientId() {
-        return clientId;
-    }
-
-    public void setClientId(Integer clientId) {
-        this.clientId = clientId;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getSecondName() {
-        return secondName;
-    }
-
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
-    }
-
-    public String getThirdName() {
-        return thirdName;
-    }
-
-    public void setThirdName(String thirdName) {
-        this.thirdName = thirdName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public List<UploadFile> getFiles() {
-        return files;
-    }
-
-    public void setFiles(List<UploadFile> files) {
-        this.files = files;
-    }
 
     public List<Appointment> getAppointments() {
         if (appointments.isEmpty()) {
             appointments = new ArrayList<>();
         }
-        Collections.sort(appointments, (p1, p2) -> Long.valueOf(p2.getDateFrom().getTime()).compareTo(p1.getDateFrom().getTime()));
+        appointments.sort((p1, p2) -> Long.compare(p2.getDateFrom().getTime(), p1.getDateFrom().getTime()));
         return appointments;
     }
 
@@ -158,8 +93,8 @@ public class Client implements Serializable {
 
 
     public Date getDateOfBirth() {
-        SimpleDateFormat dateformat = new SimpleDateFormat("dd-mm-yyyy");
-        dateformat.format(dateOfBirth);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy");
+        dateFormat.format(dateOfBirth);
         return dateOfBirth;
     }
 
@@ -181,85 +116,5 @@ public class Client implements Serializable {
         } else {
             return getAppointments().size();
         }
-    }
-
-    public boolean isDisableNotification() {
-        return disableNotification;
-    }
-
-    public void setDisableNotification(boolean disableNotification) {
-        this.disableNotification = disableNotification;
-    }
-
-    public Timestamp getDisableNotificationDate() {
-        return disableNotificationDate;
-    }
-
-    public void setDisableNotificationDate(Timestamp disableNotificationDate) {
-        this.disableNotificationDate = disableNotificationDate;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Client)) return false;
-
-        Client client = (Client) o;
-
-        if (getClientId() != null ? !getClientId().equals(client.getClientId()) : client.getClientId() != null)
-            return false;
-        if (getFirstName() != null ? !getFirstName().equals(client.getFirstName()) : client.getFirstName() != null)
-            return false;
-        if (getSecondName() != null ? !getSecondName().equals(client.getSecondName()) : client.getSecondName() != null)
-            return false;
-        if (getThirdName() != null ? !getThirdName().equals(client.getThirdName()) : client.getThirdName() != null)
-            return false;
-        if (getEmail() != null ? !getEmail().equals(client.getEmail()) : client.getEmail() != null) return false;
-        if (getPhone() != null ? !getPhone().equals(client.getPhone()) : client.getPhone() != null) return false;
-        if (getSex() != null ? !getSex().equals(client.getSex()) : client.getSex() != null) return false;
-        if (getDateOfBirth() != null ? !getDateOfBirth().equals(client.getDateOfBirth()) : client.getDateOfBirth() != null)
-            return false;
-        if (getTotalEarn() != null ? !getTotalEarn().equals(client.getTotalEarn()) : client.getTotalEarn() != null)
-            return false;
-        if (getFiles() != null ? !getFiles().equals(client.getFiles()) : client.getFiles() != null) return false;
-        return getAppointments() != null ? getAppointments().equals(client.getAppointments()) : client.getAppointments() == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = getClientId() != null ? getClientId().hashCode() : 0;
-        result = 31 * result + (getFirstName() != null ? getFirstName().hashCode() : 0);
-        result = 31 * result + (getSecondName() != null ? getSecondName().hashCode() : 0);
-        result = 31 * result + (getThirdName() != null ? getThirdName().hashCode() : 0);
-        result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
-        result = 31 * result + (getPhone() != null ? getPhone().hashCode() : 0);
-        result = 31 * result + (getSex() != null ? getSex().hashCode() : 0);
-        result = 31 * result + (getDateOfBirth() != null ? getDateOfBirth().hashCode() : 0);
-        result = 31 * result + (getTotalEarn() != null ? getTotalEarn().hashCode() : 0);
-        result = 31 * result + (getFiles() != null ? getFiles().hashCode() : 0);
-        result = 31 * result + (getAppointments() != null ? getAppointments().hashCode() : 0);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Client{" +
-                "clientId=" + clientId +
-                ", firstName='" + firstName + '\'' +
-                ", secondName='" + secondName + '\'' +
-                ", thirdName='" + thirdName + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", sex='" + sex + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", totalEarn=" + totalEarn +
-//                ", files=" + files +
-                ", appointments=" + appointments +
-                '}';
     }
 }

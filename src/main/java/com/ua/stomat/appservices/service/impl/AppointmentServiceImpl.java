@@ -18,6 +18,8 @@ import com.ua.stomat.appservices.validator.AddAppointmentCriteria;
 import com.ua.stomat.appservices.validator.AjaxResponseBody;
 import com.ua.stomat.appservices.validator.ClientCriteria;
 import com.ua.stomat.appservices.validator.ProcedureCriteria;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
@@ -36,20 +38,26 @@ import java.util.stream.Collectors;
 @Service
 public class AppointmentServiceImpl implements AppointmentService {
 
-    @Autowired
     private AppointmentRepository appointmentRepository;
-    @Autowired
     private ClientRepository clientRepository;
-    @Autowired
     private DoctorRepository doctorRepository;
-    @Autowired
     private ProcedureRepository procedureRepository;
-    @Autowired
     private AdminInfo adminInfo;
-    @Autowired
     private UtilsService utilsService;
 
+    public AppointmentServiceImpl(AppointmentRepository appointmentRepository, ClientRepository clientRepository,
+                                  DoctorRepository doctorRepository, ProcedureRepository procedureRepository,
+                                  AdminInfo adminInfo, UtilsService utilsService) {
+        this.appointmentRepository = appointmentRepository;
+        this.clientRepository = clientRepository;
+        this.doctorRepository = doctorRepository;
+        this.procedureRepository = procedureRepository;
+        this.adminInfo = adminInfo;
+        this.utilsService = utilsService;
+    }
+
     @Override
+    @Transactional
     public ResponseEntity<?> addAppointment(AddAppointmentCriteria request, Errors errors) {
         AjaxResponseBody result = new AjaxResponseBody();
         if (errors.hasErrors()) {
@@ -58,13 +66,18 @@ public class AppointmentServiceImpl implements AppointmentService {
                     .collect(Collectors.joining(",")));
             return ResponseEntity.badRequest().body(result);
         }
-        Appointment appointment = appointmentRepository.save(prepareAppointment(request));
-        adminInfo.addToCurrentAppointmentsList(appointment);
+        Doctor doc = getDoctor();
+        Appointment appointment = null;
+        if(doc.getId() != null) {
+            appointment = prepareAppointment(request, doc);
+            appointmentRepository.save(appointment);
+        }
+        //adminInfo.addToCurrentAppointmentsList(appointment);
         result.setMsg(appointment.getAppointmentId().toString());
         return ResponseEntity.ok(result);
     }
 
-    private Appointment prepareAppointment(AddAppointmentCriteria request) {
+    private Appointment prepareAppointment(AddAppointmentCriteria request, Doctor doc) {
         Appointment appointment = new Appointment();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
         Date dateFrom = null;
@@ -85,14 +98,13 @@ public class AppointmentServiceImpl implements AppointmentService {
         }
         appointment.setDescription(request.getDescription());
         appointment.setClinic(request.getClinic());
-        appointment.setDoctor(getDoctor());
+        appointment.setDoctor(doc);
         appointment.setProcedures(prepareProcedures(request.getProcedureCriteria(), appointment));
         return appointment;
     }
 
     private Doctor getDoctor() {
-        //todo реалізувати це
-        return doctorRepository.findDoctorByDoctorId(1);
+        return doctorRepository.findById(1);
     }
 
     private List<Procedure> prepareProcedures(List<ProcedureCriteria> procedureCriteria, Appointment appointment) {
@@ -102,12 +114,10 @@ public class AppointmentServiceImpl implements AppointmentService {
             if (!procedureRepository.findAllByName(temp.getName()).isEmpty()) {
                 for (Procedure prc : procedureRepository.findAllByName(temp.getName())) {
                     if (prc.getPrice().equals(temp.getPrice())) {
-                        prc.setDoctor(appointment.getDoctor());
                         procedures.add(prc);
                     } else {
                         procedure.setName(temp.getName());
                         procedure.setPrice(temp.getPrice());
-                        //todo можливість з багатьма лікарями
                         procedure.setDoctor(appointment.getDoctor());
                         procedures.add(procedure);
                     }
