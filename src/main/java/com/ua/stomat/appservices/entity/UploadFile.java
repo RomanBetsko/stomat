@@ -14,9 +14,8 @@ import javax.persistence.*;
 public class UploadFile {
 
     @Id
-    @GeneratedValue
     @Column(name = "file_id")
-    private Integer fileId;
+    private String fileId;
     @Column(name = "file_name")
     private String fileName;
     @Column(name = "file_data")

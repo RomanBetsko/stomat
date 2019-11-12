@@ -22,5 +22,5 @@ public interface ClientService {
 
     ResponseEntity<?> upload(CommonsMultipartFile[] fileUpload, String clientId);
 
-    void downloadFile(Integer fileId, HttpServletResponse response);
+    ResponseEntity<?> downloadFile(String fileId,  HttpServletResponse response);
 }

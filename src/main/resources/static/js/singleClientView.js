@@ -113,7 +113,7 @@ function saveFile() {
 
 function getFileParam() {
     
-    //todo розібратися з цим
+    location.reload();
     try {
         var file = document.getElementById('file').files[0];
 
@@ -190,72 +190,10 @@ $("button#downloadFile").click(function() {
         cache: false,
         timeout: 600000,
         success: function (data, status, xhr) {
-            window.location.href = "/admin/client/downloadFile/" + _data["fileId"];
-            //window.open(data.fileUrl);
-            // window.location.href = '${pageContext.request.contextPath}/licenses/downloadFile/' + data;
-            // window.open(data.fileUrl);
-            // var ct = xhr.getResponseHeader("content-type") || "";
-            //
-            // var nameOffile = _data["fileName"];
-            //
-            // var formatOfFile = nameOffile.slice((Math.max(0, nameOffile.lastIndexOf(".")) || Infinity) + 1);
-            //
-            // var textFile = null,
-            //     makeTextFile = function (text) {
-            //
-            //         var fileData = new Blob([text], {type: 'text/plain; charset=UTF-8"'});
-            //
-            //         // If we are replacing a previously generated file we need to
-            //         // manually revoke the object URL to avoid memory leaks.
-            //         if (textFile !== null) {
-            //             window.URL.revokeObjectURL(textFile);
-            //         }
-            //
-            //         textFile = window.URL.createObjectURL(fileData);
-            //
-            //         return textFile;
-            //     };
-            //
-            // var link = document.getElementById('downloadlink');
-            // // link.href = makeTextFile(data);
-            // link.href = window.URL.createObjectURL(data);
-            // link.download = nameOffile;
-            // // link.style.display = 'block';
-            //
-            // document.getElementById('downloadlink').click();
-            //
-
+            var win = window.open(data, '_blank');
+            win.focus();
         },
         error: function (e) {
-
-            // var nameOffile = _data["fileName"];
-            //
-            // var formatOfFile = nameOffile.slice((Math.max(0, nameOffile.lastIndexOf(".")) || Infinity) + 1);
-            //
-            // var textFile = null,
-            //     makeTextFile = function (text) {
-            //
-            //         var data = new Blob([text], {type: 'image/png'});
-            //
-            //         // If we are replacing a previously generated file we need to
-            //         // manually revoke the object URL to avoid memory leaks.
-            //         // if (textFile !== null) {
-            //         //     window.URL.revokeObjectURL(textFile);
-            //         // }
-            //
-            //         textFile = window.URL.createObjectURL(data);
-            //
-            //         return textFile;
-            //     };
-            //
-            //     var link = document.getElementById('downloadlink');
-            //     link.href = makeTextFile(e.responseText);
-            //     link.download = nameOffile;
-            //     // link.style.display = 'block';
-            //
-            // document.getElementById('downloadlink').click();
-
-
         }
     });
 

@@ -18,9 +18,6 @@ import com.ua.stomat.appservices.validator.AddAppointmentCriteria;
 import com.ua.stomat.appservices.validator.AjaxResponseBody;
 import com.ua.stomat.appservices.validator.ClientCriteria;
 import com.ua.stomat.appservices.validator.ProcedureCriteria;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -66,13 +63,14 @@ public class AppointmentServiceImpl implements AppointmentService {
                     .collect(Collectors.joining(",")));
             return ResponseEntity.badRequest().body(result);
         }
-        Doctor doc = getDoctor();
-        Appointment appointment = null;
-        if(doc.getId() != null) {
-            appointment = prepareAppointment(request, doc);
-            appointmentRepository.save(appointment);
-        }
-        //adminInfo.addToCurrentAppointmentsList(appointment);
+        Doctor doctor = getDoctor();
+        Appointment appointment = prepareAppointment(request, doctor);
+        appointmentRepository.save(appointment);
+
+        List<Appointment> appointments = doctor.getAppointments();
+        appointments.add(appointment);
+        doctor.setAppointments(appointments);
+
         result.setMsg(appointment.getAppointmentId().toString());
         return ResponseEntity.ok(result);
     }
@@ -172,7 +170,15 @@ public class AppointmentServiceImpl implements AppointmentService {
         }
 
         Appointment appointment = appointmentRepository.findByAppointmentId(appointmentId);
-        adminInfo.deleteFromCurrentAppointmentsList(appointment);
+        Doctor doc = doctorRepository.findById(1);
+        List<Appointment> appList = doc.getAppointments();
+        List<Appointment> newAppList = appList
+                .stream()
+                .filter(app -> !app.getAppointmentId().equals(appointmentId))
+                .collect(Collectors.toList());
+        doc.setAppointments(newAppList);
+        doctorRepository.save(doc);
+
         for (Procedure procedure : appointment.getProcedures()) {
             if (procedure.getAppointments().size() == 1) {
                 procedureRepository.delete(procedure);
@@ -191,7 +197,8 @@ public class AppointmentServiceImpl implements AppointmentService {
         String jsonMsg = null;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM.dd.yyyy HH:mm");
         List<CalendarEvent> events = new ArrayList<>();
-        for (Appointment appointment : adminInfo.getCurrentAppointments()) {
+        Doctor doctor = getDoctor();
+        for (Appointment appointment : doctor.getAppointments()) {
             CalendarEvent event = new CalendarEvent();
             event.setTitle(appointment.getName() + " / " + appointment.getDescription());
             event.setStart(simpleDateFormat.format(new Date(appointment.getDateFrom().getTime())));

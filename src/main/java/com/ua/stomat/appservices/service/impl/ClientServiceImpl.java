@@ -1,13 +1,15 @@
 package com.ua.stomat.appservices.service.impl;
 
+import com.google.api.services.drive.model.File;
 import com.ua.stomat.appservices.dao.ClientRepository;
 import com.ua.stomat.appservices.dao.UploadFileRepository;
 import com.ua.stomat.appservices.entity.Client;
 import com.ua.stomat.appservices.entity.UploadFile;
 import com.ua.stomat.appservices.service.ClientService;
+import com.ua.stomat.appservices.service.FileService;
 import com.ua.stomat.appservices.validator.AddClientCriteria;
 import com.ua.stomat.appservices.validator.AjaxResponseBody;
-import org.apache.commons.io.FileUtils;
+import net.sf.jmimemagic.*;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -18,30 +20,25 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
 @Transactional
 public class ClientServiceImpl implements ClientService {
 
-    private  ServletContext context;
-    private  ClientRepository clientRepository;
-    private  UploadFileRepository fileRepository;
+    private ServletContext context;
+    private ClientRepository clientRepository;
+    private UploadFileRepository fileRepository;
+    private FileService fileService;
 
-    public ClientServiceImpl(ServletContext context, ClientRepository clientRepository, UploadFileRepository fileRepository) {
+    public ClientServiceImpl(ServletContext context, ClientRepository clientRepository, UploadFileRepository fileRepository, FileService fileService) {
         this.context = context;
         this.clientRepository = clientRepository;
         this.fileRepository = fileRepository;
+        this.fileService = fileService;
     }
 
 
@@ -92,7 +89,17 @@ public class ClientServiceImpl implements ClientService {
     public ModelAndView getClientPage(Integer clientId) {
         Map<String, Object> params = new HashMap<>();
         Client client = clientRepository.findByClientId(clientId);
-
+//        List<UploadFile> clientFiles = client.getFiles();
+//        List<UploadFile> updatedClientFiles = new ArrayList<>();
+//        for (UploadFile file : clientFiles) {
+//            String fileName = file.getFileName();
+//            List<File> googleFiles = fileService.getGoogleFilesByName(fileName);
+//            if (googleFiles.size() != 0) {
+//                File temp = googleFiles.get(0);
+//                updatedClientFiles.add(new UploadFile(temp.getId(), temp.getName(), null, client));
+//            }
+//        }
+//        client.setFiles(updatedClientFiles);
         params.put("client", client);
         return new ModelAndView("singleclient", params);
     }
@@ -114,15 +121,35 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public ResponseEntity<?> upload(CommonsMultipartFile[] fileUpload, String clientId) {
         AjaxResponseBody result = new AjaxResponseBody();
-
+        Client client = clientRepository.findByClientId(Integer.valueOf(clientId));
         if (fileUpload != null && fileUpload.length > 0) {
             for (CommonsMultipartFile aFile : fileUpload) {
+                String folder;
 
-                UploadFile uploadFile = new UploadFile();
-                uploadFile.setFileName(aFile.getOriginalFilename());
-                uploadFile.setData(aFile.getBytes());
-                uploadFile.setClient(clientRepository.findByClientId(Integer.valueOf(clientId)));
-                fileRepository.save(uploadFile);
+                List<com.google.api.services.drive.model.File> rootGoogleFolders = fileService.getGoogleSubFolderByName
+                        (null, client.getSecondName() + client.getFirstName() + clientId);
+                if (rootGoogleFolders.size() == 0) {
+                    com.google.api.services.drive.model.File folderDrive = fileService.createFolder
+                            (null, client.getSecondName() + client.getFirstName() + client.getClientId());
+                    folder = folderDrive.getId();
+
+                } else {
+                    folder = rootGoogleFolders.get(0).getId();
+                }
+
+                try {
+                    MagicMatch match = Magic.getMagicMatch(aFile.getBytes(), false);
+                    com.google.api.services.drive.model.File file = fileService.createGoogleFile(folder, match.getMimeType(), aFile.getOriginalFilename(), aFile.getBytes());
+                    UploadFile uploadFile = new UploadFile();
+                    uploadFile.setFileId(file.getId());
+                    uploadFile.setFileName(aFile.getOriginalFilename());
+                    uploadFile.setClient(clientRepository.findByClientId(Integer.valueOf(clientId)));
+                    fileRepository.save(uploadFile);
+
+                    fileService.createPublicPermission(file.getId());
+                } catch (MagicParseException | MagicMatchNotFoundException | MagicException e) {
+                    e.printStackTrace();
+                }
             }
         }
         result.setMsg("Файл було завантажено");
@@ -130,31 +157,17 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public void downloadFile(Integer fileId, HttpServletResponse response) {
+    public ResponseEntity<?> downloadFile(String fileId, HttpServletResponse response) {
 
         UploadFile uploadFile = fileRepository.findByFileId(fileId);
-        String downloadFolder = context.getRealPath("/WEB-INF/downloads/");
-        try {
-            FileUtils.writeByteArrayToFile(new File(downloadFolder + uploadFile.getFileName()), uploadFile.getData());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Path file = Paths.get(downloadFolder, uploadFile.getFileName());
-        if (Files.exists(file)) {
-//            String mimeType = MimetypesFileTypeMap
-//                    .getDefaultFileTypeMap()
-//                    .getContentType(file1.getFileName());
-//            response.setContentType(mimeType);
-            response.addHeader("Content-Disposition", "attachment; filename=" + uploadFile.getFileName());
-            try {
-                Files.copy(file, response.getOutputStream());
-                response.getOutputStream().flush();
-            } catch (IOException e) {
-                System.out.println("Error :- " + e.getMessage());
+
+        List<com.google.api.services.drive.model.File> rootGoogleFiles = fileService.getGoogleFilesByName(uploadFile.getFileName());
+        for (com.google.api.services.drive.model.File temp : rootGoogleFiles) {
+            if (temp.getId().equals(fileId)) {
+                return ResponseEntity.ok("https://drive.google.com/file/d/" + temp.getId() + "/view?usp=sharing");
             }
-        } else {
-            System.out.println("Sorry File not found!!!!");
         }
+        return null;
     }
 
 }

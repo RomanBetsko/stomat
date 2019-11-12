@@ -65,8 +65,8 @@ public class ClientController {
 
     //todo рефакторинг усього + видалення тимчасових файлів + правильний тип для різних форматів
     @RequestMapping(value = ADMIN_PATH + "/client/downloadFile/{file}", method = RequestMethod.GET)
-    public void downloader(@PathVariable("file") Integer fileId, HttpServletRequest request, HttpServletResponse response){
-        clientService.downloadFile(fileId, response);
+    public ResponseEntity<?> downloader(@PathVariable("file") String fileId, HttpServletRequest request, HttpServletResponse response){
+        return clientService.downloadFile(fileId, response);
     }
 
 }

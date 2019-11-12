@@ -154,6 +154,28 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>com.google.api-client</groupId>
+			<artifactId>google-api-client</artifactId>
+			<version>1.30.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.apis</groupId>
+			<artifactId>google-api-services-drive</artifactId>
+			<version>v3-rev173-1.25.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.oauth-client</groupId>
+			<artifactId>google-oauth-client-jetty</artifactId>
+			<version>1.23.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.jmimemagic</groupId>
+			<artifactId>jmimemagic</artifactId>
+			<version>0.1.5</version>
+		</dependency>
+
         <!--Add new one-->
 	</dependencies>
 
