@@ -12,4 +12,6 @@ public interface UploadFileRepository extends CrudRepository<UploadFile, Long> {
     UploadFile findByFileId(String fileId);
 
     UploadFile findByFileName(String fileName);
+
+    void deleteUploadFileByFileId(String fileId);
 }

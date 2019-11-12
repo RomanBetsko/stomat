@@ -29,13 +29,11 @@ import java.util.stream.Collectors;
 @Transactional
 public class ClientServiceImpl implements ClientService {
 
-    private ServletContext context;
     private ClientRepository clientRepository;
     private UploadFileRepository fileRepository;
     private FileService fileService;
 
     public ClientServiceImpl(ServletContext context, ClientRepository clientRepository, UploadFileRepository fileRepository, FileService fileService) {
-        this.context = context;
         this.clientRepository = clientRepository;
         this.fileRepository = fileRepository;
         this.fileService = fileService;
@@ -89,17 +87,23 @@ public class ClientServiceImpl implements ClientService {
     public ModelAndView getClientPage(Integer clientId) {
         Map<String, Object> params = new HashMap<>();
         Client client = clientRepository.findByClientId(clientId);
-//        List<UploadFile> clientFiles = client.getFiles();
-//        List<UploadFile> updatedClientFiles = new ArrayList<>();
-//        for (UploadFile file : clientFiles) {
-//            String fileName = file.getFileName();
-//            List<File> googleFiles = fileService.getGoogleFilesByName(fileName);
-//            if (googleFiles.size() != 0) {
-//                File temp = googleFiles.get(0);
-//                updatedClientFiles.add(new UploadFile(temp.getId(), temp.getName(), null, client));
-//            }
-//        }
-//        client.setFiles(updatedClientFiles);
+        List<UploadFile> clientFiles = client.getFiles();
+        List<UploadFile> updatedClientFiles = new ArrayList<>();
+        for (UploadFile file : clientFiles) {
+            List<File> googleFiles = fileService.getGoogleFilesByName(file.getFileName());
+            if (googleFiles.size() != 0) {
+                File temp = googleFiles.get(0);
+                if (temp.getId().equals(file.getFileId())) {
+                    updatedClientFiles.add(new UploadFile(temp.getId(), temp.getName(), null, client));
+                }
+            }
+        }
+        if (clientFiles.size() != updatedClientFiles.size()) {
+            clientFiles.stream()
+                    .filter(tem -> !updatedClientFiles.contains(tem))
+                    .forEachOrdered(tem -> fileRepository.deleteUploadFileByFileId(tem.getFileId()));
+        }
+        client.setFiles(updatedClientFiles);
         params.put("client", client);
         return new ModelAndView("singleclient", params);
     }

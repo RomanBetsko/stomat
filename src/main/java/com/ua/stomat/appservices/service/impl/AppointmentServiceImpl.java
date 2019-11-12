@@ -29,6 +29,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -39,17 +41,15 @@ public class AppointmentServiceImpl implements AppointmentService {
     private ClientRepository clientRepository;
     private DoctorRepository doctorRepository;
     private ProcedureRepository procedureRepository;
-    private AdminInfo adminInfo;
     private UtilsService utilsService;
 
     public AppointmentServiceImpl(AppointmentRepository appointmentRepository, ClientRepository clientRepository,
                                   DoctorRepository doctorRepository, ProcedureRepository procedureRepository,
-                                  AdminInfo adminInfo, UtilsService utilsService) {
+                                  UtilsService utilsService) {
         this.appointmentRepository = appointmentRepository;
         this.clientRepository = clientRepository;
         this.doctorRepository = doctorRepository;
         this.procedureRepository = procedureRepository;
-        this.adminInfo = adminInfo;
         this.utilsService = utilsService;
     }
 
@@ -192,13 +192,18 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    //todo refactor all of this
     public String getCalendarAppointments(HttpServletRequest request) {
         String jsonMsg = null;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM.dd.yyyy HH:mm");
         List<CalendarEvent> events = new ArrayList<>();
-        Doctor doctor = getDoctor();
-        for (Appointment appointment : doctor.getAppointments()) {
+
+        LocalDateTime localDateTime = new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        localDateTime = localDateTime.minusMonths(2);
+        Date currentDateMinusTwoMonths = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+
+        List<Appointment> appointments = appointmentRepository.findByDateFromGreaterThanEqual(new Timestamp(currentDateMinusTwoMonths.getTime()));
+
+        for (Appointment appointment : appointments) {
             CalendarEvent event = new CalendarEvent();
             event.setTitle(appointment.getName() + " / " + appointment.getDescription());
             event.setStart(simpleDateFormat.format(new Date(appointment.getDateFrom().getTime())));

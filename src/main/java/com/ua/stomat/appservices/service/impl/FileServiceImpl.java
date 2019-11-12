@@ -36,15 +36,12 @@ public class FileServiceImpl implements FileService {
 
         if (folderIdParent != null) {
             List<String> parents = Arrays.asList(folderIdParent);
-
             fileMetadata.setParents(parents);
         }
         try {
-            driveUtils.getDriveService();
-            Drive driveService = driveUtils.getDriveService();
-            File file = driveService.files().create(fileMetadata).setFields("id, name").execute();
-            System.out.println("done!");
-            return file;
+            GoogleDriveUtils.getDriveService();
+            Drive driveService = GoogleDriveUtils.getDriveService();
+            return driveService.files().create(fileMetadata).setFields("id, name").execute();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
