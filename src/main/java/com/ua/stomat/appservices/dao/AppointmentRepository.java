@@ -19,4 +19,8 @@ public interface AppointmentRepository extends CrudRepository<Appointment, Long>
     List<Appointment> findByDateFromGreaterThanEqual(Timestamp dateFrom);
 
     List<Appointment> findByDateFromAfter(Timestamp dateFrom);
+
+    List<Appointment> findByDateFromGreaterThanEqualAndDateFromLessThanEqual(Timestamp startDate, Timestamp endDate);
+
+    List<Appointment> findByDateToGreaterThanEqualAndDateToLessThanEqual(Timestamp startDate, Timestamp endDate);
 }

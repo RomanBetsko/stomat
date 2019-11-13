@@ -4,7 +4,12 @@
     <div th:replace="fragments/header :: header-css"></div>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <link href="../static/css/well.css" th:href="@{/css/well.css}" rel="stylesheet"/>
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
 
+    <script src="/js/statistic/m-morris-init.js"></script>
+    <script src="/js/statistic/raphael-min.js"></script>
+    <script src="/js/statistic/morris.js"></script>
+    <script src="/js/statistic/morris.js"></script>
 
 
     <!-- Optional theme -->
@@ -20,7 +25,7 @@
                 <div class="stat-widget-two">
                     <div class="stat-content">
                         <div class="stat-text">Клієнтів</div>
-                        <div class="stat-digit"><i class="fa fa-usd"></i>8500</div>
+                        <div class="stat-digit"><i class="fa fa-usd"></i><span th:text="${totalClients}"></span></div>
                     </div>
                     <div class="progress">
                         <div class="progress-bar progress-bar-success w-85" role="progressbar" aria-valuenow="85"
@@ -34,7 +39,8 @@
                 <div class="stat-widget-two">
                     <div class="stat-content">
                         <div class="stat-text">Відвідувань</div>
-                        <div class="stat-digit"><i class="fa fa-usd"></i>7800</div>
+                        <div class="stat-digit"><i class="fa fa-usd"></i><span th:text="${totalAppointments}"></span>
+                        </div>
                     </div>
                     <div class="progress">
                         <div class="progress-bar progress-bar-primary w-75" role="progressbar" aria-valuenow="78"
@@ -48,7 +54,8 @@
                 <div class="stat-widget-two">
                     <div class="stat-content">
                         <div class="stat-text">Процедур</div>
-                        <div class="stat-digit"><i class="fa fa-usd"></i> 500</div>
+                        <div class="stat-digit"><i class="fa fa-usd"></i> <span th:text="${totalProcedures}"></span>
+                        </div>
                     </div>
                     <div class="progress">
                         <div class="progress-bar progress-bar-warning w-50" role="progressbar" aria-valuenow="50"
@@ -61,8 +68,8 @@
             <div class="card">
                 <div class="stat-widget-two">
                     <div class="stat-content">
-                        <div class="stat-text">Загальна сума</div>
-                        <div class="stat-digit"><i class="fa fa-usd"></i>650</div>
+                        <div class="stat-text">Сьогодні зароблено</div>
+                        <div class="stat-digit"><i class="fa fa-usd"></i><span th:text="${todayEarn}"></span></div>
                     </div>
                     <div class="progress">
                         <div class="progress-bar progress-bar-danger w-65" role="progressbar" aria-valuenow="65"
@@ -88,7 +95,7 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Прибуток за день</h4>
+                    <h4 class="card-title">Прибуток за тиждень</h4>
                     <div id="morris-line-chart"></div>
 
                     <!--                    <div id="chartContainer" style="height: 370px; width: 100%;"></div>-->
@@ -96,10 +103,8 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Зроблено процедур</h4>
+                    <h4 class="card-title">Процедури</h4>
                     <div id="morris-donut-chart"></div>
-
-                    <!--                    <div id="chartContainer" style="height: 370px; width: 100%;"></div>-->
                 </div>
             </div>
         </div>
@@ -111,14 +116,23 @@
                     <h5>453</h5>
                 </div>
                 <div class="widget-card-circle pr m-t-20 m-b-20" id="info-circle-card">
-                    <i class="ti-control-shuffle pa"></i>
                 </div>
                 <ul class="widget-line-list m-b-15">
-                    <li class="border-right">92% <br><span class="color-success"><i class="ti-hand-point-up"></i> Чоловік</span>
+                    <li class="border-right">65% <br><span class="color-success"> Чоловік</span>
                     </li>
-                    <li>8% <br><span class="color-danger"><i class="ti-hand-point-down"></i>Жінка</span></li>
+                    <li>35% <br><span class="color-danger">Жінка</span></li>
                 </ul>
             </div>
         </div>
 
     </div>
+</div>
+
+<script src="/js/statistic/circle-progress.min.js"></script>
+<script src="/js/statistic/circle-progress-init.js"></script>
+
+
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

@@ -12,12 +12,8 @@ import com.ua.stomat.appservices.entity.Doctor;
 import com.ua.stomat.appservices.entity.Procedure;
 import com.ua.stomat.appservices.service.AppointmentService;
 import com.ua.stomat.appservices.service.UtilsService;
-import com.ua.stomat.appservices.utils.AdminInfo;
 import com.ua.stomat.appservices.utils.CalendarEvent;
-import com.ua.stomat.appservices.validator.AddAppointmentCriteria;
-import com.ua.stomat.appservices.validator.AjaxResponseBody;
-import com.ua.stomat.appservices.validator.ClientCriteria;
-import com.ua.stomat.appservices.validator.ProcedureCriteria;
+import com.ua.stomat.appservices.validator.*;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -32,7 +28,10 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Service
 public class AppointmentServiceImpl implements AppointmentService {
@@ -70,7 +69,9 @@ public class AppointmentServiceImpl implements AppointmentService {
         List<Appointment> appointments = doctor.getAppointments();
         appointments.add(appointment);
         doctor.setAppointments(appointments);
+        doctor.setTotalAppointments(doctor.getTotalAppointments() + 1);
 
+        doctorRepository.save(doctor);
         result.setMsg(appointment.getAppointmentId().toString());
         return ResponseEntity.ok(result);
     }
@@ -97,7 +98,9 @@ public class AppointmentServiceImpl implements AppointmentService {
         appointment.setDescription(request.getDescription());
         appointment.setClinic(request.getClinic());
         appointment.setDoctor(doc);
-        appointment.setProcedures(prepareProcedures(request.getProcedureCriteria(), appointment));
+        List<Procedure> proc = prepareProcedures(request.getProcedureCriteria(), appointment);
+        appointment.setProcedures(proc);
+        doc.setTotalProcedures(doc.getTotalProcedures() + proc.size());
         return appointment;
     }
 
@@ -240,6 +243,96 @@ public class AppointmentServiceImpl implements AppointmentService {
         Appointment appointment = appointmentRepository.findByAppointmentId(appointmentId);
         params.put("appointment", appointment);
         return new ModelAndView("singleappointment", params);
+    }
+
+    @Override
+    public List<StatisticData> getAppointmentsStatistic() {
+        List<StatisticData> response = IntStream.range(0, 12)
+                .mapToObj(i -> new StatisticData(0, 0))
+                .collect(Collectors.toList());
+
+        Date year2019start = new GregorianCalendar(2019, Calendar.FEBRUARY, 1).getTime();
+        Date year2019end = new GregorianCalendar(2019, Calendar.DECEMBER, 31).getTime();
+
+        List<Appointment> appointmentsData2019 = appointmentRepository.findByDateFromGreaterThanEqualAndDateFromLessThanEqual
+                (new Timestamp(year2019start.getTime()), new Timestamp(year2019end.getTime()));
+
+        Date year2020start = new GregorianCalendar(2020, Calendar.FEBRUARY, 1).getTime();
+        Date year2020end = new GregorianCalendar(2020, Calendar.DECEMBER, 31).getTime();
+
+        List<Appointment> appointmentsData2020 = appointmentRepository.findByDateFromGreaterThanEqualAndDateFromLessThanEqual
+                (new Timestamp(year2020start.getTime()), new Timestamp(year2020end.getTime()));
+
+        appointmentsData2019.forEach(data -> {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(data.getDateFrom());
+            int m = calendar.get(Calendar.MONTH);
+            StatisticData temp = response.get(m);
+            temp.setA(temp.getA() + 1);
+            response.set(m, temp);
+        });
+        appointmentsData2020.forEach(data -> {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(data.getDateFrom());
+            int m = calendar.get(Calendar.MONTH);
+            StatisticData temp = response.get(m);
+            temp.setB(temp.getB() + 1);
+            response.set(m, temp);
+        });
+        return response;
+    }
+
+    @Override
+    public List<EarnGraph> getEarnStatistic() {
+        List<EarnGraph> response = new ArrayList<>();
+        IntStream.range(0, 58).forEachOrdered(i -> {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Calendar cal = Calendar.getInstance();
+            cal.set(Calendar.WEEK_OF_YEAR, i + 46);
+            cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+            String weekStart = sdf.format(cal.getTime());
+            response.add(new EarnGraph(weekStart, 0));
+        });
+
+        Date year2019 = new GregorianCalendar(2019, Calendar.NOVEMBER, 1).getTime();
+        Date year2019end = new GregorianCalendar(2019, Calendar.DECEMBER, 31).getTime();
+
+        Date year2020start = new GregorianCalendar(2020, Calendar.FEBRUARY, 1).getTime();
+        Date year2020end = new GregorianCalendar(2020, Calendar.DECEMBER, 31).getTime();
+
+        List<Appointment> sortedAppointments2019 = appointmentRepository.findByDateFromGreaterThanEqualAndDateFromLessThanEqual
+                (new Timestamp(year2019.getTime()), new Timestamp(year2019end.getTime())).stream()
+                .sorted(Comparator.comparing(Appointment::getDateFrom))
+                .collect(Collectors.toList());
+
+        List<Appointment> sortedAppointments2020 = appointmentRepository.findByDateFromGreaterThanEqualAndDateFromLessThanEqual
+                (new Timestamp(year2020start.getTime()), new Timestamp(year2020end.getTime())).stream()
+                .sorted(Comparator.comparing(Appointment::getDateFrom))
+                .collect(Collectors.toList());
+
+        for (Appointment appointment : sortedAppointments2019) {
+            Calendar c = Calendar.getInstance();
+            c.setTime(appointment.getDateFrom());
+            response.set(c.get(Calendar.WEEK_OF_YEAR) - 46, new EarnGraph(response.get(c.get(Calendar.WEEK_OF_YEAR) - 46).getY(),
+                    response.get(c.get(Calendar.WEEK_OF_YEAR) - 46).getItem1() + appointment.getPrice()));
+        }
+
+        for (Appointment appointment : sortedAppointments2020) {
+            Calendar c = Calendar.getInstance();
+            c.setTime(appointment.getDateFrom());
+
+            response.set(c.get(Calendar.WEEK_OF_YEAR) + 6, new EarnGraph(response.get(c.get(Calendar.WEEK_OF_YEAR) + 6).getY(),
+                    response.get(c.get(Calendar.WEEK_OF_YEAR) + 6).getItem1() + appointment.getPrice()));
+        }
+        return response;
+    }
+
+    @Override
+    public List<ProcedureGraph> getProcedureStatistic() {
+        List<Procedure> procedures = procedureRepository.findAll();
+        return procedures.stream()
+                .map(procedure -> new ProcedureGraph(procedure.getName() + " || " + procedure.getPrice(), procedure.getAppointments().size()))
+                .collect(Collectors.toList());
     }
 
 }

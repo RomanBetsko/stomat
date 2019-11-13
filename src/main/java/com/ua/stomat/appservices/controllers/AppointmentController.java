@@ -22,8 +22,11 @@ public class AppointmentController {
 
     private static final String ADMIN_PATH = "/admin";
 
-    @Autowired
     private AppointmentService appointmentService;
+
+    public AppointmentController(AppointmentService appointmentService) {
+        this.appointmentService = appointmentService;
+    }
 
     @GetMapping(ADMIN_PATH + "/appointmentViewByClient")
     public ModelAndView appointmentViewWithParams(@RequestParam(name = "id") Integer id) {

@@ -15,4 +15,6 @@ public interface MainService {
     ModelAndView getClientsToInform();
 
     ResponseEntity<?> deleteClientFromInform(Integer id, Errors errors);
+
+    ModelAndView getStatistics();
 }

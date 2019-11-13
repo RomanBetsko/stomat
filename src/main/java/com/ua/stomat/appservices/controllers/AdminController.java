@@ -62,6 +62,11 @@ public class AdminController {
         return "/calendar";
     }
 
+    @GetMapping(ADMIN_PATH + "/statistic")
+    public ModelAndView getStatistics() {
+        return mainService.getStatistics();
+    }
+
     @PostMapping(ADMIN_PATH + "/deleteClientFromInform")
     public ResponseEntity<?> deleteClientFromInform(@RequestBody @Valid DeleteClientCriteria request, Errors errors) {
         return mainService.deleteClientFromInform(request.getId(), errors);

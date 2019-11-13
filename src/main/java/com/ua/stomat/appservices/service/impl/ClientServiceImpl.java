@@ -2,8 +2,10 @@ package com.ua.stomat.appservices.service.impl;
 
 import com.google.api.services.drive.model.File;
 import com.ua.stomat.appservices.dao.ClientRepository;
+import com.ua.stomat.appservices.dao.DoctorRepository;
 import com.ua.stomat.appservices.dao.UploadFileRepository;
 import com.ua.stomat.appservices.entity.Client;
+import com.ua.stomat.appservices.entity.Doctor;
 import com.ua.stomat.appservices.entity.UploadFile;
 import com.ua.stomat.appservices.service.ClientService;
 import com.ua.stomat.appservices.service.FileService;
@@ -18,7 +20,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -32,11 +33,14 @@ public class ClientServiceImpl implements ClientService {
     private ClientRepository clientRepository;
     private UploadFileRepository fileRepository;
     private FileService fileService;
+    private DoctorRepository doctorRepository;
 
-    public ClientServiceImpl(ServletContext context, ClientRepository clientRepository, UploadFileRepository fileRepository, FileService fileService) {
+    public ClientServiceImpl(ClientRepository clientRepository, UploadFileRepository fileRepository,
+                             FileService fileService, DoctorRepository doctorRepository) {
         this.clientRepository = clientRepository;
         this.fileRepository = fileRepository;
         this.fileService = fileService;
+        this.doctorRepository = doctorRepository;
     }
 
 
@@ -50,6 +54,8 @@ public class ClientServiceImpl implements ClientService {
             return ResponseEntity.badRequest().body(result);
         }
         Client client = clientRepository.save(prepareClient(request));
+        Doctor doctor = doctorRepository.findById(1);
+        doctor.setTotalClients(doctor.getTotalClients() + 1);
         result.setMsg(client.getClientId().toString());
         return ResponseEntity.ok(result);
     }

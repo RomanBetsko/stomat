@@ -30,6 +30,12 @@ public class Doctor {
     private String email;
     @Column(name = "phone", nullable = false)
     private String phone;
+    @Column(name = "total_clients", nullable = false)
+    private int totalClients;
+    @Column(name = "total_appointments", nullable = false)
+    private int totalAppointments;
+    @Column(name = "total_procedures", nullable = false)
+    private int totalProcedures;
 
     @OneToMany(mappedBy = "doctor", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     @Fetch(value = FetchMode.SELECT)

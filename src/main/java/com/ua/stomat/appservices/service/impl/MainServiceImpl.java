@@ -5,15 +5,12 @@ import com.ua.stomat.appservices.entity.Client;
 import com.ua.stomat.appservices.service.MainService;
 import com.ua.stomat.appservices.utils.AdminInfo;
 import com.ua.stomat.appservices.validator.AjaxResponseBody;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Errors;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,12 +20,14 @@ import java.util.stream.Collectors;
 @Transactional
 public class MainServiceImpl implements MainService {
 
-    private final ClientRepository clientRepository;
-    private final AdminInfo adminInfo;
+    private ClientRepository clientRepository;
+    private AdminInfo adminInfo;
+    private StatsServiceImpl statsService;
 
-    public MainServiceImpl(ClientRepository clientRepository, AdminInfo adminInfo) {
+    public MainServiceImpl(ClientRepository clientRepository, AdminInfo adminInfo, StatsServiceImpl statsService) {
         this.clientRepository = clientRepository;
         this.adminInfo = adminInfo;
+        this.statsService = statsService;
     }
 
     @Override
@@ -68,5 +67,12 @@ public class MainServiceImpl implements MainService {
         List<Client> clientsToSet = adminInfo.getClientsToInform().stream().filter(client -> !client.getClientId().equals(id)).collect(Collectors.toList());
         adminInfo.setClientsToInform(clientsToSet);
         return ResponseEntity.ok(result);
+    }
+
+    @Override
+    public ModelAndView getStatistics() {
+        Map<String, Object> params = new HashMap<>();
+        statsService.getStatistics(params);
+        return new ModelAndView("statistic", params);
     }
 }
