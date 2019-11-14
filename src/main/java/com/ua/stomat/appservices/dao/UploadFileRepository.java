@@ -7,11 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UploadFileRepository extends CrudRepository<UploadFile, Long> {
 
-   // UploadFile save(UploadFile uploadFile);
-
     UploadFile findByFileId(String fileId);
-
-    UploadFile findByFileName(String fileName);
 
     void deleteUploadFileByFileId(String fileId);
 }

@@ -8,8 +8,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public interface MainService {
 
-    ModelAndView getUnloginZoneData();
-
     ResponseEntity<?> informSize();
 
     ModelAndView getClientsToInform();

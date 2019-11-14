@@ -20,28 +20,16 @@ import java.util.stream.Collectors;
 @Transactional
 public class MainServiceImpl implements MainService {
 
-    private ClientRepository clientRepository;
     private AdminInfo adminInfo;
     private StatsServiceImpl statsService;
 
-    public MainServiceImpl(ClientRepository clientRepository, AdminInfo adminInfo, StatsServiceImpl statsService) {
-        this.clientRepository = clientRepository;
+    public MainServiceImpl(AdminInfo adminInfo, StatsServiceImpl statsService) {
         this.adminInfo = adminInfo;
         this.statsService = statsService;
     }
 
     @Override
-    @Transactional
-    public ModelAndView getUnloginZoneData() {
-        Map<String, Object> params = new HashMap<>();
-        params.put("clients", clientRepository.findAll());
-        return new ModelAndView("unloginzone", params);
-    }
-
-    @Override
     public ResponseEntity<?> informSize() {
-
-        //todo fix this
         AjaxResponseBody result = new AjaxResponseBody();
 
         List<Client> clientList = adminInfo.getClientsToInform();
@@ -62,7 +50,6 @@ public class MainServiceImpl implements MainService {
 
     @Override
     public ResponseEntity<?> deleteClientFromInform(Integer id, Errors errors) {
-        //todo refactor this
         AjaxResponseBody result = new AjaxResponseBody();
         List<Client> clientsToSet = adminInfo.getClientsToInform().stream().filter(client -> !client.getClientId().equals(id)).collect(Collectors.toList());
         adminInfo.setClientsToInform(clientsToSet);

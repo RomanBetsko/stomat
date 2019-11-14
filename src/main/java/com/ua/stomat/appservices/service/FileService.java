@@ -10,10 +10,6 @@ public interface FileService {
 
     File createFolder(String folderIdParent, String folderName);
 
-    //File createGoogleFile(String googleFolderIdParent, String contentType, String customFileName, java.io.File uploadFile);
-
-    List<File> getGoogleRootFoldersByName(String subFolderName);
-
     List<File> getGoogleSubFolderByName(String googleFolderIdParent, String subFolderName);
 
     File createGoogleFile(String googleFolderIdParent, String contentType, String customFileName, byte[] uploadData);

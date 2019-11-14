@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
+import java.util.stream.Collectors;
 
 @Component
 public class CheckAppointmentsRunnable implements Runnable {
@@ -50,42 +51,26 @@ public class CheckAppointmentsRunnable implements Runnable {
 
         checkDisableNotificationStatus(currentDate, clients);
 
-        for (Client client : clients) {
-            //todo fix this
-            if (!client.getAppointments().isEmpty()) {
-                Appointment lastAppointment = client.getAppointments().get(0);
+        List<Client> clnnlist = clients.stream()
+                .filter(cln -> !cln.isDisableNotification())
+                .filter(cln -> (cln.getDisableNotificationDate() == null && currentDateMinusSixMonths.after(new Date(cln.getAppointments().get(0).getDateTo().getTime()))) ||
+                               (cln.getDisableNotificationDate() != null && currentDateMinusSixMonths.after(new Date(cln.getAppointments().get(0).getDateTo().getTime()))))
+                .collect(Collectors.toList());
 
+        clnnlist.forEach(this::sendEmail);
 
-                if (currentDateMinusSixMonths.after(new Date(lastAppointment.getDateTo().getTime())) && !client.isDisableNotification()) {
-                    for (Client cln : temp) {
-                        if (cln.equals(client)) {
-                            temp.add(client);
-                            System.out.println("Client: " + cln.getSecondName() + cln.getFirstName() + " added to clients1ToInform list");
-                        }
-                    }
-                    if (temp.isEmpty()) {
-                        temp.add(client);
-                        System.out.println("Client added to clients1ToInform list");
-                        sendEmail(client, currentDatePlusOneMonths);
-                    }
-                }
-            }
-        }
+        List<Client> clientsToInform = adminInfo.getClientsToInform();
+        clientsToInform.addAll(clnnlist);
+        adminInfo.setClientsToInform(clientsToInform);
 
-        // for avoid ConcurrentModificationException
-        List<Client> listToRemove = new ArrayList<>();
-        for (Client clientToInform : temp) {
-            Appointment lastAppointment = clientToInform.getAppointments().get(0);
-            if (currentDateMinusOneDay.before(new Date(lastAppointment.getDateFrom().getTime()))) {
-                listToRemove.add(clientToInform);
-                System.out.println("Client was deleted from clients1ToInform list");
-            }
-        }
-        temp.removeAll(listToRemove);
-        adminInfo.setClientsToInform(temp);
+        clnnlist.forEach(cln -> {
+            cln.setDisableNotification(true);
+            cln.setDisableNotificationDate(new Timestamp(currentDatePlusOneMonths.getTime()));
+            clientRepository.save(cln);
+        });
     }
 
-    private void sendEmail(Client client, Date currentDatePlusOneMonths) {
+    private void sendEmail(Client client) {
 
         final String user = "mozgoowisp@gmail.com";//change accordingly
         final String password = "Roman1995";//change accordingly
@@ -122,11 +107,6 @@ public class CheckAppointmentsRunnable implements Runnable {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
-        client.setDisableNotification(true);
-        if ((client.getDisableNotificationDate() == null) || client.getDisableNotificationDate().before(currentDatePlusOneMonths)) {
-            client.setDisableNotificationDate(new Timestamp(currentDatePlusOneMonths.getTime()));
-        }
-        clientRepository.save(client);
     }
 
     private String emailText(Client client) {

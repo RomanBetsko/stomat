@@ -28,8 +28,6 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -175,21 +173,23 @@ public class AppointmentServiceImpl implements AppointmentService {
         Appointment appointment = appointmentRepository.findByAppointmentId(appointmentId);
         Doctor doc = doctorRepository.findById(1);
         List<Appointment> appList = doc.getAppointments();
-        List<Appointment> newAppList = appList
-                .stream()
+        List<Appointment> newAppList = appList.stream()
                 .filter(app -> !app.getAppointmentId().equals(appointmentId))
                 .collect(Collectors.toList());
         doc.setAppointments(newAppList);
-        doctorRepository.save(doc);
+
 
         for (Procedure procedure : appointment.getProcedures()) {
             if (procedure.getAppointments().size() == 1) {
                 procedureRepository.delete(procedure);
+                doc.setTotalProcedures(doc.getTotalProcedures() - 1);
             } else {
                 procedure.getAppointments().remove(appointment);
             }
         }
         appointmentRepository.delete(appointment);
+        doc.setTotalAppointments(doc.getTotalAppointments() - 1);
+        doctorRepository.save(doc);
         result.setMsg("Зустріч було видалено!");
         return ResponseEntity.ok(result);
     }
@@ -331,7 +331,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     public List<ProcedureGraph> getProcedureStatistic() {
         List<Procedure> procedures = procedureRepository.findAll();
         return procedures.stream()
-                .map(procedure -> new ProcedureGraph(procedure.getName() + " || " + procedure.getPrice(), procedure.getAppointments().size()))
+                .map(procedure -> new ProcedureGraph(procedure.getName() + " | " + procedure.getPrice(), procedure.getAppointments().size()))
                 .collect(Collectors.toList());
     }
 

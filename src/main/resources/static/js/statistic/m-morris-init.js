@@ -97,7 +97,7 @@ $(function () {
                     data: data,
                     xkey: 'y',
                     ykeys: ['item1'],
-                    labels: ['Item 1'],
+                    labels: ['Сума (грн)'],
                     gridLineColor: '#eef0f2',
                     lineColors: ['#007BFF'],
                     lineWidth: 1,

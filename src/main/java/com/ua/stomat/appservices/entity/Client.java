@@ -42,12 +42,12 @@ public class Client {
     private String sex;
     @Column(name = "date_of_birth", nullable = false)
     private Date dateOfBirth;
-    //    @Column(name = "total_earn", nullable = false)
-    private Integer totalEarn;
     @Column(name = "disable_notification")
     private boolean disableNotification = false;
     @Column(name = "disable_notification_date")
     private Timestamp disableNotificationDate;
+
+    private Integer totalEarn;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     @Fetch(value = FetchMode.SELECT)
@@ -70,12 +70,6 @@ public class Client {
         this.appointments = appointments;
     }
 
-    public Integer getTotalEarn() {
-        if (totalEarn == null) {
-            return 0;
-        }
-        return totalEarn;
-    }
 
     public void setTotalEarn(Integer totalEarn) {
         this.totalEarn = totalEarn;

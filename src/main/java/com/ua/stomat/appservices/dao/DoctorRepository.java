@@ -7,9 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DoctorRepository extends CrudRepository<Doctor, Long> {
 
-//    Doctor findDoctorByFirstName(String firstName);
-//
-//    Doctor findDoctorByDoctorId(Integer doctorId);
-
     Doctor findById(Integer doctorId);
 }

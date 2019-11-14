@@ -2,7 +2,6 @@ package com.ua.stomat.appservices.service.impl;
 
 import com.google.api.client.http.AbstractInputStreamContent;
 import com.google.api.client.http.ByteArrayContent;
-import com.google.api.client.http.FileContent;
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.FileList;
@@ -11,21 +10,14 @@ import com.ua.stomat.appservices.service.FileService;
 import com.ua.stomat.appservices.service.drive.GoogleDriveUtils;
 import org.springframework.stereotype.Service;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class FileServiceImpl implements FileService {
-
-    private final GoogleDriveUtils driveUtils;
-
-    public FileServiceImpl(GoogleDriveUtils driveUtils) {
-        this.driveUtils = driveUtils;
-    }
 
     @Override
     public File createFolder(String folderIdParent, String folderName) {
@@ -35,7 +27,7 @@ public class FileServiceImpl implements FileService {
         fileMetadata.setMimeType("application/vnd.google-apps.folder");
 
         if (folderIdParent != null) {
-            List<String> parents = Arrays.asList(folderIdParent);
+            List<String> parents = Collections.singletonList(folderIdParent);
             fileMetadata.setParents(parents);
         }
         try {
@@ -54,15 +46,12 @@ public class FileServiceImpl implements FileService {
         File fileMetadata = new File();
         fileMetadata.setName(customFileName);
 
-        List<String> parents = Arrays.asList(googleFolderIdParent);
+        List<String> parents = Collections.singletonList(googleFolderIdParent);
         fileMetadata.setParents(parents);
         //
         Drive driveService = GoogleDriveUtils.getDriveService();
-
-        File file = driveService.files().create(fileMetadata, uploadStreamContent)
+        return driveService.files().create(fileMetadata, uploadStreamContent)
                 .setFields("id, webContentLink, webViewLink, parents").execute();
-
-        return file;
     }
 
     @Override
@@ -107,11 +96,6 @@ public class FileServiceImpl implements FileService {
         return list;
     }
 
-    @Override
-    // com.google.api.services.drive.model.File
-    public List<File> getGoogleRootFoldersByName(String subFolderName) {
-        return getGoogleSubFolderByName(null, subFolderName);
-    }
 
     @Override
     public File createGoogleFile(String googleFolderIdParent, String contentType, //
@@ -174,12 +158,9 @@ public class FileServiceImpl implements FileService {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            for (File file : result.getFiles()) {
-                list.add(file);
-            }
+            list.addAll(Objects.requireNonNull(result).getFiles());
             pageToken = result.getNextPageToken();
         } while (pageToken != null);
-        //
         return list;
     }
 

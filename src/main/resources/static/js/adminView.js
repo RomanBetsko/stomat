@@ -18,7 +18,6 @@ $(document).ready(function () {
     });
 });
 
-//todo refactor this
 $("button#clientsToInform").click(function () {
     $.ajax({
         type: "GET",

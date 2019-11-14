@@ -3,7 +3,6 @@ package com.ua.stomat.appservices.controllers;
 import com.ua.stomat.appservices.service.ClientService;
 import com.ua.stomat.appservices.validator.AddClientCriteria;
 import com.ua.stomat.appservices.validator.DeleteClientCriteria;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -13,10 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -25,8 +22,11 @@ public class ClientController {
 
     private static final String ADMIN_PATH = "/admin";
 
-    @Autowired
     private ClientService clientService;
+
+    public ClientController(ClientService clientService) {
+        this.clientService = clientService;
+    }
 
     @PostMapping(ADMIN_PATH + "/addNewClient")
     public ResponseEntity<?> addNewClient(@RequestBody @Valid AddClientCriteria request, Errors errors) {
@@ -62,10 +62,8 @@ public class ClientController {
         return clientService.upload(uploadfiles, clientId);
     }
 
-
-    //todo рефакторинг усього + видалення тимчасових файлів + правильний тип для різних форматів
     @RequestMapping(value = ADMIN_PATH + "/client/downloadFile/{file}", method = RequestMethod.GET)
-    public ResponseEntity<?> downloader(@PathVariable("file") String fileId, HttpServletRequest request, HttpServletResponse response){
+    public ResponseEntity<?> downloader(@PathVariable("file") String fileId, HttpServletResponse response) {
         return clientService.downloadFile(fileId, response);
     }
 

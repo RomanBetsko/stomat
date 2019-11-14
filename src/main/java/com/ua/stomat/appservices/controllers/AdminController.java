@@ -13,18 +13,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @Controller
 public class AdminController {
 
-    @Autowired
+    private static final String ADMIN_PATH = "/admin";
+
+
     private MainService mainService;
 
-    private static final String ADMIN_PATH = "/admin";
+    public AdminController(MainService mainService) {
+        this.mainService = mainService;
+    }
 
     @GetMapping(ADMIN_PATH)
     public String admin() {
@@ -42,7 +42,7 @@ public class AdminController {
     }
 
     @GetMapping(ADMIN_PATH + "/editpage")
-    public String editPage(){
+    public String editPage() {
         return "/editpage";
     }
 
@@ -54,7 +54,6 @@ public class AdminController {
     @GetMapping(ADMIN_PATH + "/getClientsToInform")
     public ModelAndView getClientsToInform() {
         return mainService.getClientsToInform();
-        //todo getClientsToInform
     }
 
     @GetMapping(ADMIN_PATH + "/calendar")

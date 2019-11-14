@@ -1,7 +1,6 @@
 package com.ua.stomat.appservices.controllers;
 
 import com.ua.stomat.appservices.service.AppointmentService;
-import com.ua.stomat.appservices.service.impl.StatsServiceImpl;
 import com.ua.stomat.appservices.validator.EarnGraph;
 import com.ua.stomat.appservices.validator.ProcedureGraph;
 import com.ua.stomat.appservices.validator.StatisticData;
@@ -17,11 +16,9 @@ import java.util.List;
 public class RestWebController {
 
     private AppointmentService appointmentService;
-    private StatsServiceImpl statsService;
 
-    public RestWebController(AppointmentService appointmentService, StatsServiceImpl statsService) {
+    public RestWebController(AppointmentService appointmentService) {
         this.appointmentService = appointmentService;
-        this.statsService = statsService;
     }
 
     @GetMapping(value = "/event/all")

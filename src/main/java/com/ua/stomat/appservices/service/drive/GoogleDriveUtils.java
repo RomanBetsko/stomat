@@ -48,20 +48,15 @@ public class GoogleDriveUtils {
         java.io.File clientSecretFilePath = new java.io.File(CREDENTIALS_FOLDER, CLIENT_SECRET_FILE_NAME);
 
         if (!clientSecretFilePath.exists()) {
-            throw new FileNotFoundException("Please copy " + CLIENT_SECRET_FILE_NAME //
-                    + " to folder: " + CREDENTIALS_FOLDER.getAbsolutePath());
+            throw new FileNotFoundException("Please copy " + CLIENT_SECRET_FILE_NAME + " to folder: " + CREDENTIALS_FOLDER.getAbsolutePath());
         }
 
         InputStream in = new FileInputStream(clientSecretFilePath);
-
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
-        // Build flow and trigger user authorization request.
         GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(HTTP_TRANSPORT, JSON_FACTORY,
                 clientSecrets, SCOPES).setDataStoreFactory(DATA_STORE_FACTORY).setAccessType("offline").build();
-        Credential credential = new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver()).authorize("user");
-
-        return credential;
+        return new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver()).authorize("user");
     }
 
     public static Drive getDriveService() throws IOException {

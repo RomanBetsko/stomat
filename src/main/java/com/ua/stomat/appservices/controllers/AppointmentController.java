@@ -3,8 +3,6 @@ package com.ua.stomat.appservices.controllers;
 import com.ua.stomat.appservices.service.AppointmentService;
 import com.ua.stomat.appservices.validator.AddAppointmentCriteria;
 import com.ua.stomat.appservices.validator.DeleteAppointmentCriteria;
-import com.ua.stomat.appservices.validator.DeleteClientCriteria;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
@@ -49,7 +46,7 @@ public class AppointmentController {
     }
 
     @GetMapping(ADMIN_PATH + "/getAppointmentById")
-    public ModelAndView getAppointmentById(@RequestParam(name = "id") Integer id){
+    public ModelAndView getAppointmentById(@RequestParam(name = "id") Integer id) {
         return appointmentService.getAppointmentById(id);
     }
 }

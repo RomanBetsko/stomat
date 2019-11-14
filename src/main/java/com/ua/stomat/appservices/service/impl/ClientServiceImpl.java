@@ -1,12 +1,8 @@
 package com.ua.stomat.appservices.service.impl;
 
 import com.google.api.services.drive.model.File;
-import com.ua.stomat.appservices.dao.ClientRepository;
-import com.ua.stomat.appservices.dao.DoctorRepository;
-import com.ua.stomat.appservices.dao.UploadFileRepository;
-import com.ua.stomat.appservices.entity.Client;
-import com.ua.stomat.appservices.entity.Doctor;
-import com.ua.stomat.appservices.entity.UploadFile;
+import com.ua.stomat.appservices.dao.*;
+import com.ua.stomat.appservices.entity.*;
 import com.ua.stomat.appservices.service.ClientService;
 import com.ua.stomat.appservices.service.FileService;
 import com.ua.stomat.appservices.validator.AddClientCriteria;
@@ -34,15 +30,18 @@ public class ClientServiceImpl implements ClientService {
     private UploadFileRepository fileRepository;
     private FileService fileService;
     private DoctorRepository doctorRepository;
+    private AppointmentRepository appointmentRepository;
+    private ProcedureRepository procedureRepository;
 
     public ClientServiceImpl(ClientRepository clientRepository, UploadFileRepository fileRepository,
-                             FileService fileService, DoctorRepository doctorRepository) {
+                             FileService fileService, DoctorRepository doctorRepository, AppointmentRepository appointmentRepository, ProcedureRepository procedureRepository) {
         this.clientRepository = clientRepository;
         this.fileRepository = fileRepository;
         this.fileService = fileService;
         this.doctorRepository = doctorRepository;
+        this.appointmentRepository = appointmentRepository;
+        this.procedureRepository = procedureRepository;
     }
-
 
     @Override
     public ResponseEntity<?> addClient(AddClientCriteria request, Errors errors) {
@@ -93,24 +92,26 @@ public class ClientServiceImpl implements ClientService {
     public ModelAndView getClientPage(Integer clientId) {
         Map<String, Object> params = new HashMap<>();
         Client client = clientRepository.findByClientId(clientId);
-        List<UploadFile> clientFiles = client.getFiles();
-        List<UploadFile> updatedClientFiles = new ArrayList<>();
-        for (UploadFile file : clientFiles) {
-            List<File> googleFiles = fileService.getGoogleFilesByName(file.getFileName());
-            if (googleFiles.size() != 0) {
-                File temp = googleFiles.get(0);
-                if (temp.getId().equals(file.getFileId())) {
-                    updatedClientFiles.add(new UploadFile(temp.getId(), temp.getName(), null, client));
+        if (client != null) {
+            List<UploadFile> clientFiles = client.getFiles();
+            List<UploadFile> updatedClientFiles = new ArrayList<>();
+            for (UploadFile file : clientFiles) {
+                List<File> googleFiles = fileService.getGoogleFilesByName(file.getFileName());
+                if (googleFiles.size() != 0) {
+                    File temp = googleFiles.get(0);
+                    if (temp.getId().equals(file.getFileId())) {
+                        updatedClientFiles.add(new UploadFile(temp.getId(), temp.getName(), null, client));
+                    }
                 }
             }
+            if (clientFiles.size() != updatedClientFiles.size()) {
+                clientFiles.stream()
+                        .filter(tem -> !updatedClientFiles.contains(tem))
+                        .forEachOrdered(tem -> fileRepository.deleteUploadFileByFileId(tem.getFileId()));
+            }
+            client.setFiles(updatedClientFiles);
+            params.put("client", client);
         }
-        if (clientFiles.size() != updatedClientFiles.size()) {
-            clientFiles.stream()
-                    .filter(tem -> !updatedClientFiles.contains(tem))
-                    .forEachOrdered(tem -> fileRepository.deleteUploadFileByFileId(tem.getFileId()));
-        }
-        client.setFiles(updatedClientFiles);
-        params.put("client", client);
         return new ModelAndView("singleclient", params);
     }
 
@@ -123,7 +124,24 @@ public class ClientServiceImpl implements ClientService {
                     .collect(Collectors.joining(",")));
             return ResponseEntity.badRequest().body(result);
         }
+        Doctor doctor = doctorRepository.findById(1);
+        List<Appointment> appointments = appointmentRepository.findByClientClientId(id);
+        for (Appointment appointment : appointments) {
+            for (Procedure procedure : appointment.getProcedures()) {
+                if (procedure.getAppointments().size() == 1) {
+                    procedureRepository.delete(procedure);
+                    doctor.setTotalProcedures(doctor.getTotalProcedures() - 1);
+
+                } else {
+                    procedure.getAppointments().remove(appointment);
+                }
+            }
+            doctor.setTotalAppointments(doctor.getTotalAppointments() - 1);
+            appointmentRepository.delete(appointment);
+        }
         clientRepository.deleteByClientId(id);
+        doctor.setTotalClients(doctor.getTotalClients() - 1);
+        doctorRepository.save(doctor);
         result.setMsg("Клієнта було видалено");
         return ResponseEntity.ok(result);
     }

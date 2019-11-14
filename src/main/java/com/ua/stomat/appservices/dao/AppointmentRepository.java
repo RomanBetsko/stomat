@@ -12,15 +12,13 @@ public interface AppointmentRepository extends CrudRepository<Appointment, Long>
 
     List<Appointment> findAll();
 
-    void deleteByAppointmentId(Integer id);
-
     Appointment findByAppointmentId(Integer appointmentId);
 
     List<Appointment> findByDateFromGreaterThanEqual(Timestamp dateFrom);
 
-    List<Appointment> findByDateFromAfter(Timestamp dateFrom);
-
     List<Appointment> findByDateFromGreaterThanEqualAndDateFromLessThanEqual(Timestamp startDate, Timestamp endDate);
 
     List<Appointment> findByDateToGreaterThanEqualAndDateToLessThanEqual(Timestamp startDate, Timestamp endDate);
+
+    List<Appointment> findByClientClientId(Integer clientId);
 }
