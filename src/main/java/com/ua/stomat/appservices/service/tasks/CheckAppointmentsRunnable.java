@@ -53,6 +53,7 @@ public class CheckAppointmentsRunnable implements Runnable {
 
         List<Client> clnnlist = clients.stream()
                 .filter(cln -> !cln.isDisableNotification())
+                .filter(cln -> cln.getAppointments().size() != 0)
                 .filter(cln -> (cln.getDisableNotificationDate() == null && currentDateMinusSixMonths.after(new Date(cln.getAppointments().get(0).getDateTo().getTime()))) ||
                                (cln.getDisableNotificationDate() != null && currentDateMinusSixMonths.after(new Date(cln.getAppointments().get(0).getDateTo().getTime()))))
                 .collect(Collectors.toList());

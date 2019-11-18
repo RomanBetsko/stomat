@@ -30,11 +30,6 @@ public class AppointmentController {
         return appointmentService.appointmentViewWithParams(id);
     }
 
-    @GetMapping(ADMIN_PATH + "/appointment")
-    public ModelAndView appointmentView() {
-        return appointmentService.appointmentView();
-    }
-
     @PostMapping(ADMIN_PATH + "/appointment/create")
     public ResponseEntity<?> addNewAppointment(@RequestBody @Valid AddAppointmentCriteria request, Errors errors) {
         return appointmentService.addAppointment(request, errors);

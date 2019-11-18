@@ -4,7 +4,6 @@
     <div th:replace="fragments/header :: header-css"></div>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
-    <!--?<!-- Bootstrap DateTimePicker -->
     <link href="../webjars/Eonasdan-bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"
           rel="stylesheet">
     <link href="../webjars/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
@@ -73,7 +72,13 @@
                 </div>
                 <br>
                 <label class="col-sm-2 control-label" style="margin-top: 15px;">Процедури</label>
-                <div class="col-sm-10">
+                <div class="col-sm-10" >
+                    <select id="ddlViewBy" style="width: 292px;padding: 5px 5px 5px 5px;font-size: 16px;border: 1px solid #ccc;
+                    height: 34px;-webkit-appearance: none;-moz-appearance: none;appearance: none;">
+                        <option th:value="${procedure.name}" th:text="${procedure.name}" th:each="procedure: ${procedures}" class="qweqwe"></option>
+                    </select>
+                </div>
+                <div class="col-sm-10" style="margin-top: 15px;">
 
                     <div class="field_wrapper">
                         <a href="javascript:void(0);" class="add_button" title="Add field" id="procedureView"><img
@@ -87,7 +92,7 @@
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" id="bth-add"
-                            class="btn btn-primary btn-lg">Добавити
+                            class="btn btn-primary btn-lg">Зберегти
                     </button>
                     <br>
                 </div>

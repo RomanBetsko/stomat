@@ -1,10 +1,9 @@
 package com.ua.stomat.appservices.validator;
 
-import java.io.Serializable;
+import lombok.Data;
 
-
-public class DeleteAppointmentCriteria implements Serializable {
-
+@Data
+public class DeleteAppointmentCriteria {
     private Integer id;
 
     public Integer getId() {

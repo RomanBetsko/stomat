@@ -24,6 +24,8 @@ public class Procedure implements Serializable {
     private String name;
     @Column(name = "price", nullable = false)
     private Integer price;
+    @Column(name = "description", nullable = false)
+    private String description;
 
 
     @ManyToOne
@@ -32,4 +34,16 @@ public class Procedure implements Serializable {
 
     @ManyToMany(mappedBy = "procedures", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private List<Appointment> appointments;
+
+    @Override
+    public String toString() {
+        return "Procedure{" +
+                "procedureId=" + procedureId +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", doctor=" + doctor +
+                ", appointments=" + appointments +
+                '}';
+    }
 }

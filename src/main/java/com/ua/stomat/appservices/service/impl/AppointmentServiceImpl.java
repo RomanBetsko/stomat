@@ -14,6 +14,7 @@ import com.ua.stomat.appservices.service.AppointmentService;
 import com.ua.stomat.appservices.service.UtilsService;
 import com.ua.stomat.appservices.utils.CalendarEvent;
 import com.ua.stomat.appservices.validator.*;
+import org.apache.tomcat.jni.Proc;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -117,6 +118,7 @@ public class AppointmentServiceImpl implements AppointmentService {
                     } else {
                         procedure.setName(temp.getName());
                         procedure.setPrice(temp.getPrice());
+                        procedure.setDescription(temp.getDescription());
                         procedure.setDoctor(appointment.getDoctor());
                         procedures.add(procedure);
                     }
@@ -124,6 +126,7 @@ public class AppointmentServiceImpl implements AppointmentService {
             } else {
                 procedure.setName(temp.getName());
                 procedure.setPrice(temp.getPrice());
+                procedure.setDescription(temp.getDescription());
                 procedure.setDoctor(appointment.getDoctor());
                 procedures.add(procedure);
             }
@@ -144,19 +147,23 @@ public class AppointmentServiceImpl implements AppointmentService {
     public ModelAndView appointmentViewWithParams(Integer clientId) {
         Map<String, Object> params = new HashMap<>();
         Client client = clientRepository.findByClientId(clientId);
+        List<Procedure> list = procedureRepository.findAll();
+
+        Map<String, Integer> resultMap = new HashMap<>();
+        for (Procedure procedure : list) {
+            if (resultMap.size() > 0 && resultMap.containsKey(procedure.getName())) {
+                resultMap.put(procedure.getName(), procedure.getPrice());
+            } else {
+                resultMap.put(procedure.getName(), procedure.getPrice());
+            }
+        }
+        List<ProcedureObj> procedures = resultMap.entrySet().stream()
+                .map(entry -> new ProcedureObj(entry.getKey(), entry.getValue()))
+                .collect(Collectors.toList());
+
         params.put("client", client);
+        params.put("procedures", procedures);
         return new ModelAndView("createappointment", params);
-    }
-
-    @Override
-    public ModelAndView appointmentView() {
-        Map<String, Object> params = new HashMap<>();
-        params.put("clients", clientToClientCriteria(clientRepository.findAll()));
-        return new ModelAndView("createappointment", params);
-    }
-
-    private List<ClientCriteria> clientToClientCriteria(List<Client> clientList) {
-        return clientList.stream().map(client -> new ClientCriteria(client.getClientId(), client.getFirstName(), client.getSecondName())).collect(Collectors.toList());
     }
 
     @Override
@@ -330,8 +337,18 @@ public class AppointmentServiceImpl implements AppointmentService {
     @Override
     public List<ProcedureGraph> getProcedureStatistic() {
         List<Procedure> procedures = procedureRepository.findAll();
-        return procedures.stream()
-                .map(procedure -> new ProcedureGraph(procedure.getName() + " | " + procedure.getPrice(), procedure.getAppointments().size()))
+        Map<String, Integer> resultMap = new HashMap<>();
+        for (Procedure procedure : procedures) {
+            if (resultMap.size() > 0 && resultMap.containsKey(procedure.getName() + " | " + procedure.getPrice())) {
+                Integer number = resultMap.get(procedure.getName() + " | " + procedure.getPrice());
+                number = number + 1;
+                resultMap.put(procedure.getName() + " | " + procedure.getPrice(), number);
+            } else {
+                resultMap.put(procedure.getName() + " | " + procedure.getPrice(), procedure.getAppointments().size());
+            }
+        }
+        return resultMap.entrySet().stream()
+                .map(entry -> new ProcedureGraph(entry.getKey(), entry.getValue()))
                 .collect(Collectors.toList());
     }
 

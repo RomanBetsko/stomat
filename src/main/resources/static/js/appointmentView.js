@@ -29,8 +29,7 @@ $(document).ready(function () {
     };
 });
 
-
-$("a#procedureView").click(function (e) {
+$(document).ready(function () {
     var maxField = 20;
     var addButton = $('.add_button');
     var wrapper = $('.field_wrapper');
@@ -42,32 +41,26 @@ $("a#procedureView").click(function (e) {
     _data["appointmentId"] = 1;
 
 
-    $.ajax({
-        type: "POST",
-        contentType: "application/json",
-        url: "/admin/procedure/create",
-        data: JSON.stringify(_data),
-        dataType: 'json',
-        cache: false,
-        timeout: 600000,
-        success: function (data) {
-
-            var json = "";
-            // $('#result').html(json);
-            $(fieldHTML).append(json);
-
-            console.log("SUCCESS : ", data);
-            $("#btn-add").prop("disabled", false);
-            location.reload();
-        },
-        error: function (e) {
-
-            var json = e.responseText;
-            $('#result').append(json);
-            console.log("ERROR : ", e);
-            $("#btn-add").prop("disabled", false);
-        }
-    });
+    // $.ajax({
+    //     type: "POST",
+    //     contentType: "application/json",
+    //     url: "/admin/procedure/create",
+    //     data: JSON.stringify(_data),
+    //     dataType: 'json',
+    //     cache: false,
+    //     timeout: 600000,
+    //     success: function (data) {
+    //         $(fieldHTML).append("");
+    //         $("#btn-add").prop("disabled", false);
+    //     },
+    //     error: function (e) {
+    //         console.log(e.responseText)
+    //         var json = e.responseText;
+    //         $('#result').append(json);
+    //         console.log("ERROR : ", e);
+    //         $("#btn-add").prop("disabled", false);
+    //     }
+    // });
 
     var x = 1;
     $(addButton).click(function () {
@@ -80,6 +73,37 @@ $("a#procedureView").click(function (e) {
         $(this).parent('div').remove();
         x--;
     });
+
+    $('select').on('change', function() {
+        var _data = {};
+        _data["procName"] = this.value;
+        console.log(JSON.stringify(_data));
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "/admin/procedure/create",
+            data: JSON.stringify(_data),
+            dataType: 'json',
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+                $(fieldHTML).append("");
+                $("#btn-add").prop("disabled", false);
+            },
+            error: function (e) {
+                console.log(e.responseText)
+                var json = e.responseText;
+                $('#result').append(json);
+                console.log("ERROR : ", e);
+                $("#btn-add").prop("disabled", false);
+            }
+        });
+
+    });
+});
+
+$("a#procedureView").click(function (e) {
+
 });
 
 function functionCreate() {
@@ -94,11 +118,14 @@ function functionCreate() {
     _data["procedureCriteria"] = [];
     
     $("[id^='procedureName']").each(function () {
-        _data["procedureCriteria"].push({name: $(this).val(), price: ''});
+        _data["procedureCriteria"].push({name: $(this).val(), description:'', price: ''});
     });
-    $("[id^='procedurePrice']").each(function (index) {{
-            _data.procedureCriteria[index].price = $(this).val()
-        }});
+    $("[id^='procedureDescription']").each(function (index) {
+        _data.procedureCriteria[index].description = $(this).val()
+    });
+    $("[id^='procedurePrice']").each(function (index) {
+        _data.procedureCriteria[index].price = $(this).val()
+    });
 
     $.ajax({
         type: "POST",

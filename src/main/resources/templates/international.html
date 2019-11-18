@@ -3,10 +3,8 @@
 <head>
 
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/3.3.1/jquery.mask.js"></script>-->
 
-    <!--?<script src="https://code.jquery.com/jquery-3.3.1.js"></script>-->
-
-    <!--?<!-- Bootstrap DateTimePicker -->
     <link href="../webjars/Eonasdan-bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"
           rel="stylesheet">
     <link href="../webjars/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
@@ -14,6 +12,12 @@
 
     <link rel="stylesheet" th:href="@{/css/stomat.css}"
           href="../css/stomat.css"/>
+
+    <script type="text/javascript">
+        $(document).ready(function ($) {
+            $("#phone").mask("(999) 999-9999");
+        });
+    </script>
     <script type="text/javascript">
         $(document).ready(function () {
             $("#locales").change(function () {
@@ -22,8 +26,15 @@
                     window.location.replace('international?lang=' + selectedOption);
                 }
             });
+
+            $("#goToNewApp").click(function (){
+                $('html, body').animate({
+                    scrollTop: $("#appoinment").offset().top
+                }, 2000);
+            });
         });
     </script>
+
 
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,13 +49,12 @@
     <!-- meta character set -->
     <meta charset="UTF-8">
     <!-- Site Title -->
-    <title>Medical</title>
+    <title>iDent</title>
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
     <!--
     CSS
     ============================================= -->
-    <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/nice-select.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -52,6 +62,7 @@
 
 </head>
 <body>
+
 
 <!-- Start Header Area -->
 <header class="default-header">
@@ -100,7 +111,7 @@
                 <h3>
                     Потреби пацієнта понад усе. <br>Ми робимо наше місто містом щасливих посмішок.
                 </h3>
-                <button class="primary-btn2 mt-20 text-uppercase ">Записатись на прийом<span
+                <button id="goToNewApp" class="primary-btn2 mt-20 text-uppercase ">Записатись на прийом<span
                         class="lnr lnr-arrow-right"></span></button>
             </div>
             <div class="col-lg-6 d-flex align-self-end img-right">
@@ -274,6 +285,39 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-3 col-md-3 vol-wrap">
+                <div class="single-con">
+                    <div class="content">
+                        <a href="#" target="_blank">
+                            <div class="content-overlay"></div>
+                            <img class="content-image img-fluid d-block mx-auto" src="img/sert4.png" alt="">
+                            <div class="content-details fadeIn-bottom">
+                                <h4>Andy Florence</h4>
+                                <p>
+                                    inappropriate behavior
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 vol-wrap">
+                <div class="single-con">
+                    <div class="content">
+                        <a href="#" target="_blank">
+                            <div class="content-overlay"></div>
+                            <img class="content-image img-fluid d-block mx-auto" src="img/sert4.png" alt="">
+                            <div class="content-details fadeIn-bottom">
+                                <h4>Andy Florence</h4>
+                                <p>
+                                    inappropriate behavior
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-lg-3 col-md-3 vol-wrap">
                 <div class="single-con">
                     <div class="content">
@@ -524,8 +568,7 @@
 <script type="text/javascript" src="js/waypoints.min.js"></script>
 <script type="text/javascript" src="js/jquery.counterup.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
-<script type="text/javascript" src="../js/appointmentView.js"></script>
-<script src="../resources/webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 <script src="../webjars/momentjs/2.22.2/min/moment-with-locales.min.js"></script>
 <script src="../webjars/Eonasdan-bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 </body>

@@ -7,12 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProcedureCriteria {
-
-    private Integer id;
+public class ProcedureObj {
     private String name;
     private Integer price;
-    private String description;
-    private String doctor;
-
 }

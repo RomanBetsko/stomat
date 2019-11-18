@@ -1,6 +1,5 @@
 package com.ua.stomat.appservices.service.impl;
 
-import com.ua.stomat.appservices.dao.ClientRepository;
 import com.ua.stomat.appservices.entity.Client;
 import com.ua.stomat.appservices.service.MainService;
 import com.ua.stomat.appservices.utils.AdminInfo;
