@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class UnloginZoneController {
 
-    @GetMapping("/international")
+    @GetMapping("/")
     public String internationalIndex() {
-        return "international";
+        return "dantista/index";
     }
 
     @GetMapping("/login")
