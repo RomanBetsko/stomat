@@ -2,6 +2,7 @@ package com.ua.stomat.appservices.service.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import com.ua.stomat.appservices.dao.AppointmentRepository;
 import com.ua.stomat.appservices.dao.ClientRepository;
 import com.ua.stomat.appservices.dao.DoctorRepository;
@@ -14,7 +15,6 @@ import com.ua.stomat.appservices.service.AppointmentService;
 import com.ua.stomat.appservices.service.UtilsService;
 import com.ua.stomat.appservices.utils.CalendarEvent;
 import com.ua.stomat.appservices.validator.*;
-import org.apache.tomcat.jni.Proc;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -150,19 +150,32 @@ public class AppointmentServiceImpl implements AppointmentService {
         List<Procedure> list = procedureRepository.findAll();
 
         Map<String, Integer> resultMap = new HashMap<>();
-        for (Procedure procedure : list) {
+        list.forEach(procedure -> {
             if (resultMap.size() > 0 && resultMap.containsKey(procedure.getName())) {
                 resultMap.put(procedure.getName(), procedure.getPrice());
             } else {
                 resultMap.put(procedure.getName(), procedure.getPrice());
             }
-        }
+        });
         List<ProcedureObj> procedures = resultMap.entrySet().stream()
                 .map(entry -> new ProcedureObj(entry.getKey(), entry.getValue()))
                 .collect(Collectors.toList());
 
+        //з даного моменту на 3 місяці вперед
+        List<Appointment> appointments = appointmentRepository.findByDateFromGreaterThanEqual(new Timestamp(new Date().getTime()));
+
+        List<DateTimeIntervals> timeIntervals = new ArrayList<>();
+        DateTimeIntervals temp = new DateTimeIntervals();
+        for (Appointment appointment : appointments) {
+            temp.setDateFrom(appointment.getDateFrom().toString());
+            temp.setDateTo(appointment.getDateTo().toString());
+            timeIntervals.add(temp);
+        }
+        Gson gson = new Gson();
+        String json = gson.toJson(timeIntervals);
         params.put("client", client);
         params.put("procedures", procedures);
+        params.put("disabledDates", json);
         return new ModelAndView("createappointment", params);
     }
 

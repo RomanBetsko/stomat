@@ -871,6 +871,11 @@ pre {
     -ms-flex: 0 0 16.66667%;
     flex: 0 0 16.66667%;
     max-width: 16.66667%; }
+  .col-md-2-5 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 20%;
+    max-width: 20%; }
   .col-md-3 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 25%;
@@ -8585,7 +8590,7 @@ h1, h2, h3, h4, h5,
     -ms-border-radius: 50%;
     border-radius: 50%; }
     .ftco-services .services .icon span {
-      font-size: 50px;
+      font-size: 83px;
       color: #46b7de; }
   .ftco-services .services .media-body h3 {
     font-size: 18px;

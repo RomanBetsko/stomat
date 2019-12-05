@@ -46,6 +46,8 @@ public class Client {
     private boolean disableNotification = false;
     @Column(name = "disable_notification_date")
     private Timestamp disableNotificationDate;
+    @Column(name = "resource")
+    private String resource;
 
     private Integer totalEarn;
 

@@ -1,9 +1,11 @@
 package com.ua.stomat.appservices.service.impl;
 
 import com.ua.stomat.appservices.dao.AppointmentRepository;
+import com.ua.stomat.appservices.dao.ClientRepository;
 import com.ua.stomat.appservices.dao.DoctorRepository;
 import com.ua.stomat.appservices.entity.Appointment;
 import com.ua.stomat.appservices.entity.Doctor;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
@@ -15,16 +17,11 @@ import java.util.List;
 import java.util.Map;
 
 @Service
+@AllArgsConstructor
 public class StatsServiceImpl {
 
-    private DoctorRepository doctorRepository;
-    private AppointmentRepository appointmentRepository;
-
-    public StatsServiceImpl(DoctorRepository doctorRepository, AppointmentRepository appointmentRepository) {
-        this.doctorRepository = doctorRepository;
-        this.appointmentRepository = appointmentRepository;
-    }
-
+    private final DoctorRepository doctorRepository;
+    private final AppointmentRepository appointmentRepository;
 
     public void getStatistics(Map<String, Object> params) {
         Doctor doc = doctorRepository.findById(1);

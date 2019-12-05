@@ -68,6 +68,7 @@ public class ClientServiceImpl implements ClientService {
         client.setEmail(request.getEmail());
         client.setPhone(request.getPhone());
         client.setSex(request.getSex());
+        client.setResource(request.getResource());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
         Date dateOfBirth = null;
         try {

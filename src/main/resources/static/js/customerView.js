@@ -8,7 +8,8 @@ $(document).ready(function () {
 
 function fire_ajax_submit() {
 
-    var e = document.getElementById("ddlViewBy");
+    var sex = document.getElementById("sex");
+    var resource = document.getElementById("resource");
 
     var _data = {};
     _data["secondName"] = $("#secondName").val();
@@ -17,7 +18,8 @@ function fire_ajax_submit() {
     _data["email"] = $("#email").val();
     _data["phone"] = $("#phone").val();
     _data["dateOfBirth"] = $("#date".toString()).val();
-    _data["sex"] = e.options[e.selectedIndex].value;
+    _data["sex"] = sex.options[sex.selectedIndex].value;
+    _data["resource"] = resource.options[resource.selectedIndex].value;
 
     $("#btn-add").prop("disabled", true);
 

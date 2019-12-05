@@ -20,4 +20,35 @@ public class UnloginZoneController {
     public String error403() {
         return "security/403";
     }
+
+    @GetMapping("/doctor")
+    public String doctor() {
+        return "dantista/doctor";
+    }
+
+    @GetMapping("/about")
+    public String about() {
+        return "dantista/about";
+    }
+
+
+    @GetMapping("/department")
+    public String department() {
+        return "dantista/department";
+    }
+
+    @GetMapping("/pricing")
+    public String pricing() {
+        return "dantista/pricing";
+    }
+
+    @GetMapping("/blog")
+    public String blog() {
+        return "dantista/blog";
+    }
+
+    @GetMapping("/contact")
+    public String contact() {
+        return "dantista/contact";
+    }
 }

@@ -9,15 +9,34 @@ $(document).ready(function () {
     if (mm < 10) {
         mm = '0' + mm;
     }
-    today = dd + '.' + mm + '.' + yyyy;
-    $('#datetimepicker3').datetimepicker({locale: 'uk'});
-    $('#datetimepicker3').data("DateTimePicker").minDate(moment(today, 'DD.MM.YYYY'));
-});
+    var dateTimeIntervals = document.getElementById("disabledDates").innerHTML;
+    var b = JSON.parse(dateTimeIntervals).map(function (item) {
+        return [moment(item.dateFrom), moment(item.dateTo)];
+    });
+        today = dd + '.' + mm + '.' + yyyy;
+    $('#datetimepicker3').datetimepicker({
+        locale: 'uk',
+        disabledHours: [0, 1, 2, 3, 4, 5, 6, 7, 21, 22, 23],
+        sideBySide: true,
+        disabledTimeIntervals: b
+    });
+$('#datetimepicker3').data("DateTimePicker").minDate(moment(today, 'DD.MM.YYYY'));
+})
+;
 
 $(document).ready(function () {
+    var dateTimeIntervals = document.getElementById("disabledDates").innerHTML;
+    var b = JSON.parse(dateTimeIntervals).map(function (item) {
+        return [moment(item.dateFrom), moment(item.dateTo)];
+    });
     $("#datetimepicker4").click(function () {
         var dateFrom = $('#datetimepicker3').data("DateTimePicker").date();
-        $('#datetimepicker4').datetimepicker({locale: 'uk'});
+        $('#datetimepicker4').datetimepicker({
+            locale: 'uk',
+            disabledHours: [0, 1, 2, 3, 4, 5, 6, 7, 21, 22, 23],
+            sideBySide: true,
+            disabledTimeIntervals: b
+        });
         $('#datetimepicker4').data("DateTimePicker").minDate(moment(dateFrom, 'DD.MM.YYYY'));
     });
 });
@@ -74,7 +93,7 @@ $(document).ready(function () {
         x--;
     });
 
-    $('select').on('change', function() {
+    $('select').on('change', function () {
         var _data = {};
         _data["procName"] = this.value;
         console.log(JSON.stringify(_data));
@@ -116,9 +135,9 @@ function functionCreate() {
     //todo тягнути клініку для якої створюється запис. у майбутньому
     _data["clinic"] = "BetskoClinic";
     _data["procedureCriteria"] = [];
-    
+
     $("[id^='procedureName']").each(function () {
-        _data["procedureCriteria"].push({name: $(this).val(), description:'', price: ''});
+        _data["procedureCriteria"].push({name: $(this).val(), description: '', price: ''});
     });
     $("[id^='procedureDescription']").each(function (index) {
         _data.procedureCriteria[index].description = $(this).val()
@@ -136,7 +155,7 @@ function functionCreate() {
         cache: false,
         timeout: 600000,
         success: function (data) {
-            
+
             console.log("SUCCESS : ", data);
             var url = new URL(window.location.href);
             var id = url.searchParams.get("id");

@@ -3,14 +3,10 @@
 <head>
     <div th:replace="fragments/header :: header-css"></div>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-
-
-    <!--?<!-- Bootstrap DateTimePicker -->
     <link href="../webjars/Eonasdan-bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"
           rel="stylesheet">
-    <!--?<link href="../webjars/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">-->
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
 </head>
 <body>
 
@@ -47,7 +43,7 @@
                     </div>
                     <label class="col-sm-2 control-label" for="Дата народження" style="margin-top: 15px;">Date</label>
 
-                    <div class="col-sm-4" style="margin-top: 15px; margin-left: 15px;">
+                    <div class="col-sm-3" style="margin-top: 15px; margin-left: 15px;">
                         <div class="form-group">
                             <div class='input-group date' id='datetimepicker3'>
                                 <input type='text' class="form-control" id="date" />
@@ -58,11 +54,21 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-5" style="margin-top: 15px;">
-                        <select id="ddlViewBy" class="btn btn-default dropdown-toggle" type="button"
+                    <div class="col-sm-3" style="margin-top: 15px;">
+                        <select id="sex" class="btn btn-default dropdown-toggle" type="button"
                                 data-toggle="dropdown">
                             <option value="male">чоловіча</option>
                             <option value="female">жіноча</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-3" style="margin-top: 15px;">
+                        <select id="resource" class="btn btn-default dropdown-toggle" type="button"
+                                data-toggle="dropdown">
+                            <option value="internet site">internet site</option>
+                            <option value="recommendation">recommendation</option>
+                            <option value="internet other">internet other</option>
+                            <option value="instagram">instagram</option>
                         </select>
                     </div>
                 </div>
@@ -80,9 +86,14 @@
 
     </div>
 </div>
-<script type="text/javascript"
-        src="../webjars/jquery/2.2.4/jquery.min.js"></script>
+
 <script type="text/javascript" src="../js/customerView.js"></script>
+<script type="text/javascript" src="../js/jquery.maskedinput.min.js"></script>
+<script>
+        $(document).ready(function () {
+            $("#phone").mask("+38(999) 999-9999");
+        });
+</script>
 <script src="../webjars/momentjs/2.22.2/min/moment-with-locales.min.js"></script>
 <script src="../webjars/Eonasdan-bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 <div th:replace="fragments/footer :: footer"></div>

@@ -1,5 +1,6 @@
 package com.ua.stomat.appservices.validator;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +11,7 @@ import java.sql.Date;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class AddClientCriteria {
 
     @NotEmpty(message = "Не вказано ім'я!")
@@ -24,16 +26,6 @@ public class AddClientCriteria {
     private String phone;
     private String dateOfBirth;
     private String sex;
-
-    public AddClientCriteria(@NotEmpty(message = "Не вказано ім'я!") String firstName, @NotEmpty(message = "Не вказано прізвище!") String secondName,
-                             @NotEmpty(message = "Не вказано по-батькові!") String thirdName, String email, @NotEmpty(message = "Не вказаний телефон!") String phone,
-                             String dateOfBirth, String sex) {
-        this.firstName = firstName;
-        this.secondName = secondName;
-        this.thirdName = thirdName;
-        this.email = email;
-        this.phone = phone;
-        this.dateOfBirth = dateOfBirth;
-        this.sex = sex;
-    }
+    @NotEmpty(message = "Не вказано звідки клієнт дізнався про клініку!")
+    private String resource;
 }
