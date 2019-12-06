@@ -7,14 +7,13 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "files_upload")
+@Table(name = "client_file_upload")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class UploadFile {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "file_id")
     private String fileId;
     @Column(name = "file_name")
