@@ -18,8 +18,6 @@ public class UploadFile {
     private String fileId;
     @Column(name = "file_name")
     private String fileName;
-    @Column(name = "file_data")
-    private byte[] data;
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
