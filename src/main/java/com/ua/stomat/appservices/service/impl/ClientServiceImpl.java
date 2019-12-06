@@ -101,7 +101,7 @@ public class ClientServiceImpl implements ClientService {
                 if (googleFiles.size() != 0) {
                     File temp = googleFiles.get(0);
                     if (temp.getId().equals(file.getFileId())) {
-                        updatedClientFiles.add(new UploadFile(temp.getId(), temp.getName(), null, client));
+                        updatedClientFiles.add(new UploadFile(temp.getId(), temp.getName(), client));
                     }
                 }
             }
