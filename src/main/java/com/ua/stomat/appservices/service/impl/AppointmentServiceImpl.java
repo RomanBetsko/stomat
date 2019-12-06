@@ -351,17 +351,41 @@ public class AppointmentServiceImpl implements AppointmentService {
     public List<ProcedureGraph> getProcedureStatistic() {
         List<Procedure> procedures = procedureRepository.findAll();
         Map<String, Integer> resultMap = new HashMap<>();
-        for (Procedure procedure : procedures) {
-            if (resultMap.size() > 0 && resultMap.containsKey(procedure.getName() + " | " + procedure.getPrice())) {
-                Integer number = resultMap.get(procedure.getName() + " | " + procedure.getPrice());
+//        for (Procedure procedure : procedures) {
+//            if (resultMap.size() > 0 && resultMap.containsKey(procedure.getName() + " | " + procedure.getPrice())) {
+//                Integer number = resultMap.get(procedure.getName() + " | " + procedure.getPrice());
+//                number = number + 1;
+//                resultMap.put(procedure.getName() + " | " + procedure.getPrice(), number);
+//            } else {
+//                resultMap.put(procedure.getName() + " | " + procedure.getPrice(), procedure.getAppointments().size());
+//            }
+//        }
+        for(Procedure procedure : procedures){
+            resultMap.put(procedure.getName() + " | " + procedure.getPrice(), procedure.getAppointments().size());
+        }
+        List<ProcedureGraph> list = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : resultMap.entrySet()) {
+            ProcedureGraph procedureGraph = new ProcedureGraph(entry.getKey(), entry.getValue());
+            list.add(procedureGraph);
+        }
+        return list;
+    }
+
+    @Override
+    public List<NewClientsGraph> getNewClientsStatistic() {
+        List<Client> clients = clientRepository.findAll();
+        Map<String, Integer> resultMap = new HashMap<>();
+        for (Client cln : clients) {
+            if (resultMap.size() > 0 && resultMap.containsKey(cln.getResource())) {
+                Integer number = resultMap.get(cln.getResource());
                 number = number + 1;
-                resultMap.put(procedure.getName() + " | " + procedure.getPrice(), number);
+                resultMap.put(cln.getResource(), number);
             } else {
-                resultMap.put(procedure.getName() + " | " + procedure.getPrice(), procedure.getAppointments().size());
+                resultMap.put(cln.getResource(), 1);
             }
         }
         return resultMap.entrySet().stream()
-                .map(entry -> new ProcedureGraph(entry.getKey(), entry.getValue()))
+                .map(entry -> new NewClientsGraph(entry.getKey(), entry.getValue()))
                 .collect(Collectors.toList());
     }
 

@@ -143,21 +143,20 @@
     </div>
 </section>
 
-
 <section class="ftco-section ftco-no-pt ftco-no-pb">
     <div class="container-fluid px-md-0">
         <div class="row no-gutters">
             <div class="col-md-3 d-flex align-items-stretch">
                 <div class="consultation w-100 text-center px-4 px-md-5">
-                    <h3 class="mb-4">Безкоштовна консультація</h3>
-                    <p>Надішліть заявку для запису на прийом. Наш адміністратор зв'яжеться з Вами найближчим часом.</p>
-                    <a href="#" class="btn-custom">наші послуги</a>
+                    <h3 class="mb-4" th:text="#{appointment.left.header}"></h3>
+                    <p th:text="#{appointment.left.body}"></p>
+                    <a href="#" class="btn-custom" th:text="#{appointment.left.footer}"></a>
                 </div>
             </div>
             <div class="col-md-6 d-flex align-items-stretch">
                 <div class="consultation consul w-100 px-4 px-md-5">
                     <div class="text-center">
-                        <h3 class="mb-4">Записатись на прийом</h3>
+                        <h3 class="mb-4" th:text="#{appointment.middle.header}"></h3>
                     </div>
                     <form action="#" class="appointment-form">
                         <div class="row">
@@ -180,7 +179,7 @@
                                 <div class="form-group">
                                     <div class="input-wrap">
                                         <div class="icon"><span class="ion-md-calendar"></span></div>
-                                        <input type="text" class="form-control appointment_date" placeholder="Date">
+                                        <input type="text" class="form-control appointment_date" th:placeholder="#{appointment.date}">
                                     </div>
                                 </div>
                             </div>
@@ -188,13 +187,13 @@
                                 <div class="form-group">
                                     <div class="input-wrap">
                                         <div class="icon"><span class="ion-ios-clock"></span></div>
-                                        <input type="text" class="form-control appointment_time" placeholder="Time">
+                                        <input type="text" class="form-control appointment_time" th:placeholder="#{appointment.time}">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-12 col-lg-6 col-xl-4">
                                 <div class="form-group">
-                                    <input type="submit" value="Записатись" class="btn btn-secondary py-2 px-4">
+                                    <input type="submit" th:value="#{appointment.submit}" class="btn btn-secondary py-2 px-4">
                                 </div>
                             </div>
                         </div>
@@ -203,9 +202,9 @@
             </div>
             <div class="col-md-3 d-flex align-items-stretch">
                 <div class="consultation w-100 text-center px-4 px-md-5">
-                    <h3 class="mb-4">FAQ</h3>
-                    <p>Вас щось турбує але Ви боїтеся запитати? Знайдіть відповіді у нашому блозі</p>
-                    <a href="#" class="btn-custom">Блог</a>
+                    <h3 class="mb-4" th:text="#{appointment.rigth.header}"></h3>
+                    <p th:text="#{appointment.rigth.body}"></p>
+                    <a href="#" class="btn-custom" th:text="#{appointment.rigth.footer}"></a>
                 </div>
             </div>
         </div>
@@ -230,8 +229,7 @@
                     </div>
                     <div class="media-body p-2 mt-3">
                         <h3 class="heading" th:text="#{terapet.stomat}"></h3>
-                        <p>Лікування  карієсу, Реставрація зубів, Лікування пульпіту, Лікування періодонтиту
-                            </p>
+                        <p th:text="#{terapet.stomat.description}"></p>
                     </div>
                 </div>
             </div>
@@ -242,8 +240,7 @@
                     </div>
                     <div class="media-body p-2 mt-3">
                         <h3 class="heading" th:text="#{estetic.stomat}"></h3>
-                        <p>Even the all-powerful Pointi
-                            unorthographic.</p>
+                        <p th:text="#{estetic.stomat.description}"></p>
                     </div>
                 </div>
             </div>
@@ -254,8 +251,7 @@
                     </div>
                     <div class="media-body p-2 mt-3">
                         <h3 class="heading" th:text="#{implantation.stomat}"></h3>
-                        <p>Even the all-powerful Pointing
-                            unorthographic.</p>
+                        <p th:text="#{implantation.stomat.description}"></p>
                     </div>
                 </div>
             </div>
@@ -267,8 +263,7 @@
                     </div>
                     <div class="media-body p-2 mt-3">
                         <h3 class="heading" th:text="#{protes.stomat}"></h3>
-                        <p>Even the all-powerful Poi
-                            unorthographic.</p>
+                        <p th:text="#{protes.stomat.description}"></p>
                     </div>
                 </div>
             </div>

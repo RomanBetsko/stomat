@@ -28,4 +28,6 @@ public interface AppointmentService {
     List<EarnGraph> getEarnStatistic();
 
     List<ProcedureGraph> getProcedureStatistic();
+
+    List<NewClientsGraph> getNewClientsStatistic();
 }

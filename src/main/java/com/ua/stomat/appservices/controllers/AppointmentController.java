@@ -44,4 +44,9 @@ public class AppointmentController {
     public ModelAndView getAppointmentById(@RequestParam(name = "id") Integer id) {
         return appointmentService.getAppointmentById(id);
     }
+
+//    @PostMapping(ADMIN_PATH + "/updateAppointmentById")
+//    public ResponseEntity<?> updateAppointment(@RequestBody @Valid DeleteAppointmentCriteria request, Errors errors) {
+//        return appointmentService.updateAppointment(request.getId(), errors);
+//    }
 }

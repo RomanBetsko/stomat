@@ -2,6 +2,7 @@ package com.ua.stomat.appservices.controllers;
 
 import com.ua.stomat.appservices.service.AppointmentService;
 import com.ua.stomat.appservices.validator.EarnGraph;
+import com.ua.stomat.appservices.validator.NewClientsGraph;
 import com.ua.stomat.appservices.validator.ProcedureGraph;
 import com.ua.stomat.appservices.validator.StatisticData;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,5 +40,10 @@ public class RestWebController {
     @GetMapping(value = "/procedureGraph")
     public List<ProcedureGraph> procedureGraph() {
         return appointmentService.getProcedureStatistic();
+    }
+
+    @GetMapping(value = "/newClientsGraph")
+    public List<NewClientsGraph> newClientsGraph() {
+        return appointmentService.getNewClientsStatistic();
     }
 }

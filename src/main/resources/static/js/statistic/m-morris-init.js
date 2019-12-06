@@ -136,6 +136,27 @@ $(function () {
         })
     });
 
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: "/admin/api/newClientsGraph",
+            dataType: 'json',
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+                Morris.Donut({
+                    element: 'morris-donut-chart-info',
+                    data: data,
+                    resize: true,
+                    // colors: ['#007BFF', '#28A745', '#DC3545']
+                });
+            }, error: function (e) {
+
+            }
+        })
+    });
+
 
 
 
