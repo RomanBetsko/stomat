@@ -8,5 +8,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProcedureRequest {
-    private String procedureId;
+    private String procedureName;
 }

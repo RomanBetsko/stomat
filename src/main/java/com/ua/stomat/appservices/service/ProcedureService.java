@@ -10,5 +10,5 @@ public interface ProcedureService {
 
     ModelAndView addProcedure(Errors errors);
 
-    ModelAndView addProcedureById(ProcedureRequest request);
+    ModelAndView addProcedureByName(ProcedureRequest request);
 }

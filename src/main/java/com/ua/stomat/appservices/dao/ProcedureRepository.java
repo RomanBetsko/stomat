@@ -13,5 +13,5 @@ public interface ProcedureRepository extends CrudRepository<Procedure, Long> {
 
     List<Procedure> findAllByName(String name);
 
-    Procedure findByProcedureId(Integer procedureId);
+    Procedure findByName(String name);
 }

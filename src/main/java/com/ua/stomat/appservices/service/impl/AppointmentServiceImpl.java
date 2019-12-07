@@ -165,8 +165,8 @@ public class AppointmentServiceImpl implements AppointmentService {
         List<Appointment> appointments = appointmentRepository.findByDateFromGreaterThanEqual(new Timestamp(new Date().getTime()));
 
         List<DateTimeIntervals> timeIntervals = new ArrayList<>();
-        DateTimeIntervals temp = new DateTimeIntervals();
         for (Appointment appointment : appointments) {
+            DateTimeIntervals temp = new DateTimeIntervals();
             temp.setDateFrom(appointment.getDateFrom().toString());
             temp.setDateTo(appointment.getDateTo().toString());
             timeIntervals.add(temp);

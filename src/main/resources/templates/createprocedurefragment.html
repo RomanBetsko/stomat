@@ -3,15 +3,18 @@
         <a href="javascript:void(0);" class="remove_button"><img src="../images/remove-icon.png"></a>
         <label class="col-sm-2 control-label" style="margin-top: 20px;">Назва</label>
         <div class="col-sm-10">
-            <input th:if="${procedure?.procedureId?}" th:value="${procedure.name}" type="text" class="form-control" id="procedureName" style="margin-top: 15px;" required/>
+            <input th:if="${procedureName != null}" th:value="${procedureName}" type="text" class="form-control" id="procedureName" style="margin-top: 15px;" required/>
+            <input th:if="${procedureName == null}" type="text" class="form-control" id="procedureName" style="margin-top: 15px;" required/>
         </div>
         <label class="col-sm-2 control-label">Опис</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="procedureDescription" style="margin-top: 15px;" required/>
+            <input th:if="${procedureDescription != null}" th:value="${procedureDescription}" type="text" class="form-control" id="procedureDescription" style="margin-top: 15px;" required/>
+            <input th:if="${procedureDescription == null}" type="text" class="form-control" id="procedureDescription" style="margin-top: 15px;" required/>
         </div>
         <label class="col-sm-2 control-label">Вартість</label>
         <div class="col-sm-2">
-            <input type="text" class="form-control" id="procedurePrice" style="margin-top: 15px;" required/>
+            <input th:if="${procedureDescription != null}" th:value="${procedurePrice}" type="text" class="form-control" id="procedurePrice" style="margin-top: 15px;" required/>
+            <input th:if="${procedureDescription == null}" type="text" class="form-control" id="procedurePrice" style="margin-top: 15px;" required/>
         </div>
 
     </div>

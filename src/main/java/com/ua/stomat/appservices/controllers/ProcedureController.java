@@ -2,9 +2,6 @@ package com.ua.stomat.appservices.controllers;
 
 import com.ua.stomat.appservices.service.ProcedureService;
 import com.ua.stomat.appservices.validator.ProcedureRequest;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,8 +24,8 @@ public class ProcedureController {
         return procedureService.addProcedure(errors);
     }
 
-    @PostMapping(ADMIN_PATH + "/procedure/createById")
+    @PostMapping(ADMIN_PATH + "/procedure/createByName")
     public ModelAndView cleateProcedureById(@RequestBody ProcedureRequest request, Errors errors) {
-        return procedureService.addProcedureById(request);
+        return procedureService.addProcedureByName(request);
     }
 }

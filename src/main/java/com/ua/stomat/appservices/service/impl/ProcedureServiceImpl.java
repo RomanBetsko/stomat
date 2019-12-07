@@ -27,10 +27,12 @@ public class ProcedureServiceImpl implements ProcedureService {
     }
 
     @Override
-    public ModelAndView addProcedureById(ProcedureRequest request) {
-        Procedure procedure = procedureRepository.findByProcedureId(Integer.valueOf(request.getProcedureId()));
+    public ModelAndView addProcedureByName(ProcedureRequest request) {
+        Procedure procedure = procedureRepository.findByName(request.getProcedureName());
         Map<String, Object> params = new HashMap<>();
-        params.put("procedure", procedure);
+        params.put("procedureName", procedure.getName());
+        params.put("procedurePrice", procedure.getPrice());
+        params.put("procedureDescription", procedure.getDescription());
         return new ModelAndView("createprocedurefragment", params);
     }
 }

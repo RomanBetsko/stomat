@@ -122,13 +122,29 @@ $(document).ready(function () {
 
     $('select').on('change', function () {
         var procedureName = this.options[this.selectedIndex].getAttribute('procedureName');
-        var procedurePrice = this.options[this.selectedIndex].getAttribute('procedurePrice');
-        $(fieldHTML).append("");
-        $("#btn-add").prop("disabled", false);
-
-        $("#procedureName").val(procedureName);
-        $("#procedurePrice").val(procedurePrice);
-
+        // var procedurePrice = this.options[this.selectedIndex].getAttribute('procedurePrice');
+        var _data = {};
+        _data["procedureName"] = procedureName;
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "/admin/procedure/createByName",
+            data: JSON.stringify(_data),
+            dataType: 'json',
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+                $(fieldHTML).append("");
+                $("#btn-add").prop("disabled", false);
+            },
+            error: function (e) {
+                console.log(e.responseText)
+                var json = e.responseText;
+                $('#result').append(json);
+                console.log("ERROR : ", e);
+                $("#btn-add").prop("disabled", false);
+            }
+        });
     });
 });
 
