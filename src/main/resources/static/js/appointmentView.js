@@ -60,6 +60,7 @@ $(document).ready(function () {
     _data["appointmentId"] = 1;
 
 
+
     // $.ajax({
     //     type: "POST",
     //     contentType: "application/json",
@@ -93,10 +94,10 @@ $(document).ready(function () {
         x--;
     });
 
-    $('select').on('change', function () {
+    $("a#procedureView").click(function (e) {
         var _data = {};
-        _data["procName"] = this.value;
-        console.log(JSON.stringify(_data));
+        //todo дістати реальні дані реальні процедури і тд.
+        _data["procedureId"] = 1;
         $.ajax({
             type: "POST",
             contentType: "application/json",
@@ -117,6 +118,16 @@ $(document).ready(function () {
                 $("#btn-add").prop("disabled", false);
             }
         });
+    });
+
+    $('select').on('change', function () {
+        var procedureName = this.options[this.selectedIndex].getAttribute('procedureName');
+        var procedurePrice = this.options[this.selectedIndex].getAttribute('procedurePrice');
+        $(fieldHTML).append("");
+        $("#btn-add").prop("disabled", false);
+
+        $("#procedureName").val(procedureName);
+        $("#procedurePrice").val(procedurePrice);
 
     });
 });

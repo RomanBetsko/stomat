@@ -1,9 +1,9 @@
-<div>
+<div xmlns:th="http://www.w3.org/1999/xhtml">
     <div class="form-group form-group-lg">
         <a href="javascript:void(0);" class="remove_button"><img src="../images/remove-icon.png"></a>
         <label class="col-sm-2 control-label" style="margin-top: 20px;">Назва</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="procedureName" style="margin-top: 15px;" required/>
+            <input th:if="${procedure?.procedureId?}" th:value="${procedure.name}" type="text" class="form-control" id="procedureName" style="margin-top: 15px;" required/>
         </div>
         <label class="col-sm-2 control-label">Опис</label>
         <div class="col-sm-10">

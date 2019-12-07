@@ -1,7 +1,7 @@
 package com.ua.stomat.appservices.controllers;
 
 import com.ua.stomat.appservices.service.ProcedureService;
-import com.ua.stomat.appservices.validator.ClientProcedureCriteria;
+import com.ua.stomat.appservices.validator.ProcedureRequest;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,14 +23,12 @@ public class ProcedureController {
     }
 
     @PostMapping(ADMIN_PATH + "/procedure/create")
-    public ModelAndView cleateProcedure(@RequestBody Asd request, Errors errors) {
+    public ModelAndView cleateProcedure(@RequestBody ProcedureRequest request, Errors errors) {
         return procedureService.addProcedure(errors);
     }
 
-    @Data
-    @AllArgsConstructor
-    @NoArgsConstructor
-    private static class Asd {
-        private String procName;
+    @PostMapping(ADMIN_PATH + "/procedure/createById")
+    public ModelAndView cleateProcedureById(@RequestBody ProcedureRequest request, Errors errors) {
+        return procedureService.addProcedureById(request);
     }
 }

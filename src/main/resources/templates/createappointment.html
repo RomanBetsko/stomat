@@ -76,7 +76,8 @@
                 <div class="col-sm-10" >
                     <select id="ddlViewBy" style="width: 292px;padding: 5px 5px 5px 5px;font-size: 16px;border: 1px solid #ccc;
                     height: 34px;-webkit-appearance: none;-moz-appearance: none;appearance: none;">
-                        <option th:value="${procedure.name}" th:text="${procedure.name}" th:each="procedure: ${procedures}" class="qweqwe"></option>
+                        <option th:value="${procedure.name}" th:attr="procedureName=${procedure.name}, procedurePrice=${procedure.price}"
+                                th:text="${procedure.name}" th:each="procedure: ${procedures}" class="qweqwe"></option>
                     </select>
                 </div>
                 <div class="col-sm-10" style="margin-top: 15px;">

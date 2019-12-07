@@ -1,5 +1,6 @@
 package com.ua.stomat.appservices.service;
 
+import com.ua.stomat.appservices.validator.ProcedureRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
 import org.springframework.web.servlet.ModelAndView;
@@ -8,4 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 public interface ProcedureService {
 
     ModelAndView addProcedure(Errors errors);
+
+    ModelAndView addProcedureById(ProcedureRequest request);
 }
