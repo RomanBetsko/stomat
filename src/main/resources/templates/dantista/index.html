@@ -15,7 +15,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="dantista/css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="dantista/css/animate.css">
@@ -45,6 +45,12 @@
 <!--            });-->
 <!--        })-->
 <!--    </script>-->
+    <style>
+        body {
+            font-family: 'Comfortaa', cursive;
+            font-weight: 100;
+        }
+    </style>
 </head>
 <body>
 <div class="py-md-5 py-4 border-bottom">
@@ -68,8 +74,8 @@
                 <div class="icon d-flex justify-content-center align-items-center"><span
                         class="icon-paper-plane"></span></div>
                 <div class="text pl-3 pl-md-3">
-                    <p class="hr"><span th:text="#{open.hours}">Open Hours</span></p>
-                    <p class="time"><span th:text="#{monday.saturday}"></span> <span th:text="#{hours.time}"></span>Vuhidnuy
+                    <p class="hr"><span th:text="#{open.hours}"></span></p>
+                    <p class="time"><span th:text="#{monday.saturday}"></span> <span th:text="#{hours.time}"></span> <span th:text="#{hours.holiday}"></span>
                     </p>
                 </div>
                 <!--					//todo пофіксити проблему флагів-->
@@ -110,13 +116,13 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav m-auto">
-                <li class="nav-item active"><a href="index.html" class="nav-link pl-0">Home</a></li>
-                <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="/doctor" class="nav-link">Doctor</a></li>
-                <li class="nav-item"><a href="/department" class="nav-link">Treatments</a></li>
-                <li class="nav-item"><a href="/pricing" class="nav-link">Pricing</a></li>
-                <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
-                <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+                <li class="nav-item active"><a href="index.html" class="nav-link pl-0" th:text="#{index.main}"></a></li>
+                <li class="nav-item"><a href="/about" class="nav-link" th:text="#{index.about}"></a></li>
+                <li class="nav-item"><a href="/doctor" class="nav-link" th:text="#{index.doctor}"></a></li>
+                <li class="nav-item"><a href="/department" class="nav-link" th:text="#{index.department}"></a></li>
+                <li class="nav-item"><a href="/pricing" class="nav-link" th:text="#{index.pricing}"></a></li>
+                <li class="nav-item"><a href="/blog" class="nav-link" th:text="#{index.blog}"></a></li>
+                <li class="nav-item"><a href="/contact" class="nav-link" th:text="#{index.contact}"></a></li>
             </ul>
         </div>
     </div>
@@ -131,9 +137,9 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
                 <div class="col-md-6 text ftco-animate">
-                    <h1 class="mb-4">Smile Makes <br>A Lasting Impression</h1>
-                    <h3 class="subheading">Your Health is Our Top Priority with Comprehensive, Affordable medical.</h3>
-                    <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">View our works</a></p>
+                    <h1 class="mb-4">Ми створюємо бездоганні посмішки!</h1>
+                    <h3 class="subheading">Наша команда відкриває нову еру стоматологічних послуг – лікування без болю й неприємних відчуттів.</h3>
+                    <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3" th:text="#{index.about}"></a></p>
                 </div>
             </div>
         </div>
@@ -235,10 +241,10 @@
             <div class="col-md-4 d-flex services align-self-stretch p-4 ftco-animate">
                 <div class="media block-6 d-block text-center">
                     <div class="icon d-flex justify-content-center align-items-center">
-                        <span class="flaticon-drilling"></span>
+                        <img src="dantista/fonts/open-iconic/caries.svg" style="height: 112px; width: 112px; color: #a8c337;">
                     </div>
                     <div class="media-body p-2 mt-3">
-                        <h3 class="heading" th:text="#{terapet.stomat}"></h3>
+                        <h3 class="heading" th:text="#{terapet.stomat}" style="color: #46b7de"></h3>
                         <p th:text="#{terapet.stomat.description}"></p>
                     </div>
                 </div>
@@ -246,7 +252,7 @@
             <div class="col-md-4 d-flex services align-self-stretch p-4 ftco-animate">
                 <div class="media block-6 d-block text-center">
                     <div class="icon d-flex justify-content-center align-items-center">
-                        <span class="flaticon-tooth"></span>
+                        <img src="dantista/fonts/open-iconic/estetic.svg" style="height: 112px; width: 112px; color: #a8c337;">
                     </div>
                     <div class="media-body p-2 mt-3">
                         <h3 class="heading" th:text="#{estetic.stomat}"></h3>
@@ -257,7 +263,7 @@
             <div class="col-md-4 d-flex services align-self-stretch p-4 ftco-animate">
                 <div class="media block-6 d-block text-center">
                     <div class="icon d-flex justify-content-center align-items-center">
-                        <span class="flaticon-dental-floss"></span>
+                        <img src="dantista/fonts/open-iconic/implant.svg" style="height: 112px; width: 112px; color: #a8c337;">
                     </div>
                     <div class="media-body p-2 mt-3">
                         <h3 class="heading" th:text="#{implantation.stomat}"></h3>
@@ -269,7 +275,7 @@
             <div class="col-md-4 d-flex services align-self-stretch p-4 ftco-animate">
                 <div class="media block-6 d-block text-center">
                     <div class="icon d-flex justify-content-center align-items-center">
-                        <span class="flaticon-shiny-tooth"></span>
+                        <img src="dantista/fonts/open-iconic/tooth.svg" style="height: 112px; width: 112px; color: #a8c337;">
                     </div>
                     <div class="media-body p-2 mt-3">
                         <h3 class="heading" th:text="#{protes.stomat}"></h3>
@@ -280,7 +286,7 @@
             <div class="col-md-4 d-flex services align-self-stretch p-4 ftco-animate">
                 <div class="media block-6 d-block text-center">
                     <div class="icon d-flex justify-content-center align-items-center">
-                        <span class="flaticon-decayed-tooth"></span>
+                        <img src="dantista/fonts/open-iconic/dental-care.svg" style="height: 112px; width: 112px; color: #a8c337;">
                     </div>
                     <div class="media-body p-2 mt-3">
                         <h3 class="heading" th:text="#{wittening.stomat}"></h3>
@@ -292,7 +298,7 @@
             <div class="col-md-4 d-flex services align-self-stretch p-4 ftco-animate">
                 <div class="media block-6 d-block text-center">
                     <div class="icon d-flex justify-content-center align-items-center">
-                        <span class="flaticon-dentist-chair"></span>
+                        <img src="dantista/fonts/open-iconic/braces.svg" style="height: 112px; width: 112px; color: #a8c337;">
                     </div>
                     <div class="media-body p-2 mt-3">
                         <h3 class="heading" th:text="#{ortodontiya.stomat}"></h3>
@@ -304,7 +310,7 @@
             <div class="col-md-4 d-flex services align-self-stretch p-4 ftco-animate">
                 <div class="media block-6 d-block text-center">
                     <div class="icon d-flex justify-content-center align-items-center">
-                        <span class="flaticon-tooth-1"></span>
+                        <img src="dantista/fonts/open-iconic/extract.svg" style="height: 112px; width: 112px; color: #a8c337;">
                     </div>
                     <div class="media-body p-2 mt-3">
                         <h3 class="heading" th:text="#{hirurgiya.stomat}"></h3>
@@ -316,7 +322,7 @@
             <div class="col-md-4 d-flex services align-self-stretch p-4 ftco-animate">
                 <div class="media block-6 d-block text-center">
                     <div class="icon d-flex justify-content-center align-items-center">
-                        <span class="flaticon-decayed-tooth"></span>
+                        <img src="dantista/fonts/open-iconic/repair.svg" style="height: 112px; width: 112px; color: #a8c337;">
                     </div>
                     <div class="media-body p-2 mt-3">
                         <h3 class="heading" th:text="#{lazers.stomat}"></h3>
@@ -328,7 +334,7 @@
             <div class="col-md-4 d-flex services align-self-stretch p-4 ftco-animate">
                 <div class="media block-6 d-block text-center">
                     <div class="icon d-flex justify-content-center align-items-center">
-                        <span class="flaticon-decayed-tooth"></span>
+                        <img src="dantista/fonts/open-iconic/tooth-brush.svg" style="height: 112px; width: 112px; color: #a8c337;">
                     </div>
                     <div class="media-body p-2 mt-3">
                         <h3 class="heading" th:text="#{paradontology.stomat}"></h3>
@@ -346,8 +352,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h3 class="mb-4">DentMe – це стоматологія нового покоління в Івано-Франківську</h3>
-                <p>Наша команда не стоїть на місці й завжди  знаходить нові рішення для одвічних проблем. Для нас не існує “непроникних каналів”, “непоправних патологій прикусу”, “неможливості задовольнити  естетичні потреби пацієнтів” під час реставрацій і протезування зубів.</p>
+                <h3 class="mb-4" th:text="#{stomat.info}"></h3>
+                <p th:text="#{stomat.info.about}">Наша команда не стоїть на місці й завжди  знаходить нові рішення для одвічних проблем. Для нас не існує “непроникних каналів”, “непоправних патологій прикусу”, “неможливості задовольнити  естетичні потреби пацієнтів” під час реставрацій і протезування зубів.</p>
             </div>
         </div>
     </div>
@@ -359,22 +365,20 @@
             <div class="col-md-8 text-center heading-section ftco-animate">
                 <span class="subheading" th:text="#{index.doctors}"></span>
                 <h2 class="mb-4" th:text="#{index.our.stuff}"></h2>
-                <p>Separated they live in. A small river named Duden flows by their place and supplies it with the
-                    necessary regelialia. It is a paradisematic country</p>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-lg-3 ftco-animate">
+            <div class="col-md-6 col-lg-4 ftco-animate">
                 <div class="staff">
                     <div class="img-wrap d-flex align-items-stretch">
                         <div class="img align-self-stretch"
-                             style="background-image: url(dantista/images/doc-1.jpg);"></div>
+                             style="background-image: url(dantista/images/IMG_6646.JPG);"></div>
                     </div>
                     <div class="text pt-3 text-center">
-                        <h3>Dr. Lloyd Wilson</h3>
-                        <span class="position mb-2">Denstist</span>
+                        <h3 th:text="#{index.doctor.betsko}"></h3>
+                        <span class="position mb-2" th:text="#{index.doctor.betsko.about}"></span>
                         <div class="faded">
-                            <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+                            <p th:text="#{index.doctor.betsko.description}"></p>
                             <ul class="ftco-social text-center">
                                 <li class="ftco-animate"><a href="#"
                                                             class="d-flex align-items-center justify-content-center"><span
@@ -393,17 +397,17 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
+            <div class="col-md-6 col-lg-4 ftco-animate">
                 <div class="staff">
                     <div class="img-wrap d-flex align-items-stretch">
                         <div class="img align-self-stretch"
-                             style="background-image: url(dantista/images/doc-2.jpg);"></div>
+                             style="background-image: url(dantista/images/IMG_6647.JPG);"></div>
                     </div>
                     <div class="text pt-3 text-center">
-                        <h3>Dr. Rachel Parker</h3>
-                        <span class="position mb-2">Dentist</span>
+                        <h3 th:text="#{index.doctor.panchishin}"></h3>
+                        <span class="position mb-2" th:text="#{index.doctor.panchishin.about}"></span>
                         <div class="faded">
-                            <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+                            <p th:text="#{index.doctor.panchishin.description}"></p>
                             <ul class="ftco-social text-center">
                                 <li class="ftco-animate"><a href="#"
                                                             class="d-flex align-items-center justify-content-center"><span
@@ -422,46 +426,17 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
+            <div class="col-md-6 col-lg-4 ftco-animate">
                 <div class="staff">
                     <div class="img-wrap d-flex align-items-stretch">
                         <div class="img align-self-stretch"
-                             style="background-image: url(dantista/images/doc-3.jpg);"></div>
+                             style="background-image: url(dantista/images/IMG_6648.JPG);"></div>
                     </div>
                     <div class="text pt-3 text-center">
-                        <h3>Dr. Ian Smith</h3>
-                        <span class="position mb-2">Dentist</span>
+                        <h3 th:text="#{index.doctor.stefanchyk}"></h3>
+                        <span class="position mb-2" th:text="#{index.doctor.stefanchyk.about}"></span>
                         <div class="faded">
-                            <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-                            <ul class="ftco-social text-center">
-                                <li class="ftco-animate"><a href="#"
-                                                            class="d-flex align-items-center justify-content-center"><span
-                                        class="icon-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#"
-                                                            class="d-flex align-items-center justify-content-center"><span
-                                        class="icon-facebook"></span></a></li>
-                                <li class="ftco-animate"><a href="#"
-                                                            class="d-flex align-items-center justify-content-center"><span
-                                        class="icon-google-plus"></span></a></li>
-                                <li class="ftco-animate"><a href="#"
-                                                            class="d-flex align-items-center justify-content-center"><span
-                                        class="icon-instagram"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="staff">
-                    <div class="img-wrap d-flex align-items-stretch">
-                        <div class="img align-self-stretch"
-                             style="background-image: url(dantista/images/doc-4.jpg);"></div>
-                    </div>
-                    <div class="text pt-3 text-center">
-                        <h3>Dr. Alicia Henderson</h3>
-                        <span class="position mb-2">Dentist</span>
-                        <div class="faded">
-                            <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+                            <p th:text="#{index.doctor.stefanchyk.description}"></p>
                             <ul class="ftco-social text-center">
                                 <li class="ftco-animate"><a href="#"
                                                             class="d-flex align-items-center justify-content-center"><span
@@ -582,12 +557,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-                <h2>We Provide Free Dental Care Consultation</h2>
-                <p class="mb-0">Your Health is Our Top Priority with Comprehensive, Affordable medical.</p>
+                <h2 th:text="#{index.advertising.title}"></h2>
+                <p class="mb-0" th:text="#{index.advertising.description}"></p>
                 <p></p>
             </div>
             <div class="col-md-3 d-flex align-items-center">
-                <p class="mb-0"><a href="#" class="btn btn-secondary px-4 py-3">Free Consutation</a></p>
+                <p class="mb-0"><a href="#" class="btn btn-secondary px-4 py-3" th:text="#{index.advertising.more}">Free Consutation</a></p>
             </div>
         </div>
     </div>
@@ -813,33 +788,33 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md">
-                <div class="ftco-footer-widget mb-5">
-                    <h2 class="ftco-heading-2">Recent Blog</h2>
-                    <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(dantista/images/image_1.jpg);"></a>
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
-                            <div class="meta">
-                                <div><a href="#"><span class="icon-calendar"></span> Sept. 20, 2019</a></div>
-                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block-21 mb-5 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(dantista/images/image_2.jpg);"></a>
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
-                            <div class="meta">
-                                <div><a href="#"><span class="icon-calendar"></span> Sept. 20, 2019</a></div>
-                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!--            <div class="col-md">-->
+<!--                <div class="ftco-footer-widget mb-5">-->
+<!--                    <h2 class="ftco-heading-2">Recent Blog</h2>-->
+<!--                    <div class="block-21 mb-4 d-flex">-->
+<!--                        <a class="blog-img mr-4" style="background-image: url(dantista/images/image_1.jpg);"></a>-->
+<!--                        <div class="text">-->
+<!--                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>-->
+<!--                            <div class="meta">-->
+<!--                                <div><a href="#"><span class="icon-calendar"></span> Sept. 20, 2019</a></div>-->
+<!--                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>-->
+<!--                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="block-21 mb-5 d-flex">-->
+<!--                        <a class="blog-img mr-4" style="background-image: url(dantista/images/image_2.jpg);"></a>-->
+<!--                        <div class="text">-->
+<!--                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>-->
+<!--                            <div class="meta">-->
+<!--                                <div><a href="#"><span class="icon-calendar"></span> Sept. 20, 2019</a></div>-->
+<!--                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>-->
+<!--                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
             <div class="col-md">
                 <div class="ftco-footer-widget mb-5">
                     <h2 class="ftco-heading-2">Opening Hours</h2>

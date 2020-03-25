@@ -5679,6 +5679,10 @@ button.bg-dark:focus {
   -ms-flex-align: center !important;
   align-items: center !important; }
 
+.change-my-color {
+  fill: green;
+}
+
 .align-items-baseline {
   -webkit-box-align: baseline !important;
   -ms-flex-align: baseline !important;
@@ -8000,7 +8004,8 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6; } }
 
 body {
-  font-family: "Poppins", Arial, sans-serif;
+  /*font-family: "Poppins", Arial, sans-serif;*/
+  font-family: 'Bellota Text', cursive;
   background: #fff;
   font-size: 15px;
   line-height: 1.8;
