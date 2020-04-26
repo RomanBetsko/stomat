@@ -37,9 +37,14 @@ public class UnloginZoneController {
         return "dantista/department";
     }
 
-    @GetMapping("/pricing")
-    public String pricing() {
-        return "dantista/pricing";
+    @GetMapping("/therapeutic")
+    public String therapeutic() {
+        return "dantista/therapeutic";
+    }
+
+    @GetMapping("/pediatric")
+    public String pediatric() {
+        return "dantista/pediatric";
     }
 
     @GetMapping("/blog")

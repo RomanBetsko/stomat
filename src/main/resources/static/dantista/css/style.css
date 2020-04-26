@@ -873,7 +873,7 @@ pre {
     max-width: 16.66667%; }
   .col-md-2-5 {
     -webkit-box-flex: 0;
-    -ms-flex: 0 0 25%;
+    -ms-flex: 0 0 20%;
     flex: 0 0 20%;
     max-width: 20%; }
   .col-md-3 {
@@ -2530,7 +2530,7 @@ input[type="button"].btn-block {
 
 .dropdown-toggle::after {
   display: inline-block;
-  margin-left: 0.255em;
+  margin-left: 1.0em;
   vertical-align: 0.255em;
   content: "";
   border-top: 0.3em solid;
@@ -4883,7 +4883,7 @@ a.close.disabled {
   .bs-popover-top .arrow::before, .bs-popover-auto[x-placement^="top"] .arrow::before {
     bottom: 0;
     border-top-color: rgba(0, 0, 0, 0.25); }
-  
+
   .bs-popover-top .arrow::after,
   .bs-popover-auto[x-placement^="top"] .arrow::after {
     bottom: 1px;
@@ -4903,7 +4903,7 @@ a.close.disabled {
   .bs-popover-right .arrow::before, .bs-popover-auto[x-placement^="right"] .arrow::before {
     left: 0;
     border-right-color: rgba(0, 0, 0, 0.25); }
-  
+
   .bs-popover-right .arrow::after,
   .bs-popover-auto[x-placement^="right"] .arrow::after {
     left: 1px;
@@ -4920,7 +4920,7 @@ a.close.disabled {
   .bs-popover-bottom .arrow::before, .bs-popover-auto[x-placement^="bottom"] .arrow::before {
     top: 0;
     border-bottom-color: rgba(0, 0, 0, 0.25); }
-  
+
   .bs-popover-bottom .arrow::after,
   .bs-popover-auto[x-placement^="bottom"] .arrow::after {
     top: 1px;
@@ -4949,7 +4949,7 @@ a.close.disabled {
   .bs-popover-left .arrow::before, .bs-popover-auto[x-placement^="left"] .arrow::before {
     right: 0;
     border-left-color: rgba(0, 0, 0, 0.25); }
-  
+
   .bs-popover-left .arrow::after,
   .bs-popover-auto[x-placement^="left"] .arrow::after {
     right: 1px;
@@ -5678,6 +5678,11 @@ button.bg-dark:focus {
   -webkit-box-align: center !important;
   -ms-flex-align: center !important;
   align-items: center !important; }
+
+.filter-green{
+  /*filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);*/
+  fill: green;
+}
 
 .change-my-color {
   fill: green;
@@ -8005,7 +8010,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 body {
   /*font-family: "Poppins", Arial, sans-serif;*/
-  font-family: 'Bellota Text', cursive;
+  font-family: "Poppins", Arial, sans-serif;
   background: #fff;
   font-size: 15px;
   line-height: 1.8;
@@ -8645,7 +8650,7 @@ h1, h2, h3, h4, h5,
   -ms-transition: all 0.3s ease;
   transition: all 0.3s ease; }
   .staff .img-wrap {
-    height: 300px; }
+    height: 500px; }
   .staff .img {
     width: 100%;
     display: block;
@@ -8801,6 +8806,22 @@ h1, h2, h3, h4, h5,
 @media (max-width: 767.98px) {
   .blog-entry {
     margin-bottom: 30px; } }
+
+.user-focus-custom a:focus{
+  color: #46b7de;
+
+}
+
+.user-focus-custom .text {
+    position: relative;
+    border-top: 0;
+    border-radius: 2px;
+}
+
+.user-focus-custom .text .heading {
+    font-size: 20px;
+    margin-bottom: 16px;
+}
 
 .blog-entry .text {
   position: relative;
@@ -9067,9 +9088,9 @@ textarea.form-control {
 
 #map {
   width: 100%; }
-  @media (max-width: 767.98px) {
+  @media (max-width: 1767.98px) {
     #map {
-      height: 300px; } }
+      height: 900px; } }
 
 @-webkit-keyframes pulse {
   0% {
