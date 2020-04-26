@@ -47,6 +47,41 @@ public class UnloginZoneController {
         return "dantista/pediatric";
     }
 
+    @GetMapping("/surgery")
+    public String surgery (){
+        return "dantista/surgery";
+    }
+
+    @GetMapping("/bleaching")
+    public String bleaching (){
+        return "dantista/bleaching";
+    }
+
+    @GetMapping("/orthodontics")
+    public String orthodontics (){
+        return "dantista/orthodontics";
+    }
+
+    @GetMapping("/prosthesis")
+    public String prosthesis (){
+        return "dantista/prosthesis";
+    }
+
+    @GetMapping("/laser")
+    public String laser (){
+        return "dantista/laser";
+    }
+
+    @GetMapping("/paradontology")
+    public String paradontology (){
+        return "dantista/paradontology";
+    }
+
+    @GetMapping("/primary")
+    public String primary (){
+        return "dantista/primary";
+    }
+
     @GetMapping("/blog")
     public String blog() {
         return "dantista/blog";

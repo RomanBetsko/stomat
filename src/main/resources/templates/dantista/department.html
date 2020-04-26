@@ -162,89 +162,107 @@
 <section class="ftco-section ftco-services">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 d-flex services align-self-stretch p-4 ftco-animate" >
-                <div class="media block-6 d-block text-center">
-                    <div class="img w-100" style="background-image: url(dantista/images/dept-3.jpg);"></div>
-                    <div class="media-body p-2 mt-3">
-<!--                        <div class="text bg-white p-2">-->
-                            <h3 class="heading"  th:text="#{terapet.stomat}">
-<!--                                <a href="#" th:text="#{terapet.stomat}" style="color: black;"></a>-->
-                            </h3>
-<!--                        <a href="/therapeutic" class="user-focus-custom" th:text="#{terapet.stomat}"></a>-->
-                        <p th:text="#{terapet.stomat.description}"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex services align-self-stretch p-4 ftco-animate">
-                <div class="media block-6 d-block text-center">
-                    <div class="img w-100" style="background-image: url(dantista/images/dept-4.jpg);"></div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading" th:text="#{baby.stomat}"></h3>
-                        <p th:text="#{baby.stomat.description}"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex services align-self-stretch p-4 ftco-animate">
-                <div class="media block-6 d-block text-center">
-                    <div class="img w-100" style="background-image: url(dantista/images/dept-8.jpg);"></div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading" th:text="#{hirurgiya.stomat}"></h3>
-                        <p th:text="#{hirurgiya.stomat.description}"></p>
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/therapeutic" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(dantista/images/dept-3.jpg);">
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading text-center"><a href="/therapeutic" th:text="#{terapet.stomat}" class="text-center"></a></h3>
+                        <p href="/therapeutic" th:text="#{terapet.stomat.description}" class="text-center"></p>
+
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4 d-flex services align-self-stretch p-4 ftco-animate">
-                <div class="media block-6 d-block text-center">
-                    <div class="img w-100" style="background-image: url(dantista/images/dept-1.jpg);"></div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading" th:text="#{wittening.stomat}"></h3>
-                        <p th:text="#{wittening.stomat.description}"></p>
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/pediatric" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(dantista/images/dept-4.jpg);">
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading text-center"><a href="/pediatric" th:text="#{baby.stomat}" class="text-center"></a></h3>
+                        <p href="/pediatric" th:text="#{baby.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 d-flex services align-self-stretch p-4 ftco-animate">
-                <div class="media block-6 d-block text-center">
-                    <div class="img w-100" style="background-image: url(dantista/images/dept-7.jpg);"></div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading" th:text="#{ortodontiya.stomat}"></h3>
-                        <p th:text="#{ortodontiya.stomat.description}"></p>
+
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/surgery" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(dantista/images/dept-8.jpg);">
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading text-center" ><a href="/surgery" th:text="#{hirurgiya.stomat}"></a></h3>
+                        <p href="/surgery" th:text="#{hirurgiya.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 d-flex services align-self-stretch p-4 ftco-animate">
-                <div class="media block-6 d-block text-center">
-                    <div class="img w-100" style="background-image: url(dantista/images/dept-6.jpg);"></div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading" th:text="#{protes.stomat}"></h3>
-                        <p th:text="#{protes.stomat.description}"></p>
+
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/bleaching" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(dantista/images/dept-1.jpg);">
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading text-center" ><a href="/bleaching" th:text="#{wittening.stomat}"></a></h3>
+                        <p href="/bleaching" th:text="#{wittening.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 d-flex services align-self-stretch p-4 ftco-animate">
-                <div class="media block-6 d-block text-center">
-                    <div class="img w-100" style="background-image: url(dantista/images/wtf.jpg);"></div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading" th:text="#{lazers.stomat}"></h3>
-                        <p th:text="#{lazers.stomat.description}"></p>
+
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/orthodontics" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(dantista/images/dept-7.jpg);">
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading text-center" ><a href="/orthodontics" th:text="#{ortodontiya.stomat}"></a></h3>
+                        <p href="/orthodontics" th:text="#{ortodontiya.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 d-flex services align-self-stretch p-4 ftco-animate">
-                <div class="media block-6 d-block text-center">
-                    <div class="img w-100" style="background-image: url(dantista/images/dept-5.jpg);"></div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading" th:text="#{paradontology.stomat}"></h3>
-                        <p th:text="#{paradontology.stomat.description}"></p>
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/prosthesis" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(dantista/images/dept-6.jpg);">
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading text-center" ><a href="/prosthesis" th:text="#{protes.stomat}"></a></h3>
+                        <p href="/prosthesis" th:text="#{protes.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 d-flex services align-self-stretch p-4 ftco-animate">
-                <div class="media block-6 d-block text-center">
-                    <div class="img w-100" style="background-image: url(dantista/images/pervin.jpg);"></div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading" th:text="#{first.stomat}"></h3>
-                        <p th:text="#{first.stomat.description}"></p>
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/laser" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(dantista/images/wtf.jpg);">
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading text-center"><a href="/laser" th:text="#{lazers.stomat}"></a></h3>
+                        <p href="/laser" th:text="#{lazers.stomat.description}" class="text-center"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/paradontology" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(dantista/images/dept-5.jpg);">
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading text-center"><a href="/paradontology" th:text="#{paradontology.stomat}"></a></h3>
+                        <p href="/paradontology" th:text="#{paradontology.stomat.description}" class="text-center"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/primary" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(dantista/images/pervin.jpg);">
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading text-center"><a href="/primary" th:text="#{first.stomat}"></a></h3>
+                        <p href="/primary" th:text="#{first.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
             </div>
