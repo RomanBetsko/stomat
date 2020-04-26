@@ -27,64 +27,9 @@
     <link rel="stylesheet" href="dantista/css/style.css">
   </head>
   <body>
-  <div class="py-md-5 py-4 border-bottom">
-	  <div class="container">
-		  <div class="row no-gutters d-flex align-items-start align-items-center px-3 px-md-0">
-			  <div class="col-md-4 order-md-2 mb-2 mb-md-0 align-items-center text-center">
-				  <a class="navbar-brand" href="index.html"
-					 style=" font-family: 'Poppins', Arial, sans-serif;">DentMe<span
-						  th:text="#{stomat.clinic}"></span></a>
-			  </div>
-			  <div class="col-md-4 order-md-1 d-flex topper mb-md-0 mb-2 align-items-center text-md-right">
-				  <div class="icon d-flex justify-content-center align-items-center order-md-last">
-					  <span class="icon-map"></span>
-				  </div>
-				  <div class="pr-md-3 pl-md-0 pl-3 text">
-					  <p class="con"><span th:text="#{phone.vodafone}"></span> <span>+380 99 514 2567</span></p>
-					  <p class="con"><span th:text="#{phone.kyivstar}"></span> <span>+380 98 718 4004</span></p>
-					  <p class="con" th:text="#{address}"></p>
-					  <p class="con" th:text="#{address.2}"></p>
-				  </div>
-			  </div>
-			  <div class="col-md-4 order-md-3 d-flex topper mb-md-0 align-items-center">
-				  <div class="icon d-flex justify-content-center align-items-center"><span
-						  class="icon-paper-plane"></span></div>
-				  <div class="text pl-3 pl-md-3">
-					  <p class="hr"><span th:text="#{open.hours}"></span></p>
-					  <p class="time"><span th:text="#{monday.saturday}"></span> <span th:text="#{hours.time}"></span>
-						  <span th:text="#{hours.holiday}"></span>
-					  </p>
-				  </div>
-				  <!--					//todo пофіксити проблему флагів-->
-				  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-close-others="true">
-					  <img src="dantista/images/ukraine-flag-square-icon-32.png" style="border-radius: 50%;"/>
-				  </a>
-				  <ul class="dropdown-menu pull-right" style="border-style: none">
-					  <li>
-						  <a href="?lang=ru">
-							  <img src="dantista/images/russia-flag-icon-32.png"/>
-						  </a>
-					  </li>
-					  <li>
-						  <a href="?lang=pl">
-							  <img src="dantista/images/poland-flag-icon-32.png"/>
-						  </a>
-					  </li>
-					  <li>
-						  <a href="?lang=en">
-							  <img src="dantista/images/united-kingdom-flag-icon-32.png"/>
-						  </a>
-					  </li>
-					  <li>
-						  <a href="?lang=uk">
-							  <img src="dantista/images/ukraine-flag-icon-32.png"/>
-						  </a>
-					  </li>
-				  </ul>
-			  </div>
-		  </div>
-	  </div>
-  </div>
+  <!-- header -->
+  <div th:include="dantista/fragments/header.html :: header"></div>
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
 	  <div class="container d-flex align-items-center">
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
@@ -274,70 +219,8 @@
 				</div>
 			</div>
 		</section>
-  <footer class="ftco-footer ftco-bg-dark ftco-section">
-	  <div class="container">
-		  <div class="row mb-5">
-			  <div class="col-md">
-				  <div class="ftco-footer-widget mb-5">
-					  <h2 class="ftco-heading-2 logo">DentMe</h2>
-					  <p th:text="#{garant.dentme}"></p>
-				  </div>
-				  <div class="ftco-footer-widget mb-5">
 
-				  </div>
-			  </div>
-			  <div class="col-md">
-				  <div class="ftco-footer-widget mb-5 ml-md-4">
-					  <h2 class="ftco-heading-2" th:text="#{index.have.questions}"></h2>
-					  <div class="block-23 mb-3">
-						  <ul>
-							  <li><span class="icon icon-map-marker"></span><span class="text"
-																				  th:text="#{address}"></span>
-								  <br>
-								  <span class="text" th:text="#{address.2}"></span>
-							  </li>
-							  <li><a href="#"><span class="icon icon-phone"></span>
-								  <p class="con"><span th:text="#{phone.vodafone}"></span> <span>+380 99 514 2567</span>
-								  </p>
-								  <p class="con"><span th:text="#{phone.kyivstar}"></span> <span>+380 98 718 4004</span>
-								  </p>
-							  </a></li>
-							  <li><a href="#"><span class="icon icon-envelope"></span><span class="text">betskostomat@gmail.com</span></a>
-							  </li>
-						  </ul>
-					  </div>
-
-					  <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-						  <!--                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>-->
-						  <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-						  <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-					  </ul>
-				  </div>
-			  </div>
-			  <div class="col-md">
-				  <div class="ftco-footer-widget mb-5">
-
-					  <h2 class="ftco-heading-2" th:text="#{open.hours}"></h2>
-					  <h3 class="open-hours pl-4"><span class="ion-ios-time mr-3"></span><span
-							  th:text="#{monday.saturday}">
-                    </span> <span th:text="#{hours.time}"></span> <span th:text="#{hours.holiday}"></span></h3>
-				  </div>
-				  <div class="ftco-footer-widget mb-5">
-					  <h2 class="ftco-heading-2" th:text="#{index.subscripe}"></h2>
-					  <form action="#" class="subscribe-form">
-						  <div class="form-group">
-							  <input type="submit" th:value="#{appointment.submit}" class="form-control submit px-3">
-						  </div>
-					  </form>
-				  </div>
-			  </div>
-		  </div>
-		  <div class="row">
-			  <div class="col-md-12 text-center">
-			  </div>
-		  </div>
-	  </div>
-  </footer>
+  <div th:replace="dantista/fragments/footer.html :: footer"></div>
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
