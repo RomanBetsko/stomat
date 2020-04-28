@@ -32,9 +32,9 @@ public class UnloginZoneController {
     }
 
 
-    @GetMapping("/department")
-    public String department() {
-        return "dantista/department";
+    @GetMapping("/services")
+    public String services() {
+        return "dantista/services";
     }
 
     @GetMapping("/therapeutic")

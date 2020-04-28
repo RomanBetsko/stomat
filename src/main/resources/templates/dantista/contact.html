@@ -39,20 +39,18 @@
     <link rel="stylesheet" href="dantista/css/flaticon.css">
     <link rel="stylesheet" href="dantista/css/icomoon.css">
     <link rel="stylesheet" href="dantista/css/style.css">
-    <!--    <script type="text/javascript">-->
-    <!--        $(document).ready(function () {-->
-    <!--            $("#locales").change(function () {-->
-    <!--                var selectedOption = $('#locales').val();-->
-    <!--                if (selectedOption != '') {-->
-    <!--                    window.location.replace('international?lang=' + selectedOption);-->
-    <!--                }-->
-    <!--            });-->
-    <!--        })-->
-    <!--    </script>-->
     <style>
         body {
             font-family: 'Comfortaa', cursive;
             font-weight: 100;
+        }
+    </style>
+    <style>
+        #map {
+            margin-top: 20px;
+            width: 100%;
+            height: 400px;
+            background-color: grey;
         }
     </style>
 </head>
@@ -70,7 +68,7 @@
             <ul class="navbar-nav m-auto">
                 <li class="nav-item"><a href="/#" class="nav-link pl-0" th:text="#{index.main}"></a></li>
                 <li class="nav-item"><a href="/about" class="nav-link" th:text="#{index.about}"></a></li>
-                <li class="nav-item"><a href="/department" class="nav-link" th:text="#{index.department}"></a></li>
+                <li class="nav-item"><a href="/services" class="nav-link" th:text="#{index.department}"></a></li>
                 <li class="nav-item"><a href="/blog" class="nav-link" th:text="#{index.blog}"></a></li>
                 <li class="nav-item active"><a href="/contact" class="nav-link" th:text="#{index.contact}"></a></li>
             </ul>
@@ -82,63 +80,61 @@
     <div class="container">
         <div class="row d-flex mb-5 contact-info" style="margin-top: -100px">
             <div class="col-md-12 mb-4">
-                <h2 class="h4" th:text="#{contact.contact}" ></h2>
+                <h2 class="h4" th:text="#{contact.contact}"></h2>
             </div>
             <div class="w-100"></div>
             <div class="col-md-3 d-flex">
                 <div class="bg-light d-flex align-self-stretch box p-4">
-                    <p><span th:text="#{contact.address}" style="color: #46b7de"></span> <br><a th:text="#{address}"></a> <br> <a
+                    <p><span th:text="#{contact.address}" style="color: #46b7de"></span> <br><a
+                            th:text="#{address}"></a> <br> <a
                             th:text="#{address.2}"></a></p>
                 </div>
             </div>
             <div class="col-md-3 d-flex">
                 <div class="bg-light d-flex align-self-stretch box p-4">
-                    <p> <span th:text="#{contact.phones}" style="color: #46b7de"></span><br>
+                    <p><span th:text="#{contact.phones}" style="color: #46b7de"></span><br>
                         <a th:text="#{phone.vodafone}"></a> <a href="tel://+380995142567">+380 99 514 2567</a>
-                        <br> <a th:text="#{phone.kyivstar}"></a>   <a href="tel://+380987184004" style="margin-left: 13px">+380 98 718 4004</a></p>
+                        <br> <a th:text="#{phone.kyivstar}"></a> <a href="tel://+380987184004"
+                                                                    style="margin-left: 13px">+380 98 718 4004</a></p>
                 </div>
             </div>
             <div class="col-md-3 d-flex">
                 <div class="bg-light d-flex align-self-stretch box p-4">
-                    <p><span th:text="#{contact.email}" style="color: #46b7de"></span> <a href="mailto:betskostomat@gmail.com">betskostomat@gmail.com</a></p>
+                    <p><span th:text="#{contact.email}" style="color: #46b7de"></span> <a
+                            href="mailto:betskostomat@gmail.com">betskostomat@gmail.com</a></p>
                 </div>
             </div>
             <div class="col-md-3 d-flex">
                 <div class="bg-light d-flex align-self-stretch box p-4">
-                    <p><span th:text="#{contact.socials}" style="color: #46b7de"></span><br> <a>Instagram: </a><img src="https://img.icons8.com/cute-clipart/30/000000/instagram-new.png"/>
-                    <br><a>Facebook: </a><img src="https://img.icons8.com/color/30/000000/facebook.png" style="margin-left: 2px"/></p>
+                    <p><span th:text="#{contact.socials}" style="color: #46b7de" target="_blank" href="https://www.instagram.com/dent_me.if/">
+                    </span>
+                        <br>
+                        <a>Instagram: </a>
+                        <a target="_blank" href="https://www.instagram.com/dent_me.if/"><img src="https://img.icons8.com/cute-clipart/30/000000/instagram-new.png"/></a>
+                        <br>
+                        <a>Facebook: </a><img src="https://img.icons8.com/color/30/000000/facebook.png"
+                                                  style="margin-left: 2px"/></p>
                 </div>
             </div>
+            <div id="map"></div>
         </div>
     </div>
 </section>
-
-
-<section class="ftco-section contact-section">
-    <div class="container">
-        <div id="map"></div>
-        <!--        <script>-->
-        <!--            // Initialize and add the map-->
-        <!--            function initMap() {-->
-        <!--                // The location of Uluru-->
-        <!--                var uluru = {lat: -25.344, lng: 131.036};-->
-        <!--                // The map, centered at Uluru-->
-        <!--                var map = new google.maps.Map(-->
-        <!--                    document.getElementById('map'), {zoom: 4, center: uluru});-->
-        <!--                // The marker, positioned at Uluru-->
-        <!--                var marker = new google.maps.Marker({position: uluru, map: map});-->
-        <!--            }-->
-        <!--        </script>-->
-        <!--        &lt;!&ndash;Load the API from the specified URL-->
-        <!--        * The async attribute allows the browser to render the page while the API loads-->
-        <!--        * The key parameter will contain your own API key (which is not needed for this tutorial)-->
-        <!--        * The callback parameter executes the initMap() function-->
-        <!--        &ndash;&gt;-->
-        <!--        <script async defer-->
-        <!--                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC46LTLvc23Sb2TzC6lnDMnCgqrazadJ9Q&callback=initMap">-->
-        <!--        </script>-->
-    </div>
-</section>
+<script>
+    // Initialize and add the map
+    function initMap() {
+        // The location of Uluru24.706153
+        var uluru = {lat: 48.926196, lng: 24.706048};
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 17, center: uluru});
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({position: uluru, map: map});
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcpKVqOAODTuyk9u-ekQv8mkKZw1-lvqo&callback=initMap">
+</script>
 
 <div th:replace="dantista/fragments/footer.html :: footer"></div>
 <!-- loader -->
@@ -165,8 +161,8 @@
 <script src="dantista/js/bootstrap-datepicker.js"></script>
 <script src="dantista/js/jquery.timepicker.min.js"></script>
 <script src="dantista/js/scrollax.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC46LTLvc23Sb2TzC6lnDMnCgqrazadJ9Q&sensor=false"></script>
-<!--<script src="dantista/js/google-map.js"></script>-->
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC46LTLvc23Sb2TzC6lnDMnCgqrazadJ9Q&sensor=false"></script>-->
+<!--&lt;!&ndash;<script src="dantista/js/google-map.js"></script>&ndash;&gt;-->
 <script src="dantista/js/main.js"></script>
 
 </body>

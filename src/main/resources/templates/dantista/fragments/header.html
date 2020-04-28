@@ -35,7 +35,7 @@
                         </p>
                     </div>
                     <a href="#" class="dropdown-menu-sm-left" data-toggle="dropdown" data-close-others="true">
-                        <img th:if="__${#locale}__ =='uk'"
+                        <img th:if="(__${#locale}__ =='uk') or (__${#locale}__ =='uk_UA')"
                              src="dantista/images/ukraine-flag-square-icon-32.png"
                              style="border-radius: 50%;border-style: groove;"/>
                         <img th:if="__${#locale}__ == 'pl'"

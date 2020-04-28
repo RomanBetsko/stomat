@@ -39,21 +39,32 @@
     <link rel="stylesheet" href="dantista/css/flaticon.css">
     <link rel="stylesheet" href="dantista/css/icomoon.css">
     <link rel="stylesheet" href="dantista/css/style.css">
-    <!--    <script type="text/javascript">-->
-    <!--        $(document).ready(function () {-->
-    <!--            $("#locales").change(function () {-->
-    <!--                var selectedOption = $('#locales').val();-->
-    <!--                if (selectedOption != '') {-->
-    <!--                    window.location.replace('international?lang=' + selectedOption);-->
-    <!--                }-->
-    <!--            });-->
-    <!--        })-->
-    <!--    </script>-->
     <style>
         body {
             font-family: 'Comfortaa', cursive;
             font-weight: 100;
         }
+    </style>
+    <style type="text/css">
+        .mobileHide {
+            display: inline;
+        }
+
+        /* Smartphone Portrait and Landscape */
+        @media only screen
+        and (min-device-width: 320px)
+        and (max-device-width: 480px) {
+            .mobileHide {
+                display: none;
+            }
+        }
+    </style>
+    <style type="text/css">
+        .mobileShow { display: none;}
+        /* Smartphone Portrait and Landscape */
+        @media only screen
+        and (min-device-width : 320px)
+        and (max-device-width : 480px){ .mobileShow { display: inline;}}
     </style>
 </head>
 <body>
@@ -70,7 +81,7 @@
             <ul class="navbar-nav m-auto">
                 <li class="nav-item active"><a href="/#" class="nav-link pl-0" th:text="#{index.main}"></a></li>
                 <li class="nav-item"><a href="/about" class="nav-link" th:text="#{index.about}"></a></li>
-                <li class="nav-item"><a href="/department" class="nav-link" th:text="#{index.department}"></a></li>
+                <li class="nav-item"><a href="/services" class="nav-link" th:text="#{index.department}"></a></li>
                 <li class="nav-item"><a href="/blog" class="nav-link" th:text="#{index.blog}"></a></li>
                 <li class="nav-item"><a href="/contact" class="nav-link" th:text="#{index.contact}"></a></li>
             </ul>
@@ -78,11 +89,30 @@
     </div>
 </nav>
 
+<div class="mobileShow">
+
+        <div style="background-image:url(dantista/images/bg_2.jpg);">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row no-gutters slider-text align-items-center justify-content-end"
+                     data-scrollax-parent="true">
+                    <div class="col-md-6 text ftco-animate">
+                        <h1 class="mb-4" th:text="#{index.slider.first}"></h1>
+                        <h3 class="subheading" th:text="#{index.slider.first.about}"></h3>
+                        <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3" th:text="#{index.about}"></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>
+<div class="mobileHide">
 <section class="home-slider owl-carousel">
     <div class="slider-item" style="background-image:url(dantista/images/bg_2.jpg);">
         <div class="overlay"></div>
         <div class="container">
-            <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
+            <div class="row no-gutters slider-text align-items-center justify-content-end"
+                 data-scrollax-parent="true">
                 <div class="col-md-6 text ftco-animate">
                     <h1 class="mb-4" th:text="#{index.slider.first}"></h1>
                     <h3 class="subheading" th:text="#{index.slider.first.about}"></h3>
@@ -105,81 +135,84 @@
         </div>
     </div>
 </section>
+</div>
 
 <section class="ftco-section ftco-no-pt ftco-no-pb">
     <div class="subscripe">
-    <div class="container-fluid px-md-0">
-        <div class="row no-gutters">
-            <div class="col-md-3 d-flex align-items-stretch">
-                <div class="consultation w-100 text-center px-4 px-md-5">
-                    <h3 class="mb-4" th:text="#{appointment.left.header}"></h3>
-                    <p th:text="#{appointment.left.body}"></p>
-                    <a href="#" class="btn-custom" th:text="#{appointment.left.footer}"></a>
-                </div>
-            </div>
-            <div class="col-md-6 d-flex align-items-stretch">
-                <div class="consultation consul w-100 px-4 px-md-5">
-                    <div class="text-center">
-                        <h3 class="mb-4" th:text="#{appointment.middle.header}"></h3>
+        <div class="container-fluid px-md-0">
+            <div class="row no-gutters">
+                <div class="col-md-3 d-flex align-items-stretch">
+                    <div class="consultation w-100 text-center px-4 px-md-5">
+                        <h3 class="mb-4" th:text="#{appointment.left.header}"></h3>
+                        <p th:text="#{appointment.left.body}"></p>
+                        <a href="#" class="btn-custom" th:text="#{appointment.left.footer}"></a>
                     </div>
-                    <div id="appointment">
-                    <form action="#" class="appointment-form" >
-                        <div class="row">
-                            <div class="col-md-12 col-lg-6 col-xl-4">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" th:placeholder="#{assesment.firstName}">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-lg-6 col-xl-4">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" th:placeholder="#{assesment.lastName}">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-lg-6 col-xl-4">
-                                <div class="form-group">
-                                    <input id="phone" type="text" class="form-control"
-                                           th:placeholder="#{assesment.phone}">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-lg-6 col-xl-4">
-                                <div class="form-group">
-                                    <div class="input-wrap">
-                                        <div class="icon"><span class="ion-md-calendar"></span></div>
-                                        <input type="text" class="form-control appointment_date"
-                                               th:placeholder="#{appointment.date}">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-lg-6 col-xl-4">
-                                <div class="form-group">
-                                    <div class="input-wrap">
-                                        <div class="icon"><span class="ion-ios-clock"></span></div>
-                                        <input type="text" class="form-control appointment_time"
-                                               th:placeholder="#{appointment.time}">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-lg-6 col-xl-4">
-                                <div class="form-group">
-                                    <input type="submit" th:value="#{appointment.submit}"
-                                           class="btn btn-secondary py-2 px-4">
-                                </div>
-                            </div>
+                </div>
+                <div class="col-md-6 d-flex align-items-stretch">
+                    <div class="consultation consul w-100 px-4 px-md-5">
+                        <div class="text-center">
+                            <h3 class="mb-4" th:text="#{appointment.middle.header}"></h3>
                         </div>
-                    </form>
+                        <div id="appointment">
+                            <form action="#" class="appointment-form">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-6 col-xl-4">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control"
+                                                   th:placeholder="#{assesment.firstName}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-6 col-xl-4">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control"
+                                                   th:placeholder="#{assesment.lastName}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-6 col-xl-4">
+                                        <div class="form-group">
+                                            <input id="phone" type="text" class="form-control"
+                                                   th:placeholder="#{assesment.phone}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-6 col-xl-4">
+                                        <div class="form-group">
+                                            <div class="input-wrap">
+                                                <div class="icon"><span class="ion-md-calendar"></span></div>
+                                                <input type="text" class="form-control appointment_date"
+                                                       th:placeholder="#{appointment.date}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-6 col-xl-4">
+                                        <div class="form-group">
+                                            <div class="input-wrap">
+                                                <div class="icon"><span class="ion-ios-clock"></span></div>
+                                                <input type="text" class="form-control appointment_time"
+                                                       th:placeholder="#{appointment.time}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-6 col-xl-4">
+                                        <div class="form-group">
+                                            <input type="submit" th:value="#{appointment.submit}"
+                                                   class="btn btn-secondary py-2 px-4">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 d-flex align-items-stretch">
-                <div class="consultation w-100 text-center px-4 px-md-5">
-                    <h3 class="mb-4" th:text="#{appointment.rigth.header}"></h3>
-                    <p th:text="#{appointment.rigth.body}"></p>
-                    <a href="#" class="btn-custom" th:text="#{appointment.rigth.footer}"></a>
+                <div class="col-md-3 d-flex align-items-stretch">
+                    <div class="consultation w-100 text-center px-4 px-md-5">
+                        <h3 class="mb-4" th:text="#{appointment.rigth.header}"></h3>
+                        <p th:text="#{appointment.rigth.body}"></p>
+                        <a href="#" class="btn-custom" th:text="#{appointment.rigth.footer}"></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-        </div>
 </section>
 
 
@@ -306,7 +339,8 @@
                                 <li class="ftco-animate"><a href="#"
                                                             class="d-flex align-items-center justify-content-center"><span
                                         class="icon-facebook"></span></a></li>
-                                <li class="ftco-animate"><a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/dent_me.if/"
+                                <li class="ftco-animate"><a target="_blank" rel="noopener noreferrer"
+                                                            href="https://www.instagram.com/dent_me.if/"
                                                             class="d-flex align-items-center justify-content-center"><span
                                         class="icon-instagram"></span></a></li>
                             </ul>
@@ -330,7 +364,8 @@
                                 <li class="ftco-animate"><a href="#"
                                                             class="d-flex align-items-center justify-content-center">
                                     <span class="icon-facebook"></span></a></li>
-                                <li class="ftco-animate"><a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/dent_me.if/"
+                                <li class="ftco-animate"><a target="_blank" rel="noopener noreferrer"
+                                                            href="https://www.instagram.com/dent_me.if/"
                                                             class="d-flex align-items-center justify-content-center">
                                     <span class="icon-instagram"></span></a></li>
                             </ul>
@@ -353,7 +388,8 @@
                                 <li class="ftco-animate"><a href="#"
                                                             class="d-flex align-items-center justify-content-center"><span
                                         class="icon-facebook"></span></a></li>
-                                <li class="ftco-animate"><a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/dent_me.if/"
+                                <li class="ftco-animate"><a target="_blank" rel="noopener noreferrer"
+                                                            href="https://www.instagram.com/dent_me.if/"
                                                             class="d-flex align-items-center justify-content-center"><span
                                         class="icon-instagram"></span></a></li>
                             </ul>
