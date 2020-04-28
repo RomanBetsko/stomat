@@ -17,8 +17,10 @@
                         <span class="icon-map"></span>
                     </div>
                     <div class="pr-md-3 pl-md-0 pl-3 text">
-                        <p class="con"><span th:text="#{phone.vodafone}"></span> <span>+380 99 514 2567</span></p>
-                        <p class="con"><span th:text="#{phone.kyivstar}"></span> <span>+380 98 718 4004</span></p>
+                        <p class="con"><span th:text="#{phone.vodafone}"></span> <a href="tel://+380995142567"><span
+                                style="color: black">+380 99 514 2567</span></a></p>
+                        <p class="con"><span th:text="#{phone.kyivstar}"></span> <a href="tel://+380987184004"><span
+                                style="color: black">+380 98 718 4004</span></a></p>
                         <p class="con" th:text="#{address}"></p>
                         <p class="con" th:text="#{address.2}"></p>
                     </div>
@@ -32,17 +34,17 @@
                             <span th:text="#{hours.holiday}"></span>
                         </p>
                     </div>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-close-others="true">
-                        <img th:if="${(param.lang == null) or (param.lang[0] == 'uk') }"
+                    <a href="#" class="dropdown-menu-sm-left" data-toggle="dropdown" data-close-others="true">
+                        <img th:if="__${#locale}__ =='uk'"
                              src="dantista/images/ukraine-flag-square-icon-32.png"
                              style="border-radius: 50%;border-style: groove;"/>
-                        <img th:if="${(param.lang != null) and (param.lang[0] == 'pl')}"
+                        <img th:if="__${#locale}__ == 'pl'"
                              src="dantista/images/poland-flag-square-icon-32.png"
                              style="border-radius: 50%;border-style: groove;"/>
-                        <img th:if="${(param.lang != null) and (param.lang[0] == 'en')}"
+                        <img th:if="__${#locale}__ == 'en'"
                              src="dantista/images/united-kingdom-flag-square-icon-32.png"
                              style="border-radius: 50%;border-style: groove;"/>
-                        <img th:if="${(param.lang != null) and (param.lang[0] == 'ru')}"
+                        <img th:if="__${#locale}__ == 'ru'"
                              src="dantista/images/russia-flag-square-icon-32.png"
                              style="border-radius: 50%; border-style: groove;"/>
                     </a>
