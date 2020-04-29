@@ -111,6 +111,18 @@ public class UnloginZoneController {
     public String eliners (){
         return "dantista/procedure/eliners";
     }
+    @GetMapping("/osteoplastics")
+    public String osteoplastics (){
+        return "dantista/procedure/osteoplastics";
+    }
+    @GetMapping("/sinuslifting")
+    public String sinuslifting (){
+        return "dantista/procedure/sinuslifting";
+    }
+    @GetMapping("/removal")
+    public String removal (){
+        return "dantista/procedure/removal";
+    }
 
 
     @GetMapping("/blog")
