@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154227438-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-154227438-1');
+    </script>
+
+    <title>DentMe</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="dantista/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="dantista/css/animate.css">
+
+    <link rel="stylesheet" href="dantista/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="dantista/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="dantista/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="dantista/css/aos.css">
+
+    <link rel="stylesheet" href="dantista/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="dantista/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="dantista/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="dantista/css/flaticon.css">
+    <link rel="stylesheet" href="dantista/css/icomoon.css">
+    <link rel="stylesheet" href="dantista/css/style.css">
+    <style>
+        body {
+            font-family: 'Comfortaa', cursive;
+            font-weight: 100;
+        }
+    </style>
+</head>
+<body>
+<!-- header -->
+<div th:include="dantista/fragments/header.html :: header"></div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container d-flex align-items-center">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item"><a href="/#" class="nav-link pl-0" th:text="#{index.main}"></a></li>
+                <li class="nav-item"><a href="/about" class="nav-link" th:text="#{index.about}"></a></li>
+                <li class="nav-item active"><a href="/services" class="nav-link" th:text="#{index.department}"></a>
+                </li>
+                <li class="nav-item"><a href="/blog" class="nav-link" th:text="#{index.blog}"></a></li>
+                <li class="nav-item"><a href="/contact" class="nav-link" th:text="#{index.contact}"></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="hero-wrap hero-wrap-2"
+         style="background-image: url('dantista/images/ipprog.jpg'); background-position-y: center;"
+         data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <a href="/therapeutic"><h4 class="mb-2 bread" >Терапевтична стоматологія</h4></a>
+                <h1 class="mb-2 bread">Лікування пульпіту</h1>
+                <p style="color: #fff">Непокоїть нерв у зубі? Спокій. Тільки спокій. Пульпіт – це не вирок провести в
+                    кріслі в стоматолога півжиття, страждаючи від болю. Ми використовуємо матеріал нового покоління –
+                    біокерамику й лікуємо кореневі канали без болю.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 ftco-animate">
+                <h2 class="mb-3">#4. Лікування пульпіту</h2>
+                <p>Чорна плямка на зубі стала давати про себе знати? Що ж, це означає, що карієс активно вражає зуб і
+                    дістався до нервів. Не варто боятися: пульпіт не страшний вирок.
+
+                    Сучасні технології в клініці DentMe – лікування каналів під мікроскопом – дозволяють провести
+                    лікування без болю й за один сеанс.</p>
+                <p>
+                    <img src="dantista/images/image_4.jpg" alt="" style="max-width: 100%;">
+                </p>
+                <h4 class="mb-3">Що таке пульпіт?</h4>
+                <p>Пульпітом називають запалення м’яких тканин зуба (пульпи), які містять нервові закінчення. Простіше,
+                    це запалення зубного нерву. Діагноз “пульпіт” у стоматологічній практиці – дуже часте явище, тому не
+                    варто боятися цього слова, адже лікування проводиться дуже просто й швидко.</p>
+
+                <h4 class="mb-3">Чому виникає пульпіт зуба?</h4>
+                <p>Є багато причин, але найголовніша – це несвоєчасне звернення до стоматолога. Скоріше за все вам
+                    знайома ситуація, коли думка: “А, саме пройде”, – відкладає лікування “в довгий ящик”. У силу цього
+                    ви створюєте сприятливий грунт для розвитку карієсу, який потім призводить до пульпіту.
+                    Розповсюдженими також є такі причини пульпіту:
+                <ul>
+                    <li>гострий періодичний короткочасний біль (декілька разів на день)</li>
+                    <li>чуттєвість одного зуба до холодного й гарячого</li>
+                    <li>нічні болі зуба</li>
+                    <li>карієс під старими пломбами</li>
+                </ul>
+                <p>
+                    У клініці DentMe ми використовуємо матеріал нового покоління для пломбування кореневих каналів –
+                    біокераміку, яка є сертифікованим матеріалом і дозволяє провести процедуру без больових
+                    відчуттів.</p>
+                <h4 class="mb-3">Схема лікування</h4>
+                <p>Після консультації й уточнення діагнозу лікар проведе:
+                <ul>
+                    <li>знеболення;</li>
+                    <li>ізоляцію зуба (проводиться для більш якісного лікування);</li>
+                    <li>інструментальну й медикаментозну обробка кореневих каналів;</li>
+                    <li>кпломбування каналів спеціальними матеріалами – біокерамікою;</li>
+                    <li>відновлення зуба фотополімерною пломбою японського виробництва або керамічною реставрацією.</li>
+                </ul>
+                <h4 class="mb-3">Ціна питання</h4>
+                <p>Ціна на лікування пульпіту, як правило, залежить від матеріалів, що використовуються, обладнання й
+                    кваліфікації лікаря. Вартість лікування в нашій стоматології буде залежати у першу чергу від
+                    складності ситуації й кількості кореневих каналів у зубі.
+
+                    Ми впевнені, що регулярна профілактика – запорука здорових зубів. Запишіться на безкоштовну
+                    консультацію в стоматологію Mydent – не відкладайте: “саме” не пройде.</p>
+                <div class="tag-widget post-tag-container mb-5 mt-5">
+                    <div class="tagcloud">
+                        <a href="#" class="tag-cloud-link">Life</a>
+                        <a href="#" class="tag-cloud-link">Sport</a>
+                        <a href="#" class="tag-cloud-link">Tech</a>
+                        <a href="#" class="tag-cloud-link">Travel</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 sidebar ftco-animate">
+                <div class="sidebar-box">
+                    <form action="#" class="search-form">
+                        <div class="form-group">
+                            <span class="icon icon-search"></span>
+                            <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
+                        </div>
+                    </form>
+                </div>
+
+                <!--Popular -->
+                <div th:include="dantista/procedure/fragments/popular.html :: popular"></div>
+
+                <div class="sidebar-box ftco-animate">
+                    <h3>Tag Cloud</h3>
+                    <ul class="tagcloud m-0 p-0">
+                        <a href="#" class="tag-cloud-link">Medical</a>
+                        <a href="#" class="tag-cloud-link">Hospital</a>
+                        <a href="#" class="tag-cloud-link">Nurse</a>
+                        <a href="#" class="tag-cloud-link">Doctor</a>
+                        <a href="#" class="tag-cloud-link">Medicine</a>
+                        <a href="#" class="tag-cloud-link">Facilities</a>
+                        <a href="#" class="tag-cloud-link">Staff</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div th:replace="dantista/fragments/footer.html :: footer"></div>
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
+
+
+<script src="dantista/js/jquery.min.js"></script>
+<script src="dantista/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="dantista/js/popper.min.js"></script>
+<script src="dantista/js/bootstrap.min.js"></script>
+<script src="dantista/js/jquery.easing.1.3.js"></script>
+<script src="dantista/js/jquery.waypoints.min.js"></script>
+<script src="dantista/js/jquery.stellar.min.js"></script>
+<script src="dantista/js/owl.carousel.min.js"></script>
+<script src="dantista/js/jquery.magnific-popup.min.js"></script>
+<script src="dantista/js/aos.js"></script>
+<script src="dantista/js/jquery.animateNumber.min.js"></script>
+<script src="dantista/js/bootstrap-datepicker.js"></script>
+<script src="dantista/js/jquery.timepicker.min.js"></script>
+<script src="dantista/js/scrollax.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="dantista/js/google-map.js"></script>
+<script src="dantista/js/main.js"></script>
+
+</body>
+</html>

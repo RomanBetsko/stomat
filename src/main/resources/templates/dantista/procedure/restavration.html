@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154227438-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-154227438-1');
+    </script>
+
+    <title>DentMe</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="dantista/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="dantista/css/animate.css">
+
+    <link rel="stylesheet" href="dantista/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="dantista/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="dantista/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="dantista/css/aos.css">
+
+    <link rel="stylesheet" href="dantista/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="dantista/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="dantista/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="dantista/css/flaticon.css">
+    <link rel="stylesheet" href="dantista/css/icomoon.css">
+    <link rel="stylesheet" href="dantista/css/style.css">
+    <style>
+        body {
+            font-family: 'Comfortaa', cursive;
+            font-weight: 100;
+        }
+    </style>
+</head>
+<body>
+<!-- header -->
+<div th:include="dantista/fragments/header.html :: header"></div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container d-flex align-items-center">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item"><a href="/#" class="nav-link pl-0" th:text="#{index.main}"></a></li>
+                <li class="nav-item"><a href="/about" class="nav-link" th:text="#{index.about}"></a></li>
+                <li class="nav-item active"><a href="/services" class="nav-link" th:text="#{index.department}"></a>
+                </li>
+                <li class="nav-item"><a href="/blog" class="nav-link" th:text="#{index.blog}"></a></li>
+                <li class="nav-item"><a href="/contact" class="nav-link" th:text="#{index.contact}"></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="hero-wrap hero-wrap-2"
+         style="background-image: url('dantista/images/ipprog.jpg'); background-position-y: center;"
+         data-stellar-background-ratio="0.5">
+
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <a href="/therapeutic"><h4 class="mb-2 bread" >Терапевтична стоматологія</h4></a>
+                <h1 class="mb-2 bread">Реставрація зубів</h1>
+                <p style="color: #fff">Усі ми звикли давати людям другий шанс, так чому б не дати його пошкодженим
+                    зубам? У нашій стоматології здійснюється повноанатомічне відновлення зубів. За допомогою
+                    фотополімерних композитів або керамічних накладок, наш лікар, як справжній художник, проведе
+                    реставрацію, піклуючись про естетику.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 ftco-animate">
+                <h2 class="mb-3">#3. Реставрація зубів</h2>
+                <p>На жаль наші зуби – це не вічна субстанція. Існує багато причин, через які привабливий зовнішній
+                    вигляд і функціональність зуба порушуються. Але це не значить, що ви не зможете більше ніколи
+                    посміхнутися. Ми пропонуємо рішення – реставрація зубів.</p>
+                <p>
+                    <img src="dantista/images/image_3.jpg" alt="" style="max-width: 100%;">
+                </p>
+                <h4 class="mb-3">Що таке реставрація?</h4>
+                <p>В основу процесу реставрації закладено спосіб відновлення зуба за допомогою різноманітних
+                    композиційних матеріалів для пломбування. У нашій клініці використовуються японські композити –
+                    сертифікований матеріал, який відрізняється міцністю й надійністю.
+                </p>
+                <h4 class="mb-3">Які проблеми вирішує реставрація?</h4>
+                <p>Реставрація – це не тільки “художній” процес, але й функціональний, оскільки відновлюється повноцінна
+                    жувальна функція зуба.
+                    Використовуючи лише один вид стоматологічного лікування, можна досягти рішення таких проблем:
+                <ul>
+                    <li>усунути скіл;</li>
+                    <li>виправити неправильну форму;</li>
+                    <li>скоригувати дефект емалі, прибрати прозорість і зміцнити;</li>
+                    <li>узменшити щілину між зубами;</li>
+                    <li>відновити більшу частину пошкодженого карієсом зуба;</li>
+                    <li>повернути природний колір.</li>
+                </ul>
+                </p>
+                <h4 class="mb-3">Методи реставрації</h4>
+                <p>Наша стоматологія використовує у своїй практиці дві методики нарощування:</p>
+                <h5 class="mb-3">пряму</h5>
+                <p>Суть прямого методу складається в тому, що відновлення проводиться одразу в роті пацієнта, і лікар
+                    наново створює форму або коригує ту, що є, за допомогою фотополімерних композитів. Зазвичай, такі
+                    маніпуляції дозволяють за одне відвідування стоматолога реставрувати до 5-6 зубів.</p>
+                <h5 class="mb-3">непряму</h5>
+                <p>В основі непрямого методу лежить виготовлення так званих керамічних або композитних реставрацій. Для
+                    початку лікар проводить підготовче лікування ваших зубів (чистка каріозної порожнини, пломбування
+                    тощо), а потім знімає з них зліпки й уже на основі цього виготовляє керамічні або композитні
+                    накладки.</p>
+                <p>Метод реставрації залежить від індивідуальних особливостей пацієнта й складності проблеми. У нашій
+                    стоматології працюють кваліфіковані спеціалісти з досвідом роботи більше 10 років, які вирішать
+                    проблему будь-якої складності без болю.</p>
+                <h4 class="mb-3">Ціна питання</h4>
+                <p>Вартість реставрації залежить від методу, кількості “проблемних” зубів і складності випадку. Ми
+                    надаємо нашим пацієнтам послугу на виплат(оплата частинами од ПриватБанку). Запишіться на
+                    безкоштовну консультацію в стоматологію Mydent – посміхайтеся впевнено з нами.</p>
+                <div class="tag-widget post-tag-container mb-5 mt-5">
+                    <div class="tagcloud">
+                        <a href="#" class="tag-cloud-link">Life</a>
+                        <a href="#" class="tag-cloud-link">Sport</a>
+                        <a href="#" class="tag-cloud-link">Tech</a>
+                        <a href="#" class="tag-cloud-link">Travel</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 sidebar ftco-animate">
+                <div class="sidebar-box">
+                    <form action="#" class="search-form">
+                        <div class="form-group">
+                            <span class="icon icon-search"></span>
+                            <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
+                        </div>
+                    </form>
+                </div>
+
+                <!--Popular -->
+                <div th:include="dantista/procedure/fragments/popular.html :: popular"></div>
+
+                <div class="sidebar-box ftco-animate">
+                    <h3>Tag Cloud</h3>
+                    <ul class="tagcloud m-0 p-0">
+                        <a href="#" class="tag-cloud-link">Medical</a>
+                        <a href="#" class="tag-cloud-link">Hospital</a>
+                        <a href="#" class="tag-cloud-link">Nurse</a>
+                        <a href="#" class="tag-cloud-link">Doctor</a>
+                        <a href="#" class="tag-cloud-link">Medicine</a>
+                        <a href="#" class="tag-cloud-link">Facilities</a>
+                        <a href="#" class="tag-cloud-link">Staff</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div th:replace="dantista/fragments/footer.html :: footer"></div>
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
+
+
+<script src="dantista/js/jquery.min.js"></script>
+<script src="dantista/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="dantista/js/popper.min.js"></script>
+<script src="dantista/js/bootstrap.min.js"></script>
+<script src="dantista/js/jquery.easing.1.3.js"></script>
+<script src="dantista/js/jquery.waypoints.min.js"></script>
+<script src="dantista/js/jquery.stellar.min.js"></script>
+<script src="dantista/js/owl.carousel.min.js"></script>
+<script src="dantista/js/jquery.magnific-popup.min.js"></script>
+<script src="dantista/js/aos.js"></script>
+<script src="dantista/js/jquery.animateNumber.min.js"></script>
+<script src="dantista/js/bootstrap-datepicker.js"></script>
+<script src="dantista/js/jquery.timepicker.min.js"></script>
+<script src="dantista/js/scrollax.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="dantista/js/google-map.js"></script>
+<script src="dantista/js/main.js"></script>
+
+</body>
+</html>
