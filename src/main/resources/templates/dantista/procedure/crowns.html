@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154227438-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'UA-154227438-1');
+    </script>
+
+    <title>DentMe</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dantista/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="dantista/css/animate.css">
+    <link rel="stylesheet" href="dantista/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="dantista/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="dantista/css/magnific-popup.css">
+    <link rel="stylesheet" href="dantista/css/aos.css">
+    <link rel="stylesheet" href="dantista/css/ionicons.min.css">
+    <link rel="stylesheet" href="dantista/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="dantista/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="dantista/css/flaticon.css">
+    <link rel="stylesheet" href="dantista/css/icomoon.css">
+    <link rel="stylesheet" href="dantista/css/style.css">
+    <style>
+        body {
+            font-family: 'Comfortaa', cursive;
+            font-weight: 100;
+        }
+    </style>
+</head>
+<body>
+<!-- header -->
+<div th:include="dantista/fragments/header.html :: header"></div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container d-flex align-items-center">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item"><a href="/#" class="nav-link pl-0" th:text="#{index.main}"></a></li>
+                <li class="nav-item"><a href="/about" class="nav-link" th:text="#{index.about}"></a></li>
+                <li class="nav-item active"><a href="/services" class="nav-link" th:text="#{index.department}"></a>
+                </li>
+                <li class="nav-item"><a href="/blog" class="nav-link" th:text="#{index.blog}"></a></li>
+                <li class="nav-item"><a href="/contact" class="nav-link" th:text="#{index.contact}"></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="hero-wrap hero-wrap-2"
+         style="background-image: url('dantista/images/ipprog.jpg'); background-position-y: center;"
+         data-stellar-background-ratio="0.5">
+
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <a href="/prosthesis"><h4 class="mb-2 bread" th:text="#{protes.stomat}"></h4></a>
+                <h1 class="mb-2 bread" th:text="#{crowns.blog.title}"></h1>
+                <p style="color: #fff" th:text="#{crowns.blog.title.more}"></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 ftco-animate">
+                <h2 class="mb-3">#10. Коронки</h2>
+                <p th:text="#{crowns.blog.first}"></p>
+
+                <p>
+                    <img src="dantista/images/image_4.jpg" alt="" style="max-width: 100%;">
+                </p>
+                <h4 class="mb-3">Коли потрібні коронки?</h4>
+                <ul>
+                    <li>необхідність відновлення деформованих зубів, які втратили свою форму й колишній колір;</li>
+                    <li>неправильний ріст зубів з невідповідністю форм й розмірів — усунення косметичних дефектів;</li>
+                    <li>імплантація зубів — на місці видаленого зуба на титановому стрижні буде встановлена нова
+                        коронка, яка буде відповідати за відтінком сусіднім зубам;
+                    </li>
+                    <li>необхідність захисту стертих зубів;</li>
+                    <li>установка мостів (аналог імплантації при видалених або пошкоджених зубах);</li>
+                    <li>усунення наслідків карієсу й інших травм.</li>
+                </ul>
+                <p>На прийомі в стоматолога пацієнт має можливість самостійно обрати матеріал, з якого буде виготовлена
+                    захисна конструкція.
+
+                    У клініці Mydent ми встановлюємо такі види коронок:</p>
+                <h6 class="mb-3">керамічні</h6>
+                <p>Один з найсучасніших видів реставрації, його застосування розповсюджено у всьому світі й схвалено
+                    стоматологами, оскільки має ряд суттєвих переваг:</p>
+                <ul>
+                    <li>в основі такого протеза немає металевого каркасу (як в металокерамічному);</li>
+                    <li>безметалові коронки краще поєднуються з тканинами в ротовій порожнині, що перешкоджає запаленню
+                        ясен;
+                    </li>
+                    <li>протези з кераміки не викликають алергічних реакцій;</li>
+                    <li>коронки виглядають природно, до того ж кераміка дозволяє дібрати протези під колір основних
+                        зубів.
+                    </li>
+                </ul>
+                <p>Крім того, керамічна коронка наділена стійкістю до хімічних речовин і синтетичних барвників,
+                    зберігаючи зовнішній вигляд ідеальним незалежно від їжі, яку вживатиме пацієнт.
+
+                    Ще однією досить важливою цінністю керамічних коронок є здатність пропускати світло, що дозволяє
+                    досягти природного зовнішнього вигляду під час розмови або посмішці.</p>
+                <h6 class="mb-3">металокерамічні</h6>
+                <p>Це конструкція, що поєднує композицію металу з керамікою. Популярність металокерамічних конструкцій
+                    обумовлена декількома факторами:</p>
+                <ul>
+                    <li>універсальність — підходять для установки як на жувальні, так і на передні зуби;</li>
+                    <li>довгий гарантійний термін служби;</li>
+                    <li>хороший контакт з поверхнею;</li>
+                    <li>можливість дібрати відтінок, що відповідає кольору природної емалі;</li>
+                    <li>стабільні зовнішні характеристики (форма, колір);</li>
+                    <li>висока витривалість;</li>
+                    <li>бюджетна вартість.</li>
+                </ul>
+                <h6 class="mb-3">мультицирконієві</h6>
+
+                <p>Новіша розробка в області реставрації, яку використовують стоматологи у всьому світі. Конструкція
+                    складається з повноанатомічного діоксиду цирконію. Переваги:</p>
+                <ul>
+                    <li>гіпоалергенні властивості – дозволяють використовувати матеріал в тих випадках, коли в людини є
+                        алергія на метал;
+                    </li>
+                    <li>висока щільність, завдяки чому матеріал стійкий до навантажень і стирання;</li>
+                    <li>за замовчуванням цирконій має білий колір, що дозволяє його перефарбувати в потрібний відтінок
+                        для повної відповідності сусіднім зубам;
+                    </li>
+                    <li>відсутність втрати кольору оксиду цирконію з часом — гарантія привабливого вигляду на довгі
+                        роки.
+                    </li>
+                </ul>
+
+                <h4 class="mb-3">Ціна питання</h4>
+                <p>Ціна на коронки разюче відрізняються залежно від матеріалу виготовлення й складності випадку. У нашій
+                    стоматології доступна</p>
+                <div class="tag-widget post-tag-container mb-5 mt-5">
+                    <div class="tagcloud">
+                        <a href="#" class="tag-cloud-link">Life</a>
+                        <a href="#" class="tag-cloud-link">Sport</a>
+                        <a href="#" class="tag-cloud-link">Tech</a>
+                        <a href="#" class="tag-cloud-link">Travel</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 sidebar ftco-animate">
+                <div class="sidebar-box">
+                    <form action="#" class="search-form">
+                        <div class="form-group">
+                            <span class="icon icon-search"></span>
+                            <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
+                        </div>
+                    </form>
+                </div>
+
+                <!--Popular -->
+                <div th:include="dantista/procedure/fragments/popular.html :: popular"></div>
+
+                <div class="sidebar-box ftco-animate">
+                    <h3>Tag Cloud</h3>
+                    <ul class="tagcloud m-0 p-0">
+                        <a href="#" class="tag-cloud-link">Medical</a>
+                        <a href="#" class="tag-cloud-link">Hospital</a>
+                        <a href="#" class="tag-cloud-link">Nurse</a>
+                        <a href="#" class="tag-cloud-link">Doctor</a>
+                        <a href="#" class="tag-cloud-link">Medicine</a>
+                        <a href="#" class="tag-cloud-link">Facilities</a>
+                        <a href="#" class="tag-cloud-link">Staff</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div th:replace="dantista/fragments/footer.html :: footer"></div>
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
+
+
+<script src="dantista/js/jquery.min.js"></script>
+<script src="dantista/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="dantista/js/popper.min.js"></script>
+<script src="dantista/js/bootstrap.min.js"></script>
+<script src="dantista/js/jquery.easing.1.3.js"></script>
+<script src="dantista/js/jquery.waypoints.min.js"></script>
+<script src="dantista/js/jquery.stellar.min.js"></script>
+<script src="dantista/js/owl.carousel.min.js"></script>
+<script src="dantista/js/jquery.magnific-popup.min.js"></script>
+<script src="dantista/js/aos.js"></script>
+<script src="dantista/js/jquery.animateNumber.min.js"></script>
+<script src="dantista/js/bootstrap-datepicker.js"></script>
+<script src="dantista/js/jquery.timepicker.min.js"></script>
+<script src="dantista/js/scrollax.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="dantista/js/google-map.js"></script>
+<script src="dantista/js/main.js"></script>
+
+</body>
+</html>
