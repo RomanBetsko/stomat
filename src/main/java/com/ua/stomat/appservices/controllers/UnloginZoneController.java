@@ -48,82 +48,89 @@ public class UnloginZoneController {
     }
 
     @GetMapping("/surgery")
-    public String surgery (){
+    public String surgery() {
         return "dantista/surgery";
     }
 
     @GetMapping("/bleaching")
-    public String bleaching (){
+    public String bleaching() {
         return "dantista/bleaching";
     }
 
     @GetMapping("/orthodontics")
-    public String orthodontics (){
+    public String orthodontics() {
         return "dantista/orthodontics";
     }
 
     @GetMapping("/prosthesis")
-    public String prosthesis (){
+    public String prosthesis() {
         return "dantista/prosthesis";
     }
 
     @GetMapping("/laser")
-    public String laser (){
+    public String laser() {
         return "dantista/laser";
     }
 
     @GetMapping("/paradontology")
-    public String paradontology (){
+    public String paradontology() {
         return "dantista/paradontology";
     }
 
     @GetMapping("/primary")
-    public String primary (){
+    public String primary() {
         return "dantista/primary";
     }
 
     @GetMapping("/caries")
-    public String caries (){
+    public String caries() {
         return "dantista/procedure/caries";
     }
 
     @GetMapping("/periodontitis")
-    public String periodontitis (){
+    public String periodontitis() {
         return "dantista/procedure/periodontitis";
     }
 
     @GetMapping("/restavration")
-    public String restavration (){
+    public String restavration() {
         return "dantista/procedure/restavration";
     }
 
     @GetMapping("/pulpitis")
-    public String pulpitis (){
+    public String pulpitis() {
         return "dantista/procedure/pulpitis";
     }
 
     @GetMapping("/braces")
-    public String braces (){
+    public String braces() {
         return "dantista/procedure/braces";
     }
 
     @GetMapping("/eliners")
-    public String eliners (){
+    public String eliners() {
         return "dantista/procedure/eliners";
     }
+
     @GetMapping("/osteoplastics")
-    public String osteoplastics (){
+    public String osteoplastics() {
         return "dantista/procedure/osteoplastics";
     }
+
     @GetMapping("/sinuslifting")
-    public String sinuslifting (){
+    public String sinuslifting() {
         return "dantista/procedure/sinuslifting";
     }
+
     @GetMapping("/removal")
-    public String removal (){
+    public String removal() {
         return "dantista/procedure/removal";
     }
 
+    @GetMapping("/periodontics")
+    public String periodontics() {
+        return "dantista/periodontics";
+    }
 
     @GetMapping("/blog")
     public String blog() {
