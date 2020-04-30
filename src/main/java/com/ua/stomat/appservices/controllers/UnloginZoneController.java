@@ -122,6 +122,32 @@ public class UnloginZoneController {
         return "dantista/procedure/sinuslifting";
     }
 
+    @GetMapping("/prosthesisimplant")
+    public String prosthesisimplant() {
+        return "dantista/procedure/prosthesisimplant";
+    }
+
+    @GetMapping("/ceramicrestoration")
+    public String ceramicrestoration() {
+        return "dantista/procedure/ceramicrestoration";
+    }
+
+    @GetMapping("/childrencaries")
+    public String childrencaries() {
+        return "dantista/procedure/childrencaries";
+    }
+
+
+    @GetMapping("/removableprosthetics")
+    public String removableprosthetics() {
+        return "dantista/procedure/removableprosthetics";
+    }
+
+    @GetMapping("/hygiene")
+    public String hygiene() {
+        return "dantista/procedure/hygiene";
+    }
+
     @GetMapping("/removal")
     public String removal() {
         return "dantista/procedure/removal";
