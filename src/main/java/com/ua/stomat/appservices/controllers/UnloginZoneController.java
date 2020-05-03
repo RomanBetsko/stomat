@@ -31,7 +31,6 @@ public class UnloginZoneController {
         return "dantista/about";
     }
 
-
     @GetMapping("/services")
     public String services() {
         return "dantista/services";
@@ -141,6 +140,31 @@ public class UnloginZoneController {
     @GetMapping("/removableprosthetics")
     public String removableprosthetics() {
         return "dantista/procedure/removableprosthetics";
+    }
+
+    @GetMapping("/homebleaching")
+    public String homebleaching() {
+        return "dantista/procedure/homebleaching";
+    }
+
+    @GetMapping("/anesthesiainjection")
+    public String anesthesiainjection() {
+        return "dantista/procedure/anesthesiainjection";
+    }
+
+    @GetMapping("/cofferdam")
+    public String cofferdam() {
+        return "dantista/procedure/cofferdam";
+    }
+
+    @GetMapping("/lazer")
+    public String lazer() {
+        return "dantista/lazer";
+    }
+
+    @GetMapping("/bugel")
+    public String bugel() {
+        return "dantista/procedure/bugel";
     }
 
     @GetMapping("/hygiene")
