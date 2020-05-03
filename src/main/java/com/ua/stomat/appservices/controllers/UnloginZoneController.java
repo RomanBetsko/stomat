@@ -66,11 +66,6 @@ public class UnloginZoneController {
         return "dantista/prosthesis";
     }
 
-    @GetMapping("/laser")
-    public String laser() {
-        return "dantista/laser";
-    }
-
     @GetMapping("/paradontology")
     public String paradontology() {
         return "dantista/paradontology";
@@ -136,6 +131,15 @@ public class UnloginZoneController {
         return "dantista/procedure/childrencaries";
     }
 
+    @GetMapping("/bridle")
+    public String bridle() {
+        return "dantista/procedure/bridle";
+    }
+
+    @GetMapping("/fissure")
+    public String fissure() {
+        return "dantista/procedure/fissure";
+    }
 
     @GetMapping("/removableprosthetics")
     public String removableprosthetics() {
