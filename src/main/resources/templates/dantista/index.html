@@ -99,7 +99,7 @@
                     <div class="col-md-6 text ftco-animate">
                         <h1 class="mb-4" th:text="#{index.slider.first}"></h1>
                         <h3 class="subheading" th:text="#{index.slider.first.about}"></h3>
-                        <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3" th:text="#{index.about}"></a></p>
+                        <p><a href="/about" class="btn btn-secondary px-4 py-3 mt-3" th:text="#{index.about}"></a></p>
                     </div>
                 </div>
             </div>
@@ -116,7 +116,7 @@
                 <div class="col-md-6 text ftco-animate">
                     <h1 class="mb-4" th:text="#{index.slider.first}"></h1>
                     <h3 class="subheading" th:text="#{index.slider.first.about}"></h3>
-                    <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3" th:text="#{index.about}"></a></p>
+                    <p><a href="/about" class="btn btn-secondary px-4 py-3 mt-3" th:text="#{index.about}"></a></p>
                 </div>
             </div>
         </div>
@@ -128,7 +128,7 @@
                 <div class="col-md-6 text ftco-animate">
                     <h1 class="mb-4" th:text="#{index.slider.second}"></h1>
                     <h3 class="subheading" th:text="#{index.slider.second.about}"></h3>
-                    <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3" th:text="#{index.about}"></a></p>
+                    <p><a href="/about" class="btn btn-secondary px-4 py-3 mt-3" th:text="#{index.about}"></a></p>
                 </div>
             </div>
         </div>
@@ -217,84 +217,97 @@
 
 <section class="ftco-section ftco-services">
     <div class="container">
-        <div class="row justify-content-center mb-5 pb-2">
-            <div class="col-md-8 text-center heading-section ftco-animate">
-
-                <h2 class="mb-4" th:text="#{our.services}"></h2>
-                <p th:text="#{services.description}"></p>
-            </div>
-        </div>
         <div class="row">
-            <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
-                <div class="media block-6 d-block text-center">
-                    <div class="img w-100" style="background-image: url(dantista/images/dept-3.jpg);"></div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading" th:text="#{terapet.stomat}"></h3>
-                        <p th:text="#{terapet.stomat.description}"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
-                <div class="media block-6 d-block text-center">
-                    <div class="img w-100" style="background-image: url(dantista/images/dept-4.jpg);"></div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading" th:text="#{baby.stomat}"></h3>
-                        <p th:text="#{baby.stomat.description}"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
-                <div class="media block-6 d-block text-center">
-                    <div class="img w-100" style="background-image: url(dantista/images/dept-8.jpg);"></div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading" th:text="#{hirurgiya.stomat}"></h3>
-                        <p th:text="#{hirurgiya.stomat.description}"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
-                <div class="media block-6 d-block text-center">
-                    <div class="img w-100" style="background-image: url(dantista/images/dept-1.jpg);"></div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading" th:text="#{wittening.stomat}"></h3>
-                        <p th:text="#{wittening.stomat.description}"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
-                <div class="media block-6 d-block text-center">
-                    <div class="img w-100" style="background-image: url(dantista/images/dept-7.jpg);"></div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading" th:text="#{ortodontiya.stomat}"></h3>
-                        <p th:text="#{ortodontiya.stomat.description}"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
-                <div class="media block-6 d-block text-center">
-                    <div class="img w-100" style="background-image: url(dantista/images/dept-6.jpg);"></div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading" th:text="#{protes.stomat}"></h3>
-                        <p th:text="#{protes.stomat.description}"></p>
+            <div class="col-md-3 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/therapeutic" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(dantista/images/dept-3.jpg);">
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading text-center"><a href="/therapeutic" th:text="#{terapet.stomat}" class="text-center"></a></h3>
+                        <p href="/therapeutic" th:text="#{terapet.stomat.description}" class="text-center"></p>
+
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
-                <div class="media block-6 d-block text-center">
-                    <div class="img w-100" style="background-image: url(dantista/images/wtf.jpg);"></div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading" th:text="#{lazers.stomat}"></h3>
-                        <p th:text="#{lazers.stomat.description}"></p>
+            <div class="col-md-3 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/pediatric" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(dantista/images/dept-4.jpg);">
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading text-center"><a href="/pediatric" th:text="#{baby.stomat}" class="text-center"></a></h3>
+                        <p href="/pediatric" th:text="#{baby.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
-                <div class="media block-6 d-block text-center">
-                    <div class="img w-100" style="background-image: url(dantista/images/dept-5.jpg);"></div>
-                    <div class="media-body p-2 mt-3">
-                        <h3 class="heading" th:text="#{paradontology.stomat}"></h3>
-                        <p th:text="#{paradontology.stomat.description}"></p>
+
+            <div class="col-md-3 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/surgery" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(dantista/images/dept-8.jpg);">
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading text-center" ><a href="/surgery" th:text="#{hirurgiya.stomat}"></a></h3>
+                        <p href="/surgery" th:text="#{hirurgiya.stomat.description}" class="text-center"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/bleaching" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(dantista/images/dept-1.jpg);">
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading text-center" ><a href="/bleaching" th:text="#{wittening.stomat}"></a></h3>
+                        <p href="/bleaching" th:text="#{wittening.stomat.description}" class="text-center"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/orthodontics" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(dantista/images/dept-7.jpg);">
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading text-center" ><a href="/orthodontics" th:text="#{ortodontiya.stomat}"></a></h3>
+                        <p href="/orthodontics" th:text="#{ortodontiya.stomat.description}" class="text-center"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/prosthesis" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(dantista/images/dept-6.jpg);">
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading text-center" ><a href="/prosthesis" th:text="#{protes.stomat}"></a></h3>
+                        <p href="/prosthesis" th:text="#{protes.stomat.description}" class="text-center"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/lazer" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(dantista/images/wtf.jpg);">
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading text-center"><a href="/lazer" th:text="#{lazers.stomat}"></a></h3>
+                        <p href="/lazer" th:text="#{lazers.stomat.description}" class="text-center"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/periodontics" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(dantista/images/dept-5.jpg);">
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading text-center"><a href="/periodontics" th:text="#{paradontology.stomat}"></a></h3>
+                        <p href="/periodontics" th:text="#{paradontology.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
             </div>
@@ -399,97 +412,97 @@
     </div>
 </section>
 
-<section class="ftco-section testimony-section bg-light">
-    <div class="container">
-        <div class="row justify-content-center mb-5 pb-2">
-            <div class="col-md-8 text-center heading-section ftco-animate">
-                <span class="subheading">Testimonials</span>
-                <h2 class="mb-4">Our Patients Says About Us</h2>
-            </div>
-        </div>
-        <div class="row ftco-animate justify-content-center">
-            <div class="col-md-12">
-                <div class="carousel-testimony owl-carousel">
-                    <div class="item">
-                        <div class="testimony-wrap d-flex">
-                            <div class="user-img" style="background-image: url(dantista/images/person_1.jpg)">
-                            </div>
-                            <div class="text pl-4 bg-light">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                    Consonantia, there live the blind texts.</p>
-                                <p class="name">Racky Henderson</p>
-                                <span class="position">Farmer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap d-flex">
-                            <div class="user-img" style="background-image: url(dantista/images/person_2.jpg)">
-                            </div>
-                            <div class="text pl-4 bg-light">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                    Consonantia, there live the blind texts.</p>
-                                <p class="name">Henry Dee</p>
-                                <span class="position">Businessman</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap d-flex">
-                            <div class="user-img" style="background-image: url(dantista/images/person_3.jpg)">
-                            </div>
-                            <div class="text pl-4 bg-light">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                    Consonantia, there live the blind texts.</p>
-                                <p class="name">Mark Huff</p>
-                                <span class="position">Students</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap d-flex">
-                            <div class="user-img" style="background-image: url(dantista/images/person_4.jpg)">
-                            </div>
-                            <div class="text pl-4 bg-light">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                    Consonantia, there live the blind texts.</p>
-                                <p class="name">Rodel Golez</p>
-                                <span class="position">Striper</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap d-flex">
-                            <div class="user-img" style="background-image: url(dantista/images/person_1.jpg)">
-                            </div>
-                            <div class="text pl-4 bg-light">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                    Consonantia, there live the blind texts.</p>
-                                <p class="name">Ken Bosh</p>
-                                <span class="position">Manager</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!--<section class="ftco-section testimony-section bg-light">-->
+<!--    <div class="container">-->
+<!--        <div class="row justify-content-center mb-5 pb-2">-->
+<!--            <div class="col-md-8 text-center heading-section ftco-animate">-->
+<!--                <span class="subheading">Testimonials</span>-->
+<!--                <h2 class="mb-4">Our Patients Says About Us</h2>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="row ftco-animate justify-content-center">-->
+<!--            <div class="col-md-12">-->
+<!--                <div class="carousel-testimony owl-carousel">-->
+<!--                    <div class="item">-->
+<!--                        <div class="testimony-wrap d-flex">-->
+<!--                            <div class="user-img" style="background-image: url(dantista/images/person_1.jpg)">-->
+<!--                            </div>-->
+<!--                            <div class="text pl-4 bg-light">-->
+<!--                  	<span class="quote d-flex align-items-center justify-content-center">-->
+<!--                      <i class="icon-quote-left"></i>-->
+<!--                    </span>-->
+<!--                                <p>Far far away, behind the word mountains, far from the countries Vokalia and-->
+<!--                                    Consonantia, there live the blind texts.</p>-->
+<!--                                <p class="name">Racky Henderson</p>-->
+<!--                                <span class="position">Farmer</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="item">-->
+<!--                        <div class="testimony-wrap d-flex">-->
+<!--                            <div class="user-img" style="background-image: url(dantista/images/person_2.jpg)">-->
+<!--                            </div>-->
+<!--                            <div class="text pl-4 bg-light">-->
+<!--                  	<span class="quote d-flex align-items-center justify-content-center">-->
+<!--                      <i class="icon-quote-left"></i>-->
+<!--                    </span>-->
+<!--                                <p>Far far away, behind the word mountains, far from the countries Vokalia and-->
+<!--                                    Consonantia, there live the blind texts.</p>-->
+<!--                                <p class="name">Henry Dee</p>-->
+<!--                                <span class="position">Businessman</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="item">-->
+<!--                        <div class="testimony-wrap d-flex">-->
+<!--                            <div class="user-img" style="background-image: url(dantista/images/person_3.jpg)">-->
+<!--                            </div>-->
+<!--                            <div class="text pl-4 bg-light">-->
+<!--                  	<span class="quote d-flex align-items-center justify-content-center">-->
+<!--                      <i class="icon-quote-left"></i>-->
+<!--                    </span>-->
+<!--                                <p>Far far away, behind the word mountains, far from the countries Vokalia and-->
+<!--                                    Consonantia, there live the blind texts.</p>-->
+<!--                                <p class="name">Mark Huff</p>-->
+<!--                                <span class="position">Students</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="item">-->
+<!--                        <div class="testimony-wrap d-flex">-->
+<!--                            <div class="user-img" style="background-image: url(dantista/images/person_4.jpg)">-->
+<!--                            </div>-->
+<!--                            <div class="text pl-4 bg-light">-->
+<!--                  	<span class="quote d-flex align-items-center justify-content-center">-->
+<!--                      <i class="icon-quote-left"></i>-->
+<!--                    </span>-->
+<!--                                <p>Far far away, behind the word mountains, far from the countries Vokalia and-->
+<!--                                    Consonantia, there live the blind texts.</p>-->
+<!--                                <p class="name">Rodel Golez</p>-->
+<!--                                <span class="position">Striper</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="item">-->
+<!--                        <div class="testimony-wrap d-flex">-->
+<!--                            <div class="user-img" style="background-image: url(dantista/images/person_1.jpg)">-->
+<!--                            </div>-->
+<!--                            <div class="text pl-4 bg-light">-->
+<!--                  	<span class="quote d-flex align-items-center justify-content-center">-->
+<!--                      <i class="icon-quote-left"></i>-->
+<!--                    </span>-->
+<!--                                <p>Far far away, behind the word mountains, far from the countries Vokalia and-->
+<!--                                    Consonantia, there live the blind texts.</p>-->
+<!--                                <p class="name">Ken Bosh</p>-->
+<!--                                <span class="position">Manager</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
 
 <section class="ftco-intro" style="background-image: url(dantista/images/bg_3.jpg);">
     <div class="overlay"></div>
@@ -501,7 +514,7 @@
                 <p></p>
             </div>
             <div class="col-md-3 d-flex align-items-center">
-                <p class="mb-0"><a href="#" class="btn btn-secondary px-4 py-3" th:text="#{index.advertising.more}"></a>
+                <p class="mb-0"><a href="/philipszoom" class="btn btn-secondary px-4 py-3" th:text="#{index.advertising.more}"></a>
                 </p>
             </div>
         </div>

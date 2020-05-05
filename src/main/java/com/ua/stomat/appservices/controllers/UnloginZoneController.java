@@ -191,6 +191,11 @@ public class UnloginZoneController {
         return "dantista/procedure/orthodonticappliances";
     }
 
+    @GetMapping("/endobleaching")
+    public String endobleaching() {
+        return "dantista/procedure/endobleaching";
+    }
+
     @GetMapping("/cofferdam")
     public String cofferdam() {
         return "dantista/procedure/cofferdam";
