@@ -221,6 +221,11 @@ public class UnloginZoneController {
         return "dantista/procedure/removal";
     }
 
+    @GetMapping("/implant")
+    public String implant() {
+        return "dantista/procedure/implant";
+    }
+
     @GetMapping("/crowns")
     public String crowns() {
         return "dantista/procedure/crowns";

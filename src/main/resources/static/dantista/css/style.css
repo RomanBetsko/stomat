@@ -11319,7 +11319,7 @@ h1, h2, h3, h4, h5,
 
 @media (max-width: 991.98px) {
     .ftco-navbar-light {
-        background: #000000 !important;
+        background: #5B5B5B !important;
         position: relative;
         top: 0;
         padding: 10px 15px;
@@ -11327,11 +11327,11 @@ h1, h2, h3, h4, h5,
 }
 
 .ftco-navbar-light .navbar-brand {
-    color: #000000;
+    color: #5B5B5B;
 }
 
 .ftco-navbar-light .navbar-brand:hover, .ftco-navbar-light .navbar-brand:focus {
-    color: #000000;
+    color: #5B5B5B;
 }
 
 @media (max-width: 991.98px) {
@@ -11559,7 +11559,7 @@ h1, h2, h3, h4, h5,
 }
 
 .navbar-brand span {
-    font-size: 14px;
+    font-size: 19px;
     font-weight: 500;
     display: block;
     color: rgba(0, 0, 0, 0.2);
@@ -12555,7 +12555,7 @@ textarea.form-control {
 
 .ftco-footer {
     font-size: 14px;
-    background: #46b7de;
+    background: #5B5B5B;
     padding: 6em 0;
 }
 
