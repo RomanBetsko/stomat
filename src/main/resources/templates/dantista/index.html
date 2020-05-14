@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="dantista/css/flaticon.css">
     <link rel="stylesheet" href="dantista/css/icomoon.css">
     <link rel="stylesheet" href="dantista/css/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
     <style>
         body {
             font-family: 'Comfortaa', cursive;
@@ -60,11 +61,18 @@
         }
     </style>
     <style type="text/css">
-        .mobileShow { display: none;}
+        .mobileShow {
+            display: none;
+        }
+
         /* Smartphone Portrait and Landscape */
         @media only screen
-        and (min-device-width : 320px)
-        and (max-device-width : 480px){ .mobileShow { display: inline;}}
+        and (min-device-width: 320px)
+        and (max-device-width: 480px) {
+            .mobileShow {
+                display: inline;
+            }
+        }
     </style>
 </head>
 <body>
@@ -91,52 +99,70 @@
 
 <div class="mobileShow">
 
-        <div style="background-image:url(dantista/images/wtf.jpg);">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row no-gutters slider-text align-items-center justify-content-end"
-                     data-scrollax-parent="true">
-                    <div class="col-md-6 text ftco-animate">
-                        <h1 class="mb-4" th:text="#{index.slider.first}" style="font-size: 1.75rem; margin-top: 2.5rem; text-align: center !important;"></h1>
-                        <h3 class="subheading" th:text="#{index.slider.first.about}" style="font-size: 1.20rem; text-align: center !important;"></h3>
-                        <p><a href="/about" class="btn btn-secondary px-4 py-3 mt-3" th:text="#{index.about}"></a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-</div>
-
-
-<div class="mobileHide">
-<section class="home-slider owl-carousel">
-    <div class="slider-item" style="background-image:url(dantista/images/bg_2.jpg);">
+    <div style="background-image:url(dantista/images/wtf.jpg);">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-end"
                  data-scrollax-parent="true">
                 <div class="col-md-6 text ftco-animate">
-                    <h1 class="mb-4" th:text="#{index.slider.first}"></h1>
-                    <h3 class="subheading" th:text="#{index.slider.first.about}"></h3>
+                    <h1 class="mb-4" th:text="#{index.slider.first}"
+                        style="font-size: 1.75rem; margin-top: 2.5rem; text-align: center !important;"></h1>
+                    <h3 class="subheading" th:text="#{index.slider.first.about}"
+                        style="font-size: 1.20rem; text-align: center !important;"></h3>
                     <p><a href="/about" class="btn btn-secondary px-4 py-3 mt-3" th:text="#{index.about}"></a></p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="slider-item" style="background-image:url(dantista/images/bg_1.jpg);">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
-                <div class="col-md-6 text ftco-animate">
-                    <h1 class="mb-4" th:text="#{index.slider.second}"></h1>
-                    <h3 class="subheading" th:text="#{index.slider.second.about}"></h3>
-                    <p><a href="/about" class="btn btn-secondary px-4 py-3 mt-3" th:text="#{index.about}"></a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 </div>
+
+
+<div class="mobileHide">
+    <section class="home-slider owl-carousel">
+        <div class="slider-item" style="background-image:url(dantista/images/bg_2.jpg);">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row no-gutters slider-text align-items-center justify-content-end"
+                     data-scrollax-parent="true">
+                    <div class="col-md-6 text ftco-animate">
+                        <h1 class="mb-4" th:text="#{index.slider.first}"></h1>
+                        <h3 class="subheading" th:text="#{index.slider.first.about}"></h3>
+                        <p><a href="/about" class="btn btn-secondary px-4 py-3 mt-3" th:text="#{index.about}"></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-item" style="background-image:url(dantista/images/bg_1.jpg);">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row no-gutters slider-text align-items-center justify-content-end"
+                     data-scrollax-parent="true">
+                    <div class="col-md-6 text ftco-animate">
+                        <h1 class="mb-4" th:text="#{index.slider.second}"></h1>
+                        <h3 class="subheading" th:text="#{index.slider.second.about}"></h3>
+                        <p><a href="/about" class="btn btn-secondary px-4 py-3 mt-3" th:text="#{index.about}"></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!--<div class="modal modal-warning fade in" th:id="modal-warning">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <button type="button" id="modal_close" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">×</span></button>-->
+<!--                <h4 class="modal-title">Клієнти яким потрібно повідомити про огляд</h4>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <section class="ftco-section ftco-no-pt ftco-no-pb">
     <div class="subscripe">
@@ -155,24 +181,24 @@
                             <h3 class="mb-4" th:text="#{appointment.middle.header}"></h3>
                         </div>
                         <div id="appointment">
-                            <form action="#" class="appointment-form">
+                            <form class="appointment-form" id="appointment-form">
                                 <div class="row">
                                     <div class="col-md-12 col-lg-6 col-xl-4">
                                         <div class="form-group">
                                             <input type="text" class="form-control"
-                                                   th:placeholder="#{assesment.firstName}">
+                                                   th:placeholder="#{assesment.firstName}" id="firstName">
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-lg-6 col-xl-4">
                                         <div class="form-group">
                                             <input type="text" class="form-control"
-                                                   th:placeholder="#{assesment.lastName}">
+                                                   th:placeholder="#{assesment.lastName}" id="lastName">
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-lg-6 col-xl-4">
                                         <div class="form-group">
-                                            <input id="phone" type="text" class="form-control"
-                                                   th:placeholder="#{assesment.phone}">
+                                            <input type="text" class="form-control"
+                                                   th:placeholder="#{assesment.phone}" id="phone">
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-lg-6 col-xl-4">
@@ -180,7 +206,7 @@
                                             <div class="input-wrap">
                                                 <div class="icon"><span class="ion-md-calendar"></span></div>
                                                 <input type="text" class="form-control appointment_date"
-                                                       th:placeholder="#{appointment.date}">
+                                                       th:placeholder="#{appointment.date}" id="date">
                                             </div>
                                         </div>
                                     </div>
@@ -189,7 +215,7 @@
                                             <div class="input-wrap">
                                                 <div class="icon"><span class="ion-ios-clock"></span></div>
                                                 <input type="text" class="form-control appointment_time"
-                                                       th:placeholder="#{appointment.time}">
+                                                       th:placeholder="#{appointment.time}" id="time">
                                             </div>
                                         </div>
                                     </div>
@@ -226,7 +252,8 @@
                        style="background-image: url(dantista/images/dept-3.jpg);">
                     </a>
                     <div class="text bg-white p-4">
-                        <h3 class="heading text-center"><a href="/therapeutic" th:text="#{terapet.stomat}" class="text-center"></a></h3>
+                        <h3 class="heading text-center"><a href="/therapeutic" th:text="#{terapet.stomat}"
+                                                           class="text-center"></a></h3>
                         <p href="/therapeutic" th:text="#{terapet.stomat.description}" class="text-center"></p>
 
                     </div>
@@ -239,7 +266,8 @@
                        style="background-image: url(dantista/images/dept-4.jpg);">
                     </a>
                     <div class="text bg-white p-4">
-                        <h3 class="heading text-center"><a href="/pediatric" th:text="#{baby.stomat}" class="text-center"></a></h3>
+                        <h3 class="heading text-center"><a href="/pediatric" th:text="#{baby.stomat}"
+                                                           class="text-center"></a></h3>
                         <p href="/pediatric" th:text="#{baby.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
@@ -251,7 +279,7 @@
                        style="background-image: url(dantista/images/dept-8.jpg);">
                     </a>
                     <div class="text bg-white p-4">
-                        <h3 class="heading text-center" ><a href="/surgery" th:text="#{hirurgiya.stomat}"></a></h3>
+                        <h3 class="heading text-center"><a href="/surgery" th:text="#{hirurgiya.stomat}"></a></h3>
                         <p href="/surgery" th:text="#{hirurgiya.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
@@ -263,7 +291,7 @@
                        style="background-image: url(dantista/images/dept-1.jpg);">
                     </a>
                     <div class="text bg-white p-4">
-                        <h3 class="heading text-center" ><a href="/bleaching" th:text="#{wittening.stomat}"></a></h3>
+                        <h3 class="heading text-center"><a href="/bleaching" th:text="#{wittening.stomat}"></a></h3>
                         <p href="/bleaching" th:text="#{wittening.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
@@ -275,7 +303,8 @@
                        style="background-image: url(dantista/images/dept-7.jpg);">
                     </a>
                     <div class="text bg-white p-4">
-                        <h3 class="heading text-center" ><a href="/orthodontics" th:text="#{ortodontiya.stomat}"></a></h3>
+                        <h3 class="heading text-center"><a href="/orthodontics" th:text="#{ortodontiya.stomat}"></a>
+                        </h3>
                         <p href="/orthodontics" th:text="#{ortodontiya.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
@@ -286,7 +315,7 @@
                        style="background-image: url(dantista/images/dept-6.jpg);">
                     </a>
                     <div class="text bg-white p-4">
-                        <h3 class="heading text-center" ><a href="/prosthesis" th:text="#{protes.stomat}"></a></h3>
+                        <h3 class="heading text-center"><a href="/prosthesis" th:text="#{protes.stomat}"></a></h3>
                         <p href="/prosthesis" th:text="#{protes.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
@@ -308,7 +337,8 @@
                        style="background-image: url(dantista/images/dept-5.jpg);">
                     </a>
                     <div class="text bg-white p-4">
-                        <h3 class="heading text-center"><a href="/periodontics" th:text="#{paradontology.stomat}"></a></h3>
+                        <h3 class="heading text-center"><a href="/periodontics" th:text="#{paradontology.stomat}"></a>
+                        </h3>
                         <p href="/periodontics" th:text="#{paradontology.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
@@ -330,91 +360,91 @@
 
 <!-- Стоматологи, команда -->
 <div class="mobileHide">
-<section class="ftco-section" style="padding-bottom: 1em; padding-top: 3em;">
-    <div class="container">
-        <div class="row justify-content-center mb-2 pb-2">
-            <div class="col-md-8 text-center heading-section ftco-animate">
-                <span class="subheading" th:text="#{index.doctors}"></span>
-                <h2 class="mb-4" th:text="#{index.our.stuff}"></h2>
+    <section class="ftco-section" style="padding-bottom: 1em; padding-top: 3em;">
+        <div class="container">
+            <div class="row justify-content-center mb-2 pb-2">
+                <div class="col-md-8 text-center heading-section ftco-animate">
+                    <span class="subheading" th:text="#{index.doctors}"></span>
+                    <h2 class="mb-4" th:text="#{index.our.stuff}"></h2>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-lg-4 ftco-animate">
-                <div class="staff">
-                    <div class="img-wrap d-flex align-items-stretch">
-                        <div class="img align-self-stretch"
-                             style="background-image: url(dantista/images/IMG_6647.JPG);"></div>
-                    </div>
-                    <div class="text pt-3 text-center">
-                        <h3 th:text="#{index.doctor.panchishin}"></h3>
-                        <span class="position mb-2" th:text="#{index.doctor.panchishin.about}"></span>
-                        <div class="faded">
-                            <p th:text="#{index.doctor.panchishin.description}"></p>
-                            <ul class="ftco-social text-center">
-                                <li class="ftco-animate"><a href="#"
-                                                            class="d-flex align-items-center justify-content-center"><span
-                                        class="icon-facebook"></span></a></li>
-                                <li class="ftco-animate"><a target="_blank" rel="noopener noreferrer"
-                                                            href="https://www.instagram.com/dent_me.if/"
-                                                            class="d-flex align-items-center justify-content-center"><span
-                                        class="icon-instagram"></span></a></li>
-                            </ul>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 ftco-animate">
+                    <div class="staff">
+                        <div class="img-wrap d-flex align-items-stretch">
+                            <div class="img align-self-stretch"
+                                 style="background-image: url(dantista/images/IMG_6647.JPG);"></div>
+                        </div>
+                        <div class="text pt-3 text-center">
+                            <h3 th:text="#{index.doctor.panchishin}"></h3>
+                            <span class="position mb-2" th:text="#{index.doctor.panchishin.about}"></span>
+                            <div class="faded">
+                                <p th:text="#{index.doctor.panchishin.description}"></p>
+                                <ul class="ftco-social text-center">
+                                    <li class="ftco-animate"><a href="#"
+                                                                class="d-flex align-items-center justify-content-center"><span
+                                            class="icon-facebook"></span></a></li>
+                                    <li class="ftco-animate"><a target="_blank" rel="noopener noreferrer"
+                                                                href="https://www.instagram.com/dent_me.if/"
+                                                                class="d-flex align-items-center justify-content-center"><span
+                                            class="icon-instagram"></span></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-4 ftco-animate">
-                <div class="staff">
-                    <div class="img-wrap d-flex align-items-stretch">
-                        <div class="img align-self-stretch"
-                             style="background-image: url(dantista/images/IMG_6646.JPG);"></div>
-                    </div>
-                    <div class="text pt-3 text-center">
-                        <h3 th:text="#{index.doctor.betsko}"></h3>
-                        <span class="position mb-2" th:text="#{index.doctor.betsko.about}"></span>
-                        <div class="faded">
-                            <p th:text="#{index.doctor.betsko.description}"></p>
-                            <ul class="ftco-social text-center">
+                <div class="col-md-6 col-lg-4 ftco-animate">
+                    <div class="staff">
+                        <div class="img-wrap d-flex align-items-stretch">
+                            <div class="img align-self-stretch"
+                                 style="background-image: url(dantista/images/IMG_6646.JPG);"></div>
+                        </div>
+                        <div class="text pt-3 text-center">
+                            <h3 th:text="#{index.doctor.betsko}"></h3>
+                            <span class="position mb-2" th:text="#{index.doctor.betsko.about}"></span>
+                            <div class="faded">
+                                <p th:text="#{index.doctor.betsko.description}"></p>
+                                <ul class="ftco-social text-center">
 
-                                <li class="ftco-animate"><a href="#"
-                                                            class="d-flex align-items-center justify-content-center">
-                                    <span class="icon-facebook"></span></a></li>
-                                <li class="ftco-animate"><a target="_blank" rel="noopener noreferrer"
-                                                            href="https://www.instagram.com/dent_me.if/"
-                                                            class="d-flex align-items-center justify-content-center">
-                                    <span class="icon-instagram"></span></a></li>
-                            </ul>
+                                    <li class="ftco-animate"><a href="#"
+                                                                class="d-flex align-items-center justify-content-center">
+                                        <span class="icon-facebook"></span></a></li>
+                                    <li class="ftco-animate"><a target="_blank" rel="noopener noreferrer"
+                                                                href="https://www.instagram.com/dent_me.if/"
+                                                                class="d-flex align-items-center justify-content-center">
+                                        <span class="icon-instagram"></span></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-4 ftco-animate">
-                <div class="staff">
-                    <div class="img-wrap d-flex align-items-stretch">
-                        <div class="img align-self-stretch"
-                             style="background-image: url(dantista/images/IMG_6648.JPG);"></div>
-                    </div>
-                    <div class="text pt-3 text-center">
-                        <h3 th:text="#{index.doctor.stefanchyk}"></h3>
-                        <span class="position mb-2" th:text="#{index.doctor.stefanchyk.about}"></span>
-                        <div class="faded">
-                            <p th:text="#{index.doctor.stefanchyk.description}"></p>
-                            <ul class="ftco-social text-center">
-                                <li class="ftco-animate"><a href="#"
-                                                            class="d-flex align-items-center justify-content-center"><span
-                                        class="icon-facebook"></span></a></li>
-                                <li class="ftco-animate"><a target="_blank" rel="noopener noreferrer"
-                                                            href="https://www.instagram.com/dent_me.if/"
-                                                            class="d-flex align-items-center justify-content-center"><span
-                                        class="icon-instagram"></span></a></li>
-                            </ul>
+                <div class="col-md-6 col-lg-4 ftco-animate">
+                    <div class="staff">
+                        <div class="img-wrap d-flex align-items-stretch">
+                            <div class="img align-self-stretch"
+                                 style="background-image: url(dantista/images/IMG_6648.JPG);"></div>
+                        </div>
+                        <div class="text pt-3 text-center">
+                            <h3 th:text="#{index.doctor.stefanchyk}"></h3>
+                            <span class="position mb-2" th:text="#{index.doctor.stefanchyk.about}"></span>
+                            <div class="faded">
+                                <p th:text="#{index.doctor.stefanchyk.description}"></p>
+                                <ul class="ftco-social text-center">
+                                    <li class="ftco-animate"><a href="#"
+                                                                class="d-flex align-items-center justify-content-center"><span
+                                            class="icon-facebook"></span></a></li>
+                                    <li class="ftco-animate"><a target="_blank" rel="noopener noreferrer"
+                                                                href="https://www.instagram.com/dent_me.if/"
+                                                                class="d-flex align-items-center justify-content-center"><span
+                                            class="icon-instagram"></span></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 </div>
 
 <!--Реклама-->
@@ -428,7 +458,8 @@
                 <p></p>
             </div>
             <div class="col-md-3 d-flex align-items-center">
-                <p class="mb-0"><a href="/philipszoom" class="btn btn-secondary px-4 py-3" th:text="#{index.advertising.more}"></a>
+                <p class="mb-0"><a href="/philipszoom" class="btn btn-secondary px-4 py-3"
+                                   th:text="#{index.advertising.more}"></a>
                 </p>
             </div>
         </div>
@@ -437,82 +468,84 @@
 
 <!--BLOG-->
 <div class="mobileHide">
-<section class="ftco-section bg-light"  style="padding-bottom: 1em; padding-top: 2em;">
-    <div class="container">
-        <div class="row justify-content-center mb-5 pb-2">
-            <div class="col-md-8 text-center heading-section ftco-animate">
-                <span class="subheading">Blog</span>
-                <h2 class="mb-4" th:text="#{our.blog}"></h2>
+    <section class="ftco-section bg-light" style="padding-bottom: 1em; padding-top: 2em;">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-2">
+                <div class="col-md-8 text-center heading-section ftco-animate">
+                    <span class="subheading">Blog</span>
+                    <h2 class="mb-4" th:text="#{our.blog}"></h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 ftco-animate">
+                    <div class="blog-entry">
+                        <a href="/removal" class="block-20 d-flex align-items-end justify-content-end"
+                           style="background-image: url('dantista/images/removetooth.jpg');">
+                            <div class="meta-date text-center p-2">
+                                <span class="day">13</span>
+                                <span class="mos">Березня</span>
+                                <span class="yr">2020</span>
+                            </div>
+                        </a>
+                        <div class="text bg-white p-4">
+                            <h3 class="heading"><a href="/removal">Видалення зуба</a></h3>
+                            <p>Видалення зуба завжди наводило жах на пацієнтів. Але в ХХІ столітті цей страх більше не
+                                актуальний. З інноваційними методами знеболення процедура пройде безболісно.</p>
+                            <div class="d-flex align-items-center mt-4">
+                                <p class="mb-0"><a href="/removal" class="btn btn-primary"
+                                                   th:text="#{therapeutic.more}">
+                                    <span class="ion-ios-arrow-round-forward"></span></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ftco-animate">
+                    <div class="blog-entry">
+                        <a href="/hygiene" class="block-20 d-flex align-items-end justify-content-end"
+                           style="background-image: url('dantista/images/image.jpg');">
+                            <div class="meta-date text-center p-2">
+                                <span class="day">18</span>
+                                <span class="mos">Березня</span>
+                                <span class="yr">2020</span>
+                            </div>
+                        </a>
+                        <div class="text bg-white p-4">
+                            <h3 class="heading"><a href="/hygiene"></a> Професійна гігієна порожнини рота</h3>
+                            <p>Щоб ваші зуби зберігали природну білизну необхідно проводити професійну гігієну порожнини
+                                рота. Це комплексна триетапна чистка зубів і язика.</p>
+                            <div class="d-flex align-items-center mt-4">
+                                <p class="mb-0"><a href="/hygiene" class="btn btn-primary"
+                                                   th:text="#{therapeutic.more}">
+                                    <span class="ion-ios-arrow-round-forward"></span></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ftco-animate">
+                    <div class="blog-entry">
+                        <a href="/philipszoom" class="block-20 d-flex align-items-end justify-content-end"
+                           style="background-image: url('dantista/images/image_2.jpg');">
+                            <div class="meta-date text-center p-2">
+                                <span class="day">17</span>
+                                <span class="mos">Березня</span>
+                                <span class="yr">2020</span>
+                            </div>
+                        </a>
+                        <div class="text bg-white p-4">
+                            <h3 class="heading"><a href="/philipszoom">Професійне відбілювання Philips-Zoom</a></h3>
+                            <p>Philips Zoom — це унікальна можливість відбілити ваші зуби однією з
+                                найпопулярніших та найефективніших систем у світі.</p>
+                            <div class="d-flex align-items-center mt-4">
+                                <p class="mb-0"><a href="/philipszoom" class="btn btn-primary"
+                                                   th:text="#{therapeutic.more}"><span
+                                        class="ion-ios-arrow-round-forward"></span></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4 ftco-animate">
-                <div class="blog-entry">
-                    <a href="/removal" class="block-20 d-flex align-items-end justify-content-end"
-                       style="background-image: url('dantista/images/removetooth.jpg');">
-                        <div class="meta-date text-center p-2">
-                            <span class="day">13</span>
-                            <span class="mos">Березня</span>
-                            <span class="yr">2020</span>
-                        </div>
-                    </a>
-                    <div class="text bg-white p-4">
-                        <h3 class="heading"><a href="/removal">Видалення зуба</a></h3>
-                        <p>Видалення зуба завжди наводило жах на пацієнтів. Але в ХХІ столітті цей страх більше не
-                            актуальний. З інноваційними методами знеболення процедура пройде безболісно.</p>
-                        <div class="d-flex align-items-center mt-4">
-                            <p class="mb-0"><a href="/removal" class="btn btn-primary" th:text="#{therapeutic.more}">
-                                <span class="ion-ios-arrow-round-forward"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 ftco-animate">
-                <div class="blog-entry">
-                    <a href="/caries" class="block-20 d-flex align-items-end justify-content-end"
-                       style="background-image: url('dantista/images/image_1.jpg');">
-                        <div class="meta-date text-center p-2">
-                            <span class="day">18</span>
-                            <span class="mos">Березня</span>
-                            <span class="yr">2020</span>
-                        </div>
-                    </a>
-                    <div class="text bg-white p-4">
-                        <h3 class="heading"><a href="/caries" th:text="#{therapeutic.caries}"></a></h3>
-                        <p>Що й у вас теж з’явилася ще одна чорна пляма на зубі? Без паніки – це лише карієс –
-                            найрозповсюдженіша стоматологічна проблема.</p>
-                        <div class="d-flex align-items-center mt-4">
-                            <p class="mb-0"><a href="/caries" class="btn btn-primary" th:text="#{therapeutic.more}">
-                                <span class="ion-ios-arrow-round-forward"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 ftco-animate">
-                <div class="blog-entry">
-                    <a href="/philipszoom" class="block-20 d-flex align-items-end justify-content-end"
-                       style="background-image: url('dantista/images/image_2.jpg');">
-                        <div class="meta-date text-center p-2">
-                            <span class="day">17</span>
-                            <span class="mos">Березня</span>
-                            <span class="yr">2020</span>
-                        </div>
-                    </a>
-                    <div class="text bg-white p-4">
-                        <h3 class="heading"><a href="/philipszoom">Професійне відбілювання Philips-Zoom</a></h3>
-                        <p>Philips Zoom — це унікальна можливість відбілити ваші зуби однією з
-                            найпопулярніших та найефективніших систем у світі.</p>
-                        <div class="d-flex align-items-center mt-4">
-                            <p class="mb-0"><a href="/philipszoom" class="btn btn-primary"
-                                               th:text="#{therapeutic.more}"><span
-                                    class="ion-ios-arrow-round-forward"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 </div>
 
 <!--Footer-->
@@ -541,7 +574,8 @@
 <script src="dantista/js/aos.js"></script>
 <script src="dantista/js/jquery.animateNumber.min.js"></script>
 <script src="dantista/js/bootstrap-datepicker.js"></script>
-<script src="dantista/js/jquery.timepicker.min.js"></script>
+<!--<script src="dantista/js/jquery.timepicker.min.js"></script>-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 <script src="dantista/js/scrollax.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="dantista/js/google-map.js"></script>

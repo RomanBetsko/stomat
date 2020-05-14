@@ -3,6 +3,7 @@ package com.ua.stomat.appservices.controllers;
 import com.ua.stomat.appservices.service.AppointmentService;
 import com.ua.stomat.appservices.validator.AddAppointmentCriteria;
 import com.ua.stomat.appservices.validator.DeleteAppointmentCriteria;
+import com.ua.stomat.appservices.validator.NewAppointmentCriteria;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -43,6 +44,11 @@ public class AppointmentController {
     @GetMapping(ADMIN_PATH + "/getAppointmentById")
     public ModelAndView getAppointmentById(@RequestParam(name = "id") Integer id) {
         return appointmentService.getAppointmentById(id);
+    }
+
+    @PostMapping("/newAppointment")
+    public ResponseEntity<?> newAppointment(@RequestBody @Valid NewAppointmentCriteria request) {
+        return appointmentService.newAppointment(request);
     }
 
 //    @PostMapping(ADMIN_PATH + "/updateAppointmentById")

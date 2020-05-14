@@ -30,4 +30,6 @@ public interface AppointmentService {
     List<ProcedureGraph> getProcedureStatistic();
 
     List<NewClientsGraph> getNewClientsStatistic();
+
+    ResponseEntity<?> newAppointment(NewAppointmentCriteria request);
 }

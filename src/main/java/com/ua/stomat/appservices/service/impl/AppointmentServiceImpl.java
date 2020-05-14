@@ -12,9 +12,11 @@ import com.ua.stomat.appservices.entity.Client;
 import com.ua.stomat.appservices.entity.Doctor;
 import com.ua.stomat.appservices.entity.Procedure;
 import com.ua.stomat.appservices.service.AppointmentService;
+import com.ua.stomat.appservices.service.EmailService;
 import com.ua.stomat.appservices.service.UtilsService;
 import com.ua.stomat.appservices.utils.CalendarEvent;
 import com.ua.stomat.appservices.validator.*;
+import lombok.AllArgsConstructor;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -33,23 +35,15 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Service
+@AllArgsConstructor
 public class AppointmentServiceImpl implements AppointmentService {
 
-    private AppointmentRepository appointmentRepository;
-    private ClientRepository clientRepository;
-    private DoctorRepository doctorRepository;
-    private ProcedureRepository procedureRepository;
-    private UtilsService utilsService;
-
-    public AppointmentServiceImpl(AppointmentRepository appointmentRepository, ClientRepository clientRepository,
-                                  DoctorRepository doctorRepository, ProcedureRepository procedureRepository,
-                                  UtilsService utilsService) {
-        this.appointmentRepository = appointmentRepository;
-        this.clientRepository = clientRepository;
-        this.doctorRepository = doctorRepository;
-        this.procedureRepository = procedureRepository;
-        this.utilsService = utilsService;
-    }
+    private final AppointmentRepository appointmentRepository;
+    private final ClientRepository clientRepository;
+    private final DoctorRepository doctorRepository;
+    private final ProcedureRepository procedureRepository;
+    private final UtilsService utilsService;
+    private final EmailService emailService;
 
     @Override
     @Transactional
@@ -387,6 +381,16 @@ public class AppointmentServiceImpl implements AppointmentService {
         return resultMap.entrySet().stream()
                 .map(entry -> new NewClientsGraph(entry.getKey(), entry.getValue()))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public ResponseEntity<?> newAppointment(NewAppointmentCriteria request) {
+        AjaxResponseBody result = new AjaxResponseBody();
+
+        emailService.newAppointmentMessage(request.getFirstName(), request.getLastName(), request.getDate(), request.getTime(), request.getPhone());
+
+        result.setMsg("Ваша запись отриимана. З вами звяжуться у найближчий час. Дякуємо!");
+        return ResponseEntity.ok(result);
     }
 
 }
