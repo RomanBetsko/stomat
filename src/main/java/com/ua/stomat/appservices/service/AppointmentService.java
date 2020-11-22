@@ -31,5 +31,5 @@ public interface AppointmentService {
 
     List<NewClientsGraph> getNewClientsStatistic();
 
-    ResponseEntity<?> newAppointment(NewAppointmentCriteria request);
+    ModelAndView newAppointment(NewAppointmentCriteria request);
 }

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154227438-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-154227438-1');
+    </script>
+    <title>DentMe</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dantista/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="dantista/css/animate.css">
+    <link rel="stylesheet" href="dantista/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="dantista/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="dantista/css/magnific-popup.css">
+    <link rel="stylesheet" href="dantista/css/aos.css">
+    <link rel="stylesheet" href="dantista/css/ionicons.min.css">
+    <link rel="stylesheet" href="dantista/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="dantista/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="dantista/css/flaticon.css">
+    <link rel="stylesheet" href="dantista/css/icomoon.css">
+    <link rel="stylesheet" href="dantista/css/style.css">
+    <style>
+        body {
+            font-family: 'Comfortaa', cursive;
+            font-weight: 100;
+        }
+    </style>
+</head>
+<body>
+<!-- header -->
+<div th:include="dantista/fragments/header.html :: header"></div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container d-flex align-items-center">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item"><a href="/#" class="nav-link pl-0" th:text="#{index.main}"></a></li>
+                <li class="nav-item"><a href="/about" class="nav-link" th:text="#{index.about}"></a></li>
+                <li class="nav-item"><a href="/services" class="nav-link" th:text="#{index.department}"></a></li>
+                <li class="nav-item active"><a href="/blog" class="nav-link" th:text="#{index.blog}"></a></li>
+                <li class="nav-item"><a href="/contact" class="nav-link" th:text="#{index.contact}"></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="ftco-section bg-light" style="padding: 1em 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/childrencaries" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url('dantista/images/plomb.GdWpU.jpg');">
+                        <div class="meta-date text-center p-2">
+                            <span class="day">8</span>
+                            <span class="mos">Листопада</span>
+                            <span class="yr">2020</span>
+                        </div>
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading"><a href="/childrencaries">Лікування карієсу у дітей</a></h3>
+                        <p>Кожній дитині складно уявити своє життя без шоколаду, морозива й цукерок,
+                            а солодке — це одна з основних причин карієсу.</p>
+                        <div class="d-flex align-items-center mt-4">
+                            <p class="mb-0"><a href="/childrencaries" class="btn btn-primary" th:text="#{therapeutic.more}">
+                                <span class="ion-ios-arrow-round-forward"></span></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/sinuslifting" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url('dantista/images/sinus.jpg');">
+                        <div class="meta-date text-center p-2">
+                            <span class="day">7</span>
+                            <span class="mos">Листопада</span>
+                            <span class="yr">2020</span>
+                        </div>
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading"><a href="/sinuslifting">Операція синусліфтинг</a></h3>
+                        <p>Одним із способів нарощування кісткової тканини й підняття дна гайморової пазухи є синус-ліфтинг.</p>
+                        <div class="d-flex align-items-center mt-4">
+                            <p class="mb-0"><a href="/sinuslifting" class="btn btn-primary" th:text="#{therapeutic.more}">
+                                <span class="ion-ios-arrow-round-forward"></span></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/bridle" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url('dantista/images/23-2.jpg');">
+                        <div class="meta-date text-center p-2">
+                            <span class="day">6</span>
+                            <span class="mos">Листопада</span>
+                            <span class="yr">2020</span>
+                        </div>
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading"><a href="/bridle">Пластика вуздечки</a></h3>
+                        <p>Своєчасно проведена пластика вуздечки язика дозволяє уникнути неправильного росту зубів, запалення тканин пародонта, розлади мовної функції.</p>
+                        <div class="d-flex align-items-center mt-4">
+                            <p class="mb-0"><a href="/bridle" class="btn btn-primary"
+                                               th:text="#{therapeutic.more}"><span
+                                    class="ion-ios-arrow-round-forward"></span></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/ceramicrestoration" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url('dantista/images/ceramic_restavration.jpg');">
+                        <div class="meta-date text-center p-2">
+                            <span class="day">5</span>
+                            <span class="mos">Листопада</span>
+                            <span class="yr">2020</span>
+                        </div>
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading"><a href="/ceramicrestoration">Керамічна реставрація</a></h3>
+                        <p>Якість їжі й води, стреси – усе це негативно впливає на здоров’я зубів. Часто
+                            трапляються такі проблеми – пошкодження цілісності емалі зуба, запальні процеси.
+                            Для багатьох пацієнтів ці діагнози звучать як вирок, однак, сучасна стоматологія
+                            наділена великим арсеналом методів щодо відновлення зубного ряду</p>
+                        <div class="d-flex align-items-center mt-4">
+                            <p class="mb-0"><a href="/ceramicrestoration" class="btn btn-primary"
+                                               th:text="#{therapeutic.more}"><span
+                                    class="ion-ios-arrow-round-forward"></span></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/orthodonticappliances" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url('dantista/images/aparaty.jpg');">
+                        <div class="meta-date text-center p-2">
+                            <span class="day">4</span>
+                            <span class="mos">Листопада</span>
+                            <span class="yr">2020</span>
+                        </div>
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading"><a href="/orthodonticappliances">Ортодонтичні апарати</a></h3>
+                        <p>Знімні ортодонтичні апарати — це пластинки на зуби, які служать для виправлення
+                            нерівностей зубного ряду у дітей в період змінного прикусу (до 12-14 років).</p>
+                        <div class="d-flex align-items-center mt-4">
+                            <p class="mb-0"><a href="/orthodonticappliances" class="btn btn-primary"
+                                               th:text="#{therapeutic.more}"><span
+                                    class="ion-ios-arrow-round-forward"></span></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry">
+                    <a href="/crowns" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url('dantista/images/koronki.jpg');">
+                        <div class="meta-date text-center p-2">
+                            <span class="day">3</span>
+                            <span class="mos">Листопада</span>
+                            <span class="yr">2020</span>
+                        </div>
+                    </a>
+                    <div class="text bg-white p-4">
+                        <h3 class="heading"><a href="/crowns">Коронки</a></h3>
+                        <p>Встанови коронку – поверни зубам презентабельний вигляд. Сучасні матеріали – кераміка,
+                            металокераміка, цирконій – дозволять створити естетичні коронки, які не відрізнити від
+                            своїх зубів. Потурбуйтеся про свою посмішку вже сьогодні!</p>
+                        <div class="d-flex align-items-center mt-4">
+                            <p class="mb-0"><a href="/crowns" class="btn btn-primary"
+                                               th:text="#{therapeutic.more}"><span
+                                    class="ion-ios-arrow-round-forward"></span></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutters my-5">
+            <div class="col text-center">
+                <div class="block-27">
+                    <ul>
+                        <li><a href="/blog"><i class="ion-ios-arrow-back"></i></a></li>
+                        <li><a href="/blog">1</a></li>
+                        <li><a href="/blog2">2</a></li>
+                        <li class="active"><span>3</span></li>
+                        <li><a href="/blog4">4</a></li>
+                        <li><a href="/blog4"><i class="ion-ios-arrow-forward"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div th:replace="dantista/fragments/footer.html :: footer"></div>
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
+
+
+<script src="dantista/js/jquery.min.js"></script>
+<script src="dantista/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="dantista/js/popper.min.js"></script>
+<script src="dantista/js/bootstrap.min.js"></script>
+<script src="dantista/js/jquery.easing.1.3.js"></script>
+<script src="dantista/js/jquery.waypoints.min.js"></script>
+<script src="dantista/js/jquery.stellar.min.js"></script>
+<script src="dantista/js/owl.carousel.min.js"></script>
+<script src="dantista/js/jquery.magnific-popup.min.js"></script>
+<script src="dantista/js/aos.js"></script>
+<script src="dantista/js/jquery.animateNumber.min.js"></script>
+<script src="dantista/js/bootstrap-datepicker.js"></script>
+<script src="dantista/js/jquery.timepicker.min.js"></script>
+<script src="dantista/js/scrollax.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="dantista/js/google-map.js"></script>
+<script src="dantista/js/main.js"></script>
+
+</body>
+</html>

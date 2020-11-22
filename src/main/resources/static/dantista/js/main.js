@@ -269,7 +269,14 @@ AOS.init({
 		_data["date"] = $("#date").val();
 		_data["time"] = $("#time").val();
 		_data["phone"] = $("#phone").val();
-
+		if (_data["firstName"] === ""){
+            document.getElementById("alert-name").style.display = "block";
+            return false;
+        }
+        if (_data["phone"] === ""){
+            document.getElementById("alert-phone").style.display = "block";
+            return false;
+        }
 		$.ajax({
 			type: "POST",
 			contentType: "application/json",
@@ -279,14 +286,22 @@ AOS.init({
 			cache: false,
 			timeout: 600000,
 			success: function (data) {
-			    // console.log(data);
-                // $('#modal-warning').css('display', 'block');
+            //     $('#notificationresult').html(data);
+            //     $('#overlay').fadeIn(400, function () {
+            //         $('#modal-warning').css('display', 'block');
+            //     });
 			},
 			error: function (e) {
+                document.getElementById("alert-success").style.display = "block";
+                // $('#modal-warning').css('display', 'block');
+                // $('#notificationresult').html(e);
+                // $('#overlay').fadeIn(400, function () {
+                //
+                // });
 			}
 		});
+        return false;
     });
-
 
 })(jQuery);
 

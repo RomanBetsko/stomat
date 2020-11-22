@@ -137,43 +137,72 @@
                     каналі заповнюється лікувальною пастою.</p>
                 <h4 class="mb-3">Ціна питання</h4>
                 <p>Лікування запущених патологічних процесів, які перетікають в ще більш складні форми хвороби, – це
-                    завжди витратніше, ніж зупинити процес з початку. Стоматологія Mydent проводить лікування
+                    завжди витратніше, ніж зупинити процес з початку. Стоматологія DentMe проводить лікування
                     періодонтиту з використанням сучасного обладнання й високоякісних матеріалів. Ціна лікування
                     періодонтиту буде залежати від складності випадку й кількості відвідувань клініки до повного
                     вилікування зуба. Запишіться на безкоштовну консультацію – не допустіть ускладнень!</p>
                 <div class="tag-widget post-tag-container mb-5 mt-5">
                     <div class="tagcloud">
-                        <a href="#" class="tag-cloud-link">Life</a>
-                        <a href="#" class="tag-cloud-link">Sport</a>
-                        <a href="#" class="tag-cloud-link">Tech</a>
-                        <a href="#" class="tag-cloud-link">Travel</a>
+                        <a href="#" class="tag-cloud-link">Івано-фрнанківськ</a>
+                        <a href="#" class="tag-cloud-link">стоматологія</a>
+                        <a href="#" class="tag-cloud-link">стоматолог</a>
+                        <a href="#" class="tag-cloud-link">стоматологічна клініка</a>
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-4 sidebar ftco-animate">
-                <div class="sidebar-box">
-                    <form action="#" class="search-form">
-                        <div class="form-group">
-                            <span class="icon icon-search"></span>
-                            <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
-                        </div>
-                    </form>
-                </div>
 
                 <!--Popular -->
-                <div th:include="dantista/procedure/fragments/popular.html :: popular"></div>
+                <div th:fragment="popular">
+                    <div class="sidebar-box ftco-animate">
+                        <h3>Статті до цієї теми:</h3>
+                        <div class="block-21 mb-4 d-flex">
+                            <a class="blog-img mr-4" style="background-image: url(dantista/images/pulpitis.jcVdg.jpg);"></a>
+                            <div class="text">
+                                <h3 class="heading"><a href="/pulpitis">Лікування пульпіту</a></h3>
+                                <div class="meta">
+                                    <div><a href="/hygiene"><span class="icon-calendar"></span> 25 жовтня, 2020</a></div>
+                                    <div><a href="/hygiene"><span class="icon-person"></span> Панчишин В.</a></div>
+                                    <div><a href="/hygiene"><span class="icon-chat"></span> 2</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-21 mb-4 d-flex">
+                            <a class="blog-img mr-4" style="background-image: url(dantista/images/koronki.jpg);"></a>
+                            <div class="text">
+                                <h3 class="heading"><a href="/crowns">Коронки</a></h3>
+                                <div class="meta">
+                                    <div><a href="/implant"><span class="icon-calendar"></span> 13 вересня, 2020</a></div>
+                                    <div><a href="/implant"><span class="icon-person"></span> Бецко Назар</a></div>
+                                    <div><a href="/implant"><span class="icon-chat"></span> 3</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-21 mb-4 d-flex">
+                            <a class="blog-img mr-4" style="background-image: url(dantista/images/restavration.jpg);"></a>
+                            <div class="text">
+                                <h3 class="heading"><a href="/restavration">Реставрація зубів</a></h3>
+                                <div class="meta">
+                                    <div><a href="/ceramicrestoration"><span class="icon-calendar"></span> 15 вересня, 2020</a></div>
+                                    <div><a href="/ceramicrestoration"><span class="icon-person"></span> Бецко Назар</a></div>
+                                    <div><a href="/ceramicrestoration"><span class="icon-chat"></span> 4</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="sidebar-box ftco-animate">
-                    <h3>Tag Cloud</h3>
+                    <h3>#Хештеги/симптоми</h3>
                     <ul class="tagcloud m-0 p-0">
-                        <a href="#" class="tag-cloud-link">Medical</a>
-                        <a href="#" class="tag-cloud-link">Hospital</a>
-                        <a href="#" class="tag-cloud-link">Nurse</a>
-                        <a href="#" class="tag-cloud-link">Doctor</a>
-                        <a href="#" class="tag-cloud-link">Medicine</a>
-                        <a href="#" class="tag-cloud-link">Facilities</a>
-                        <a href="#" class="tag-cloud-link">Staff</a>
+                        <a href="#" class="tag-cloud-link">Біль при накушуванні</a>
+                        <a href="#" class="tag-cloud-link">Розпираючий біль</a>
+                        <a href="#" class="tag-cloud-link">Біль на гаряче</a>
+                        <a href="#" class="tag-cloud-link">Біль при жуванні</a>
+                        <a href="#" class="tag-cloud-link">Біль що віддає в вухо</a>
+                        <a href="#" class="tag-cloud-link">Нічна біль</a>
+                        <a href="#" class="tag-cloud-link">Самовільний біль</a>
                     </ul>
                 </div>
             </div>

@@ -2,6 +2,12 @@ package com.ua.stomat.appservices.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 
 @Controller
 public class UnloginZoneController {
@@ -241,8 +247,35 @@ public class UnloginZoneController {
         return "dantista/blog";
     }
 
+    @GetMapping("/blog2")
+    public String blog2() {
+        return "dantista/blog2";
+    }
+
+    @GetMapping("/blog3")
+    public String blog3() {
+        return "dantista/blog3";
+    }
+
+    @GetMapping("/blog4")
+    public String blog4() {
+        return "dantista/blog4";
+    }
+
     @GetMapping("/contact")
     public String contact() {
         return "dantista/contact";
+    }
+
+    @RequestMapping("/robots.txt")
+    @ResponseBody
+    public String robots() {
+        try {
+            File robotsTxt = new File("src/main/resources/templates/dantista/robot.txt");
+            return new String(Files.readAllBytes(robotsTxt.toPath()));
+        } catch (IOException e) {
+            return "User-agent: *" + System.lineSeparator() +
+                    "Disallow: /admin";
+        }
     }
 }

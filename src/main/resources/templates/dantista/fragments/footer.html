@@ -21,8 +21,8 @@
                     <h2 class="ftco-heading-2" th:text="#{index.have.questions}"></h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text"
-                                                                                th:text="#{address}"></span>
+                            <li><a href="https://goo.gl/maps/GBt21ikHziUjkgSUA"><span class="icon icon-map-marker" ></span><span class="text"
+                                                                                th:text="#{address}"></span></a>
                                 <br>
                                 <span class="text" th:text="#{address.2}"></span>
                             </li>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="ftco-footer-widget mb-5">
                     <h2 class="ftco-heading-2" th:text="#{index.subscripe}"></h2>
-                    <form action="#" class="subscribe-form">
+                    <form action="/#submit" class="subscribe-form" href="/#submit">
                         <div class="form-group">
                             <input type="submit" th:value="#{appointment.submit}" class="form-control submit px-3">
                         </div>

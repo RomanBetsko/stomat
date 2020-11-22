@@ -29,9 +29,7 @@ $("button#clientsToInform").click(function () {
 
             $('#notificationresult').html(data);
             $('#overlay').fadeIn(400, function () {
-
                 $('#modal-warning').css('display', 'block');
-
                 $("a#deleteFromInform").click(function () {
                     var $row = $(this).closest("tr");    // Find the row
                     var $text = $row.find(".id").text();
@@ -50,7 +48,6 @@ $("button#clientsToInform").click(function () {
                         success: function (data) {
                             console.log("SUCCESS : ", data);
                             location.reload();
-
                         },
                         error: function (e) {
                             console.log("ERROR : ", e);

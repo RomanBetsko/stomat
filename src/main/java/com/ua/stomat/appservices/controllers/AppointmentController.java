@@ -47,7 +47,7 @@ public class AppointmentController {
     }
 
     @PostMapping("/newAppointment")
-    public ResponseEntity<?> newAppointment(@RequestBody @Valid NewAppointmentCriteria request) {
+    public ModelAndView newAppointment(@RequestBody @Valid NewAppointmentCriteria request) {
         return appointmentService.newAppointment(request);
     }
 

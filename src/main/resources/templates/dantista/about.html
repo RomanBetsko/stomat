@@ -11,31 +11,22 @@
         }
 
         gtag('js', new Date());
-
         gtag('config', 'UA-154227438-1');
     </script>
 
     <title>DentMe</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="dantista/css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="dantista/css/animate.css">
-
     <link rel="stylesheet" href="dantista/css/owl.carousel.min.css">
     <link rel="stylesheet" href="dantista/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="dantista/css/magnific-popup.css">
-
     <link rel="stylesheet" href="dantista/css/aos.css">
-
     <link rel="stylesheet" href="dantista/css/ionicons.min.css">
-
     <link rel="stylesheet" href="dantista/css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="dantista/css/jquery.timepicker.css">
-
-
     <link rel="stylesheet" href="dantista/css/flaticon.css">
     <link rel="stylesheet" href="dantista/css/icomoon.css">
     <link rel="stylesheet" href="dantista/css/style.css">
@@ -69,10 +60,12 @@
 <section class="ftco-section ftco-no-pt ftco-no-pb" style="padding: 1em 0;">
     <div class="container">
         <div class="row no-gutters">
-<!--            <div class="col-md-5 p-md-5 img img-2 mt-5 mt-md-0"-->
-<!--                 style="background-image: url(dantista/images/IMG_6646.JPG);">-->
-<!--            </div>-->
-            <img src="dantista/images/IMG_0461.JPG" style="width: 477px; height: auto">
+            <!--            <div class="col-md-5 p-md-5 img img-2 mt-5 mt-md-0"-->
+            <!--                 style="background-image: url(dantista/images/IMG_6646.JPG);">-->
+            <!--            </div>-->
+            <div class="mobileHide">
+                <img src="dantista/images/IMG_0461.JPG" style="width: 477px; height: auto">
+            </div>
             <div class="col-md-7 wrap-about py-4 py-md-5 ftco-animate">
                 <div class="heading-section mb-5">
                     <div class="pl-md-5 ml-md-5 pt-md-5">
@@ -99,7 +92,9 @@
                 <p></p>
             </div>
             <div class="col-md-3 d-flex align-items-center">
-                <p class="mb-0"><a href="/hygiene" class="btn btn-secondary px-4 py-3" th:text="#{index.advertising.more}"></a>
+                <p class="mb-0">
+                    <a href="/hygiene" class="btn btn-secondary px-4 py-3"
+                       th:text="#{index.advertising.more}"></a>
             </div>
         </div>
     </div>
@@ -143,7 +138,8 @@
                     </div>
                     <div class="item">
                         <div class="testimony-wrap d-flex">
-                            <div class="user-img" style="background-image: url(dantista/images/IMG_6648.JPG);  background-position-y: top;">
+                            <div class="user-img"
+                                 style="background-image: url(dantista/images/IMG_6648.JPG);  background-position-y: top;">
                             </div>
                             <div class="text pl-4 bg-light">
                                 <p class="name" th:text="#{index.doctor.stefanchyk}"></p>

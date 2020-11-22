@@ -5,13 +5,10 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154227438-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
         function gtag() {
             dataLayer.push(arguments);
         }
-
         gtag('js', new Date());
-
         gtag('config', 'UA-154227438-1');
     </script>
 
@@ -27,15 +24,10 @@
     <link rel="stylesheet" href="dantista/css/owl.carousel.min.css">
     <link rel="stylesheet" href="dantista/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="dantista/css/magnific-popup.css">
-
     <link rel="stylesheet" href="dantista/css/aos.css">
-
     <link rel="stylesheet" href="dantista/css/ionicons.min.css">
-
     <link rel="stylesheet" href="dantista/css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="dantista/css/jquery.timepicker.css">
-
-
     <link rel="stylesheet" href="dantista/css/flaticon.css">
     <link rel="stylesheet" href="dantista/css/icomoon.css">
     <link rel="stylesheet" href="dantista/css/style.css">
@@ -45,35 +37,39 @@
             font-family: 'Comfortaa', cursive;
             font-weight: 100;
         }
-    </style>
-    <style type="text/css">
-        .mobileHide {
-            display: inline;
-        }
 
-        /* Smartphone Portrait and Landscape */
-        @media only screen
-        and (min-device-width: 320px)
-        and (max-device-width: 480px) {
-            .mobileHide {
-                display: none;
-            }
+        form .error {
+            color: #ff0000;
         }
     </style>
-    <style type="text/css">
-        .mobileShow {
-            display: none;
-        }
+<!--    <style type="text/css">-->
+<!--        .mobileHide {-->
+<!--            display: inline;-->
+<!--        }-->
 
-        /* Smartphone Portrait and Landscape */
-        @media only screen
-        and (min-device-width: 320px)
-        and (max-device-width: 480px) {
-            .mobileShow {
-                display: inline;
-            }
-        }
-    </style>
+<!--        /* Smartphone Portrait and Landscape */-->
+<!--        @media only screen-->
+<!--        and (min-device-width: 320px)-->
+<!--        and (max-device-width: 480px) {-->
+<!--            .mobileHide {-->
+<!--                display: none;-->
+<!--            }-->
+<!--        }-->
+<!--    </style>-->
+<!--    <style type="text/css">-->
+<!--        .mobileShow {-->
+<!--            display: none;-->
+<!--        }-->
+
+<!--        /* Smartphone Portrait and Landscape */-->
+<!--        @media only screen-->
+<!--        and (min-device-width: 320px)-->
+<!--        and (max-device-width: 480px) {-->
+<!--            .mobileShow {-->
+<!--                display: inline;-->
+<!--            }-->
+<!--        }-->
+<!--    </style>-->
 </head>
 <body>
 <!-- header -->
@@ -142,27 +138,14 @@
                         <h1 class="mb-4" th:text="#{index.slider.second}"></h1>
                         <h3 class="subheading" th:text="#{index.slider.second.about}"></h3>
                         <p><a href="/about" class="btn btn-secondary px-4 py-3 mt-3" th:text="#{index.about}"></a></p>
+<!--                        <div id="submit"></div>-->
                     </div>
                 </div>
             </div>
         </div>
     </section>
 </div>
-<!--<div class="modal modal-warning fade in" th:id="modal-warning">-->
-<!--    <div class="modal-dialog">-->
-<!--        <div class="modal-content">-->
-<!--            <div class="modal-header">-->
-<!--                <button type="button" id="modal_close" class="close" data-dismiss="modal" aria-label="Close">-->
-<!--                    <span aria-hidden="true">×</span></button>-->
-<!--                <h4 class="modal-title">Клієнти яким потрібно повідомити про огляд</h4>-->
-<!--            </div>-->
-<!--            <div class="modal-body">-->
-<!--            </div>-->
-<!--            <div class="modal-footer">-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
+<div id="submit"></div>
 
 <section class="ftco-section ftco-no-pt ftco-no-pb">
     <div class="subscripe">
@@ -180,8 +163,8 @@
                         <div class="text-center">
                             <h3 class="mb-4" th:text="#{appointment.middle.header}"></h3>
                         </div>
-                        <div id="appointment">
-                            <form class="appointment-form" id="appointment-form">
+                        <div id="appointment" name="appointment">
+                            <form class="appointment-form" id="appointment-form" action="" name="appointment-form">
                                 <div class="row">
                                     <div class="col-md-12 col-lg-6 col-xl-4">
                                         <div class="form-group">
@@ -222,11 +205,41 @@
                                     <div class="col-md-12 col-lg-6 col-xl-4">
                                         <div class="form-group">
                                             <input type="submit" th:value="#{appointment.submit}"
-                                                   class="btn btn-secondary py-2 px-4">
+                                                   class="btn btn-secondary py-2 px-4" href="#appointment">
                                         </div>
                                     </div>
                                 </div>
                             </form>
+                            <div class="alert alert-success" role="alert" style="display: none;" id="alert-success">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="alert-heading">Чудово!</h4>
+                                <p>Ваші дані отримано. Наш спеціаліст звяжеться з вами найближчим часом!</p>
+                                <hr>
+                                <p class="mb-0">Дякуємо за звернення!</p>
+
+                            </div>
+
+                            <div class="alert alert-danger" role="alert" style="display: none;" id="alert-name">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="alert-heading">Введені не усі дані!</h4>
+                                <p>Введіть будь-ласка імя, та спробуйте знову</p>
+                                <hr>
+                                <p class="mb-0">Дякуємо!</p>
+
+                            </div>
+                            <div class="alert alert-danger" role="alert" style="display: none;" id="alert-phone">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="alert-heading">Введені не усі дані!</h4>
+                                <p>Введіть будь-ласка телефон, та спробуйте знову</p>
+                                <hr>
+                                <p class="mb-0">Дякуємо!</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -347,16 +360,19 @@
     </div>
 </section>
 
-<section class="ftco-section intro" style="background-image: url(dantista/images/bg_3.jpg);">
+<div class="mobileHide">
+<section class="ftco-intro" style="background-image: url(dantista/images/ipprog.jpg);">
+    <div class="overlay"></div>
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h3 class="mb-4" th:text="#{stomat.info}"></h3>
+                <h3 class="mb-4" th:text="#{stomat.info}" ></h3>
                 <p th:text="#{stomat.info.about}"></p>
             </div>
         </div>
     </div>
 </section>
+</div>
 
 <!-- Стоматологи, команда -->
 <div class="mobileHide">
@@ -430,13 +446,17 @@
                             <div class="faded">
                                 <p th:text="#{index.doctor.stefanchyk.description}"></p>
                                 <ul class="ftco-social text-center">
-                                    <li class="ftco-animate"><a href="#"
-                                                                class="d-flex align-items-center justify-content-center"><span
-                                            class="icon-facebook"></span></a></li>
-                                    <li class="ftco-animate"><a target="_blank" rel="noopener noreferrer"
-                                                                href="https://www.instagram.com/dent_me.if/"
-                                                                class="d-flex align-items-center justify-content-center"><span
-                                            class="icon-instagram"></span></a></li>
+                                    <li class="ftco-animate">
+                                        <a href="#" class="d-flex align-items-center justify-content-center">
+                                            <span class="icon-facebook"></span>
+                                        </a>
+                                    </li>
+                                    <li class="ftco-animate">
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/dent_me.if/"
+                                           class="d-flex align-items-center justify-content-center">
+                                        <span class="icon-instagram"></span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -453,7 +473,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-                <h2 th:text="#{index.advertising.title}"></h2>
+                <h3 th:text="#{index.advertising.title}"></h3>
                 <p class="mb-0" th:text="#{index.advertising.description}"></p>
                 <p></p>
             </div>
@@ -524,7 +544,7 @@
                 <div class="col-md-4 ftco-animate">
                     <div class="blog-entry">
                         <a href="/philipszoom" class="block-20 d-flex align-items-end justify-content-end"
-                           style="background-image: url('dantista/images/image_2.jpg');">
+                           style="background-image: url('dantista/images/teeth-whitening-1024x683.jpg');">
                             <div class="meta-date text-center p-2">
                                 <span class="day">17</span>
                                 <span class="mos">Березня</span>
@@ -581,6 +601,8 @@
 <script src="dantista/js/google-map.js"></script>
 <script src="dantista/js/main.js"></script>
 <script type="text/javascript" src="../js/jquery.maskedinput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script src="dantista/js/form-validation.js"></script>
 <script>
     $(document).ready(function () {
         $("#phone").mask("+38(999) 999-9999");

@@ -1,10 +1,504 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154227438-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-154227438-1');
+    </script>
+    <title>DentMe</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dantista/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="dantista/css/animate.css">
+    <link rel="stylesheet" href="dantista/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="dantista/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="dantista/css/magnific-popup.css">
+    <link rel="stylesheet" href="dantista/css/aos.css">
+    <link rel="stylesheet" href="dantista/css/ionicons.min.css">
+    <link rel="stylesheet" href="dantista/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="dantista/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="dantista/css/flaticon.css">
+    <link rel="stylesheet" href="dantista/css/icomoon.css">
+    <link rel="stylesheet" href="dantista/css/style.css">
+    <style>
+        body {
+            font-family: 'Comfortaa', cursive;
+            font-weight: 100;
+        }
+    </style>
+    <style>
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+
+        * {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+
+        *:focus {
+            outline: none !important;
+        }
+
+        body, html {
+            height: 100%;
+        }
+
+        bodyDiv {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            align-content: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            padding: 12px;
+            background: #f8f9fa;
+            color: black;
+            font-family: "brandon-grotesque", "Brandon Grotesque", "Source Sans Pro", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+            font-size: 24px;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::-moz-selection {
+            background: none;
+        }
+
+        ::selection {
+            background: none;
+        }
+
+        ab {
+            display: block;
+            cursor: pointer;
+            -webkit-animation: pulseColor 1000ms linear 3100ms forwards;
+            animation: pulseColor 1000ms linear 3100ms forwards;
+            font-weight: 500;
+        }
+        ab:hover a, ab:focus a {
+            color: #a8c337;
+        }
+        ab:active a {
+            color: #a8c337;
+        }
+
+        svg {
+            width: 50px;
+            height: auto;
+        }
+
+        .crack {
+            position: relative;
+            z-index: 4;
+            margin-left: -50px;
+        }
+        .crack polyline {
+            fill: none;
+            stroke: #a8c337;
+            stroke-width: 10px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 1649.099;
+            stroke-dashoffset: 1649.099;
+            -webkit-animation: drawStroke 1500ms ease-out 500ms forwards;
+            animation: drawStroke 1500ms ease-out 500ms forwards;
+        }
+
+        main {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            align-content: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+        }
+        main > div {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            align-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        main > div svg {
+            position: relative;
+            z-index: 1;
+        }
+        main > div svg polygon {
+            fill: #f8f9fa;
+        }
+        main > div span {
+            display: block;
+            position: relative;
+            z-index: 0;
+            padding: 0 12px;
+            line-height: 1.4;
+        }
+        main > div:first-child {
+            text-align: right;
+            z-index: 1;
+        }
+        main > div:first-child span:first-child {
+            opacity: 0;
+            -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+            -webkit-animation: translateLeft 1000ms linear 1250ms forwards;
+            animation: translateLeft 1000ms linear 1250ms forwards;
+        }
+        main > div:first-child span:last-child {
+            opacity: 0;
+            -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+            -webkit-animation: translateLeft 1000ms linear 1450ms forwards;
+            animation: translateLeft 1000ms linear 1450ms forwards;
+        }
+        main > div:first-child svg polygon {
+            -webkit-animation: removeFill 10ms ease-out 1600ms forwards;
+            animation: removeFill 10ms ease-out 1600ms forwards;
+        }
+        main > div:last-child {
+            z-index: 0;
+            margin-left: -50px;
+        }
+        main > div:last-child span:first-child {
+            opacity: 0;
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+            -webkit-animation: translateRight 1000ms linear 1650ms forwards;
+            animation: translateRight 1000ms linear 1650ms forwards;
+        }
+        main > div:last-child span:last-child {
+            opacity: 0;
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+            -webkit-animation: translateRight 1000ms linear 1850ms forwards;
+            animation: translateRight 1000ms linear 1850ms forwards;
+        }
+
+        @-webkit-keyframes drawStroke {
+            0% {
+                stroke-dashoffset: 1649.099;
+            }
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes drawStroke {
+            0% {
+                stroke-dashoffset: 1649.099;
+            }
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+        @-webkit-keyframes removeFill {
+            0% {
+                fill: #343434;
+            }
+            100% {
+                fill: rgba(52, 52, 52, 0);
+            }
+        }
+        @keyframes removeFill {
+            0% {
+                fill: #343434;
+            }
+            100% {
+                fill: rgba(52, 52, 52, 0);
+            }
+        }
+        @-webkit-keyframes pulseColor {
+            0% {
+                color: black;
+            }
+            25% {
+                color: #a8c337;
+            }
+            50% {
+                color: black;
+            }
+            75% {
+                color: #a8c337;
+            }
+            100% {
+                color: black;
+            }
+        }
+        @keyframes pulseColor {
+            0% {
+                color: black;
+            }
+            25% {
+                color: #a8c337;
+            }
+            50% {
+                color: black;
+            }
+            75% {
+                color: #a8c337;
+            }
+            100% {
+                color: black;
+            }
+        }
+        /* https://goo.gl/v323yz */
+        @-webkit-keyframes translateLeft {
+            0% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 150, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 150, 0, 0, 1);
+                opacity: 1;
+            }
+            7.61% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 69.561, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 69.561, 0, 0, 1);
+            }
+            11.41% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 39.355, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 39.355, 0, 0, 1);
+            }
+            15.12% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 17.801, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 17.801, 0, 0, 1);
+            }
+            18.92% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 3.02, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 3.02, 0, 0, 1);
+            }
+            22.72% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -5.661, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -5.661, 0, 0, 1);
+            }
+            30.23% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -10.852, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -10.852, 0, 0, 1);
+            }
+            50.25% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -2.282, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -2.282, 0, 0, 1);
+            }
+            70.27% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.519, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.519, 0, 0, 1);
+            }
+            100% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+                opacity: 1;
+            }
+        }
+        @keyframes translateLeft {
+            0% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 150, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 150, 0, 0, 1);
+                opacity: 1;
+            }
+            7.61% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 69.561, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 69.561, 0, 0, 1);
+            }
+            11.41% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 39.355, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 39.355, 0, 0, 1);
+            }
+            15.12% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 17.801, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 17.801, 0, 0, 1);
+            }
+            18.92% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 3.02, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 3.02, 0, 0, 1);
+            }
+            22.72% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -5.661, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -5.661, 0, 0, 1);
+            }
+            30.23% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -10.852, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -10.852, 0, 0, 1);
+            }
+            50.25% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -2.282, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -2.282, 0, 0, 1);
+            }
+            70.27% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.519, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.519, 0, 0, 1);
+            }
+            100% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+                opacity: 1;
+            }
+        }
+        /* https://goo.gl/p1Hnde */
+        @-webkit-keyframes translateRight {
+            0% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -150, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -150, 0, 0, 1);
+                opacity: 1;
+            }
+            7.61% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -69.561, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -69.561, 0, 0, 1);
+            }
+            11.41% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -39.355, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -39.355, 0, 0, 1);
+            }
+            15.12% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -17.801, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -17.801, 0, 0, 1);
+            }
+            18.92% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -3.02, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -3.02, 0, 0, 1);
+            }
+            22.72% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 5.661, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 5.661, 0, 0, 1);
+            }
+            30.23% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 10.852, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 10.852, 0, 0, 1);
+            }
+            50.25% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2.282, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2.282, 0, 0, 1);
+            }
+            70.27% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.519, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.519, 0, 0, 1);
+            }
+            100% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+                opacity: 1;
+            }
+        }
+        @keyframes translateRight {
+            0% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -150, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -150, 0, 0, 1);
+                opacity: 1;
+            }
+            7.61% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -69.561, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -69.561, 0, 0, 1);
+            }
+            11.41% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -39.355, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -39.355, 0, 0, 1);
+            }
+            15.12% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -17.801, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -17.801, 0, 0, 1);
+            }
+            18.92% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -3.02, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -3.02, 0, 0, 1);
+            }
+            22.72% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 5.661, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 5.661, 0, 0, 1);
+            }
+            30.23% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 10.852, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 10.852, 0, 0, 1);
+            }
+            50.25% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2.282, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2.282, 0, 0, 1);
+            }
+            70.27% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.519, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.519, 0, 0, 1);
+            }
+            100% {
+                -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+                transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
+<!-- header -->
+<div th:include="dantista/fragments/header.html :: header"></div>
+<bodyDiv>
+<main>
+    <div>
+        <div>
+            <span>Лазер недоступний</span>
+            <span>деталі по телефону</span>
+        </div>
+        <svg viewBox='0 0 200 600'>
+            <polygon points='118.302698 8 59.5369448 66.7657528 186.487016 193.715824 14 366.202839 153.491505 505.694344 68.1413353 591.044514 200 591.044514 200 8'></polygon>
+        </svg>
+    </div>
+    <svg class='crack' viewBox='0 0 200 600'>
+        <polyline points='118.302698 8 59.5369448 66.7657528 186.487016 193.715824 14 366.202839 153.491505 505.694344 68.1413353 591.044514'></polyline>
+    </svg>
+    <div>
+        <svg viewBox='0 0 200 600'>
+            <polygon points='118.302698 8 59.5369448 66.7657528 186.487016 193.715824 14 366.202839 153.491505 505.694344 68.1413353 591.044514 0 591.044514 0 8'></polygon>
+        </svg>
+        <div>
+            <span>вибачте за це!</span>
+            <span>
+        <ab>
+          <a href="/#"><b style="color: black">повернутись?</b></a>
+
+<!--            <a href="tel://+380995142567">+38(099)514 25 67</a>-->
+<!--            </b>-->
+        </ab>
+      </span>
+        </div>
+    </div>
+</main>
+</bodyDiv>
+
+<div th:replace="dantista/fragments/footer.html :: footer"></div>
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
+
+
+<script src="dantista/js/jquery.min.js"></script>
+<script src="dantista/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="dantista/js/popper.min.js"></script>
+<script src="dantista/js/bootstrap.min.js"></script>
+<script src="dantista/js/jquery.easing.1.3.js"></script>
+<script src="dantista/js/jquery.waypoints.min.js"></script>
+<script src="dantista/js/jquery.stellar.min.js"></script>
+<script src="dantista/js/owl.carousel.min.js"></script>
+<script src="dantista/js/jquery.magnific-popup.min.js"></script>
+<script src="dantista/js/aos.js"></script>
+<script src="dantista/js/jquery.animateNumber.min.js"></script>
+<script src="dantista/js/bootstrap-datepicker.js"></script>
+<script src="dantista/js/jquery.timepicker.min.js"></script>
+<script src="dantista/js/scrollax.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="dantista/js/google-map.js"></script>
+<script src="dantista/js/main.js"></script>
 
 </body>
 </html>

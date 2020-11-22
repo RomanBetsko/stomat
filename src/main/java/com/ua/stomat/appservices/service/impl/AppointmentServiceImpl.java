@@ -384,13 +384,13 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public ResponseEntity<?> newAppointment(NewAppointmentCriteria request) {
+    public ModelAndView newAppointment(NewAppointmentCriteria request) {
         AjaxResponseBody result = new AjaxResponseBody();
 
         emailService.newAppointmentMessage(request.getFirstName(), request.getLastName(), request.getDate(), request.getTime(), request.getPhone());
 
         result.setMsg("Ваша запись отриимана. З вами звяжуться у найближчий час. Дякуємо!");
-        return ResponseEntity.ok(result);
+        return new ModelAndView("clientsToInform", new HashMap<>());
     }
 
 }

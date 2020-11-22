@@ -3461,7 +3461,7 @@ input[type="button"].btn-block {
     z-index: 1000;
     display: none;
     float: left;
-    min-width: 10rem;
+    min-width: 2rem;
     padding: 0.5rem 0;
     margin: 0.125rem 0 0;
     font-size: 1rem;
@@ -3472,6 +3472,10 @@ input[type="button"].btn-block {
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 0.25rem;
+}
+
+.dropdown-menu .li{
+    border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .dropdown-menu-right {
@@ -12131,6 +12135,10 @@ h1, h2, h3, h4, h5,
     font-size: 36px;
 }
 
+.ftco-intro h3 {
+    color: #fff;
+}
+
 .ftco-intro .overlay {
     position: absolute;
     top: 0;
@@ -12555,7 +12563,7 @@ textarea.form-control {
 
 .ftco-footer {
     font-size: 14px;
-    background: #5B5B5B;
+    background: #118ab5;
     padding: 6em 0;
 }
 
@@ -13649,6 +13657,32 @@ textarea.form-control {
     -webkit-animation: loader-dash 1.5s ease-in-out infinite;
     animation: loader-dash 1.5s ease-in-out infinite;
     stroke-linecap: round;
+}
+
+.mobileHide {
+    display: inline;
+}
+
+/* Smartphone Portrait and Landscape */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 480px) {
+    .mobileHide {
+        display: none;
+    }
+}
+
+.mobileShow {
+    display: none;
+}
+
+/* Smartphone Portrait and Landscape */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 480px) {
+    .mobileShow {
+        display: inline;
+    }
 }
 
 @-webkit-keyframes loader-rotate {
