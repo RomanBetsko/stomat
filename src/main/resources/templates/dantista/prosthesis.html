@@ -5,37 +5,27 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154227438-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
         function gtag() {
             dataLayer.push(arguments);
         }
-
         gtag('js', new Date());
-
         gtag('config', 'UA-154227438-1');
     </script>
 
-    <title>DentMe</title>
+    <title>Протезування Івано-Франківськ | DentMe</title>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="dantista/css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="dantista/css/animate.css">
-
     <link rel="stylesheet" href="dantista/css/owl.carousel.min.css">
     <link rel="stylesheet" href="dantista/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="dantista/css/magnific-popup.css">
-
     <link rel="stylesheet" href="dantista/css/aos.css">
-
     <link rel="stylesheet" href="dantista/css/ionicons.min.css">
-
     <link rel="stylesheet" href="dantista/css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="dantista/css/jquery.timepicker.css">
-
-
     <link rel="stylesheet" href="dantista/css/flaticon.css">
     <link rel="stylesheet" href="dantista/css/icomoon.css">
     <link rel="stylesheet" href="dantista/css/style.css">
@@ -47,6 +37,7 @@
     </style>
 </head>
 <body>
+
 <!-- header -->
 <div th:include="dantista/fragments/header.html :: header"></div>
 
@@ -58,7 +49,7 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav m-auto">
-                <li class="nav-item"><a href="/#" class="nav-link pl-0" th:text="#{index.main}"></a></li>
+                <li class="nav-item"><a href="/" class="nav-link pl-0" th:text="#{index.main}"></a></li>
                 <li class="nav-item"><a href="/about" class="nav-link" th:text="#{index.about}"></a></li>
                 <li class="nav-item active"><a href="/services" class="nav-link" th:text="#{index.department}"></a>
                 </li>
@@ -75,7 +66,7 @@
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <h1 class="mb-2 bread" th:text="#{protes.stomat}"></h1>
+                <h1 class="mb-2 bread" th:text="#{protes.stomat}" style="font-size: 1.5rem !important;"></h1>
                 <p style="color: #fff" th:text="#{protes.stomat.details}"></p>
             </div>
         </div>
@@ -103,9 +94,9 @@
                         <li th:text="#{procedure.temporary.crown}"></li>
                         <li th:text="#{procedure.permanent.crown}"></li>
                     </ul>
-                    <p class="button text-center">
-                        <a href="/crowns" class="btn btn-primary px-4 py-3" th:text="#{therapeutic.more}"></a>
-                    </p>
+<!--                    <p class="button text-center">-->
+<!--                        <a href="/crowns" class="btn btn-primary px-4 py-3" th:text="#{therapeutic.more}"></a>-->
+<!--                    </p>-->
                 </div>
             </div>
             <div class="col-md-2-5 ftco-animate">
@@ -127,10 +118,10 @@
                         <li th:text="#{procedure.abutment.crown}"></li>
 
                     </ul>
-                    <p class="button text-center">
-                        <a href="/prosthesisimplant" class="btn btn-primary px-4 py-3"
-                           th:text="#{therapeutic.more}"></a>
-                    </p>
+<!--                    <p class="button text-center">-->
+<!--                        <a href="/prosthesisimplant" class="btn btn-primary px-4 py-3"-->
+<!--                           th:text="#{therapeutic.more}"></a>-->
+<!--                    </p>-->
                 </div>
             </div>
             <div class="col-md-2-5 ftco-animate">
@@ -149,9 +140,9 @@
                         <li th:text="#{procedure.selection.shape.shade}"></li>
                         <li th:text="#{procedure.fixing.structure}"></li>
                     </ul>
-                    <p class="button text-center">
-                        <a href="/bugel" class="btn btn-primary px-4 py-3" th:text="#{therapeutic.more}"></a>
-                    </p>
+<!--                    <p class="button text-center">-->
+<!--                        <a href="/bugel" class="btn btn-primary px-4 py-3" th:text="#{therapeutic.more}"></a>-->
+<!--                    </p>-->
                 </div>
 
             </div>
@@ -172,10 +163,10 @@
                         <li th:text="#{procedure.treatment.under.ceramic.tab}"></li>
                         <li th:text="#{procedure.fixing.permanent.ceramic.tab}"></li>
                     </ul>
-                    <p class="button text-center">
-                        <a href="/ceramicrestoration" class="btn btn-primary px-4 py-3"
-                           th:text="#{therapeutic.more}"></a>
-                    </p>
+<!--                    <p class="button text-center">-->
+<!--                        <a href="/ceramicrestoration" class="btn btn-primary px-4 py-3"-->
+<!--                           th:text="#{therapeutic.more}"></a>-->
+<!--                    </p>-->
                 </div>
             </div>
 
@@ -196,10 +187,10 @@
                         <li th:text="#{procedure.selection.shape.shade}"></li>
                         <li th:text="#{procedure.fixing.structure}"></li>
                     </ul>
-                    <p class="button text-center">
-                        <a href="/removableprosthetics" class="btn btn-primary px-4 py-3"
-                           th:text="#{therapeutic.more}"></a>
-                    </p>
+<!--                    <p class="button text-center">-->
+<!--                        <a href="/removableprosthetics" class="btn btn-primary px-4 py-3"-->
+<!--                           th:text="#{therapeutic.more}"></a>-->
+<!--                    </p>-->
                 </div>
             </div>
 
@@ -207,9 +198,7 @@
     </div>
 </section>
 
-
 <div th:replace="dantista/fragments/footer.html :: footer"></div>
-
 
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen">
@@ -219,7 +208,6 @@
                 stroke="#F96D00"/>
     </svg>
 </div>
-
 
 <script src="dantista/js/jquery.min.js"></script>
 <script src="dantista/js/jquery-migrate-3.0.1.min.js"></script>

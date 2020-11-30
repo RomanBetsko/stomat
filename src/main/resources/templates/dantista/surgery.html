@@ -9,46 +9,27 @@
         function gtag() {
             dataLayer.push(arguments);
         }
-
         gtag('js', new Date());
-
         gtag('config', 'UA-154227438-1');
     </script>
 
-    <title>DentMe</title>
+    <title>Стоматологічна хірургія Івано-Франківськ | DentMe</title>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="dantista/css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="dantista/css/animate.css">
-
     <link rel="stylesheet" href="dantista/css/owl.carousel.min.css">
     <link rel="stylesheet" href="dantista/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="dantista/css/magnific-popup.css">
-
     <link rel="stylesheet" href="dantista/css/aos.css">
-
     <link rel="stylesheet" href="dantista/css/ionicons.min.css">
-
     <link rel="stylesheet" href="dantista/css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="dantista/css/jquery.timepicker.css">
-
-
     <link rel="stylesheet" href="dantista/css/flaticon.css">
     <link rel="stylesheet" href="dantista/css/icomoon.css">
     <link rel="stylesheet" href="dantista/css/style.css">
-    <!--    <script type="text/javascript">-->
-    <!--        $(document).ready(function () {-->
-    <!--            $("#locales").change(function () {-->
-    <!--                var selectedOption = $('#locales').val();-->
-    <!--                if (selectedOption != '') {-->
-    <!--                    window.location.replace('international?lang=' + selectedOption);-->
-    <!--                }-->
-    <!--            });-->
-    <!--        })-->
-    <!--    </script>-->
     <style>
         body {
             font-family: 'Comfortaa', cursive;
@@ -68,7 +49,7 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav m-auto">
-                <li class="nav-item"><a href="/#" class="nav-link pl-0" th:text="#{index.main}"></a></li>
+                <li class="nav-item"><a href="/" class="nav-link pl-0" th:text="#{index.main}"></a></li>
                 <li class="nav-item"><a href="/about" class="nav-link" th:text="#{index.about}"></a></li>
                 <li class="nav-item active"><a href="/services" class="nav-link" th:text="#{index.department}"></a>
                 </li>
@@ -85,7 +66,7 @@
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <h1 class="mb-2 bread" th:text="#{hirurgiya.stomat}"></h1>
+                <h1 class="mb-2 bread" th:text="#{hirurgiya.stomat}" style="font-size: 1.5rem !important;"></h1>
                 <p style="color: #fff" th:text="#{hirurgiya.stomat.details}"></p>
             </div>
         </div>
@@ -110,7 +91,6 @@
                         <li th:text="#{therapeutic.caries.3}"></li>
                         <li th:text="#{pediatric.milk.tooth.2}"></li>
                         <li th:text="#{procedure.removal}"></li>
-
                     </ul>
                     <p class="button text-center">
                         <a href="/removal" class="btn btn-primary px-4 py-3" th:text="#{therapeutic.more}"></a>
@@ -134,9 +114,9 @@
                         <li th:text="#{surgery.bridle}"></li>
                         <li th:text="#{procedure.sewing}"></li>
                     </ul>
-                    <p class="button text-center">
-                        <a href="/bridle" class="btn btn-primary px-4 py-3" th:text="#{therapeutic.more}"></a>
-                    </p>
+<!--                    <p class="button text-center">-->
+<!--                        <a href="/bridle" class="btn btn-primary px-4 py-3" th:text="#{therapeutic.more}"></a>-->
+<!--                    </p>-->
                 </div>
             </div>
             <div class="col-md-2-5 ftco-animate">
@@ -157,9 +137,9 @@
                         <li th:text="#{procedure.bone.material}"></li>
                         <li th:text="#{procedure.stitching}"></li>
                     </ul>
-                    <p class="button text-center">
-                        <a href="/sinuslifting" class="btn btn-primary px-4 py-3" th:text="#{therapeutic.more}"></a>
-                    </p>
+<!--                    <p class="button text-center">-->
+<!--                        <a href="/sinuslifting" class="btn btn-primary px-4 py-3" th:text="#{therapeutic.more}"></a>-->
+<!--                    </p>-->
                 </div>
             </div>
             <div class="col-md-2-5 ftco-animate">
@@ -178,9 +158,9 @@
                         <li th:text="#{procedure.bone.material}"></li>
                         <li th:text="#{procedure.stitching}"></li>
                     </ul>
-                    <p class="button text-center">
-                        <a href="/osteoplastics" class="btn btn-primary px-4 py-3" th:text="#{therapeutic.more}"></a>
-                    </p>
+<!--                    <p class="button text-center">-->
+<!--                        <a href="/osteoplastics" class="btn btn-primary px-4 py-3" th:text="#{therapeutic.more}"></a>-->
+<!--                    </p>-->
                 </div>
 
             </div>
@@ -199,29 +179,24 @@
                         <li th:text="#{procedure.anesthesia}"></li>
                         <li th:text="#{procedure.implantplacement}"></li>
                     </ul>
-                    <p class="button text-center">
-                        <a href="/implant" class="btn btn-primary px-4 py-3" th:text="#{therapeutic.more}"></a>
-                    </p>
+<!--                    <p class="button text-center">-->
+<!--                        <a href="/implant" class="btn btn-primary px-4 py-3" th:text="#{therapeutic.more}"></a>-->
+<!--                    </p>-->
                 </div>
-
             </div>
         </div>
     </div>
 </section>
 
-
 <div th:replace="dantista/fragments/footer.html :: footer"></div>
-
 
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen">
     <svg class="circular" width="48px" height="48px">
         <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
-        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-                stroke="#F96D00"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/>
     </svg>
 </div>
-
 
 <script src="dantista/js/jquery.min.js"></script>
 <script src="dantista/js/jquery-migrate-3.0.1.min.js"></script>
