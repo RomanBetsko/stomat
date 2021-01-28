@@ -1,6 +1,5 @@
 package com.ua.stomat.appservices.controllers;
 
-import com.redfin.sitemapgenerator.WebSitemapGenerator;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -284,20 +283,20 @@ public class UnloginZoneController {
         }
     }
 
-    @RequestMapping("/sitemap.xml")
-    public void sitemap(HttpServletResponse response) throws IOException {
-        PrintWriter w = response.getWriter();
-        boolean isSitemapAlreadyCreated = sitemapDirectory != null;
-        if (isSitemapAlreadyCreated) {
-            pipeSitemapToResponse(w);
-            return;
-        }
-        sitemapDirectory = Files.createTempDirectory("mySitemap");
-        WebSitemapGenerator wsg = new WebSitemapGenerator("https://dentme.if.ua/", sitemapDirectory.toFile());
-        wsg.addUrl("https://dentme.if.ua/");
-        wsg.write();
-        pipeSitemapToResponse(w);
-    }
+//    @RequestMapping("/sitemap.xml")
+//    public void sitemap(HttpServletResponse response) throws IOException {
+//        PrintWriter w = response.getWriter();
+//        boolean isSitemapAlreadyCreated = sitemapDirectory != null;
+//        if (isSitemapAlreadyCreated) {
+//            pipeSitemapToResponse(w);
+//            return;
+//        }
+//        sitemapDirectory = Files.createTempDirectory("mySitemap");
+//        WebSitemapGenerator wsg = new WebSitemapGenerator("https://dentme.if.ua/", sitemapDirectory.toFile());
+//        wsg.addUrl("https://dentme.if.ua/");
+//        wsg.write();
+//        pipeSitemapToResponse(w);
+//    }
 
     private void pipeSitemapToResponse(PrintWriter w) {
 //        Path sitemap = Paths.get("../../../../../../../resources/static/", "sitemap.xml");
