@@ -4,6 +4,7 @@ import com.ua.stomat.appservices.service.AppointmentService;
 import com.ua.stomat.appservices.validator.AddAppointmentCriteria;
 import com.ua.stomat.appservices.validator.DeleteAppointmentCriteria;
 import com.ua.stomat.appservices.validator.NewAppointmentCriteria;
+import com.ua.stomat.appservices.validator.UpdateAppointmentCriteria;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -51,8 +52,8 @@ public class AppointmentController {
         return appointmentService.newAppointment(request);
     }
 
-//    @PostMapping(ADMIN_PATH + "/updateAppointmentById")
-//    public ResponseEntity<?> updateAppointment(@RequestBody @Valid DeleteAppointmentCriteria request, Errors errors) {
-//        return appointmentService.updateAppointment(request.getId(), errors);
-//    }
+    @PostMapping(ADMIN_PATH + "/appointment/update")
+    public ResponseEntity<?> updateAppointment(@RequestBody @Valid UpdateAppointmentCriteria request, Errors errors) {
+        return appointmentService.updateAppointment(request, errors);
+    }
 }

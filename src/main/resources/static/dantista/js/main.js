@@ -293,6 +293,8 @@ AOS.init({
 			},
 			error: function (e) {
                 document.getElementById("alert-success").style.display = "block";
+                console.log("newAppointment_success");
+                dataLayer.push({'event': 'newAppointment_success'});
                 // $('#modal-warning').css('display', 'block');
                 // $('#notificationresult').html(e);
                 // $('#overlay').fadeIn(400, function () {

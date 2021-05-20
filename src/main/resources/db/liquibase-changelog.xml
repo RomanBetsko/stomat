@@ -1,0 +1,15 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <include file="changelog/v1.0_01_create_client_table.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/v1.0_02_create_appointment_table.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/v1.0_03_create_doctor_table.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/v1.0_04_create_proc_table.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/v1.0_05_create_appointment_procedure_table.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/v1.0_06_init_doctor.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/v1.0_07_create_client_file_upload_table.xml" relativeToChangelogFile="true"/>
+
+</databaseChangeLog>

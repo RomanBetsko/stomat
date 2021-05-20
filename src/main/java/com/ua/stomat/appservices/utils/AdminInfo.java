@@ -1,17 +1,12 @@
 package com.ua.stomat.appservices.utils;
 
 import com.ua.stomat.appservices.dao.ClientRepository;
-import com.ua.stomat.appservices.entity.Appointment;
 import com.ua.stomat.appservices.entity.Client;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-
 
 @Service
 public class AdminInfo implements Serializable {

@@ -123,6 +123,7 @@ public class AppointmentServiceImpl implements AppointmentService {
                 procedure.setDescription(temp.getDescription());
                 procedure.setDoctor(appointment.getDoctor());
                 procedures.add(procedure);
+                procedureRepository.save(procedure);
             }
         }
         return procedures;
@@ -135,6 +136,32 @@ public class AppointmentServiceImpl implements AppointmentService {
             totalPrice = totalPrice + procedure.getPrice();
         }
         return totalPrice;
+    }
+
+    @Override
+    public ResponseEntity<?> updateAppointment(UpdateAppointmentCriteria request, Errors errors) {
+        AjaxResponseBody result = new AjaxResponseBody();
+        if (errors.hasErrors()) {
+            result.setMsg(errors.getAllErrors()
+                    .stream().map(DefaultMessageSourceResolvable::getDefaultMessage)
+                    .collect(Collectors.joining(",")));
+            return ResponseEntity.badRequest().body(result);
+        }
+        Appointment appointment = appointmentRepository.findByAppointmentId(request.getId());
+        Doctor doctor = appointment.getDoctor();
+        List<Procedure> proc = prepareProcedures(request.getProcedureCriteria(), appointment);
+        appointment.setProcedures(proc);
+        appointmentRepository.save(appointment);
+
+        List<Appointment> appointments = doctor.getAppointments();
+        appointments.add(appointment);
+        doctor.setAppointments(appointments);
+        doctor.setTotalAppointments(doctor.getTotalAppointments() + 1);
+
+        doctorRepository.save(doctor);
+
+        result.setMsg(appointment.getClient().getClientId().toString());
+        return ResponseEntity.ok(result);
     }
 
     @Override

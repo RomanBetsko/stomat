@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W6GBHK2');</script>
+    <!-- End Google Tag Manager -->
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154227438-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S7F3ZC630K"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() {
             dataLayer.push(arguments);
         }
         gtag('js', new Date());
-        gtag('config', 'UA-154227438-1');
+        gtag('config', 'G-S7F3ZC630K');
     </script>
+    <link rel="icon" type="image/png" href="../../dantista/fvc.jpg">
     <title th:text="#{title.blog}"></title>
     <meta name="description" th:content="#{description.blog}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="dantista/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="dantista/css/animate.css">
-    <link rel="stylesheet" href="dantista/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="dantista/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="dantista/css/magnific-popup.css">
-    <link rel="stylesheet" href="dantista/css/aos.css">
-    <link rel="stylesheet" href="dantista/css/ionicons.min.css">
-    <link rel="stylesheet" href="dantista/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="dantista/css/jquery.timepicker.css">
-    <link rel="stylesheet" href="dantista/css/flaticon.css">
-    <link rel="stylesheet" href="dantista/css/icomoon.css">
-    <link rel="stylesheet" href="dantista/css/style.css">
+    <link rel="stylesheet" href="../../dantista/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="../../dantista/css/animate.css">
+    <link rel="stylesheet" href="../../dantista/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../dantista/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../dantista/css/magnific-popup.css">
+    <link rel="stylesheet" href="../../dantista/css/aos.css">
+    <link rel="stylesheet" href="../../dantista/css/ionicons.min.css">
+    <link rel="stylesheet" href="../../dantista/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../../dantista/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="../../dantista/css/flaticon.css">
+    <link rel="stylesheet" href="../../dantista/css/icomoon.css">
+    <link rel="stylesheet" href="../../dantista/css/style.css">
     <style>
         body {
             font-family: 'Comfortaa', cursive;
@@ -37,7 +46,7 @@
 </head>
 <body>
 <!-- header -->
-<div th:include="dantista/fragments/header.html :: header"></div>
+<div th:include="dantista/fragments/header.html :: header(currentLang=${currentLang}, currentURL=${currentURL})"></div>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container d-flex align-items-center">
@@ -47,11 +56,11 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav m-auto">
-                <li class="nav-item"><a href="/#" class="nav-link pl-0" th:text="#{index.main}"></a></li>
-                <li class="nav-item"><a href="/about" class="nav-link" th:text="#{index.about}"></a></li>
-                <li class="nav-item"><a href="/services" class="nav-link" th:text="#{index.department}"></a></li>
-                <li class="nav-item active"><a href="/blog" class="nav-link" th:text="#{index.blog}"></a></li>
-                <li class="nav-item"><a href="/contact" class="nav-link" th:text="#{index.contact}"></a></li>
+                <li class="nav-item"><a th:href="'/' + ${currentLang} + '/'" class="nav-link pl-0" th:text="#{index.main}"></a></li>
+                <li class="nav-item"><a th:href="'/' + ${currentLang}  + '/about/'" class="nav-link" th:text="#{index.about}"></a></li>
+                <li class="nav-item"><a th:href="'/' + ${currentLang}  + '/services/'" class="nav-link" th:text="#{index.department}"></a></li>
+                <li class="nav-item active"><a th:href="'/' + ${currentLang}  + '/blog/'" class="nav-link" th:text="#{index.blog}"></a></li>
+                <li class="nav-item"><a th:href="'/' + ${currentLang}  + '/contact/'" class="nav-link" th:text="#{index.contact}"></a></li>
             </ul>
         </div>
     </div>
@@ -62,20 +71,19 @@
         <div class="row">
             <div class="col-md-4 ftco-animate">
                 <div class="blog-entry">
-                    <a href="/removal" class="block-20 d-flex align-items-end justify-content-end"
-                       style="background-image: url('dantista/images/removetooth.jpg');">
+                    <a th:href="'/' +  ${currentLang} + '/removal/'" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url('../../dantista/images/removetooth.jpg');">
                         <div class="meta-date text-center p-2">
                             <span class="day">1</span>
-                            <span class="mos">грудня</span>
+                            <span class="mos" th:text="#{december}"></span>
                             <span class="yr">2020</span>
                         </div>
                     </a>
                     <div class="text bg-white p-4">
-                        <h3 class="heading"><a href="/removal">Видалення зуба</a></h3>
-                        <p>Видалення зуба завжди наводило жах на пацієнтів. Але в ХХІ столітті цей страх більше не
-                            актуальний. З інноваційними методами знеболення процедура пройде безболісно.</p>
+                        <h3 class="heading"><a th:href="'/' +  ${currentLang} + '/removal/'" th:text="#{procedure.removal}"></a></h3>
+                        <p th:text="#{removal.p}"></p>
                         <div class="d-flex align-items-center mt-4">
-                            <p class="mb-0"><a href="/removal" class="btn btn-primary" th:text="#{therapeutic.more}">
+                            <p class="mb-0"><a th:href="'/' +  ${currentLang} + '/removal/'" class="btn btn-primary" th:text="#{therapeutic.more}">
                                 <span class="ion-ios-arrow-round-forward"></span></a></p>
                         </div>
                     </div>
@@ -104,20 +112,19 @@
 <!--            </div>-->
             <div class="col-md-4 ftco-animate">
                 <div class="blog-entry">
-                    <a href="/philipszoom" class="block-20 d-flex align-items-end justify-content-end"
-                       style="background-image: url('dantista/images/teeth-whitening-1024x683.jpg');">
+                    <a th:href="'/' +  ${currentLang} + '/philipszoom/'" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url('../../dantista/images/DentMe_teeth-whitening.jpg');">
                         <div class="meta-date text-center p-2">
                             <span class="day">30</span>
-                            <span class="mos">Листопада</span>
+                            <span class="mos" th:text="#{november}"></span>
                             <span class="yr">2020</span>
                         </div>
                     </a>
                     <div class="text bg-white p-4">
-                        <h3 class="heading"><a href="/philipszoom">Професійне відбілювання Philips-Zoom</a></h3>
-                        <p>Philips Zoom — це унікальна можливість відбілити ваші зуби однією з
-                            найпопулярніших та найефективніших систем у світі.</p>
+                        <h3 class="heading"><a th:href="'/' +  ${currentLang} + '/philipszoom/'" th:text="#{wittening.pro}"></a></h3>
+                        <p th:text="#{wittening.pro.p}"></p>
                         <div class="d-flex align-items-center mt-4">
-                            <p class="mb-0"><a href="/philipszoom" class="btn btn-primary"
+                            <p class="mb-0"><a th:href="'/' +  ${currentLang} + '/philipszoom/'" class="btn btn-primary"
                                                th:text="#{therapeutic.more}"><span
                                     class="ion-ios-arrow-round-forward"></span></a></p>
                         </div>
@@ -126,20 +133,19 @@
             </div>
             <div class="col-md-4 ftco-animate">
                 <div class="blog-entry">
-                    <a href="/hygiene" class="block-20 d-flex align-items-end justify-content-end"
-                       style="background-image: url('dantista/images/image.jpg');">
+                    <a th:href="'/' +  ${currentLang} + '/hygiene/'" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url('../../dantista/images/DentMe_higiene.jpg');">
                         <div class="meta-date text-center p-2">
                             <span class="day">29</span>
-                            <span class="mos">Листопада</span>
+                            <span class="mos" th:text="#{november}"></span>
                             <span class="yr">2020</span>
                         </div>
                     </a>
                     <div class="text bg-white p-4">
-                        <h3 class="heading"><a href="/hygiene">Професійна гігієна порожнини рота</a></h3>
-                        <p>Щоб ваші зуби зберігали природну білизну необхідно проводити професійну гігієну порожнини
-                            рота.</p>
+                        <h3 class="heading"><a th:href="'/' +  ${currentLang} + '/hygiene/'" th:text="#{periodontics.gigiena}"></a></h3>
+                        <p th:text="#{periodontics.gigiena.p}"></p>
                         <div class="d-flex align-items-center mt-4">
-                            <p class="mb-0"><a href="/hygiene" class="btn btn-primary"
+                            <p class="mb-0"><a th:href="'/' +  ${currentLang} + '/hygiene/'"  class="btn btn-primary"
                                                th:text="#{therapeutic.more}"><span
                                     class="ion-ios-arrow-round-forward"></span></a></p>
                         </div>
@@ -195,19 +201,19 @@
             <div class="col text-center">
                 <div class="block-27">
                     <ul>
-                        <li><a href="/blog"><i class="ion-ios-arrow-back"></i></a></li>
+                        <li><a th:href="'/' +  ${currentLang} + '/blog/'" ><i class="ion-ios-arrow-back"></i></a></li>
                         <li class="active"><span>1</span></li>
 <!--                        <li><a href="/blog2">2</a></li>-->
 <!--                        <li><a href="/blog3">3</a></li>-->
 <!--                        <li><a href="/blog4">4</a></li>-->
-                        <li><a href="/blog"><i class="ion-ios-arrow-forward"></i></a></li>
+                        <li><a th:href="'/' +  ${currentLang} + '/blog/'"><i class="ion-ios-arrow-forward"></i></a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<div th:replace="dantista/fragments/footer.html :: footer"></div>
+<div th:replace="dantista/fragments/footer.html :: footer(currentLang=${currentLang}, currentURL=${currentURL})"></div>
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen">
     <svg class="circular" width="48px" height="48px">
@@ -218,23 +224,23 @@
 </div>
 
 
-<script src="dantista/js/jquery.min.js"></script>
-<script src="dantista/js/jquery-migrate-3.0.1.min.js"></script>
-<script src="dantista/js/popper.min.js"></script>
-<script src="dantista/js/bootstrap.min.js"></script>
-<script src="dantista/js/jquery.easing.1.3.js"></script>
-<script src="dantista/js/jquery.waypoints.min.js"></script>
-<script src="dantista/js/jquery.stellar.min.js"></script>
-<script src="dantista/js/owl.carousel.min.js"></script>
-<script src="dantista/js/jquery.magnific-popup.min.js"></script>
-<script src="dantista/js/aos.js"></script>
-<script src="dantista/js/jquery.animateNumber.min.js"></script>
-<script src="dantista/js/bootstrap-datepicker.js"></script>
-<script src="dantista/js/jquery.timepicker.min.js"></script>
-<script src="dantista/js/scrollax.min.js"></script>
+<script src="../../dantista/js/jquery.min.js"></script>
+<script src="../../dantista/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="../../dantista/js/popper.min.js"></script>
+<script src="../../dantista/js/bootstrap.min.js"></script>
+<script src="../../dantista/js/jquery.easing.1.3.js"></script>
+<script src="../../dantista/js/jquery.waypoints.min.js"></script>
+<script src="../../dantista/js/jquery.stellar.min.js"></script>
+<script src="../../dantista/js/owl.carousel.min.js"></script>
+<script src="../../dantista/js/jquery.magnific-popup.min.js"></script>
+<script src="../../dantista/js/aos.js"></script>
+<script src="../../dantista/js/jquery.animateNumber.min.js"></script>
+<script src="../../dantista/js/bootstrap-datepicker.js"></script>
+<script src="../../dantista/js/jquery.timepicker.min.js"></script>
+<script src="../../dantista/js/scrollax.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="dantista/js/google-map.js"></script>
-<script src="dantista/js/main.js"></script>
+<script src="../../dantista/js/google-map.js"></script>
+<script src="../../dantista/js/main.js"></script>
 
 </body>
 </html>

@@ -6,7 +6,7 @@
 	<groupId>com.ua.stomat.betsko</groupId>
 	<artifactId>comuastomatbetsko</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>StomatBetsko</name>
 	<description>Stomat project for Betsko Nazar site</description>
@@ -191,7 +191,13 @@
 			<artifactId>jmimemagic</artifactId>
 			<version>0.1.5</version>
 		</dependency>
-        <!--Add new one-->
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>4.3.2</version>
+		</dependency>
+
+		<!--Add new one-->
 	</dependencies>
 
 	<build>
@@ -201,5 +207,6 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>app</finalName>
 	</build>
 </project>

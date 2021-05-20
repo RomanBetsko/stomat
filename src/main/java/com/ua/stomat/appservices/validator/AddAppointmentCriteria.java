@@ -18,10 +18,11 @@ public class AddAppointmentCriteria implements Serializable {
     private @NotEmpty(message = "Не вказано дату та час З") String dateTo;
     private String description;
     private String clinic;
+    @NotEmpty(message = "Не вибрано жожної процедури")
     private List<ProcedureCriteria> procedureCriteria;
 
-    public AddAppointmentCriteria(Integer clientId, @NotEmpty(message = "Не вказана назва") String name, @NotEmpty(message = "Не вказано дату та час З") String dateFrom,
-                                  @NotEmpty(message = "Не вказано дату та час З") String dateTo, String description, String clinic, List<ProcedureCriteria> procedureCriteria) {
+    public AddAppointmentCriteria(Integer clientId, @NotEmpty(message = "Не вказана назва") String name, @NotEmpty(message = "Не вказано дату та час початку") String dateFrom,
+                                  @NotEmpty(message = "Не вказано дату та час кінця") String dateTo, String description, String clinic, @NotEmpty(message = "Не вибрано жожної процедури")List<ProcedureCriteria> procedureCriteria) {
         this.clientId = clientId;
         this.name = name;
         this.dateFrom = dateFrom;

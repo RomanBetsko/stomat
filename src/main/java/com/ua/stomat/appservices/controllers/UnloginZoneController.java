@@ -1,34 +1,38 @@
 package com.ua.stomat.appservices.controllers;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.Files;
 
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.charset.Charset;
-import java.io.BufferedReader;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class UnloginZoneController {
 
     private Path sitemapDirectory;
 
-    @GetMapping("/")
-    public String internationalIndex() {
-        return "dantista/index";
+    @GetMapping("/{locale:en|ru|pl|uk}/")
+    public ModelAndView internationalIndex(HttpServletRequest request) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("currentURL", "services");
+        params.put("currentLang", StringUtils.substring(request.getRequestURI(), 1, 3));
+        return new ModelAndView("dantista/index", params);
     }
 
     @GetMapping("/login")
     public String loginView() {
-        return "/login";
+        return "login";
     }
 
     @GetMapping("/403")
@@ -41,15 +45,21 @@ public class UnloginZoneController {
 //        return "dantista/doctor";
 //    }
 
-    @GetMapping("/about")
-    public String about() {
-        return "dantista/about";
+    @GetMapping("/{locale:en|ru|pl|uk}/about")
+    public ModelAndView about(HttpServletRequest request) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("currentURL", "services");
+        params.put("currentLang", StringUtils.substring(request.getRequestURI(), 1, 3));
+        return new ModelAndView("dantista/about", params);
     }
 
     //Blog items
-    @GetMapping("/blog")
-    public String blog() {
-        return "dantista/blog";
+    @GetMapping("/{locale:en|ru|pl|uk}/blog")
+    public ModelAndView blog(HttpServletRequest request) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("currentURL", "services");
+        params.put("currentLang", StringUtils.substring(request.getRequestURI(), 1, 3));
+        return new ModelAndView("dantista/blog", params);
     }
 
 //    @GetMapping("/blog2")
@@ -68,79 +78,126 @@ public class UnloginZoneController {
 //    }
 
     //Contact
-    @GetMapping("/contact")
-    public String contact() {
-        return "dantista/contact";
+    @GetMapping("/{locale:en|ru|pl|uk}/contact")
+    public ModelAndView contact(HttpServletRequest request) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("currentURL", "contact");
+        params.put("currentLang", StringUtils.substring(request.getRequestURI(), 1, 3));
+        return new ModelAndView("dantista/contact", params);
     }
 
 
-    @GetMapping("/services")
-    public String services() {
-        return "dantista/services";
+    @GetMapping("/{locale:en|ru|pl|uk}/services")
+    public ModelAndView services(HttpServletRequest request) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("currentURL", "services");
+        params.put("currentLang", StringUtils.substring(request.getRequestURI(), 1, 3));
+        return new ModelAndView("dantista/services", params);
     }
 
     // List of services 9 pieces
 
-    @GetMapping("/therapeutic")
-    public String therapeutic() {
-        return "dantista/therapeutic";
+    @GetMapping("/{locale:en|ru|pl|uk}/therapeutic")
+    public ModelAndView therapeutic(HttpServletRequest request) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("currentURL", "services");
+        params.put("currentLang", StringUtils.substring(request.getRequestURI(), 1, 3));
+        return new ModelAndView("dantista/therapeutic", params);
     }
 
-    @GetMapping("/pediatric")
-    public String pediatric() {
-        return "dantista/pediatric";
+    @GetMapping("/{locale:en|ru|pl|uk}/pediatric")
+    public ModelAndView pediatric(HttpServletRequest request) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("currentURL", "services");
+        params.put("currentLang", StringUtils.substring(request.getRequestURI(), 1, 3));
+        return new ModelAndView("dantista/pediatric", params);
     }
 
-    @GetMapping("/surgery")
-    public String surgery() {
-        return "dantista/surgery";
+    @GetMapping("/{locale:en|ru|pl|uk}/surgery")
+    public ModelAndView surgery(HttpServletRequest request) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("currentURL", "services");
+        params.put("currentLang", StringUtils.substring(request.getRequestURI(), 1, 3));
+        return new ModelAndView("dantista/surgery", params);
     }
 
-    @GetMapping("/bleaching")
-    public String bleaching() {
-        return "dantista/bleaching";
+    @GetMapping("/{locale:en|ru|pl|uk}/bleaching")
+    public ModelAndView bleaching(HttpServletRequest request) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("currentURL", "services");
+        params.put("currentLang", StringUtils.substring(request.getRequestURI(), 1, 3));
+        return new ModelAndView("dantista/bleaching", params);
     }
 
-    @GetMapping("/orthodontics")
-    public String orthodontics() {
-        return "dantista/orthodontics";
+    @GetMapping("/{locale:en|ru|pl|uk}/orthodontics")
+    public ModelAndView orthodontics(HttpServletRequest request) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("currentURL", "services");
+        params.put("currentLang", StringUtils.substring(request.getRequestURI(), 1, 3));
+        return new ModelAndView("dantista/orthodontics", params);
     }
 
-    @GetMapping("/prosthesis")
-    public String prosthesis() {
-        return "dantista/prosthesis";
+    @GetMapping("/{locale:en|ru|pl|uk}/prosthesis")
+    public ModelAndView prosthesis(HttpServletRequest request) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("currentURL", "services");
+        params.put("currentLang", StringUtils.substring(request.getRequestURI(), 1, 3));
+        return new ModelAndView("dantista/prosthesis", params);
     }
 
-    @GetMapping("/lazer")
-    public String lazer() {
-        return "dantista/lazer";
+    @GetMapping("/{locale:en|ru|pl|uk}/lazer")
+    public ModelAndView lazer(HttpServletRequest request) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("currentURL", "services");
+        params.put("currentLang", StringUtils.substring(request.getRequestURI(), 1, 3));
+        return new ModelAndView("dantista/lazer", params);
     }
 
-    @GetMapping("/primary")
-    public String primary() {
-        return "dantista/primary";
+    @GetMapping("/{locale:en|ru|pl|uk}/primary")
+    public ModelAndView primary(HttpServletRequest request) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("currentURL", "services");
+        params.put("currentLang", StringUtils.substring(request.getRequestURI(), 1, 3));
+        return new ModelAndView("dantista/primary", params);
     }
 
-    @GetMapping("/periodontics")
-    public String periodontics() {
-        return "dantista/periodontics";
+    @GetMapping("/{locale:en|ru|pl|uk}/periodontics")
+    public ModelAndView periodontics(HttpServletRequest request) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("currentURL", "services");
+        params.put("currentLang", StringUtils.substring(request.getRequestURI(), 1, 3));
+        return new ModelAndView("dantista/periodontics", params);
     }
 
     // List of procedures
 
-    @GetMapping("/philipszoom")
-    public String philipszoom() {
-        return "dantista/procedure/philipszoom";
+    @GetMapping("/{locale:en|ru|pl|uk}/philipszoom")
+    public ModelAndView philipszoom(HttpServletRequest request) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("currentURL", "services");
+        params.put("currentLang", StringUtils.substring(request.getRequestURI(), 1, 3));
+        return new ModelAndView("dantista/procedure/philipszoom", params);
     }
 
-    @GetMapping("/hygiene")
-    public String hygiene() {
-        return "dantista/procedure/hygiene";
+    @GetMapping("/{locale:en|ru|pl|uk}/hygiene")
+    public ModelAndView hygiene(HttpServletRequest request) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("currentURL", "services");
+        params.put("currentLang", StringUtils.substring(request.getRequestURI(), 1, 3));
+        return new ModelAndView("dantista/procedure/hygiene", params);
     }
 
-    @GetMapping("/removal")
-    public String removal() {
-        return "dantista/procedure/removal";
+    @GetMapping("/{locale:en|ru|pl|uk}/removal")
+    public ModelAndView removal(HttpServletRequest request) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("currentURL", "services");
+        params.put("currentLang", StringUtils.substring(request.getRequestURI(), 1, 3));
+        return new ModelAndView("dantista/procedure/removal", params);
+    }
+
+    @GetMapping("/")
+    public RedirectView redirectView() {
+        return new RedirectView("/uk/");
     }
 
 //    @GetMapping("/caries")
@@ -297,18 +354,18 @@ public class UnloginZoneController {
 //        wsg.write();
 //        pipeSitemapToResponse(w);
 //    }
-
-    private void pipeSitemapToResponse(PrintWriter w) {
-//        Path sitemap = Paths.get("../../../../../../../resources/static/", "sitemap.xml");
-        Path sitemap = Paths.get(sitemapDirectory.toString(), "sitemap.xml");
-        Charset charset = Charset.forName("UTF-8");
-        try (BufferedReader reader = Files.newBufferedReader(sitemap, charset)) {
-            String line = null;
-            while ((line = reader.readLine()) != null) {
-                w.write(line);
-            }
-        } catch (IOException e) {
-            System.out.println("Failed to read the sitemap file.");
-        }
-    }
+//
+//    private void pipeSitemapToResponse(PrintWriter w) {
+////        Path sitemap = Paths.get("../../../../../../../resources/static/", "sitemap.xml");
+//        Path sitemap = Paths.get(sitemapDirectory.toString(), "sitemap.xml");
+//        Charset charset = Charset.forName("UTF-8");
+//        try (BufferedReader reader = Files.newBufferedReader(sitemap, charset)) {
+//            String line = null;
+//            while ((line = reader.readLine()) != null) {
+//                w.write(line);
+//            }
+//        } catch (IOException e) {
+//            System.out.println("Failed to read the sitemap file.");
+//        }
+//    }
 }

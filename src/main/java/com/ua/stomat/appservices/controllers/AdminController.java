@@ -30,22 +30,22 @@ public class AdminController {
 
     @GetMapping(ADMIN_PATH)
     public String admin() {
-        return "/admin";
+        return "admin";
     }
 
     @GetMapping(ADMIN_PATH + "/home")
     public String homeView() {
-        return "/admin";
+        return "admin";
     }
 
     @GetMapping(ADMIN_PATH + "/customer")
     public String customerView() {
-        return "/customer";
+        return "customer";
     }
 
     @GetMapping(ADMIN_PATH + "/editpage")
     public String editPage() {
-        return "/editpage";
+        return "editpage";
     }
 
     @GetMapping(ADMIN_PATH + "/informSize")
@@ -60,7 +60,7 @@ public class AdminController {
 
     @GetMapping(ADMIN_PATH + "/calendar")
     public String getCalendar() {
-        return "/calendar";
+        return "calendar";
     }
 
     @GetMapping(ADMIN_PATH + "/statistic")

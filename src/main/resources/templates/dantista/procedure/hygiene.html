@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W6GBHK2');</script>
+    <!-- End Google Tag Manager -->
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154227438-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S7F3ZC630K"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() {
             dataLayer.push(arguments);
         }
         gtag('js', new Date());
-        gtag('config', 'UA-154227438-1');
+        gtag('config', 'G-S7F3ZC630K');
     </script>
-
+    <link rel="icon" type="image/png" href="../../dantista/fvc.jpg">
     <title th:text="#{title.hygiene}"></title>
     <meta name="description" th:content="#{description.hygiene}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="dantista/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="dantista/css/animate.css">
-    <link rel="stylesheet" href="dantista/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="dantista/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="dantista/css/magnific-popup.css">
-    <link rel="stylesheet" href="dantista/css/aos.css">
-    <link rel="stylesheet" href="dantista/css/ionicons.min.css">
-    <link rel="stylesheet" href="dantista/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="dantista/css/jquery.timepicker.css">
-    <link rel="stylesheet" href="dantista/css/flaticon.css">
-    <link rel="stylesheet" href="dantista/css/icomoon.css">
-    <link rel="stylesheet" href="dantista/css/style.css">
+    <link rel="stylesheet" href="../../dantista/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="../../dantista/css/animate.css">
+    <link rel="stylesheet" href="../../dantista/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../dantista/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../dantista/css/magnific-popup.css">
+    <link rel="stylesheet" href="../../dantista/css/aos.css">
+    <link rel="stylesheet" href="../../dantista/css/ionicons.min.css">
+    <link rel="stylesheet" href="../../dantista/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../../dantista/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="../../dantista/css/flaticon.css">
+    <link rel="stylesheet" href="../../dantista/css/icomoon.css">
+    <link rel="stylesheet" href="../../dantista/css/style.css">
     <style>
         body {
             font-family: 'Comfortaa', cursive;
@@ -38,7 +46,7 @@
 </head>
 <body>
 <!-- header -->
-<div th:include="dantista/fragments/header.html :: header"></div>
+<div th:include="dantista/fragments/header.html :: header(currentLang=${currentLang}, currentURL=${currentURL})"></div>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container d-flex align-items-center">
@@ -48,28 +56,26 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav m-auto">
-                <li class="nav-item"><a href="/" class="nav-link pl-0" th:text="#{index.main}"></a></li>
-                <li class="nav-item"><a href="/about" class="nav-link" th:text="#{index.about}"></a></li>
-                <li class="nav-item active"><a href="/services" class="nav-link" th:text="#{index.department}"></a>
-                </li>
-                <li class="nav-item"><a href="/blog" class="nav-link" th:text="#{index.blog}"></a></li>
-                <li class="nav-item"><a href="/contact" class="nav-link" th:text="#{index.contact}"></a></li>
+                <li class="nav-item"><a th:href="'/' + ${currentLang} + '/'" class="nav-link pl-0" th:text="#{index.main}"></a></li>
+                <li class="nav-item"><a th:href="'/' + ${currentLang}  + '/about/'" class="nav-link" th:text="#{index.about}"></a></li>
+                <li class="nav-item active"><a th:href="'/' + ${currentLang}  + '/services/'" class="nav-link" th:text="#{index.department}"></a></li>
+                <li class="nav-item"><a th:href="'/' + ${currentLang}  + '/blog/'" class="nav-link" th:text="#{index.blog}"></a></li>
+                <li class="nav-item"><a th:href="'/' + ${currentLang}  + '/contact/'" class="nav-link" th:text="#{index.contact}"></a></li>
             </ul>
         </div>
     </div>
 </nav>
 
 <section class="hero-wrap hero-wrap-2"
-         style="background-image: url('dantista/images/ipprog.jpg'); background-position-y: center;">
+         style="background-image: url('../../dantista/images/ipprog.jpg'); background-position-y: center;">
 
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <a href="/periodontics"><h4 class="mb-2 bread">Пародонтологія</h4></a>
-                <h1 class="mb-2 bread" style="font-size: 1.5rem !important;">Професійна гігієна порожнини рота</h1>
-                <p style="color: #fff">Професійна гігієна порожнини рота - це цілий комплекс заходів (діагностичних, терапевтичних,
-                    профілактичних), які спрямовані не лише на естетику, але і на здоров'я ротової порожнини.</p>
+                <a th:href="'/' + ${currentLang}  + '/periodontics/'"><h4 class="mb-2 bread" th:text="#{paradontology.stomat}"></h4></a>
+                <h1 class="mb-2 bread" style="font-size: 1.5rem !important;" th:text="#{periodontics.gigiena}"></h1>
+                <p style="color: #fff" th:text="#{periodontics.gigiena.p.p}"></p>
             </div>
         </div>
     </div>
@@ -79,66 +85,43 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 ftco-animate">
-                <h2 class="mb-3" style="font-size: 1.5rem !important;">#1. Професійна гігієна порожнини рота</h2>
-                <p>Кожен хоче володіти красивою білосніжною посмішкою і в той же час обійтися без зайвих відвідувань стоматолога.
-                    Професійна гігієна порожнини рота необхідна, щоб зуби підтримували їх природну білизну.  Це комплексне чищення
-                    зубів та язика в три етапи.  Ця процедура проводиться в нашій клініці швидко, ефективно і без болю.  Ця
-                    процедура також рекомендується перед будь-яким лікуванням зубів.</p>
+                <h2 class="mb-3" style="font-size: 1.5rem !important;" th:text="#{paradontology.gigiena.1}"></h2>
+                <p  th:text="#{paradontology.gigiena.2}"></p>
                 <p>
-                    <img src="dantista/images/image.jpg" alt="" style="max-width: 100%;">
+                    <img src="../../dantista/images/DentMe_higiene.jpg" alt="" style="max-width: 100%;">
                 </p>
-                <h4 class="mb-3" style="font-size: 1.25rem !important;">Що входить до процедури чистки?</h4>
-                <p>До комплексної професійної гігієни порожнини рота входить:</p>
+                <h4 class="mb-3" style="font-size: 1.25rem !important;" th:text="#{paradontology.gigiena.3}"></h4>
+                <p th:text="#{paradontology.gigiena.4}"></p>
                 <ul>
-                    <li>зняття зубного каменю за допомогою ультразвуку;</li>
-                    <li>очищення м’якого налету за допомогою апарату Air-Flow.Цей метод дозволяє обробляти зуби спреєм
-                        з повітря, води та спеціального порошка гліцину , не травмуючи ясна та емаль зубів ефективно видаляє
-                        наліт та надає зубам природньої білизни;</li>
-                    <li>полірування емалі зубів спеціальними дрібнодисперстними пастами на основі цирконію , щоб створити
-                        гладку поверхню та попередити утворенню налету на зубах;
-                    </li>
-                    <li>фторування - ця процедура зміцнює емаль зубів та знижує чутливість на подразники. Ефект
-                        зберігається до 6-ти місяців.
-                    </li>
+                    <li th:text="#{paradontology.gigiena.5}"></li>
+                    <li th:text="#{paradontology.gigiena.6}"></li>
+                    <li th:text="#{paradontology.gigiena.7}"></li>
+                    <li th:text="#{paradontology.gigiena.8}"></li>
                 </ul>
                 <p></p>
-                <h4 class="mb-3" style="font-size: 1.25rem !important;">Зняття твердих відкладень ультразвуком</h4>
-                <p>Це процедура зняття твердих відкладень за допомогою стоматологічного ультразвукового апарату. Зняття
-                    відкладень ультразвуком  є найбільш ефективним методом очищення.
-                </p>
+                <h4 class="mb-3" style="font-size: 1.25rem !important;" th:text="#{paradontology.gigiena.9}"></h4>
+                <p th:text="#{paradontology.gigiena.10}"></p>
 
-                <p>Важливо не пошкодити емаль зуба під час процедури зняття зубних відкладень.</p>
+                <p th:text="#{paradontology.gigiena.11}"></p>
 
-                <p>Ультразвук чудово справляється з цим завданням, емаль буде неушкодженою, незалежно від кількості зубного
-                    нальоту.</p>
+                <p th:text="#{paradontology.gigiena.12}"></p>
 
-                <h4 class="mb-3" style="font-size: 1.25rem !important;">Зняття відкладень методом Air-Flow</h4>
-                <p>Наші фахівці стежать за сучасними розробками та методами які спрямовані на збереження цілісності емалі
-                    зубів. Кращим з них - це зняття м’яких відкладень методом Air-Flow спеціальним порошком  гліцином за
-                    допомогою апарату Satelec air-n-go.
-                </p>
+                <h4 class="mb-3" style="font-size: 1.25rem !important;" th:text="#{paradontology.gigiena.13}"></h4>
+                <p th:text="#{paradontology.gigiena.14}"></p>
 
-                <h4 class="mb-3" style="font-size: 1.25rem !important;">Переваги професійної гігієни порожнини рота у клініці DentMe є те, що:</h4>
+                <h4 class="mb-3" style="font-size: 1.25rem !important;" th:text="#{paradontology.gigiena.15}"></h4>
                 <ul>
-                    <li>стоматологи нашої клініки мають всі необхідні знання та великий досвід проведення ультразвукового
-                        чищення зубного каменю</li>
-                    <li>Наші висококваліфіковані лікарі зможуть виявити і видалити погано доступні підясенні відкладення,
-                        які можуть стати причиною серйозних проблем, наприклад, розсмоктування кісткової тканини навколо зуба,
-                        що призведе до розхитування зубів і згодом до складного пародонтиту. Саме з цієї причини ми
-                        рекомендуємо вам звертатися до досвідчених фахівців!</li>
+                    <li th:text="#{paradontology.gigiena.16}"></li>
+                    <li th:text="#{paradontology.gigiena.17}"></li>
                 </ul>
-                <h4 class="mb-3" style="font-size: 1.25rem !important;">Ціна питання</h4>
-                <p>У стоматології DentMe проводиться комплексна , професійна гігієна порожнини рота, без больових відчуттів
-                    і шкоди для зубної емалі. Фахівці клініки  з радістю проведуть професійну гігієну за доступними цінами
-                    та без використання соди.Пропонуємо записатись на безкоштовну консультацію у стоматологію DentMe - та
-                    посміхайтеся впевнено!
-                </p>
+                <h4 class="mb-3" style="font-size: 1.25rem !important;" th:text="#{question}"></h4>
+                <p th:text="#{paradontology.gigiena.18}"></p>
                 <div class="tag-widget post-tag-container mb-5 mt-5">
                     <div class="tagcloud">
-                        <a href="" class="tag-cloud-link">Івано-фрнанківськ</a>
-                        <a href="" class="tag-cloud-link">стоматологія</a>
-                        <a href="" class="tag-cloud-link">стоматолог</a>
-                        <a href="" class="tag-cloud-link">стоматологічна клініка</a>
+                        <a href="" class="tag-cloud-link" th:text="#{ivanofrankivsk}"></a>
+                        <a href="" class="tag-cloud-link" th:text="#{stomatologiya}"></a>
+                        <a href="" class="tag-cloud-link" th:text="#{stomatolog}"></a>
+                        <a href="" class="tag-cloud-link" th:text="#{klinika}"></a>
                     </div>
                 </div>
             </div>
@@ -149,22 +132,22 @@
                     <div class="sidebar-box ftco-animate">
                         <h3>Інші статті:</h3>
                         <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4" href="/philipszoom" style="background-image: url(dantista/images/teeth-whitening-1024x683.jpg);  border: 1px solid rgba(0, 0, 0, 0.15);"></a>
+                            <a class="blog-img mr-4" th:href="'/' +  ${currentLang} + '/philipszoom/'" style="background-image: url(../../dantista/images/DentMe_teeth-whitening.jpg);  border: 1px solid rgba(0, 0, 0, 0.15);"></a>
                             <div class="text">
-                                <h3 class="heading"><a href="/philipszoom">Професійне відбілювання Philips-Zoom</a></h3>
+                                <h3 class="heading"><a th:href="'/' +  ${currentLang} + '/philipszoom/'" th:text="#{wittening.pro}"></a></h3>
                                 <div class="meta">
-                                    <div><a href="/philipszoom"><span class="icon-calendar"></span> 30 листопада, 2020</a></div>
-                                    <div><a href="/philipszoom"><span class="icon-person"></span> Бецко Назар</a></div>
+                                    <div><a th:href="'/' +  ${currentLang} + '/philipszoom/'" th:text="#{30.november}"><span class="icon-calendar"></span></a></div>
+                                    <div><a th:href="'/' +  ${currentLang} + '/philipszoom/'" th:text="#{betsko}"><span class="icon-person"></span></a></div>
                                 </div>
                             </div>
                         </div>
                         <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4" href="/removal" style="background-image: url(dantista/images/removetooth.jpg); border: 1px solid rgba(0, 0, 0, 0.15);"></a>
+                            <a class="blog-img mr-4" th:href="'/' +  ${currentLang} + '/removal/'" style="background-image: url(../../dantista/images/removetooth.jpg); border: 1px solid rgba(0, 0, 0, 0.15);"></a>
                             <div class="text">
-                                <h3 class="heading"><a href="/removal">Видалення зуба</a></h3>
+                                <h3 class="heading"><a th:href="'/' +  ${currentLang} + '/removal/'" th:text="#{procedure.removal}"></a></h3>
                                 <div class="meta">
-                                    <div><a href="/removal"><span class="icon-calendar"></span> 1 грудня, 2020</a></div>
-                                    <div><a href="/removal"><span class="icon-person"></span> Бецко Назар</a></div>
+                                    <div><a th:href="'/' +  ${currentLang} + '/removal/'" th:text="#{1.december}"><span class="icon-calendar"></span></a></div>
+                                    <div><a th:href="'/' +  ${currentLang} + '/removal/'" th:text="#{betsko}"><span class="icon-person"></span></a></div>
                                 </div>
                             </div>
                         </div>
@@ -183,10 +166,10 @@
                 </div>
 
                 <div class="sidebar-box ftco-animate">
-                    <h3>#Хештеги/симптоми</h3>
+                    <h3 th:text="#{heshtag}"></h3>
                     <ul class="tagcloud m-0 p-0">
-                        <a href="" class="tag-cloud-link">Професійна гігієна</a>
-                        <a href="" class="tag-cloud-link">Професійне чищення зубів</a>
+                        <a href="" class="tag-cloud-link" th:text="#{gigiena.90}"></a>
+                        <a href="" class="tag-cloud-link" th:text="#{gigiena.91}"></a>
                     </ul>
                 </div>
             </div>
@@ -194,9 +177,7 @@
     </div>
 </section>
 
-
-<div th:replace="dantista/fragments/footer.html :: footer"></div>
-
+<div th:replace="dantista/fragments/footer.html :: footer(currentLang=${currentLang}, currentURL=${currentURL})"></div>
 
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen">
@@ -208,23 +189,23 @@
 </div>
 
 
-<script src="dantista/js/jquery.min.js"></script>
-<script src="dantista/js/jquery-migrate-3.0.1.min.js"></script>
-<script src="dantista/js/popper.min.js"></script>
-<script src="dantista/js/bootstrap.min.js"></script>
-<script src="dantista/js/jquery.easing.1.3.js"></script>
-<script src="dantista/js/jquery.waypoints.min.js"></script>
-<script src="dantista/js/jquery.stellar.min.js"></script>
-<script src="dantista/js/owl.carousel.min.js"></script>
-<script src="dantista/js/jquery.magnific-popup.min.js"></script>
-<script src="dantista/js/aos.js"></script>
-<script src="dantista/js/jquery.animateNumber.min.js"></script>
-<script src="dantista/js/bootstrap-datepicker.js"></script>
-<script src="dantista/js/jquery.timepicker.min.js"></script>
-<script src="dantista/js/scrollax.min.js"></script>
+<script src="../../dantista/js/jquery.min.js"></script>
+<script src="../../dantista/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="../../dantista/js/popper.min.js"></script>
+<script src="../../dantista/js/bootstrap.min.js"></script>
+<script src="../../dantista/js/jquery.easing.1.3.js"></script>
+<script src="../../dantista/js/jquery.waypoints.min.js"></script>
+<script src="../../dantista/js/jquery.stellar.min.js"></script>
+<script src="../../dantista/js/owl.carousel.min.js"></script>
+<script src="../../dantista/js/jquery.magnific-popup.min.js"></script>
+<script src="../../dantista/js/aos.js"></script>
+<script src="../../dantista/js/jquery.animateNumber.min.js"></script>
+<script src="../../dantista/js/bootstrap-datepicker.js"></script>
+<script src="../../dantista/js/jquery.timepicker.min.js"></script>
+<script src="../../dantista/js/scrollax.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="dantista/js/google-map.js"></script>
-<script src="dantista/js/main.js"></script>
+<script src="../../dantista/js/google-map.js"></script>
+<script src="../../dantista/js/main.js"></script>
 
 </body>
 </html>

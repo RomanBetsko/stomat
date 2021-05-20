@@ -32,4 +32,6 @@ public interface AppointmentService {
     List<NewClientsGraph> getNewClientsStatistic();
 
     ModelAndView newAppointment(NewAppointmentCriteria request);
+
+    ResponseEntity<?> updateAppointment(UpdateAppointmentCriteria request, Errors errors);
 }

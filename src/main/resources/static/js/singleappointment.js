@@ -63,4 +63,59 @@ $(document).ready(function () {
         $('.procedures-list .row').append(template);
     });
 
+
+    $('.appointment-header .btn-update').on('click', function(e) {
+        e.preventDefault();
+        var _data = {};
+        _data["name"] = document.getElementById('name').innerText;
+        // _data["clientId"] = $("#clientId").data("clientid");
+        _data["description"] = document.getElementById('description').innerText;
+        _data["id"] = document.getElementById('id').innerText;
+        // _data["dateFrom"] = $("#dateFrom".toString()).val();
+        // _data["dateTo"] = $("#dateTo".toString()).val();
+        // //todo тягнути клініку для якої створюється запис. у майбутньому
+        // _data["clinic"] = "BetskoClinic";
+        _data["procedureCriteria"] = [];
+
+        var x = $(this).data();
+        console.log(x);
+        var title = document.getElementsByClassName("card-title editable-item");
+        for(var i=0; i<title.length; i++) {
+            _data["procedureCriteria"].push({name: title[i].innerText, description: '', price: ''});
+        }
+
+        var price = document.getElementsByClassName("card-price editable-item");
+        for(var i=0; i<price.length; i++) {
+            _data.procedureCriteria[i].price = price[i].innerText;
+        }
+
+        var description = document.getElementsByClassName("card-text editable-item");
+        for(var i=0; i<description.length; i++) {
+            _data.procedureCriteria[i].description = description[i].innerText;
+        }
+        _data["procedureCriteria"].shift();
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "/admin/appointment/update",
+            data: JSON.stringify(_data),
+            dataType: 'json',
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+
+                console.log("SUCCESS : ", data);
+                // var url = new URL(window.location.href);
+                // var id = url.searchParams.get("id");
+                window.location.replace('/admin/client?id=' + data.msg.toString());
+            },
+            error: function (e) {
+
+                var json = e.responseText;
+                $('#result').append(json);
+                console.log("ERROR : ", e);
+                $("#btn-add").prop("disabled", false);
+            }
+        });
+    });
 });

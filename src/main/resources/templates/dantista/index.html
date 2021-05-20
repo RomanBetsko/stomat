@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W6GBHK2');</script>
+    <!-- End Google Tag Manager -->
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154227438-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S7F3ZC630K"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() {dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'UA-154227438-1');
+        gtag('config', 'G-S7F3ZC630K');
     </script>
+    <link rel="icon" type="image/png" href="../dantista/fvc.jpg">
     <title th:text="#{title.index}"></title>
     <meta name="description" th:content="#{description.index}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="dantista/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="dantista/css/animate.css">
-    <link rel="stylesheet" href="dantista/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="dantista/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="dantista/css/magnific-popup.css">
-    <link rel="stylesheet" href="dantista/css/aos.css">
-    <link rel="stylesheet" href="dantista/css/ionicons.min.css">
-    <link rel="stylesheet" href="dantista/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="dantista/css/jquery.timepicker.css">
-    <link rel="stylesheet" href="dantista/css/flaticon.css">
-    <link rel="stylesheet" href="dantista/css/icomoon.css">
-    <link rel="stylesheet" href="dantista/css/style.css">
+    <link rel="stylesheet" href="../dantista/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="../dantista/css/animate.css">
+    <link rel="stylesheet" href="../dantista/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../dantista/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../dantista/css/magnific-popup.css">
+    <link rel="stylesheet" href="../dantista/css/aos.css">
+    <link rel="stylesheet" href="../dantista/css/ionicons.min.css">
+    <link rel="stylesheet" href="../dantista/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../dantista/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="../dantista/css/flaticon.css">
+    <link rel="stylesheet" href="../dantista/css/icomoon.css">
+    <link rel="stylesheet" href="../dantista/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
     <meta name="google-site-verification" content="mHo2yfKAhmu3oMdOYKECWYCqU7UXpWE3BERmtM0VG_Y" />
     <style>
@@ -40,7 +49,81 @@
 </head>
 <body>
 <!-- header -->
-<div th:include="dantista/fragments/header.html :: header"></div>
+<div th:fragment="header">
+    <div class="py-md-5 py-4 border-bottom">
+        <div class="container">
+            <div class="row no-gutters d-flex align-items-start align-items-center px-3 px-md-0">
+                <div class="col-md-4 order-md-2 mb-2 mb-md-0 align-items-center text-center">
+                    <a class="navbar-brand" th:href="'/' + ${currentLang}  + '/'"
+                       style=" font-family: 'Poppins', Arial, sans-serif;">DentMe<span
+                            th:text="#{stomat.clinic}"></span></a>
+                </div>
+                <div class="col-md-4 order-md-1 d-flex topper mb-md-0 mb-2 align-items-center text-md-right">
+                    <div class="icon d-flex justify-content-center align-items-center order-md-last">
+                        <a target="_blank" href="https://goo.gl/maps/GBt21ikHziUjkgSUA"><span class="icon-map"></span></a>
+                    </div>
+                    <div class="pr-md-3 pl-md-0 pl-3 text">
+                        <p class="con"><span th:text="#{phone.vodafone}"></span> <a href="tel://+380995142567"><span
+                                style="color: black">+380 99 514 2567</span></a></p>
+                        <p class="con"><span th:text="#{phone.kyivstar}"></span> <a href="tel://+380987184004"><span
+                                style="color: black">+380 98 718 4004</span></a></p>
+                        <a target="_blank" href="https://goo.gl/maps/GBt21ikHziUjkgSUA" style="color: rgba(0, 0, 0, 0.6);">
+                            <p class="con" th:text="#{address}"></p>
+                        </a>
+                        <a target="_blank" href="https://goo.gl/maps/GBt21ikHziUjkgSUA" style="color: rgba(0, 0, 0, 0.6);">
+                            <p class="con" th:text="#{address.2}"></p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 order-md-3 d-flex topper mb-md-0 align-items-center">
+                    <div class="icon d-flex justify-content-center align-items-center"><span
+                            class="ion-md-calendar"></span></div>
+                    <div class="text pl-3 pl-md-3">
+                        <p class="hr"><span th:text="#{open.hours}"></span></p>
+                        <p class="time"><span th:text="#{monday.saturday}"></span> <span th:text="#{hours.time}"></span></p>
+                        <p class="time"><span th:text="#{hours.holiday}"></span><span> </span></p>
+                    </div>
+                    <a href="" class="dropdown-menu-sm-left" data-toggle="dropdown" data-close-others="true">
+                        <img th:if="(__${#locale}__ =='uk') or (__${#locale}__ =='uk_UA')"
+                             src="../dantista/images/ukraine-flag-square-icon-32.png"
+                             style="border-radius: 50%;border-style: groove;"/>
+                        <img th:if="__${#locale}__ == 'pl'"
+                             src="../dantista/images/poland-flag-square-icon-32.png"
+                             style="border-radius: 50%;border-style: groove;"/>
+                        <img th:if="__${#locale}__ == 'en'"
+                             src="../dantista/images/united-kingdom-flag-square-icon-32.png"
+                             style="border-radius: 50%;border-style: groove;"/>
+                        <img th:if="__${#locale}__ == 'ru'"
+                             src="../dantista/images/russia-flag-square-icon-32.png"
+                             style="border-radius: 50%; border-style: groove;"/>
+                    </a>
+                    <ul class="dropdown-menu pull-right" style="border-style: none; margin-left: 5px">
+                        <li>
+                            <a href="/ru/" style="border: 2px solid rgba(0, 0, 0, 0.15);">
+                                <img src="../dantista/images/russia-flag-icon-32.png"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/pl/" style="border: 2px solid rgba(0, 0, 0, 0.15);">
+                                <img src="../dantista/images/poland-flag-icon-32.png"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/en/" style="border: 2px solid rgba(0, 0, 0, 0.15);">
+                                <img src="../dantista/images/united-kingdom-flag-icon-32.png"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/uk/" style="border: 2px solid rgba(0, 0, 0, 0.15);">
+                                <img src="../dantista/images/ukraine-flag-icon-32.png"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container d-flex align-items-center">
@@ -50,11 +133,11 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav m-auto">
-                <li class="nav-item active"><a href="/#" class="nav-link pl-0" th:text="#{index.main}"></a></li>
-                <li class="nav-item"><a href="/about" class="nav-link" th:text="#{index.about}"></a></li>
-                <li class="nav-item"><a href="/services" class="nav-link" th:text="#{index.department}"></a></li>
-                <li class="nav-item"><a href="/blog" class="nav-link" th:text="#{index.blog}"></a></li>
-                <li class="nav-item"><a href="/contact" class="nav-link" th:text="#{index.contact}"></a></li>
+                <li class="nav-item active"><a href="" class="nav-link pl-0" th:text="#{index.main}"></a></li>
+                <li class="nav-item"><a href="about/" class="nav-link" th:text="#{index.about}"></a></li>
+                <li class="nav-item"><a href="services/" class="nav-link" th:text="#{index.department}"></a></li>
+                <li class="nav-item"><a href="blog/" class="nav-link" th:text="#{index.blog}"></a></li>
+                <li class="nav-item"><a href="contact/" class="nav-link" th:text="#{index.contact}"></a></li>
             </ul>
         </div>
     </div>
@@ -62,7 +145,7 @@
 
 <div class="mobileShow">
 
-    <div style="background-image:url(dantista/images/wtf.jpg);">
+    <div style="background-image:url(../dantista/images/DentMe_lazer.jpg);">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-end"
@@ -72,7 +155,7 @@
                         style="font-size: 1.75rem; margin-top: 2.5rem; text-align: center !important;"></h1>
                     <h3 class="subheading" th:text="#{index.slider.first.about}"
                         style="font-size: 1.20rem; text-align: center !important;"></h3>
-                    <p><a href="/about" class="btn btn-secondary px-4 py-3 mt-3" th:text="#{index.about}"></a></p>
+                    <p><a href="about/" class="btn btn-secondary px-4 py-3 mt-3" th:text="#{index.about}"></a></p>
                 </div>
             </div>
         </div>
@@ -83,7 +166,7 @@
 
 <div class="mobileHide">
     <section class="home-slider owl-carousel">
-        <div class="slider-item" style="background-image:url(dantista/images/bg_2.jpg);">
+        <div class="slider-item" style="background-image:url(../dantista/images/DentMe_bg_2.jpg);background-position-y: 25%;">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row no-gutters slider-text align-items-center justify-content-end"
@@ -91,12 +174,12 @@
                     <div class="col-md-6 text ftco-animate">
                         <h1 class="mb-4" th:text="#{index.slider.first}"></h1>
                         <h3 class="subheading" th:text="#{index.slider.first.about}"></h3>
-                        <p><a href="/about" class="btn btn-secondary px-4 py-3 mt-3" th:text="#{index.about}"></a></p>
+                        <p><a href="about/" class="btn btn-secondary px-4 py-3 mt-3" th:text="#{index.about}"></a></p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="slider-item" style="background-image:url(dantista/images/bg_1.jpg);">
+        <div class="slider-item" style="background-image:url(../dantista/images/DentMe_bg_1.jpg);background-position-y: 25%;" >
             <div class="overlay"></div>
             <div class="container">
                 <div class="row no-gutters slider-text align-items-center justify-content-end"
@@ -105,7 +188,6 @@
                         <h1 class="mb-4" th:text="#{index.slider.second}"></h1>
                         <h3 class="subheading" th:text="#{index.slider.second.about}"></h3>
                         <p><a href="/about" class="btn btn-secondary px-4 py-3 mt-3" th:text="#{index.about}"></a></p>
-<!--                        <div id="submit"></div>-->
                     </div>
                 </div>
             </div>
@@ -122,7 +204,7 @@
                     <div class="consultation w-100 text-center px-4 px-md-5">
                         <h3 class="mb-4" th:text="#{appointment.left.header}"></h3>
                         <p th:text="#{appointment.left.body}"></p>
-                        <a href="/services" class="btn-custom" th:text="#{appointment.left.footer}"></a>
+                        <a href="services/" class="btn-custom" th:text="#{appointment.left.footer}"></a>
                     </div>
                 </div>
                 <div class="col-md-6 d-flex align-items-stretch">
@@ -181,10 +263,10 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                <h4 class="alert-heading">Чудово!</h4>
-                                <p>Ваші дані отримано. Наш спеціаліст звяжеться з вами найближчим часом!</p>
+                                <h4 class="alert-heading" th:text="#{appointment.success}"></h4>
+                                <p th:text="#{appointment.data}"></p>
                                 <hr>
-                                <p class="mb-0">Дякуємо за звернення!</p>
+                                <p class="mb-0" th:text="#{appointment.thanks}">Дякуємо за звернення!</p>
 
                             </div>
 
@@ -192,20 +274,20 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                <h4 class="alert-heading">Введені не усі дані!</h4>
-                                <p>Введіть будь-ласка імя, та спробуйте знову</p>
+                                <h4 class="alert-heading" th:text="#{appointment.alert}"></h4>
+                                <p  th:text="#{appointment.alert.massage}"></p>
                                 <hr>
-                                <p class="mb-0">Дякуємо!</p>
+                                <p class="mb-0" th:text="#{appointment.ty}"></p>
 
                             </div>
                             <div class="alert alert-danger" role="alert" style="display: none;" id="alert-phone">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                <h4 class="alert-heading">Введені не усі дані!</h4>
-                                <p>Введіть будь-ласка телефон, та спробуйте знову</p>
+                                <h4 class="alert-heading" th:text="#{appointment.alert}"></h4>
+                                <p th:text="#{appointment.alert.massage.2}"></p>
                                 <hr>
-                                <p class="mb-0">Дякуємо!</p>
+                                <p class="mb-0" th:text="#{appointment.ty}"></p>
                             </div>
                         </div>
                     </div>
@@ -214,7 +296,7 @@
                     <div class="consultation w-100 text-center px-4 px-md-5">
                         <h3 class="mb-4" th:text="#{appointment.rigth.header}"></h3>
                         <p th:text="#{appointment.rigth.body}"></p>
-                        <a href="/blog" class="btn-custom" th:text="#{appointment.rigth.footer}"></a>
+                        <a href="blog/" class="btn-custom" th:text="#{appointment.rigth.footer}"></a>
                     </div>
                 </div>
             </div>
@@ -228,11 +310,11 @@
         <div class="row">
             <div class="col-md-3 ftco-animate">
                 <div class="blog-entry">
-                    <a href="/therapeutic" class="block-20 d-flex align-items-end justify-content-end"
-                       style="background-image: url(dantista/images/dept-3.jpg);">
+                    <a href="therapeutic/" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(../dantista/images/DentMe_therapeutic.jpg);">
                     </a>
                     <div class="text bg-white p-4">
-                        <h3 class="heading text-center"><a href="/therapeutic" th:text="#{terapet.stomat}"
+                        <h3 class="heading text-center"><a href="therapeutic/" th:text="#{terapet.stomat}"
                                                            class="text-center"></a></h3>
                         <p href="/therapeutic" th:text="#{terapet.stomat.description}" class="text-center"></p>
 
@@ -242,84 +324,84 @@
 
             <div class="col-md-3 ftco-animate">
                 <div class="blog-entry">
-                    <a href="/pediatric" class="block-20 d-flex align-items-end justify-content-end"
-                       style="background-image: url(dantista/images/dept-4.jpg);">
+                    <a href="pediatric/" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(../dantista/images/DentMe_pediatric.jpg);">
                     </a>
                     <div class="text bg-white p-4">
-                        <h3 class="heading text-center"><a href="/pediatric" th:text="#{baby.stomat}"
+                        <h3 class="heading text-center"><a href="pediatric/" th:text="#{baby.stomat}"
                                                            class="text-center"></a></h3>
-                        <p href="/pediatric" th:text="#{baby.stomat.description}" class="text-center"></p>
+                        <p href="pediatric/" th:text="#{baby.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-3 ftco-animate">
                 <div class="blog-entry">
-                    <a href="/surgery" class="block-20 d-flex align-items-end justify-content-end"
-                       style="background-image: url(dantista/images/dept-8.jpg);">
+                    <a href="surgery/" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(../dantista/images/DentMe_surgery.jpg);">
                     </a>
                     <div class="text bg-white p-4">
-                        <h3 class="heading text-center"><a href="/surgery" th:text="#{hirurgiya.stomat}"></a></h3>
-                        <p href="/surgery" th:text="#{hirurgiya.stomat.description}" class="text-center"></p>
+                        <h3 class="heading text-center"><a href="surgery/" th:text="#{hirurgiya.stomat}"></a></h3>
+                        <p href="surgery/" th:text="#{hirurgiya.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-3 ftco-animate">
                 <div class="blog-entry">
-                    <a href="/bleaching" class="block-20 d-flex align-items-end justify-content-end"
-                       style="background-image: url(dantista/images/dept-1.jpg);">
+                    <a href="bleaching/" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(../dantista/images/DentMe_bleaching.jpg);">
                     </a>
                     <div class="text bg-white p-4">
-                        <h3 class="heading text-center"><a href="/bleaching" th:text="#{wittening.stomat}"></a></h3>
-                        <p href="/bleaching" th:text="#{wittening.stomat.description}" class="text-center"></p>
+                        <h3 class="heading text-center"><a href="bleaching/" th:text="#{wittening.stomat}"></a></h3>
+                        <p href="bleaching/" th:text="#{wittening.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-3 ftco-animate">
                 <div class="blog-entry">
-                    <a href="/orthodontics" class="block-20 d-flex align-items-end justify-content-end"
-                       style="background-image: url(dantista/images/dept-7.jpg);">
+                    <a href="orthodontics/" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(../dantista/images/DentMe_orthodontics.jpg);">
                     </a>
                     <div class="text bg-white p-4">
-                        <h3 class="heading text-center"><a href="/orthodontics" th:text="#{ortodontiya.stomat}"></a>
+                        <h3 class="heading text-center"><a href="orthodontics/" th:text="#{ortodontiya.stomat}"></a>
                         </h3>
-                        <p href="/orthodontics" th:text="#{ortodontiya.stomat.description}" class="text-center"></p>
+                        <p href="orthodontics/" th:text="#{ortodontiya.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 ftco-animate">
                 <div class="blog-entry">
-                    <a href="/prosthesis" class="block-20 d-flex align-items-end justify-content-end"
-                       style="background-image: url(dantista/images/dept-6.jpg);">
+                    <a href="prosthesis/" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(../dantista/images/DentMe_prosthesis.jpg);">
                     </a>
                     <div class="text bg-white p-4">
-                        <h3 class="heading text-center"><a href="/prosthesis" th:text="#{protes.stomat}"></a></h3>
-                        <p href="/prosthesis" th:text="#{protes.stomat.description}" class="text-center"></p>
+                        <h3 class="heading text-center"><a href="prosthesis/" th:text="#{protes.stomat}"></a></h3>
+                        <p href="prosthesis/" th:text="#{protes.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 ftco-animate">
                 <div class="blog-entry">
-                    <a href="/lazer" class="block-20 d-flex align-items-end justify-content-end"
-                       style="background-image: url(dantista/images/wtf.jpg);">
+                    <a href="lazer/" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(../dantista/images/DentMe_lazer.jpg);">
                     </a>
                     <div class="text bg-white p-4">
-                        <h3 class="heading text-center"><a href="/lazer" th:text="#{lazers.stomat}"></a></h3>
-                        <p href="/lazer" th:text="#{lazers.stomat.description}" class="text-center"></p>
+                        <h3 class="heading text-center"><a href="lazer/" th:text="#{lazers.stomat}"></a></h3>
+                        <p href="lazer/" th:text="#{lazers.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 ftco-animate">
                 <div class="blog-entry">
-                    <a href="/periodontics" class="block-20 d-flex align-items-end justify-content-end"
-                       style="background-image: url(dantista/images/dept-5.jpg);">
+                    <a href="periodontics/" class="block-20 d-flex align-items-end justify-content-end"
+                       style="background-image: url(../dantista/images/DentMe_periodontics.jpg);">
                     </a>
                     <div class="text bg-white p-4">
-                        <h3 class="heading text-center"><a href="/periodontics" th:text="#{paradontology.stomat}"></a>
+                        <h3 class="heading text-center"><a href="periodontics/" th:text="#{paradontology.stomat}"></a>
                         </h3>
-                        <p href="/periodontics" th:text="#{paradontology.stomat.description}" class="text-center"></p>
+                        <p href="periodontics/" th:text="#{paradontology.stomat.description}" class="text-center"></p>
                     </div>
                 </div>
             </div>
@@ -328,7 +410,7 @@
 </section>
 
 <div class="mobileHide">
-<section class="ftco-intro" style="background-image: url(dantista/images/ipprog.jpg);">
+<section class="ftco-intro" style="background-image: url(../dantista/images/ipprog.jpg);">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
@@ -341,7 +423,7 @@
 </section>
 </div>
 
-<!-- Стоматологи, команда -->
+<!-- Стоматологи, команда-->
 <div class="mobileHide">
     <section class="ftco-section" style="padding-bottom: 1em; padding-top: 3em;">
         <div class="container">
@@ -356,7 +438,7 @@
                     <div class="staff">
                         <div class="img-wrap d-flex align-items-stretch">
                             <div class="img align-self-stretch"
-                                 style="background-image: url(dantista/images/IMG_6647.JPG);"></div>
+                                 style="background-image: url(../dantista/images/DentMe_Panchishin.jpg);"></div>
                         </div>
                         <div class="text pt-3 text-center">
                             <h3 th:text="#{index.doctor.panchishin}"></h3>
@@ -380,7 +462,7 @@
                     <div class="staff">
                         <div class="img-wrap d-flex align-items-stretch">
                             <div class="img align-self-stretch"
-                                 style="background-image: url(dantista/images/IMG_6646.JPG);"></div>
+                                 style="background-image: url(../dantista/images/DentMe_Betsko.jpg);"></div>
                         </div>
                         <div class="text pt-3 text-center">
                             <h3 th:text="#{index.doctor.betsko}"></h3>
@@ -405,7 +487,7 @@
                     <div class="staff">
                         <div class="img-wrap d-flex align-items-stretch">
                             <div class="img align-self-stretch"
-                                 style="background-image: url(dantista/images/IMG_6648.JPG);"></div>
+                                 style="background-image: url(../dantista/images/DentMe_Stefa.jpg);"></div>
                         </div>
                         <div class="text pt-3 text-center">
                             <h3 th:text="#{index.doctor.stefanchyk}"></h3>
@@ -435,7 +517,7 @@
 </div>
 
 <!--Реклама-->
-<section class="ftco-intro" style="background-image: url(dantista/images/ipprog.jpg);">
+<section class="ftco-intro" style="background-image: url(../dantista/images/ipprog.jpg);">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
@@ -445,7 +527,7 @@
                 <p></p>
             </div>
             <div class="col-md-3 d-flex align-items-center">
-                <p class="mb-0"><a href="/philipszoom" class="btn btn-secondary px-4 py-3"
+                <p class="mb-0"><a href="philipszoom/" class="btn btn-secondary px-4 py-3"
                                    th:text="#{index.advertising.more}"></a>
                 </p>
             </div>
@@ -466,20 +548,19 @@
             <div class="row">
                 <div class="col-md-4 ftco-animate">
                     <div class="blog-entry">
-                        <a href="/removal" class="block-20 d-flex align-items-end justify-content-end"
-                           style="background-image: url('dantista/images/removetooth.jpg'); border: 1px solid rgba(0, 0, 0, 0.15);">
+                        <a href="removal/" class="block-20 d-flex align-items-end justify-content-end"
+                           style="background-image: url('../dantista/images/removetooth.jpg'); border: 1px solid rgba(0, 0, 0, 0.15);">
                             <div class="meta-date text-center p-2">
                                 <span class="day">1</span>
-                                <span class="mos">грудня</span>
+                                <span class="mos" th:text="#{december}"></span>
                                 <span class="yr">2020</span>
                             </div>
                         </a>
                         <div class="text bg-white p-4">
-                            <h3 class="heading"><a href="/removal">Видалення зуба</a></h3>
-                            <p>Видалення зуба завжди наводило жах на пацієнтів. Але в ХХІ столітті цей страх більше не
-                                актуальний. З інноваційними методами знеболення процедура пройде безболісно.</p>
+                            <h3 class="heading"><a href="removal/" th:text="#{removal}"></a></h3>
+                            <p th:text="#{removal.p}"></p>
                             <div class="d-flex align-items-center mt-4">
-                                <p class="mb-0"><a href="/removal" class="btn btn-primary"
+                                <p class="mb-0"><a href="removal/" class="btn btn-primary"
                                                    th:text="#{therapeutic.more}">
                                     <span class="ion-ios-arrow-round-forward"></span></a></p>
                             </div>
@@ -488,20 +569,19 @@
                 </div>
                 <div class="col-md-4 ftco-animate">
                     <div class="blog-entry">
-                        <a href="/philipszoom" class="block-20 d-flex align-items-end justify-content-end"
-                           style="background-image: url('dantista/images/teeth-whitening-1024x683.jpg'); border: 1px solid rgba(0, 0, 0, 0.15);">
+                        <a href="philipszoom/" class="block-20 d-flex align-items-end justify-content-end"
+                           style="background-image: url('../dantista/images/DentMe_teeth-whitening.jpg'); border: 1px solid rgba(0, 0, 0, 0.15);">
                             <div class="meta-date text-center p-2">
                                 <span class="day">30</span>
-                                <span class="mos">Листопада</span>
+                                <span class="mos" th:text="#{november}"></span>
                                 <span class="yr">2020</span>
                             </div>
                         </a>
                         <div class="text bg-white p-4">
-                            <h3 class="heading"><a href="/philipszoom">Професійне відбілювання Philips-Zoom</a></h3>
-                            <p>Philips Zoom — це унікальна можливість відбілити ваші зуби однією з
-                                найпопулярніших та найефективніших систем у світі.</p>
+                            <h3 class="heading"><a href="philipszoom/" th:text="#{wittening.pro}"></a></h3>
+                            <p th:text="#{wittening.pro.p}"></p>
                             <div class="d-flex align-items-center mt-4">
-                                <p class="mb-0"><a href="/philipszoom" class="btn btn-primary"
+                                <p class="mb-0"><a href="philipszoom/" class="btn btn-primary"
                                                    th:text="#{therapeutic.more}"><span
                                         class="ion-ios-arrow-round-forward"></span></a></p>
                             </div>
@@ -510,20 +590,19 @@
                 </div>
                 <div class="col-md-4 ftco-animate">
                     <div class="blog-entry">
-                        <a href="/hygiene" class="block-20 d-flex align-items-end justify-content-end"
-                           style="background-image: url('dantista/images/image.jpg'); border: 1px solid rgba(0, 0, 0, 0.15);">
+                        <a href="hygiene/" class="block-20 d-flex align-items-end justify-content-end"
+                           style="background-image: url('../dantista/images/DentMe_higiene.jpg'); border: 1px solid rgba(0, 0, 0, 0.15);">
                             <div class="meta-date text-center p-2">
                                 <span class="day">29</span>
-                                <span class="mos">Листопада</span>
+                                <span class="mos" th:text="#{november}"></span>
                                 <span class="yr">2020</span>
                             </div>
                         </a>
                         <div class="text bg-white p-4">
-                            <h3 class="heading"><a href="/hygiene"></a> Професійна гігієна порожнини рота</h3>
-                            <p>Щоб ваші зуби зберігали природну білизну необхідно проводити професійну гігієну порожнини
-                                рота. Це комплексна триетапна чистка зубів і язика.</p>
+                            <h3 class="heading"><a href="hygiene/" th:text="#{periodontics.gigiena}"></a></h3>
+                            <p th:text="#{periodontics.gigiena.p}"></p>
                             <div class="d-flex align-items-center mt-4">
-                                <p class="mb-0"><a href="/hygiene" class="btn btn-primary"
+                                <p class="mb-0"><a href="hygiene/" class="btn btn-primary"
                                                    th:text="#{therapeutic.more}">
                                     <span class="ion-ios-arrow-round-forward"></span></a></p>
                             </div>
@@ -536,7 +615,7 @@
 </div>
 
 <!--Footer-->
-<div th:replace="dantista/fragments/footer.html :: footer"></div>
+<div th:replace="dantista/fragments/footer-index.html :: footer"></div>
 
 
 <!-- loader -->
@@ -549,39 +628,30 @@
 </div>
 
 
-<script src="dantista/js/jquery.min.js"></script>
-<script src="dantista/js/jquery-migrate-3.0.1.min.js"></script>
-<script src="dantista/js/popper.min.js"></script>
-<script src="dantista/js/bootstrap.min.js"></script>
-<script src="dantista/js/jquery.easing.1.3.js"></script>
-<script src="dantista/js/jquery.waypoints.min.js"></script>
-<script src="dantista/js/jquery.stellar.min.js"></script>
-<script src="dantista/js/owl.carousel.min.js"></script>
-<script src="dantista/js/jquery.magnific-popup.min.js"></script>
-<script src="dantista/js/aos.js"></script>
-<script src="dantista/js/jquery.animateNumber.min.js"></script>
-<script src="dantista/js/bootstrap-datepicker.js"></script>
+<script src="../dantista/js/jquery.min.js"></script>
+<script src="../dantista/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="../dantista/js/popper.min.js"></script>
+<script src="../dantista/js/bootstrap.min.js"></script>
+<script src="../dantista/js/jquery.easing.1.3.js"></script>
+<script src="../dantista/js/jquery.waypoints.min.js"></script>
+<script src="../dantista/js/jquery.stellar.min.js"></script>
+<script src="../dantista/js/owl.carousel.min.js"></script>
+<script src="../dantista/js/jquery.magnific-popup.min.js"></script>
+<script src="../dantista/js/aos.js"></script>
+<script src="../dantista/js/jquery.animateNumber.min.js"></script>
+<script src="../dantista/js/bootstrap-datepicker.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-<script src="dantista/js/scrollax.min.js"></script>
+<script src="../dantista/js/scrollax.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="dantista/js/google-map.js"></script>
-<script src="dantista/js/main.js"></script>
-<script type="text/javascript" src="../js/jquery.maskedinput.min.js"></script>
+<script src="../dantista/js/google-map.js"></script>
+<script src="../dantista/js/main.js"></script>
+<script type="text/javascript" src="../../js/jquery.maskedinput.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-<script src="dantista/js/form-validation.js"></script>
 <script>
     $(document).ready(function () {
         $("#phone").mask("+38(999) 999-9999");
     });
 </script>
-
-<!--<script>-->
-<!--    $("subscribe-form").click(function() {-->
-<!--        $('subscripe').animate({-->
-<!--                scrollTop: $(".subscripe").offset().top},-->
-<!--            'slow');-->
-<!--    });-->
-<!--</script>-->
 
 </body>
 </html>

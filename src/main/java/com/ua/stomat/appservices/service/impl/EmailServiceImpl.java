@@ -24,7 +24,7 @@ public class EmailServiceImpl implements EmailService {
         ), "new-appointment-template");
 //        String text = "Клієнт: " + lastName + " " + firstName + " бажає записатися на: " + date + "  " + time + ". Номер телефона для підтвердження: " + phone;
         String subject = "New Appointment";
-        sendEmailLetter("betskoroman95@gmail.com", text, subject);
+        sendEmailLetter("betskostomat@gmail.com", text, subject);
     }
 
     private void sendEmailLetter(String mailTo, String text, String subject) {

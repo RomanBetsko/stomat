@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W6GBHK2');</script>
+    <!-- End Google Tag Manager -->
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154227438-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S7F3ZC630K"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() {
             dataLayer.push(arguments);
         }
         gtag('js', new Date());
-        gtag('config', 'UA-154227438-1');
+        gtag('config', 'G-S7F3ZC630K');
     </script>
-
+    <link rel="icon" type="image/png" href="../../dantista/fvc.jpg">
     <title th:text="#{title.ortodontic}"></title>
     <meta name="description" th:content="#{description.ortodontic}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="dantista/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="dantista/css/animate.css">
-    <link rel="stylesheet" href="dantista/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="dantista/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="dantista/css/magnific-popup.css">
-    <link rel="stylesheet" href="dantista/css/aos.css">
-    <link rel="stylesheet" href="dantista/css/ionicons.min.css">
-    <link rel="stylesheet" href="dantista/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="dantista/css/jquery.timepicker.css">
-    <link rel="stylesheet" href="dantista/css/flaticon.css">
-    <link rel="stylesheet" href="dantista/css/icomoon.css">
-    <link rel="stylesheet" href="dantista/css/style.css">
+    <link rel="stylesheet" href="../../dantista/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="../../dantista/css/animate.css">
+    <link rel="stylesheet" href="../../dantista/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../dantista/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../dantista/css/magnific-popup.css">
+    <link rel="stylesheet" href="../../dantista/css/aos.css">
+    <link rel="stylesheet" href="../../dantista/css/ionicons.min.css">
+    <link rel="stylesheet" href="../../dantista/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../../dantista/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="../../dantista/css/flaticon.css">
+    <link rel="stylesheet" href="../../dantista/css/icomoon.css">
+    <link rel="stylesheet" href="../../dantista/css/style.css">
     <style>
         body {
             font-family: 'Comfortaa', cursive;
@@ -38,7 +46,7 @@
 </head>
 <body>
 <!-- header -->
-<div th:include="dantista/fragments/header.html :: header"></div>
+<div th:include="dantista/fragments/header.html :: header(currentLang=${currentLang}, currentURL=${currentURL})"></div>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container d-flex align-items-center">
@@ -48,19 +56,18 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav m-auto">
-                <li class="nav-item"><a href="/" class="nav-link pl-0" th:text="#{index.main}"></a></li>
-                <li class="nav-item"><a href="/about" class="nav-link" th:text="#{index.about}"></a></li>
-                <li class="nav-item active"><a href="/services" class="nav-link" th:text="#{index.department}"></a>
-                </li>
-                <li class="nav-item"><a href="/blog" class="nav-link" th:text="#{index.blog}"></a></li>
-                <li class="nav-item"><a href="/contact" class="nav-link" th:text="#{index.contact}"></a></li>
+                <li class="nav-item"><a th:href="'/' + ${currentLang} + '/'" class="nav-link pl-0" th:text="#{index.main}"></a></li>
+                <li class="nav-item"><a th:href="'/' + ${currentLang}  + '/about/'" class="nav-link" th:text="#{index.about}"></a></li>
+                <li class="nav-item active"><a th:href="'/' + ${currentLang}  + '/services/'" class="nav-link" th:text="#{index.department}"></a></li>
+                <li class="nav-item"><a th:href="'/' + ${currentLang}  + '/blog/'" class="nav-link" th:text="#{index.blog}"></a></li>
+                <li class="nav-item"><a th:href="'/' + ${currentLang}  + '/contact/'" class="nav-link" th:text="#{index.contact}"></a></li>
             </ul>
         </div>
     </div>
 </nav>
 
 <section class="hero-wrap hero-wrap-2"
-         style="background-image: url('dantista/images/ipprog.jpg'); background-position-y: center;">
+         style="background-image: url('../../dantista/images/ipprog.jpg'); background-position-y: center;">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -147,7 +154,7 @@
     </div>
 </section>
 
-<div th:replace="dantista/fragments/footer.html :: footer"></div>
+<div th:replace="dantista/fragments/footer.html :: footer(currentLang=${currentLang}, currentURL=${currentURL})"></div>
 
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen">
@@ -157,23 +164,23 @@
     </svg>
 </div>
 
-<script src="dantista/js/jquery.min.js"></script>
-<script src="dantista/js/jquery-migrate-3.0.1.min.js"></script>
-<script src="dantista/js/popper.min.js"></script>
-<script src="dantista/js/bootstrap.min.js"></script>
-<script src="dantista/js/jquery.easing.1.3.js"></script>
-<script src="dantista/js/jquery.waypoints.min.js"></script>
-<script src="dantista/js/jquery.stellar.min.js"></script>
-<script src="dantista/js/owl.carousel.min.js"></script>
-<script src="dantista/js/jquery.magnific-popup.min.js"></script>
-<script src="dantista/js/aos.js"></script>
-<script src="dantista/js/jquery.animateNumber.min.js"></script>
-<script src="dantista/js/bootstrap-datepicker.js"></script>
-<script src="dantista/js/jquery.timepicker.min.js"></script>
-<script src="dantista/js/scrollax.min.js"></script>
+<script src="../../dantista/js/jquery.min.js"></script>
+<script src="../../dantista/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="../../dantista/js/popper.min.js"></script>
+<script src="../../dantista/js/bootstrap.min.js"></script>
+<script src="../../dantista/js/jquery.easing.1.3.js"></script>
+<script src="../../dantista/js/jquery.waypoints.min.js"></script>
+<script src="../../dantista/js/jquery.stellar.min.js"></script>
+<script src="../../dantista/js/owl.carousel.min.js"></script>
+<script src="../../dantista/js/jquery.magnific-popup.min.js"></script>
+<script src="../../dantista/js/aos.js"></script>
+<script src="../../dantista/js/jquery.animateNumber.min.js"></script>
+<script src="../../dantista/js/bootstrap-datepicker.js"></script>
+<script src="../../dantista/js/jquery.timepicker.min.js"></script>
+<script src="../../dantista/js/scrollax.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="dantista/js/google-map.js"></script>
-<script src="dantista/js/main.js"></script>
+<script src="../../dantista/js/google-map.js"></script>
+<script src="../../dantista/js/main.js"></script>
 
 </body>
 </html>

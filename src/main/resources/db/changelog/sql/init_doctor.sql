@@ -1,0 +1,2 @@
+INSERT INTO stomat.doctor (id, email, first_name, phone, second_name, third_name, total_appointments, total_clients, total_procedures)
+VALUES (1, 'betskostomat@gmail.com', 'Nazar', 0973229491, 'Betsko', 'Mykhailovich', 0, 0, 0);

@@ -1,0 +1,19 @@
+version: "3.3"
+services:
+  db:
+    image: betskor/mysql:latest
+    container_name: db-container
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: Awrromiand1995
+      MYSQL_DATABASE: stomat
+
+  app-server:
+    container_name: app-container
+    build: .
+    image: betskor/app-server:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    restart: on-failure

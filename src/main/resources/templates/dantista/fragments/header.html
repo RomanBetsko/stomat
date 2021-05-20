@@ -1,75 +1,80 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 </head>
 <body>
-<div th:fragment="header">
+<div th:fragment="header(currentLang, currentURL)">
     <div class="py-md-5 py-4 border-bottom">
         <div class="container">
             <div class="row no-gutters d-flex align-items-start align-items-center px-3 px-md-0">
                 <div class="col-md-4 order-md-2 mb-2 mb-md-0 align-items-center text-center">
-                    <a class="navbar-brand" href="/#"
+                    <a class="navbar-brand" th:href="'/' +  ${currentLang} + '/'"
                        style=" font-family: 'Poppins', Arial, sans-serif;">DentMe<span
                             th:text="#{stomat.clinic}"></span></a>
                 </div>
                 <div class="col-md-4 order-md-1 d-flex topper mb-md-0 mb-2 align-items-center text-md-right">
                     <div class="icon d-flex justify-content-center align-items-center order-md-last">
-                        <a target="_blank" href="https://goo.gl/maps/GBt21ikHziUjkgSUA"><span class="icon-map"></span></a>
+                        <a target="_blank" href="https://goo.gl/maps/GBt21ikHziUjkgSUA">
+                            <i class="fas fa-map"></i>
+                        </a>
                     </div>
                     <div class="pr-md-3 pl-md-0 pl-3 text">
                         <p class="con"><span th:text="#{phone.vodafone}"></span> <a href="tel://+380995142567"><span
                                 style="color: black">+380 99 514 2567</span></a></p>
                         <p class="con"><span th:text="#{phone.kyivstar}"></span> <a href="tel://+380987184004"><span
                                 style="color: black">+380 98 718 4004</span></a></p>
-                        <a target="_blank" href="https://goo.gl/maps/GBt21ikHziUjkgSUA" style="color: rgba(0, 0, 0, 0.6);">
+                        <a target="_blank" href="https://goo.gl/maps/GBt21ikHziUjkgSUA"
+                           style="color: rgba(0, 0, 0, 0.6);">
                             <p class="con" th:text="#{address}"></p>
                         </a>
-                        <a target="_blank" href="https://goo.gl/maps/GBt21ikHziUjkgSUA" style="color: rgba(0, 0, 0, 0.6);">
+                        <a target="_blank" href="https://goo.gl/maps/GBt21ikHziUjkgSUA"
+                           style="color: rgba(0, 0, 0, 0.6);">
                             <p class="con" th:text="#{address.2}"></p>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-4 order-md-3 d-flex topper mb-md-0 align-items-center">
-                    <div class="icon d-flex justify-content-center align-items-center"><span
-                            class="ion-md-calendar"></span></div>
+                    <div class="icon d-flex justify-content-center align-items-center">
+                        <span class="fa fa-calendar"></span></div>
                     <div class="text pl-3 pl-md-3">
                         <p class="hr"><span th:text="#{open.hours}"></span></p>
-                        <p class="time"><span th:text="#{monday.saturday}"></span> <span th:text="#{hours.time}"></span></p>
+                        <p class="time"><span th:text="#{monday.saturday}"></span> <span th:text="#{hours.time}"></span>
+                        </p>
                         <p class="time"><span th:text="#{hours.holiday}"></span><span> </span></p>
                     </div>
                     <a href="#" class="dropdown-menu-sm-left" data-toggle="dropdown" data-close-others="true">
-                        <img th:if="(__${#locale}__ =='uk') or (__${#locale}__ =='uk_UA')"
-                             src="dantista/images/ukraine-flag-square-icon-32.png"
+                        <img th:if="(${currentLang} =='uk') or (${currentLang} =='uk_UA')"
+                             src="../../dantista/images/ukraine-flag-square-icon-32.png"
                              style="border-radius: 50%;border-style: groove;"/>
                         <img th:if="__${#locale}__ == 'pl'"
-                             src="dantista/images/poland-flag-square-icon-32.png"
+                             src="../../dantista/images/poland-flag-square-icon-32.png"
                              style="border-radius: 50%;border-style: groove;"/>
                         <img th:if="__${#locale}__ == 'en'"
-                             src="dantista/images/united-kingdom-flag-square-icon-32.png"
+                             src="../../dantista/images/united-kingdom-flag-square-icon-32.png"
                              style="border-radius: 50%;border-style: groove;"/>
-                        <img th:if="__${#locale}__ == 'ru'"
-                             src="dantista/images/russia-flag-square-icon-32.png"
+                        <img th:if="__${#locale}__ =='ru'"
+                             src="../../dantista/images/russia-flag-square-icon-32.png"
                              style="border-radius: 50%; border-style: groove;"/>
                     </a>
                     <ul class="dropdown-menu pull-right" style="border-style: none; margin-left: 5px">
                         <li>
-                            <a href="?lang=ru" style="border: 2px solid rgba(0, 0, 0, 0.15);">
-                                <img src="dantista/images/russia-flag-icon-32.png"/>
+                            <a th:href="'/ru/' + ${currentURL}" style="border: 2px solid rgba(0, 0, 0, 0.15);">
+                                <img src="../../dantista/images/russia-flag-icon-32.png"/>
                             </a>
                         </li>
                         <li>
-                            <a href="?lang=pl" style="border: 2px solid rgba(0, 0, 0, 0.15);">
-                                <img src="dantista/images/poland-flag-icon-32.png"/>
+                            <a th:href="'/pl/' + ${currentURL}" style="border: 2px solid rgba(0, 0, 0, 0.15);">
+                                <img src="../../dantista/images/poland-flag-icon-32.png"/>
                             </a>
                         </li>
                         <li>
-                            <a href="?lang=en" style="border: 2px solid rgba(0, 0, 0, 0.15);">
-                                <img src="dantista/images/united-kingdom-flag-icon-32.png"/>
+                            <a th:href="'/en/' + ${currentURL}" style="border: 2px solid rgba(0, 0, 0, 0.15);">
+                                <img src="../../dantista/images/united-kingdom-flag-icon-32.png"/>
                             </a>
                         </li>
                         <li>
-                            <a href="?lang=uk" style="border: 2px solid rgba(0, 0, 0, 0.15);">
-                                <img src="dantista/images/ukraine-flag-icon-32.png"/>
+                            <a th:href="'/uk/' + ${currentURL}" style="border: 2px solid rgba(0, 0, 0, 0.15);">
+                                <img src="../../dantista/images/ukraine-flag-icon-32.png"/>
                             </a>
                         </li>
                     </ul>

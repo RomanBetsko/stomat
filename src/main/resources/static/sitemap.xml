@@ -1,1187 +1,383 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://dentme.if.ua/</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/about</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/services</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/blog</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/contact</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/therapeutic</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/pediatric</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/surgery</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/bleaching</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/orthodontics</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/prosthesis</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/lazer</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/periodontics</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/philipszoom</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/removal</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/hygiene</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/about?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/about?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/about?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/about?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/services?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/services?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/services?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/services?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/primary</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/blog?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/blog?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/blog?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/blog?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/caries</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/crowns</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/removableprosthetics</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/blog2</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/blog3</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/blog4</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/contact?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/contact?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/contact?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/contact?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/therapeutic?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/therapeutic?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/therapeutic?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/therapeutic?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/periodontitis</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/restavration</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/pulpitis</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/pediatric?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/pediatric?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/pediatric?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/pediatric?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/fissure</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/childrencaries</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/surgery?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/surgery?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/surgery?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/surgery?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/bridle</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/sinuslifting</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/osteoplastics</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/implant</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/bleaching?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/bleaching?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/bleaching?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/bleaching?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/homebleaching</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/endobleaching</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/orthodontics?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/orthodontics?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/orthodontics?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/orthodontics?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/braces</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/orthodonticappliances</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/eliners</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/prosthesis?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/prosthesis?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/prosthesis?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/prosthesis?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/prosthesisimplant</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/bugel</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/ceramicrestoration</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/lazer?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/lazer?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/lazer?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/lazer?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/periodontics?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/periodontics?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/periodontics?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/periodontics?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/periodontalmap</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/curettage</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/philipszoom?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/philipszoom?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/philipszoom?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/philipszoom?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/removal?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/removal?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/removal?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/removal?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/hygiene?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/hygiene?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/hygiene?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/hygiene?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/primary?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/primary?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/primary?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/primary?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/initialconsultation</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/anesthesiainjection</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/cofferdam</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/xray</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/treatmentplan</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/caries?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/caries?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/caries?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/caries?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/crowns?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/crowns?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/crowns?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/crowns?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/removableprosthetics?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/removableprosthetics?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/removableprosthetics?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/removableprosthetics?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/blog2?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/blog2?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/blog2?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/blog2?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/blog3?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/blog3?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/blog3?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/blog3?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/blog4?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/blog4?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/blog4?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/blog4?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/periodontitis?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/periodontitis?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/periodontitis?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/periodontitis?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/restavration?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/restavration?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/restavration?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/restavration?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/pulpitis?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/pulpitis?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/pulpitis?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/pulpitis?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/fissure?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/fissure?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/fissure?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/fissure?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/childrencaries?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/childrencaries?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/childrencaries?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/childrencaries?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/bridle?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/bridle?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/bridle?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/bridle?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/sinuslifting?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/sinuslifting?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/sinuslifting?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/sinuslifting?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/osteoplastics?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/osteoplastics?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/osteoplastics?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/osteoplastics?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/implant?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/implant?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/implant?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/implant?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/homebleaching?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/homebleaching?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/homebleaching?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/homebleaching?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/endobleaching?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/endobleaching?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/endobleaching?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/endobleaching?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/braces?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/braces?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/braces?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/braces?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/orthodonticappliances?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/orthodonticappliances?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/orthodonticappliances?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/orthodonticappliances?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/eliners?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/eliners?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/eliners?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/eliners?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/prosthesisimplant?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/prosthesisimplant?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/prosthesisimplant?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/prosthesisimplant?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/bugel?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/bugel?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/bugel?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/bugel?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/ceramicrestoration?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/ceramicrestoration?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/ceramicrestoration?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/ceramicrestoration?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/periodontalmap?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/periodontalmap?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/periodontalmap?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/periodontalmap?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/curettage?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/curettage?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/curettage?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/curettage?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/initialconsultation?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/initialconsultation?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/initialconsultation?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/initialconsultation?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/anesthesiainjection?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/anesthesiainjection?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/anesthesiainjection?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/anesthesiainjection?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/cofferdam?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/cofferdam?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/cofferdam?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/cofferdam?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/xray?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/xray?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/xray?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/xray?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/treatmentplan?lang=ru</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/treatmentplan?lang=pl</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/treatmentplan?lang=en</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://dentme.if.ua/treatmentplan?lang=uk</loc>
-  <lastmod>2020-11-27T09:48:48+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://dentme.if.ua/uk/</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/ru/</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/pl/</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/en/</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/uk/about/</loc>
+    <lastmod>2021-05-20T11:08:55+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/uk/services/</loc>
+    <lastmod>2021-05-20T11:08:56+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/uk/blog/</loc>
+    <lastmod>2021-05-20T11:08:56+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/uk/contact/</loc>
+    <lastmod>2021-05-20T11:08:56+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/uk/therapeutic/</loc>
+    <lastmod>2021-05-20T11:08:56+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/uk/pediatric/</loc>
+    <lastmod>2021-05-20T11:08:56+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/uk/surgery/</loc>
+    <lastmod>2021-05-20T11:08:56+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/uk/bleaching/</loc>
+    <lastmod>2021-05-20T11:08:59+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/uk/orthodontics/</loc>
+    <lastmod>2021-05-20T11:08:56+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/uk/prosthesis/</loc>
+    <lastmod>2021-05-20T11:08:56+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/uk/lazer/</loc>
+    <lastmod>2021-05-20T11:08:56+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/uk/periodontics/</loc>
+    <lastmod>2021-05-20T11:08:56+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/uk/philipszoom/</loc>
+    <lastmod>2021-05-20T11:08:56+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/uk/removal/</loc>
+    <lastmod>2021-05-20T11:08:57+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/uk/hygiene/</loc>
+    <lastmod>2021-05-20T11:08:57+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/ru/about/</loc>
+    <lastmod>2021-05-20T11:08:57+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/ru/services/</loc>
+    <lastmod>2021-05-20T11:08:57+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/ru/blog/</loc>
+    <lastmod>2021-05-20T11:08:57+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/ru/contact/</loc>
+    <lastmod>2021-05-20T11:08:57+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/ru/therapeutic/</loc>
+    <lastmod>2021-05-20T11:08:57+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/ru/pediatric/</loc>
+    <lastmod>2021-05-20T11:08:57+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/ru/surgery/</loc>
+    <lastmod>2021-05-20T11:08:57+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/ru/bleaching/</loc>
+    <lastmod>2021-05-20T11:08:57+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/ru/orthodontics/</loc>
+    <lastmod>2021-05-20T11:08:58+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/ru/prosthesis/</loc>
+    <lastmod>2021-05-20T11:08:57+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/ru/lazer/</loc>
+    <lastmod>2021-05-20T11:08:57+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/ru/periodontics/</loc>
+    <lastmod>2021-05-20T11:08:58+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/ru/philipszoom/</loc>
+    <lastmod>2021-05-20T11:08:58+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/ru/removal/</loc>
+    <lastmod>2021-05-20T11:08:58+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/ru/hygiene/</loc>
+    <lastmod>2021-05-20T11:08:58+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/pl/about/</loc>
+    <lastmod>2021-05-20T11:08:58+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/pl/services/</loc>
+    <lastmod>2021-05-20T11:08:58+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/pl/blog/</loc>
+    <lastmod>2021-05-20T11:08:58+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/pl/contact/</loc>
+    <lastmod>2021-05-20T11:08:58+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/pl/therapeutic/</loc>
+    <lastmod>2021-05-20T11:08:58+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/pl/pediatric/</loc>
+    <lastmod>2021-05-20T11:08:58+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/pl/surgery/</loc>
+    <lastmod>2021-05-20T11:08:58+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/pl/bleaching/</loc>
+    <lastmod>2021-05-20T11:08:58+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/pl/orthodontics/</loc>
+    <lastmod>2021-05-20T11:08:59+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/pl/prosthesis/</loc>
+    <lastmod>2021-05-20T11:08:59+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/pl/lazer/</loc>
+    <lastmod>2021-05-20T11:08:59+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/pl/periodontics/</loc>
+    <lastmod>2021-05-20T11:08:59+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/pl/philipszoom/</loc>
+    <lastmod>2021-05-20T11:08:59+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/pl/removal/</loc>
+    <lastmod>2021-05-20T11:08:59+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/pl/hygiene/</loc>
+    <lastmod>2021-05-20T11:08:59+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/en/about/</loc>
+    <lastmod>2021-05-20T11:08:59+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/en/services/</loc>
+    <lastmod>2021-05-20T11:08:59+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/en/blog/</loc>
+    <lastmod>2021-05-20T11:08:59+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/en/contact/</loc>
+    <lastmod>2021-05-20T11:08:59+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/en/therapeutic/</loc>
+    <lastmod>2021-05-20T11:08:59+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/en/pediatric/</loc>
+    <lastmod>2021-05-20T11:08:59+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/en/surgery/</loc>
+    <lastmod>2021-05-20T11:08:59+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/en/bleaching/</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/en/orthodontics/</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/en/prosthesis/</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/en/lazer/</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/en/periodontics/</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/en/philipszoom/</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/en/removal/</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/en/hygiene/</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/ru/services</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/pl/services</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/en/services</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/uk/services</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/uk/primary/</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/ru/contact</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/pl/contact</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/en/contact</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/uk/contact</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/ru/primary/</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/pl/primary/</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dentme.if.ua/en/primary/</loc>
+    <lastmod>2021-05-20T11:09:01+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
 </urlset>

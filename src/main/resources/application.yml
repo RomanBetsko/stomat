@@ -1,0 +1,110 @@
+spring:
+    profiles: local
+    data:
+        rest:
+            basePath: /api
+    datasource:
+        url: jdbc:mysql://db-container:3306/stomat?characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+        username: root
+        password: Awrromiand1995
+        driverClassName: com.mysql.jdbc.Driver
+    http:
+        encoding:
+            charset: UTF-8
+    jpa:
+        properties:
+            hibernate:
+                show-sql: true
+                format_sql: true
+                dialect: org.hibernate.dialect.MySQLDialect
+    liquibase:
+        change-log: classpath:/db/liquibase-changelog.xml
+        url: ${SPRING_POSTGRES_URL:jdbc:mysql://db-container:3306/stomat?characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true}
+        user: ${SPRING_POSTGRES_USER:root}
+        password: ${SPRING_POSTGRES_PASS:Awrromiand1995}
+
+    mail:
+        host: smtp.gmail.com
+        password: Awrromiand1995
+        port: 587
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                    starttls:
+                        enable: true
+        username: mozgoowisp@gmail.com
+    messages:
+        encoding: UTF-8
+    thymeleaf:
+        encoding: UTF-8
+#        enabled: false
+        prefix: classpath:/templates/
+        enabled: true
+
+google:
+    credentials:
+        folder:
+            path: https://drive.google.com/open?id=1U8yYsc1ubiCawsXb68gzdlL-AA2BzgOh
+    oauth:
+        callback:
+            uri: ''
+    secret:
+        key:
+            path: ''
+
+---
+spring:
+    profiles: container
+    data:
+        rest:
+            basePath: /api
+    datasource:
+        url: jdbc:mysql://db-container:3306/stomat?characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+        username: root
+        password: Awrromiand1995
+        driverClassName: com.mysql.jdbc.Driver
+    http:
+        encoding:
+            charset: UTF-8
+    jpa:
+        properties:
+            hibernate:
+                show-sql: true
+                format_sql: true
+                dialect: org.hibernate.dialect.MySQLDialect
+    liquibase:
+        change-log: classpath:/db/liquibase-changelog.xml
+        url: ${SPRING_POSTGRES_URL:jdbc:mysql://db-container:3306/stomat?characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true}
+        user: ${SPRING_POSTGRES_USER:root}
+        password: ${SPRING_POSTGRES_PASS:Awrromiand1995}
+
+    mail:
+        host: smtp.gmail.com
+        password: Awrromiand1995
+        port: 587
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                    starttls:
+                        enable: true
+        username: mozgoowisp@gmail.com
+    messages:
+        encoding: UTF-8
+    thymeleaf:
+        encoding: UTF-8
+        #        enabled: false
+        prefix: classpath:/templates/
+        enabled: true
+
+google:
+    credentials:
+        folder:
+            path: https://drive.google.com/open?id=1U8yYsc1ubiCawsXb68gzdlL-AA2BzgOh
+    oauth:
+        callback:
+            uri: ''
+    secret:
+        key:
+            path: ''

@@ -27,8 +27,8 @@
                         <p class="card-text editable-item" contenteditable="true" data-name="description">
                             Description</p>
                         <div class="card-buttons">
-                            <a href="#" class="btn btn-primary btn-save">Save</a>
-                            <a href="#" class="btn btn-danger btn-remove">Remove</a>
+                            <a href="#" class="btn btn-primary btn-save">Зберегти</a>
+                            <a href="#" class="btn btn-danger btn-remove">Видалити</a>
                         </div>
                     </div>
                 </div>
@@ -36,14 +36,15 @@
         </div>
 
         <div class="appointment-header">
-            <h2 th:text="${appointment.name}"></h2>
+            <h2 id="name" th:text="${appointment.name}"></h2>
+            <h2 id="id" th:text="${appointment.appointmentId}" style="display: none"></h2>
             <ul class="appointment-info">
                 <li>
                     <strong>Повне ім'я: </strong> <span
                         th:text="${appointment.client.secondName} + ' ' + ${appointment.client.firstName} + ' ' + ${appointment.client.thirdName}"></span>
                 </li>
                 <li>
-                    <strong>Опис: </strong> <span th:text="${appointment.description}"></span>
+                    <strong>Опис: </strong> <span id="description" th:text="${appointment.description}"></span>
                 </li>
                 <li>
                     <strong>Дата / час: </strong> <span
@@ -51,16 +52,17 @@
                 </li>
             </ul>
             <a href="#" class="btn btn-primary btn-add">Добавити</a>
+            <a href="#" class="btn btn-success btn-update">Зберегти</a>
         </div>
 
         <div class="procedures-list">
             <div class="row">
-                <div class="col-sm-6 procedure-item">
-                    <div class="card">
+                <div class="col-sm-6 procedure-item" th:each="proc: ${appointment.procedures}">
+                    <div class="card" >
                         <div class="card-body">
-                            <h5 class="card-title editable-item" data-name="title" th:if="${#lists.size(appointment.procedures) >= 1}" th:text="${appointment.procedures.get(0).name}"></h5>
-                            <p class="card-price editable-item" data-name="price" th:if="${#lists.size(appointment.procedures) >= 1}" th:text="${appointment.procedures.get(0).price}"></p>
-                            <p class="card-text editable-item" data-name="description" th:if="${#lists.size(appointment.procedures) >= 1}" th:text="${appointment.procedures.get(0).description}"></p>
+                            <h5 class="card-title editable-item" id="procedureName" th:value="${proc.name}" th:if="${#lists.size(appointment.procedures) >= 1}" th:text="${proc.name}"></h5>
+                            <p class="card-price editable-item" id="procedurePrice"  th:value="${proc.price}" th:if="${#lists.size(appointment.procedures) >= 1}" th:text="${proc.price}"></p>
+                            <p class="card-text editable-item" id="procedureDescription" th:value="${proc.description}" th:if="${#lists.size(appointment.procedures) >= 1}" th:text="${proc.description}"></p>
                             <div class="card-buttons">
                                 <a href="#" class="btn btn-primary btn-save">Зберегти</a>
                                 <a href="#" class="btn btn-danger btn-remove">Видалити</a>
@@ -78,7 +80,6 @@
         src="../webjars/jquery/2.2.4/jquery.min.js"></script>
 
 <script type="text/javascript" src="../js/singleClientView.js"></script>
-
 <script type="text/javascript" src="../js/singleappointment.js"></script>
 
 <div th:replace="fragments/footer :: footer"></div>
