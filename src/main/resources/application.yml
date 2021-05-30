@@ -4,8 +4,8 @@ spring:
         rest:
             basePath: /api
     datasource:
-#        url: jdbc:mysql://db-container:3306/stomat?characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
-        url: jdbc:mysql://localhost:3306/stomat?characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+        url: jdbc:mysql://db-container:3306/stomat?characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+#        url: jdbc:mysql://localhost:3306/stomat?characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
         username: root
         password: Awrromiand1995
         driverClassName: com.mysql.jdbc.Driver
@@ -20,8 +20,8 @@ spring:
                 dialect: org.hibernate.dialect.MySQLDialect
     liquibase:
         change-log: classpath:/db/liquibase-changelog.xml
-#        url: ${SPRING_POSTGRES_URL:jdbc:mysql://db-container:3306/stomat?characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true}
-        url: ${SPRING_POSTGRES_URL:jdbc:mysql://localhost:3306/stomat?characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true}
+        url: ${SPRING_POSTGRES_URL:jdbc:mysql://db-container:3306/stomat?characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true}
+#        url: ${SPRING_POSTGRES_URL:jdbc:mysql://localhost:3306/stomat?characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true}
         user: ${SPRING_POSTGRES_USER:root}
         password: ${SPRING_POSTGRES_PASS:Awrromiand1995}
 
