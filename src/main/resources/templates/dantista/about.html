@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" rel=canonical>
+<html th:lang="${currentLang}" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -12,14 +12,10 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S7F3ZC630K"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'G-S7F3ZC630K');
+        window.dataLayer = window.dataLayer || []; function gtag() {dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-S7F3ZC630K');
     </script>
     <link rel="icon" type="image/png" href="../../dantista/fvc.jpg">
+    <link rel="canonical" th:href="'https://dentme.if.ua/' + ${currentLang} + '/about/'">
     <title th:text="#{title.about}"></title>
     <meta name="description" th:content="#{description.about}">
     <meta charset="utf-8">
@@ -69,7 +65,7 @@
     <div class="container">
         <div class="row no-gutters">
             <div class="mobileHide">
-                <img src="../../dantista/images/DentMe_Betsko_Nazar.jpg" style="width: 477px; height: auto">
+                <img src="../../dantista/images/DentMe_Betsko_Nazar.jpg" style="width: 477px; height: auto" alt="">
             </div>
             <div class="col-md-7 wrap-about py-4 py-md-5 ftco-animate">
                 <div class="heading-section mb-5">
@@ -130,8 +126,7 @@
                     </div>
                     <div class="item">
                         <div class="testimony-wrap d-flex">
-                            <div class="user-img"
-                                 style="background-image: url(../../dantista/images/DentMe_Betsko.jpg);  background-position-y: top;">
+                            <div class="user-img" style="background-image: url(../../dantista/images/DentMe_Betsko.jpg);  background-position-y: top;">
                             </div>
                             <div class="text pl-4 bg-light">
                                 <p class="name" th:text="#{index.doctor.betsko}"></p>
@@ -142,8 +137,7 @@
                     </div>
                     <div class="item">
                         <div class="testimony-wrap d-flex">
-                            <div class="user-img"
-                                 style="background-image: url(../../dantista/images/DentMe_Stefa.jpg);  background-position-y: top;">
+                            <div class="user-img" style="background-image: url(../../dantista/images/DentMe_Stefa.jpg);  background-position-y: top;">
                             </div>
                             <div class="text pl-4 bg-light">
                                 <p class="name" th:text="#{index.doctor.stefanchyk}"></p>

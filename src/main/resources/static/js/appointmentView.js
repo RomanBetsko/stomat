@@ -1,26 +1,27 @@
 $(document).ready(function () {
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1;
-    var yyyy = today.getFullYear();
-    if (dd < 10) {
-        dd = '0' + dd;
-    }
-    if (mm < 10) {
-        mm = '0' + mm;
-    }
+    // var today = new Date();
+    // var dd = today.getDate();
+    // var mm = today.getMonth() + 1;
+    // var yyyy = today.getFullYear();
+    // if (dd < 10) {
+    //     dd = '0' + dd;
+    // }
+    // if (mm < 10) {
+    //     mm = '0' + mm;
+    // }
     var dateTimeIntervals = document.getElementById("disabledDates").innerHTML;
     var b = JSON.parse(dateTimeIntervals).map(function (item) {
         return [moment(item.dateFrom), moment(item.dateTo)];
     });
-        today = dd + '.' + mm + '.' + yyyy;
+        // today = dd + '.' + mm + '.' + yyyy;
     $('#datetimepicker3').datetimepicker({
         locale: 'uk',
-        disabledHours: [0, 1, 2, 3, 4, 5, 6, 7, 21, 22, 23],
+        // disabledHours: [0, 1, 2, 3, 4, 5, 6, 7, 21, 22, 23],
         sideBySide: true,
         disabledTimeIntervals: b
     });
-$('#datetimepicker3').data("DateTimePicker").minDate(moment(today, 'DD.MM.YYYY'));
+// $('#datetimepicker3').data("DateTimePicker").minDate(moment(today, 'DD.MM.YYYY'));
+    $('#datetimepicker3').data("DateTimePicker");
 })
 ;
 
@@ -33,7 +34,7 @@ $(document).ready(function () {
         var dateFrom = $('#datetimepicker3').data("DateTimePicker").date();
         $('#datetimepicker4').datetimepicker({
             locale: 'uk',
-            disabledHours: [0, 1, 2, 3, 4, 5, 6, 7, 21, 22, 23],
+            // disabledHours: [0, 1, 2, 3, 4, 5, 6, 7, 21, 22, 23],
             sideBySide: true,
             disabledTimeIntervals: b
         });
