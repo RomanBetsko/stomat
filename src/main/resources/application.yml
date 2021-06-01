@@ -54,7 +54,11 @@ google:
     secret:
         key:
             path: ''
-
+server:
+    compression:
+        min-response-size: 4096
+        enabled: true
+        mime-types: text/html, text/xml, text/plain, text/css, text/javascript, application/javascript, application/json
 ---
 spring:
     profiles: container
@@ -100,6 +104,11 @@ spring:
         prefix: classpath:/templates/
         enabled: true
 
+server:
+    compression:
+        min-response-size: 4096
+        enabled: true
+        mime-types: text/html, text/xml, text/plain, text/css, text/javascript, application/javascript, application/json
 google:
     credentials:
         folder:
